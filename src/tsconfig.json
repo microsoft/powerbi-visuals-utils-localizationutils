@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {    
+    "allowJs": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true
+  },
+  "include": [
+    "node_modules/@types/",
+    "typings.d.ts",
+    "src/allResourcesToUtilsRepo.ts",
+    "src/updateStringsFromCapabilities.ts",
+    "src/updateStringsFromCommonRepo.ts"
+  ]  
+}
