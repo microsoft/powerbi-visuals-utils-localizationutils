@@ -1,0 +1,28 @@
+{
+  "name": "CapabilitiesParser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "allResourcesToUtilsRepo.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "tsc": "tsc",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "capabilitiesToResources": "npm run tsc && node ./dist/updateStringsFromCapabilities.js",
+    "allResourcesToUtilsRepo": "npm run tsc && node ./dist/allResourcesToUtilsRepo.js",
+    "utilsRepoToAllResources": "npm run tsc && node ./dist/updateStringsFromCommonRepo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/github": "^7.1.0",
+    "@types/node": "^8.0.19",
+    "@types/request-promise-native": "^1.0.6",
+    "github": "9.2.0",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  }
+}
