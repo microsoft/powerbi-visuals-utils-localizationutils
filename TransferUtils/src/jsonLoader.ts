@@ -34,45 +34,9 @@ export class JsonLoader {
             + "/resources.resjson";   
     }
 
-    public static async GetJsonsFromGithub(repoType: SourceType): Promise<IndexedObjects> {
-        let allRequests: RequestPromise[] = [];
-        let visualNames: string[] = [];
-
-        for (let visualName in data) {
-            if (data[visualName]) {
-                let url: string = JsonLoader.BuildUrl(visualName, repoType);
-                visualNames.push(visualName);
-                allRequests.push(JsonLoader.GetJsonByUrl(url));
-            }
-        }
-        
-        return Promise.all(allRequests).then((value) => {
-            let allJsons: IndexedObjects = new IndexedObjects();
-            
-            value.forEach((val, index) => {
-                let key: string = visualNames[index];
-
-                console.log("Visual " + key + " prepared for parsing");
-
-                // remove byte order mark from json string. Found in linedotchart
-                let val1 = val.replace('\uFEFF', '');
-                
-                allJsons[key] = JSON.parse(val1);
-
-                console.log("Visual " + key + " successfully parsed");
-            });
-
-            return allJsons;
-        }).catch((reject) => {
-            console.log("Get jsons from github failed: " + reject);
-            throw reject;
-        });
-    }
-
     public static async GetJsonsWithFoldersFromGithub(repoType: SourceType): Promise<IndexedFoldersSet> {
         let allPromises: Promise<any>[] = [];
-        let visualNames: string[] = [];
-        
+        let visualNames: string[] = [];        
 
         let github: GitHubApi = new GitHubApi({
                     debug: true,
@@ -94,7 +58,7 @@ export class JsonLoader {
                 if (repoType === SourceType.Capabilities) {
                     folderNames[0] = JsonLoader.capabilities;
                 } else if (repoType === SourceType.UtilsRepo) {                 
-                     folderNames = await github.repos.getContent({
+                    folderNames = await github.repos.getContent({
                         owner: JsonLoader.microsoft,
                         path: visualName,
                         repo: JsonLoader.localizationUtilsRepoName 

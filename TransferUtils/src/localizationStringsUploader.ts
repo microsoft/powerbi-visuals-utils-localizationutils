@@ -11,6 +11,12 @@ export class LocalizationStringsUploader {
     private static pbicvbot: string = "pbicvbot";
 
     public static async UploadStringsToCommonRepo(updatedVisuals: IndexedFoldersSet) {
+
+        if (!Object.keys(updatedVisuals).length) {
+            console.log("Nothing to update");
+            return null;
+        }
+
         let headRefShaMs: string,
             commitSha: string,
             treeSha: string = "",
@@ -29,7 +35,7 @@ export class LocalizationStringsUploader {
             token: LocalizationStringsUploader.token
         });
 
-        let res = await github.gitdata.getReference({
+        await github.gitdata.getReference({
                 owner: LocalizationStringsUploader.ms,
                 repo: LocalizationStringsUploader.localizationUtilsRepoName,
                 ref: "heads/master"
@@ -44,12 +50,13 @@ export class LocalizationStringsUploader {
                     repo: LocalizationStringsUploader.localizationUtilsRepoName,
                     sha: headRefShaMs
                 });
-            });
-
-        await github.gitdata.getReference({
-                owner: LocalizationStringsUploader.ms,
-                repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                ref: "heads/master"
+            })
+            .then(() => {
+                return github.gitdata.getReference({
+                    owner: LocalizationStringsUploader.ms,
+                    repo: LocalizationStringsUploader.localizationUtilsRepoName,
+                    ref: "heads/master"
+                });
             })
             .then((ref) => {
                 return github.gitdata.getCommit({
@@ -61,7 +68,7 @@ export class LocalizationStringsUploader {
             .then((commit) => {
                 treeSha = commit.data.tree.sha;
                 commitSha = commit.data.sha;
-            });
+            });            
 
         let namedBlobs: { [key: string]: string } = {};
         let promises: Promise<any>[] = [];
@@ -130,13 +137,28 @@ export class LocalizationStringsUploader {
             });
         })
         .then(() => {
-            return github.pullRequests.create({
-                base: "master",
+            return github.pullRequests.getAll({
                 owner: LocalizationStringsUploader.ms,
-                repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                head: "pbicvbot:master",
-                title: "Localization strings update"
-            });
+                repo: LocalizationStringsUploader.localizationUtilsRepoName 
+            })
+            .then((pullRequests) => {
+                let prExists: boolean = false;
+                for (let i in pullRequests.data) {
+                    let pr = pullRequests.data[i];
+
+                    if (pr.head.label === "pbicvbot:master") {
+                        return 
+                    }
+                }
+
+                return github.pullRequests.create({
+                    base: "master",
+                    owner: LocalizationStringsUploader.ms,
+                    repo: LocalizationStringsUploader.localizationUtilsRepoName,
+                    head: "pbicvbot:master",
+                    title: "Localization strings update"
+                });
+            })
         })
         .catch((error) => {
             console.log(error);
@@ -145,6 +167,7 @@ export class LocalizationStringsUploader {
 
     public static async UploadStringsToAllRepos(updatedVisuals: IndexedFoldersSet, source: SourceType) {
         if (!Object.keys(updatedVisuals).length) {
+            console.log("Nothing to update");
             return null;
         }
 
@@ -262,7 +285,7 @@ export class LocalizationStringsUploader {
                     })
                     .then(() => {
                         return github.pullRequests.getAll({
-                            owner: "mvgaliev",
+                            owner: LocalizationStringsUploader.ms,
                             repo: visualName 
                         })
                         .then((pullRequests) => {
@@ -271,21 +294,13 @@ export class LocalizationStringsUploader {
                                 let pr = pullRequests.data[i];
 
                                 if (pr.head.label === "pbicvbot:master") {
-                                    return github.pullRequests.update({
-                                        owner: "mvgaliev",
-                                        repo: visualName,
-                                        number: pr.number,
-                                        state: "closed"
-                                    });
+                                    return;
                                 }
                             }
 
-                            return;
-                        })
-                        .then(() => {
                             return github.pullRequests.create({
                                 base: "master",
-                                owner: "mvgaliev",
+                                owner: LocalizationStringsUploader.ms,
                                 repo: visualName,
                                 head: "pbicvbot:master",
                                 title: "Localization strings update"
