@@ -3,6 +3,7 @@ import { CapabilitiesParser } from "./capabilitiesParser";
 import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
 import { LocalizationStringsUpdater } from "./localizationStringsUpdater";
+import { BranchCreator } from "./branchCreator";
 
 class LocalizationStringsUtils {
     public static async Parse() {
@@ -11,6 +12,8 @@ class LocalizationStringsUtils {
             destinationJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings);
 
         let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceStrings, destinationJsons);
+
+        await BranchCreator.CreateBranchesIfNotExist();
         await LocalizationStringsUploader.UploadStringsToAllRepos(updatedVisuals, SourceType.Capabilities);                        
     }
 }
