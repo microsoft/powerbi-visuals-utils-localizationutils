@@ -1,4 +1,4 @@
-import { IndexedObjects, SourceType, IndexedFoldersSet } from './models';
+import { IndexedObjects, SourceType, SourceTarget, IndexedFoldersSet } from './models';
 import { RequestPromise, get } from "request-promise-native";
 import * as GitHubApi from "github";
 
@@ -6,6 +6,7 @@ const data = require('../repositories.json');
 
 export class JsonLoader {
     private static microsoftPath: string = "https://raw.githubusercontent.com/Microsoft/";
+    private static pbicvbotPath: string = "https://raw.githubusercontent.com/pbicvbot/";
     private static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
     private static capabilities: string = "capabilities";
     private static microsoft: string = "Microsoft";
@@ -18,23 +19,25 @@ export class JsonLoader {
         });
     }
 
-    private static BuildUrl(visualName: string, type: SourceType, folder?: string): string {
+    private static BuildUrl(visualName: string, type: SourceType, target: SourceTarget, folder?: string): string {
+        let repoPath: string = target === SourceTarget.From ? JsonLoader.microsoftPath : JsonLoader.pbicvbotPath;
+
         if (type === SourceType.Capabilities) {
-            return JsonLoader.microsoftPath + visualName + "/master/capabilities.json";
+            return repoPath + visualName + "/master/capabilities.json";
         } else if (type === SourceType.UtilsRepo) {
-            return JsonLoader.microsoftPath + JsonLoader.localizationUtilsRepoName + "/master/" 
+            return repoPath + JsonLoader.localizationUtilsRepoName + "/master/" 
             + visualName 
             + (folder ? "/" + folder + "/resources.resjson" : "/en-US/resources.resjson");
         }
 
-        return JsonLoader.microsoftPath
+        return repoPath
             + visualName 
-            + "/master/stringResources/" 
+            + (target === SourceTarget.To ? "/locUpdateCapabilities/stringResources/" : "/master/stringResources/")
             + (folder ? folder : JsonLoader.enUs) 
             + "/resources.resjson";   
     }
 
-    public static async GetJsonsWithFoldersFromGithub(repoType: SourceType): Promise<IndexedFoldersSet> {
+    public static async GetJsonsWithFoldersFromGithub(repoType: SourceType, target: SourceTarget): Promise<IndexedFoldersSet> {
         let allPromises: Promise<any>[] = [];
         let visualNames: string[] = [];        
 
@@ -76,7 +79,7 @@ export class JsonLoader {
                 for (let i in folderNames) {
                     let folder = folderNames[i];
 
-                    let url: string = JsonLoader.BuildUrl(visualName, repoType, folder);
+                    let url: string = JsonLoader.BuildUrl(visualName, repoType, target, folder);
                     visualNames.push(visualName);
 
                     allPromises.push(
