@@ -1,4 +1,4 @@
-import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType } from "./models";
+import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType, SourceTarget, UpdateBranch } from "./models";
 import { CapabilitiesParser } from "./capabilitiesParser";
 import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
@@ -7,13 +7,14 @@ import { BranchCreator } from "./branchCreator";
 
 class LocalizationStringsUtils {
     public static async Parse() {
-        let sourceJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.Capabilities),
+        await BranchCreator.CreateBranchesIfNotExist(UpdateBranch.FromCapabilities);
+
+        let sourceJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.Capabilities, SourceTarget.From),
             sourceStrings: IndexedFoldersSet = CapabilitiesParser.parseCapabilities(sourceJsons),
-            destinationJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings);
+            destinationJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, SourceTarget.To);
 
         let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceStrings, destinationJsons);
-
-        await BranchCreator.CreateBranchesIfNotExist();
+        
         await LocalizationStringsUploader.UploadStringsToAllRepos(updatedVisuals, SourceType.Capabilities);                        
     }
 }

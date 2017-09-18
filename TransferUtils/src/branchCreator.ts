@@ -1,4 +1,5 @@
 import * as GitHubApi from "github";
+import { UpdateBranch } from "./models";
 const data = require('../repositories.json');
 
 export class BranchCreator { 
@@ -6,9 +7,8 @@ export class BranchCreator {
     private static enUs: string = "en-US";
     private static token: string = <string>process.env.token;
     private static pbicvbot: string = "pbicvbot";
-    private static locUpdateRefName: string = "refs/heads/locUpdate";
 
-    public static async CreateBranchesIfNotExist() {
+    public static async CreateBranchesIfNotExist(branchName: string) {
         let github: GitHubApi = new GitHubApi({
                     debug: true,
                     protocol: "https",
@@ -22,6 +22,8 @@ export class BranchCreator {
             token: BranchCreator.token
         });     
 
+        let locUpdateRefName: string = "refs/heads/" + branchName;
+
         for (let visualName in data) { 
             if (data[visualName]) { 
                 await github.gitdata.getReferences({
@@ -32,7 +34,7 @@ export class BranchCreator {
                     let refExists: boolean = false;
 
                     refs.data.forEach((element: any) => {
-                        if (element.ref === BranchCreator.locUpdateRefName) {
+                        if (element.ref === locUpdateRefName) {
                             refExists = true;
                             return;
                         }
@@ -51,7 +53,7 @@ export class BranchCreator {
                             github.gitdata.createReference({
                                 owner: BranchCreator.pbicvbot,
                                 repo: visualName,
-                                ref: "refs/heads/locUpdate",
+                                ref: locUpdateRefName,
                                 sha: ref.data.object.sha
                             });
                         });                        

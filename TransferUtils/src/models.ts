@@ -5,6 +5,16 @@ export enum SourceType {
     UtilsRepo
 }
 
+export enum SourceTarget {
+    From,
+    To
+}
+
+export class UpdateBranch {
+    public static FromCapabilities: string = "locUpdateCapabilities";
+    public static FromUtils: string = "locUpdate";
+}
+
 export class IndexedObjects {
     [Index: string]: {};
 }
