@@ -147,7 +147,7 @@ export class LocalizationStringsUploader {
                     let pr = pullRequests.data[i];
 
                     if (pr.head.label === "pbicvbot:master") {
-                        return 
+                        return;
                     }
                 }
 
@@ -186,6 +186,9 @@ export class LocalizationStringsUploader {
             token: LocalizationStringsUploader.token
         });
 
+        let branchRef: string = source === SourceType.Capabilities ? "heads/locUpdate" : "heads/master";
+        let prHead: string = source === SourceType.Capabilities ? "pbicvbot:locUpdate" : "pbicvbot:master";
+
         for (let visualName in updatedVisuals) {
             let folders: IndexedObjects = updatedVisuals[visualName];
 
@@ -203,7 +206,7 @@ export class LocalizationStringsUploader {
 
                 return github.gitdata.updateReference({
                     force: true,
-                    ref: "heads/master",
+                    ref: branchRef,
                     owner: LocalizationStringsUploader.pbicvbot,
                     repo: visualName, 
                     sha: headRefSha
@@ -239,7 +242,7 @@ export class LocalizationStringsUploader {
                     })
                     .then((blob) => {
                         return {
-                            path: "stringResources/" + folderName + "/resources.json",
+                            path: "stringResources/" + folderName + "/resources.resjson",
                             sha: blob.data.sha
                         }
                     }));
@@ -279,7 +282,7 @@ export class LocalizationStringsUploader {
                             force: true,
                             owner: LocalizationStringsUploader.pbicvbot,
                             repo: visualName,
-                            ref: "heads/master",
+                            ref: branchRef,
                             sha: ref.data.sha
                         });
                     })
@@ -293,17 +296,19 @@ export class LocalizationStringsUploader {
                             for (let i in pullRequests.data) {
                                 let pr = pullRequests.data[i];
 
-                                if (pr.head.label === "pbicvbot:master") {
+                                if (pr.head.label === prHead) {
                                     return;
                                 }
                             }
+
+                            let title: string = "Localization strings from " + (source === SourceType.Capabilities ? "capabilities" : "utils") + " update";
 
                             return github.pullRequests.create({
                                 base: "master",
                                 owner: LocalizationStringsUploader.ms,
                                 repo: visualName,
-                                head: "pbicvbot:master",
-                                title: "Localization strings update"
+                                head: prHead,
+                                title: title
                             });
                         })
                     });                                
