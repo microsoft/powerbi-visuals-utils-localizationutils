@@ -1,13 +1,13 @@
-
 export enum SourceType {
     Capabilities,
     LocalizationStrings,
     UtilsRepo
 }
 
-export enum SourceTarget {
-    From,
-    To
+export enum UpdateType {
+    CapabilitiesToCv,
+    CvToUtils,
+    UtilsToCv
 }
 
 export class UpdateBranch {

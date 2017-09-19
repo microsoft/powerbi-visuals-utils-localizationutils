@@ -1,4 +1,4 @@
-import { DisplayNameAndKeyPairs, IndexedLocalizationStrings, IndexedObjects, SourceType, SourceTarget } from "./models";
+import { DisplayNameAndKeyPairs, IndexedLocalizationStrings, IndexedObjects, SourceType, UpdateType } from "./models";
 import { CapabilitiesParser } from "./capabilitiesParser";
 import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
@@ -18,11 +18,11 @@ class LocalizationStringsUtils {
             await LocalizationStringsUploader.UpdateBranchFromMasterRepo(github, LocalizationStringsUploader.localizationUtilsRepoName, "heads/master");
         }
 
-        let sourceJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, SourceTarget.From),
-            destinationJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, SourceTarget.To);
+        let sourceJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),
+            destinationJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, UpdateType.CvToUtils, !prExists, false);
 
         let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceJsons, destinationJsons);
-        await LocalizationStringsUploader.UploadStringsToCommonRepo(updatedVisuals);                        
+        await LocalizationStringsUploader.UploadStringsToCommonRepo(updatedVisuals);
     }
 }
 

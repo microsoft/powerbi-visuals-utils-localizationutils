@@ -7,7 +7,7 @@ class ShaModel {
     headCommitSha: string;
 }
 
-export class LocalizationStringsUploader {   
+export class LocalizationStringsUploader {
     private static github: GitHubApi;
     public static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
     public static ms: string = "Microsoft";
@@ -217,8 +217,8 @@ export class LocalizationStringsUploader {
                                 title: title
                             });
                         }
-                    });                                
-            }            
+                    });
+            }
         }
     }
 
@@ -249,7 +249,7 @@ export class LocalizationStringsUploader {
             repo: repo,
             ref: "heads/master"
         })
-        .then((ref) => {       
+        .then((ref) => {
             headRefSha = ref.data.object.sha;
 
             return github.gitdata.updateReference({
@@ -284,7 +284,7 @@ export class LocalizationStringsUploader {
             repo: repo,
             ref: ref
         })
-        .then((ref) => {       
+        .then((ref) => {
             headRefSha = ref.data.object.sha;
 
             return github.gitdata.getCommit({
