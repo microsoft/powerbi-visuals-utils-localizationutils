@@ -29,29 +29,23 @@ class JsonValidator {
                     let localeFolder: string = localeFolders[i];
                     
                     jsonPaths.push(path.join(localeFolders[i], JsonValidator.resjsonFileName));
-                    console.log(visualName + "/" + localeFolder + ": path has been built.");
+                    console.log(visualName + "/" + localeFolder + ": path is built.");
                 }                
             }
         }
 
-        let brokenFilesCount: number = 0;
-
-        console.log("Validation process started");
         for (let i in jsonPaths) {
             let jsonPath: string = jsonPaths[i]
-            let fileString: string = fs.readFileSync(jsonPath, "utf8");
+            fs.readFile(jsonPath, "utf8", function(err, data){
+                if (err) {
+                    console.log(jsonPath + " exception was occured while reading file: " + err);
+                    throw err;
+                }
 
-            try {
-                let obj: {} = JSON.parse(fileString);
-                console.log("\x1b[32m%s\x1b[0m", jsonPath + " is valid");
-            } catch (err){
-                ++ brokenFilesCount;
-                console.log("\x1b[31m%s\x1b[0m", jsonPath + " error occured: " + err.message);
-            }    
-        }
-
-        if (brokenFilesCount) {
-            throw "Error has been occured: " + brokenFilesCount + (brokenFilesCount > 1 ? " files are" : " file is" ) + " not valid";
+                console.log(jsonPath + " parsing started");
+                let obj: {} = JSON.parse(data);
+                console.log(jsonPath + " has been succsesfully parsed");
+            });
         }
     }
 }
