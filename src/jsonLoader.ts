@@ -146,7 +146,7 @@ export class JsonLoader {
         })
         .then((folders): string[] => {
             if (folders && folders.data.length && folders.data[0].name) {
-                return folders.data.filter((x: any) => x.name != "en-US").map((x: any) => x.name);
+                return folders.data.filter((x: any) => x.name != "en-US" && x.type === "dir").map((x: any) => x.name);
             } 
             return [];
         });
