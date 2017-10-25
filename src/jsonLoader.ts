@@ -2,6 +2,7 @@ import { IndexedObjects, SourceType, UpdateType, IndexedFoldersSet } from './mod
 import { RequestPromise, get } from "request-promise-native";
 import * as GitHubApi from "github";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
+import { GithubApiCreator } from "./githubApiCreator";
 
 const data = require('../repositories.json');
 
@@ -13,11 +14,11 @@ export class JsonLoader {
     private static microsoft: string = "Microsoft";
     private static pbicvbot: string = "pbicvbot";
     private static enUs: string = "en-US";
-    private static token: string = <string>process.env.token;
 
     public static GetJsonByUrl(url: string) {
         return get({
-            url: url
+            url: url,
+            timeout: 60000
         });
     }
 
@@ -48,26 +49,13 @@ export class JsonLoader {
         let allPromises: Promise<any>[] = [];
         let visualNames: string[] = [];        
 
-        let github: GitHubApi = new GitHubApi({
-                    debug: true,
-                    protocol: "https",
-                    host: "api.github.com",
-                    followRedirects: false,
-                    timeout: 10000
-                });
-
-        github.authenticate({
-            type: "oauth",
-            token: JsonLoader.token
-        });        
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi();
 
         for (let visualName in data) {
             if (data[visualName]) {
                 let folderNames: string[] = [];
 
                 if (checkForExistingPullRequest) {
-                    let github: GitHubApi = LocalizationStringsUploader.CreateGithubApi(); 
-
                     let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, 
                         LocalizationStringsUploader.ms, 
                         visualName,
@@ -96,44 +84,59 @@ export class JsonLoader {
                     let url: string = JsonLoader.BuildUrl(visualName, repoType, updateType, folder, forceMicrosoftMasterSource);
                     visualNames.push(visualName);
 
+                   // console.log("added " + url + " path");
                     allPromises.push(
                         JsonLoader.GetJsonByUrl(url)
                         .then((response: Promise<Response>) => {
+                            console.log("received from " + url + " path");
                             return {
                                 visualName: visualName,
                                 folderName: folder,
                                 response: response
                             }
                         })
+                        .catch((rej) => {
+                            console.log("Get error: " + rej);
+                        })
                     );
                 }
             }
         }
+        let promises: any[] = [];
+        let j = 0;
+        for (let i = 0; i < allPromises.length; i = i + 25) {
+            console.log(i);
+            promises[ j++ ] = await Promise.all(allPromises.slice(i, i + 25 > allPromises.length ? allPromises.length - 1 : i + 25));
+            console.log(i + " ended");
+        }
 
-        return Promise.all(allPromises).then((values) => {  
-            let allJsons: IndexedFoldersSet = {}; 
+        return Promise.all(promises)
+            .then((values) => {  
+                let allJsons: IndexedFoldersSet = {}; 
 
-            for (let i in values) {
-                let val = values[i];
-                console.log("Visual " + val.visualName + " prepared for parsing");
+                for (let i in values) {
+                    for (let j in values[i]) {
+                        let val = values[i][j];
+                        console.log("Visual " + val.visualName + " prepared for parsing");
 
-                // remove byte order mark from json string. Found in linedotchart
-                let val1 = val.response.toString().replace('\uFEFF', '');
-                
-                if (!allJsons[val.visualName]) {
-                    allJsons[val.visualName] = new IndexedObjects();
+                        // remove byte order mark from json string. Found in linedotchart
+                        let val1 = val.response.toString().replace('\uFEFF', '');
+                        
+                        if (!allJsons[val.visualName]) {
+                            allJsons[val.visualName] = new IndexedObjects();
+                        }
+
+                        allJsons[val.visualName][val.folderName] = JSON.parse(val1);
+                        
+                        console.log("Visual " + val.visualName + " " + val.folderName + " successfully parsed");
+                    }
                 }
-
-                allJsons[val.visualName][val.folderName] = JSON.parse(val1);
                 
-                console.log("Visual " + val.visualName + " " + val.folderName + " successfully parsed");
-            }
-            
-            return allJsons;
-        }).catch((reject) => {
-            console.log("Get jsons from github failed: " + reject);
-            throw reject;
-        });
+                return allJsons;
+            }).catch((reject) => {
+                console.log("Get jsons from github failed: " + reject);
+                throw reject;
+            });
     }
 
     private static async GetFolders(github: GitHubApi, path: string, repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<string[]> {

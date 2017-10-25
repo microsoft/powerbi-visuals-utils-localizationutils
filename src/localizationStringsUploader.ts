@@ -1,5 +1,6 @@
 import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType } from "./models";
 import * as GitHubApi from "github";
+import { GithubApiCreator } from "./githubApiCreator";
 
 class ShaModel {
     treeSha: string;
@@ -14,7 +15,6 @@ export class LocalizationStringsUploader {
     private static enUs: string = "en-US";
     private static pullRequestTitle: string = "Localization string update (auto PR by pbicvbot)";
 
-    public static token: string = <string>process.env.token;
     private static pbicvbot: string = "pbicvbot";
 
     public static async UploadStringsToCommonRepo(updatedVisuals: IndexedFoldersSet) {
@@ -26,7 +26,7 @@ export class LocalizationStringsUploader {
 
         let sha: ShaModel;
 
-        let github: GitHubApi = LocalizationStringsUploader.CreateGithubApi();
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi();
 
         let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, 
             LocalizationStringsUploader.ms, 
@@ -126,7 +126,7 @@ export class LocalizationStringsUploader {
 
         let promises: Promise<any>[] = [];
 
-        let github: GitHubApi = LocalizationStringsUploader.CreateGithubApi();
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi();
 
         let branchRef: string = source === SourceType.Capabilities ? "heads/locUpdateCapabilities" : "heads/locUpdate";
         let prHead: string = source === SourceType.Capabilities ? "pbicvbot:locUpdateCapabilities" : "pbicvbot:locUpdate";
@@ -220,25 +220,6 @@ export class LocalizationStringsUploader {
                     });
             }
         }
-    }
-
-    public static CreateGithubApi(): GitHubApi {
-        if (!LocalizationStringsUploader.github) {
-            LocalizationStringsUploader.github = new GitHubApi({
-                    debug: true,
-                    protocol: "https",
-                    host: "api.github.com",
-                    followRedirects: false,
-                    timeout: 10000
-                });
-
-            LocalizationStringsUploader.github.authenticate({
-                type: "oauth",
-                token: LocalizationStringsUploader.token
-            });
-        }
-
-        return LocalizationStringsUploader.github;
     }
 
     public static async UpdateBranchFromMasterRepo(github: GitHubApi, repo: string, branchRef: string): Promise<ShaModel> {

@@ -4,7 +4,6 @@ import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
 import { LocalizationStringsUpdater } from "./localizationStringsUpdater";
 import { BranchCreator } from "./branchCreator";
-import * as GitHubApi from "github";
 
 class LocalizationStringsUtils {
     public static async Parse() {

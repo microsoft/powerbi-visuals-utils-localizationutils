@@ -1,26 +1,15 @@
 import * as GitHubApi from "github";
 import { UpdateBranch } from "./models";
 const data = require('../repositories.json');
+import { GithubApiCreator } from "./githubApiCreator";
 
 export class BranchCreator { 
     private static ms: string = "Microsoft";
     private static enUs: string = "en-US";
-    private static token: string = <string>process.env.token;
     private static pbicvbot: string = "pbicvbot";
 
     public static async CreateBranchesIfNotExist(branchName: string) {
-        let github: GitHubApi = new GitHubApi({
-                    debug: true,
-                    protocol: "https",
-                    host: "api.github.com",
-                    followRedirects: false,
-                    timeout: 10000
-                });
-
-        github.authenticate({
-            type: "oauth",
-            token: BranchCreator.token
-        });     
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi(); 
 
         let locUpdateRefName: string = "refs/heads/" + branchName;
 
