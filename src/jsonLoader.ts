@@ -88,6 +88,8 @@ export class JsonLoader {
                     folderNames[0] = JsonLoader.enUs;
                 }                
 
+                folderNames = folderNames.filter(x => x !== "qps-ploc");
+
                 for (let i in folderNames) {
                     let folder = folderNames[i];                    
 

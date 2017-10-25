@@ -10,11 +10,11 @@ class LocalizationStringsUtils {
     public static async Parse() {
         await BranchCreator.CreateBranchesIfNotExist(UpdateBranch.FromCapabilities);
 
-        let sourceJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.Capabilities, UpdateType.CapabilitiesToCv),
-            sourceStrings: IndexedFoldersSet = CapabilitiesParser.parseCapabilities(sourceJsons),
-            destinationJsons: IndexedFoldersSet = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CapabilitiesToCv, undefined, true);
+        let sourceJsons: Promise<IndexedFoldersSet> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.Capabilities, UpdateType.CapabilitiesToCv),
+            sourceStrings: IndexedFoldersSet = CapabilitiesParser.parseCapabilities(await sourceJsons),
+            destinationJsons: Promise<IndexedFoldersSet> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CapabilitiesToCv, undefined, true);
 
-        let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceStrings, destinationJsons);
+        let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceStrings, await destinationJsons);
         
         await LocalizationStringsUploader.UploadStringsToAllRepos(updatedVisuals, SourceType.Capabilities);
     }
