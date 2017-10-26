@@ -28,8 +28,7 @@ export class LocalizationStringsUploader {
 
         let github: GitHubApi = GithubApiCreator.CreateGithubApi();
 
-        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, 
-            LocalizationStringsUploader.ms, 
+        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
             LocalizationStringsUploader.localizationUtilsRepoName,
             "pbicvbot:master");
 
@@ -136,7 +135,7 @@ export class LocalizationStringsUploader {
 
             let sha: ShaModel;
 
-            let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, LocalizationStringsUploader.ms, visualName, prHead);
+            let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, visualName, prHead);
 
             if (!prExists) {
                 sha = await LocalizationStringsUploader.UpdateBranchFromMasterRepo(github, visualName, branchRef);
@@ -179,7 +178,7 @@ export class LocalizationStringsUploader {
                                 }
                             }
                         );
-
+                        console.log("before create tree " + visualName);
                         return github.gitdata.createTree({
                             owner: LocalizationStringsUploader.pbicvbot,
                             repo: visualName,
@@ -188,6 +187,8 @@ export class LocalizationStringsUploader {
                         });
                     })
                     .then((newTree) => {
+                        console.log("after create tree " + visualName);
+                        console.log("before create commit " + visualName);
                         return github.gitdata.createCommit({
                             message: "updated localization strings",
                             tree: newTree.data.sha,
@@ -197,6 +198,7 @@ export class LocalizationStringsUploader {
                         });
                     })
                     .then((ref) => {
+                        console.log("after create commit " + visualName);
                         return github.gitdata.updateReference({
                             force: true,
                             owner: LocalizationStringsUploader.pbicvbot,
@@ -283,8 +285,8 @@ export class LocalizationStringsUploader {
         });
     }
 
-    public static async IsPullRequestExists(github: GitHubApi, owner: string, repo: string, head: string): Promise<boolean> {
-        return github.pullRequests.getAll({
+    public static async IsPullRequestExists(owner: string, repo: string, head: string): Promise<boolean> {
+        return GithubApiCreator.CreateGithubApi().pullRequests.getAll({
             owner: owner,
             repo: repo
         })

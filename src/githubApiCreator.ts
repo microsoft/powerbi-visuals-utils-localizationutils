@@ -11,7 +11,10 @@ export class GithubApiCreator {
                     protocol: "https",
                     host: "api.github.com",
                     followRedirects: false,
-                    timeout: 10000
+                    timeout: 10000,
+                    headers: {
+                        "encoding": "null" 
+                    }
                 });
 
             GithubApiCreator.github.authenticate({
