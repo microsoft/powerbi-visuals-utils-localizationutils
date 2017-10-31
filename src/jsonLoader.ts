@@ -2,6 +2,10 @@ import { IndexedObjects, SourceType, UpdateType, IndexedFoldersSet } from './mod
 import { RequestPromise, get } from "request-promise-native";
 import * as GitHubApi from "github";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
+import { GithubApiCreator } from "./githubApiCreator";
+import { LoaderUtils } from "./loaderUtils"; 
+import * as fs from "fs";
+import * as Path from "path";
 
 const data = require('../repositories.json');
 
@@ -13,11 +17,12 @@ export class JsonLoader {
     private static microsoft: string = "Microsoft";
     private static pbicvbot: string = "pbicvbot";
     private static enUs: string = "en-US";
-    private static token: string = <string>process.env.token;
 
     public static GetJsonByUrl(url: string) {
         return get({
-            url: url
+            url: url,
+            timeout: 600000,
+            encoding: null
         });
     }
 
@@ -44,32 +49,27 @@ export class JsonLoader {
             + "/resources.resjson";
     }
 
-    public static async GetJsonsWithFoldersFromGithub(repoType: SourceType, updateType: UpdateType, forceMicrosoftMasterSource?: boolean, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> {
-        let allPromises: Promise<any>[] = [];
-        let visualNames: string[] = [];        
+    private static async GetJsonsUtilsToCv(repoType: SourceType, updateType: UpdateType, forceMicrosoftMasterSource?: boolean, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> { 
+        if (repoType === SourceType.UtilsRepo) {
+            return JsonLoader.GetJsonsFromUtils( 
+                        JsonLoader.localizationUtilsRepoName, 
+                        repoType);
+        }
 
-        let github: GitHubApi = new GitHubApi({
-                    debug: true,
-                    protocol: "https",
-                    host: "api.github.com",
-                    followRedirects: false,
-                    timeout: 10000
-                });
+        return JsonLoader.GetJsonsFromRepos(JsonLoader.localizationUtilsRepoName, 
+                        repoType);        
+    }
 
-        github.authenticate({
-            type: "oauth",
-            token: JsonLoader.token
-        });        
+    private static async GetJsons(repoType: SourceType, updateType: UpdateType, forceMicrosoftMasterSource?: boolean, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> {
+        let visualNames: string[] = [];
+        let allPromises: any[] = [];
 
         for (let visualName in data) {
             if (data[visualName]) {
                 let folderNames: string[] = [];
 
                 if (checkForExistingPullRequest) {
-                    let github: GitHubApi = LocalizationStringsUploader.CreateGithubApi(); 
-
-                    let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, 
-                        LocalizationStringsUploader.ms, 
+                    let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
                         visualName,
                         updateType === UpdateType.CapabilitiesToCv ? "pbicvbot:locUpdateCapabilities" : "pbicvbot:locUpdate");
                     
@@ -78,12 +78,6 @@ export class JsonLoader {
 
                 if (repoType === SourceType.Capabilities) {
                     folderNames[0] = JsonLoader.capabilities;
-                } else if (updateType === UpdateType.UtilsToCv) {
-                    folderNames = await JsonLoader.GetFolders(github, 
-                        repoType === SourceType.UtilsRepo ? visualName : "stringResources", 
-                        repoType === SourceType.UtilsRepo ? JsonLoader.localizationUtilsRepoName : visualName, 
-                        repoType,
-                        forceMicrosoftMasterSource);
                 } else {
                     folderNames[0] = JsonLoader.enUs;
                 }                
@@ -97,42 +91,168 @@ export class JsonLoader {
                     visualNames.push(visualName);
 
                     allPromises.push(
-                        JsonLoader.GetJsonByUrl(url)
+                        await JsonLoader.GetJsonByUrl(url)
                         .then((response: Promise<Response>) => {
+                            console.log("received from " + url + " path");
                             return {
                                 visualName: visualName,
                                 folderName: folder,
                                 response: response
                             }
                         })
+                        .catch((rej) => {
+                            console.log("Get error url: " + url + ": " + rej);
+                        })
                     );
                 }
             }
         }
 
-        return Promise.all(allPromises).then((values) => {  
-            let allJsons: IndexedFoldersSet = {}; 
+        return Promise.all(allPromises)
+            .then((values) => {  
+                let allJsons: IndexedFoldersSet = {}; 
 
-            for (let i in values) {
-                let val = values[i];
-                console.log("Visual " + val.visualName + " prepared for parsing");
+                for (let i in values) {
+                        let val = values[i];
+                        console.log("Visual " + val.visualName + " prepared for parsing");
 
-                // remove byte order mark from json string. Found in linedotchart
-                let val1 = val.response.toString().replace('\uFEFF', '');
+                        // remove byte order mark from json string. Found in linedotchart
+                        let val1 = val.response.toString().replace('\uFEFF', '');
+                        
+                        if (!allJsons[val.visualName]) {
+                            allJsons[val.visualName] = new IndexedObjects();
+                        }
+
+                        allJsons[val.visualName][val.folderName] = JSON.parse(val1);
+                        
+                        console.log("Visual " + val.visualName + " " + val.folderName + " successfully parsed");
+                    
+                }
                 
-                if (!allJsons[val.visualName]) {
-                    allJsons[val.visualName] = new IndexedObjects();
+                return allJsons;
+            }).catch((reject) => {
+                console.log("Get jsons from github failed: " + reject);
+                throw reject;
+            });
+    }
+
+    public static async GetJsonsWithFoldersFromGithub(repoType: SourceType, updateType: UpdateType, forceMicrosoftMasterSource?: boolean, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> {
+
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi();
+
+        if (updateType === UpdateType.UtilsToCv) {
+            return JsonLoader.GetJsonsUtilsToCv(repoType, updateType, forceMicrosoftMasterSource, checkForExistingPullRequest);
+        }
+
+        return JsonLoader.GetJsons(repoType, updateType, forceMicrosoftMasterSource, checkForExistingPullRequest);        
+    }
+
+    private static async GetJsonsFromRepo(path: string, repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<IndexedFoldersSet> {
+        let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? JsonLoader.microsoft : JsonLoader.pbicvbot;
+        let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? "heads/master" : "heads/locUpdate";
+
+        let folder: string =  Path.join("dist");
+        let fileName: string = repo + ".tar.gz";
+        let filePath: string = folder + "/" + fileName;
+
+        return GithubApiCreator.CreateGithubApi().repos.getArchiveLink({
+            archive_format: "tarball",
+            owner: owner,
+            ref: ref,
+            repo: repo
+        })
+        .then((data) => {
+            return JsonLoader.GetJsonByUrl(data.meta.location).promise();
+        })
+        .then((targz) => {
+            return LoaderUtils.ExtractTargz(targz, filePath, folder);
+        })
+        .then(() => {
+            let rootFolder = Path.join("dist", fs.readdirSync("dist")
+                .filter(directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf(repo) > 0)[0]);
+
+            let visualFolderPath: string = Path.join(rootFolder, "stringResources");
+
+            let obj: any = {};
+            obj[repo] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
+
+            return obj;
+        });
+    }
+
+    private static async GetJsonsFromRepos( repo: string, 
+                                            repoType: SourceType, 
+                                            checkForExistingPullRequest?: boolean, 
+                                            forceMicrosoftMasterSource?: boolean): Promise<IndexedFoldersSet> {
+        
+        let allPromises: Promise<IndexedObjects>[] = [];
+
+        for (let visualName in data) {
+            if (data[visualName]) {
+                if (checkForExistingPullRequest) {
+                    let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
+                        visualName,
+                        "pbicvbot:locUpdate");
+                    
+                    forceMicrosoftMasterSource = !prExists;
                 }
 
-                allJsons[val.visualName][val.folderName] = JSON.parse(val1);
-                
-                console.log("Visual " + val.visualName + " " + val.folderName + " successfully parsed");
+                allPromises.push(JsonLoader.GetJsonsFromRepo("stringResources", visualName, repoType, forceMicrosoftMasterSource));
             }
+        }
+
+        return Promise.all(allPromises)
+            .then((foldersSets) => {
+                let foldersSet: IndexedFoldersSet = {};
+
+                for (let i in foldersSets) {
+                    for (let visualName in foldersSets[i]) {
+                        foldersSet[visualName] = foldersSets[i][visualName];
+                    }
+                }
+
+                return foldersSet;
+            });
+    }
+
+    private static async GetJsonsFromUtils(repo: string, type: SourceType): Promise<IndexedFoldersSet> {
+        let owner: string = JsonLoader.microsoft;
+        let ref: string = "heads/master";
+
+        let folder: string = "dist";
+        let fileName: string = "localizationUtils.tar.gz";
+        let filePath: string = folder + "/" + fileName;
+
+        return GithubApiCreator.CreateGithubApi().repos.getArchiveLink({
+            archive_format: "tarball",
+            owner: owner,
+            ref: ref,
+            repo: repo
+        })
+        .then((data) => {
+            return JsonLoader.GetJsonByUrl(data.meta.location).promise();
+        })
+        .then((targz) => {
+            return LoaderUtils.ExtractTargz(targz, filePath, folder);
+        })
+        .then(() => {
+            let foldersSet: IndexedFoldersSet = {}; 
+
+            let locUtils: string = fs.readdirSync("dist")
+                .filter(directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf("localizationutils") > 0)[0];
+
+            let rootFolder = Path.join("dist", locUtils);
             
-            return allJsons;
-        }).catch((reject) => {
-            console.log("Get jsons from github failed: " + reject);
-            throw reject;
+            let jsonPaths: IndexedFoldersSet = new IndexedFoldersSet();
+
+            for (let visualName in data) {
+                if (data[visualName]) {
+                    let visualFolderPath: string = Path.join(rootFolder, visualName);
+                    foldersSet[visualName] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
+                }
+            }
+
+            return foldersSet;
         });
     }
 

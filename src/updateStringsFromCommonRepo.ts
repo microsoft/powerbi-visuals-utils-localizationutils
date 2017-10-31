@@ -4,18 +4,16 @@ import { DisplayNameAndKeyPairs, IndexedObjects, SourceType, UpdateType, UpdateB
 import { CapabilitiesParser } from "./capabilitiesParser";
 import { JsonLoader } from "./jsonLoader";
 import { BranchCreator } from "./branchCreator";
-import * as GitHubApi from "github";
 
 class LocalizationStringsUtils {
     public static async Parse() {
-        await BranchCreator.CreateBranchesIfNotExist(UpdateBranch.FromUtils);
+        //await BranchCreator.CreateBranchesIfNotExist(UpdateBranch.FromUtils);
 
-        let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, UpdateType.UtilsToCv),
-            destinationJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.UtilsToCv, undefined, true);
+        let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, UpdateType.UtilsToCv);
+        let destinationJsons: Promise<IndexedObjects> =  JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.UtilsToCv, undefined, true);            
 
         let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(await sourceJsons, await destinationJsons);
-        
-        await LocalizationStringsUploader.UploadStringsToAllRepos(updatedVisuals, SourceType.UtilsRepo);
+        await LocalizationStringsUploader.UploadStringsToAllRepos(updatedVisuals, SourceType.UtilsRepo);      
     }
 }
 

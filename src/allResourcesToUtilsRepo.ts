@@ -4,13 +4,13 @@ import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
 import { LocalizationStringsUpdater } from "./localizationStringsUpdater";
 import * as GitHubApi from "github";
+import { GithubApiCreator } from "./githubApiCreator";
 
 class LocalizationStringsUtils {
     public static async Parse() {
-        let github: GitHubApi = LocalizationStringsUploader.CreateGithubApi(); 
+        let github: GitHubApi = GithubApiCreator.CreateGithubApi(); 
 
-        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(github, 
-            LocalizationStringsUploader.ms, 
+        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
             LocalizationStringsUploader.localizationUtilsRepoName,
             "pbicvbot:master");
 
