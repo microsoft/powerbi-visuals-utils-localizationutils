@@ -2,7 +2,7 @@ import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType }
 import * as GitHubApi from "github";
 import { GithubApiCreator } from "./githubApiCreator";
 
-class ShaModel {
+interface ShaModel {
     treeSha: string;
     commitSha: string;
     headCommitSha: string;
@@ -28,7 +28,7 @@ export class LocalizationStringsUploader {
 
         let github: GitHubApi = GithubApiCreator.CreateGithubApi();
 
-        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
+        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms,
             LocalizationStringsUploader.localizationUtilsRepoName,
             "pbicvbot:master");
 
@@ -47,9 +47,9 @@ export class LocalizationStringsUploader {
                     owner: LocalizationStringsUploader.pbicvbot,
                     repo: LocalizationStringsUploader.localizationUtilsRepoName
                 })
-                .then((blob) => {
-                    namedBlobs[visualName] = blob.data.sha;
-                })
+                    .then((blob) => {
+                        namedBlobs[visualName] = blob.data.sha;
+                    })
             );
         }
 
@@ -60,7 +60,7 @@ export class LocalizationStringsUploader {
 
         let trees: object[] = [];
 
-        for(let visualName in namedBlobs) {
+        for (let visualName in namedBlobs) {
             let blobSha: string = namedBlobs[visualName];
 
             trees.push({
@@ -77,44 +77,44 @@ export class LocalizationStringsUploader {
             base_tree: sha.treeSha,
             tree: JSON.stringify(trees)
         })
-        .then((newTree) => {
-            return github.gitdata.createCommit({
-                message: "updated localization strings",
-                tree: newTree.data.sha,
-                owner: LocalizationStringsUploader.pbicvbot,
-                repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                parents: [sha.headCommitSha]
-            });
-        })
-        .then((ref) => {
-            return github.gitdata.updateReference({
-                force: true,
-                owner: LocalizationStringsUploader.pbicvbot,
-                repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                ref: "heads/master",
-                sha: ref.data.sha
-            });
-        })
-        .then(() => {
-            return github.pullRequests.getAll({
-                owner: LocalizationStringsUploader.ms,
-                repo: LocalizationStringsUploader.localizationUtilsRepoName 
+            .then((newTree) => {
+                return github.gitdata.createCommit({
+                    message: "updated localization strings",
+                    tree: newTree.data.sha,
+                    owner: LocalizationStringsUploader.pbicvbot,
+                    repo: LocalizationStringsUploader.localizationUtilsRepoName,
+                    parents: [sha.headCommitSha]
+                });
             })
-            .then((pullRequests) => {
-                if (!prExists) {
-                    return github.pullRequests.create({
-                        base: "master",
-                        owner: LocalizationStringsUploader.ms,
-                        repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                        head: "pbicvbot:master",
-                        title: "Localization strings update"
-                    });
-                }
+            .then((ref) => {
+                return github.gitdata.updateReference({
+                    force: true,
+                    owner: LocalizationStringsUploader.pbicvbot,
+                    repo: LocalizationStringsUploader.localizationUtilsRepoName,
+                    ref: "heads/master",
+                    sha: ref.data.sha
+                });
             })
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+            .then(() => {
+                return github.pullRequests.getAll({
+                    owner: LocalizationStringsUploader.ms,
+                    repo: LocalizationStringsUploader.localizationUtilsRepoName
+                })
+                    .then((pullRequests) => {
+                        if (!prExists) {
+                            return github.pullRequests.create({
+                                base: "master",
+                                owner: LocalizationStringsUploader.ms,
+                                repo: LocalizationStringsUploader.localizationUtilsRepoName,
+                                head: "pbicvbot:master",
+                                title: "Localization strings update"
+                            });
+                        }
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     public static async UploadStringsToAllRepos(updatedVisuals: IndexedFoldersSet, source: SourceType) {
@@ -142,15 +142,15 @@ export class LocalizationStringsUploader {
             } else {
                 sha = await LocalizationStringsUploader.GetShaModelForCurrentCommit(github, visualName, branchRef);
             }
-            
+
             if (Object.keys(folders).length) {
                 let promises: Promise<any>[] = [];
 
                 for (let folderName in folders) {
                     if (folderName === LocalizationStringsUploader.enUs && source === SourceType.UtilsRepo) {
                         continue;
-                    } 
-                    
+                    }
+
                     let content: {} = folders[folderName];
 
                     promises.push(github.gitdata.createBlob({
@@ -159,24 +159,24 @@ export class LocalizationStringsUploader {
                         owner: LocalizationStringsUploader.pbicvbot,
                         repo: visualName
                     })
-                    .then((blob) => {
-                        return {
-                            path: "stringResources/" + folderName + "/resources.resjson",
-                            sha: blob.data.sha
-                        }
-                    }));
+                        .then((blob) => {
+                            return {
+                                path: "stringResources/" + folderName + "/resources.resjson",
+                                sha: blob.data.sha
+                            }
+                        }));
                 }
 
                 Promise.all(promises)
                     .then((values: object[]) => {
                         let treesArrays: Array<object> = values.map((x: any) => {
                             return {
-                                    "path": x.path,
-                                    "mode": "100644",
-                                    "type": "blob",
-                                    "sha": x.sha
-                                }
+                                "path": x.path,
+                                "mode": "100644",
+                                "type": "blob",
+                                "sha": x.sha
                             }
+                        }
                         );
                         console.log("before create tree " + visualName);
                         return github.gitdata.createTree({
@@ -232,31 +232,31 @@ export class LocalizationStringsUploader {
             repo: repo,
             ref: "heads/master"
         })
-        .then((ref) => {
-            headRefSha = ref.data.object.sha;
+            .then((ref) => {
+                headRefSha = ref.data.object.sha;
 
-            return github.gitdata.updateReference({
-                force: true,
-                ref: branchRef,
-                owner: LocalizationStringsUploader.pbicvbot,
-                repo: repo, 
-                sha: headRefSha
+                return github.gitdata.updateReference({
+                    force: true,
+                    ref: branchRef,
+                    owner: LocalizationStringsUploader.pbicvbot,
+                    repo: repo,
+                    sha: headRefSha
+                });
+            })
+            .then(() => {
+                return github.gitdata.getCommit({
+                    owner: LocalizationStringsUploader.pbicvbot,
+                    repo: repo,
+                    sha: headRefSha
+                });
+            })
+            .then((commit) => {
+                return {
+                    treeSha: commit.data.tree.sha,
+                    commitSha: commit.data.sha,
+                    headCommitSha: headRefSha
+                }
             });
-        })
-        .then(() => {
-            return github.gitdata.getCommit({
-                owner: LocalizationStringsUploader.pbicvbot,
-                repo: repo,
-                sha: headRefSha
-            });
-        })
-        .then((commit) => {
-            return {
-                treeSha: commit.data.tree.sha,
-                commitSha: commit.data.sha,
-                headCommitSha: headRefSha
-            }
-        });
     }
 
     public static async GetShaModelForCurrentCommit(github: GitHubApi, repo: string, ref: string): Promise<ShaModel> {
@@ -267,22 +267,22 @@ export class LocalizationStringsUploader {
             repo: repo,
             ref: ref
         })
-        .then((ref) => {
-            headRefSha = ref.data.object.sha;
+            .then((ref) => {
+                headRefSha = ref.data.object.sha;
 
-            return github.gitdata.getCommit({
-                owner: LocalizationStringsUploader.pbicvbot,
-                repo: repo,
-                sha: headRefSha
+                return github.gitdata.getCommit({
+                    owner: LocalizationStringsUploader.pbicvbot,
+                    repo: repo,
+                    sha: headRefSha
+                });
+            })
+            .then((commit) => {
+                return {
+                    treeSha: commit.data.tree.sha,
+                    commitSha: commit.data.sha,
+                    headCommitSha: headRefSha
+                }
             });
-        })
-        .then((commit) => {
-            return {
-                treeSha: commit.data.tree.sha,
-                commitSha: commit.data.sha,
-                headCommitSha: headRefSha
-            }
-        });
     }
 
     public static async IsPullRequestExists(owner: string, repo: string, head: string): Promise<boolean> {
@@ -290,17 +290,17 @@ export class LocalizationStringsUploader {
             owner: owner,
             repo: repo
         })
-        .then((pullRequests) => {
-            let prExists: boolean = false;
-            for (let i in pullRequests.data) {
-                let pr = pullRequests.data[i];
+            .then((pullRequests) => {
+                let prExists: boolean = false;
+                for (let i in pullRequests.data) {
+                    let pr = pullRequests.data[i];
 
-                if (pr.head.label === head) {
-                    return true;
+                    if (pr.head.label === head) {
+                        return true;
+                    }
                 }
-            }
 
-            return false;
-        });
+                return false;
+            });
     }
 }
