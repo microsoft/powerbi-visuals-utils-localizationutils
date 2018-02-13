@@ -5,94 +5,102 @@ const visualNames = require("../repositories.json");
 
 class TranslationsValidator {
     private static resjsonFileName: string = "resources.resjson";
+    private static exportFileName: string = "missed_translations.csv";
+
+    private static export(rows: string[]): void {
+        var fs = require('fs');
+        var stream = fs.createWriteStream(TranslationsValidator.exportFileName);
+
+        stream.once('open', function () {
+
+            rows.forEach((row) => {
+                stream.write(`${row}\n`);
+            });
+
+            stream.end();
+        });
+    }
 
     public static Run() {
         let jsonPaths: { [visual: string]: { [key: string]: string } } = {};
 
         console.log("All jsons paths building started.")
 
-        for (let visualName in visualNames) {            
-            if (visualNames[visualName]) { 
-                console.log(visualName + ": getting all directories.");
-
-                console.log("dirname: " + __dirname + ";.." + "; visualName: " + visualName);
-
+        for (let visualName in visualNames) {
+            if (visualNames[visualName]) {
                 let visualResourcesPath: string = path.join(__dirname, "..", visualName);
-
                 let localeFolders: string[] = fs.readdirSync(visualResourcesPath);
-                console.log(visualName + ": all directories recieved.");               
 
                 jsonPaths[visualName] = {};
 
-                for (let i in localeFolders) { 
+                for (let i in localeFolders) {
                     let folder: string = localeFolders[i];
                     let pathToFile: string = path.join(visualResourcesPath, folder);
-                    
+
                     if (!fs.lstatSync(pathToFile).isDirectory()) {
                         continue;
                     }
-                    
                     jsonPaths[visualName][folder] = path.join(pathToFile, TranslationsValidator.resjsonFileName);
-                    console.log(visualName + "/" + folder + ": path has been built.");                    
-                }                             
+                }
             }
         }
 
         let brokenFilesCount: number = 0;
+        let results: string[] = [];
 
         console.log("Validation process started");
+
         for (let visual in jsonPaths) {
-            let visualLocales: {[key: string]: string } = jsonPaths[visual];
-            
+            let visualLocales: { [key: string]: string } = jsonPaths[visual];
+
             let engStringsPath: string = visualLocales["en-US"];
 
             if (!engStringsPath) {
-                console.log("\x1b[31m%s\x1b[0m", visual + " got no en-US locale");
-                ++ brokenFilesCount;
+                ++brokenFilesCount;
                 continue;
             }
 
-            let engStrings: {[key: string]: string } = {};
+            let engStrings: { [key: string]: string } = {};
             let fileString: string = fs.readFileSync(engStringsPath, "utf8");
 
             try {
-                engStrings =  JSON.parse(fileString);
-                console.log("\x1b[32m%s\x1b[0m", engStringsPath + " is valid");
+                engStrings = JSON.parse(fileString);
             } catch (err) {
-                ++ brokenFilesCount;
-                console.log("\x1b[31m%s\x1b[0m", engStringsPath + " error occured: " + err.message);
+                ++brokenFilesCount;
                 continue;
-            }           
+            }
 
-            for (let j in visualLocales) {
-                if (j === "en-US") {
+            for (let locale in visualLocales) {
+                if (locale === "en-US") {
                     continue;
                 }
-
-                let jsonPath: string = visualLocales[j];                
+                let jsonPath: string = visualLocales[locale];
                 let fileString: string = fs.readFileSync(jsonPath, "utf8");
-                
+
                 let obj: any = {};
                 try {
                     obj = JSON.parse(fileString);
-                    console.log("\x1b[32m%s\x1b[0m", jsonPath + " is valid");
-                } catch (err){
-                    ++ brokenFilesCount;
-                    console.log("\x1b[31m%s\x1b[0m", jsonPath + " error occured: " + err.message);
-                }  
+                } catch (err) {
+                    ++brokenFilesCount;
+                }
 
+                let index: number = 1;
                 for (let str in engStrings) {
-                    if(!obj[str]) {
-                        ++ brokenFilesCount;
-                        console.log("\x1b[31m%s\x1b[0m", jsonPath + " key " + str + " is missing");                        
-                    } 
-                }                           
-            }             
+                    index++;
+                    if (!obj[str]) {
+                        ++brokenFilesCount;
+                    } else if (engStrings[str] === obj[str]) {
+                        results.push(`${str},${engStrings[str]},${visual},${locale},${obj[str]}, https://github.com/Microsoft/powerbi-visuals-utils-localizationutils/blob/Loc/${visual}/${locale}/resources.resjson#L${index}`);
+                    }
+                }
+            }
         }
 
         if (brokenFilesCount) {
-            throw "Error has been occured: " + brokenFilesCount + (brokenFilesCount > 1 ? " files are" : " file is" ) + " not valid";
+            throw "Error has been occured: " + brokenFilesCount + (brokenFilesCount > 1 ? " files are" : " file is") + " not valid";
         }
+
+        this.export(results);
     }
 }
 
