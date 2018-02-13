@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {    
+  "compilerOptions": {
     "allowJs": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -9,7 +9,6 @@
     "strict": true
   },
   "include": [
-    "node_modules/@types/",
     "typings.d.ts",
     "src/allResourcesToUtilsRepo.ts",
     "src/updateStringsFromCapabilities.ts",
@@ -18,5 +17,5 @@
     "src/translationsValidator.ts",
     "src/githubApiCreator.ts",
     "src/loaderUtils.ts"
-  ]  
+  ]
 }
