@@ -1,12 +1,13 @@
 {
-  "compilerOptions": {    
+  "compilerOptions": {
     "allowJs": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2016",
     "module": "commonjs",
     "outDir": "dist",
-    "strict": true
+    "strict": true,
+    "strictPropertyInitialization": false,
   },
   "include": [
     "node_modules/@types/",
@@ -18,5 +19,5 @@
     "src/translationsValidator.ts",
     "src/githubApiCreator.ts",
     "src/loaderUtils.ts"
-  ]  
+  ]
 }
