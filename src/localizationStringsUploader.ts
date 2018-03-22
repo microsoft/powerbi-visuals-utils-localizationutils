@@ -118,6 +118,7 @@ export class LocalizationStringsUploader {
     }
 
     public static async UploadStringsToAllRepos(updatedVisuals: IndexedFoldersSet, source: SourceType) {
+
         if (!Object.keys(updatedVisuals).length) {
             console.log("Nothing to update");
             return null;
@@ -151,8 +152,8 @@ export class LocalizationStringsUploader {
                         continue;
                     }
 
-                    let content: {} = folders[folderName];
-
+                    let content: DisplayNameAndKeyPairs = folders[folderName];
+                    
                     promises.push(github.gitdata.createBlob({
                         content: JSON.stringify(content, null, "\t"),
                         encoding: "utf-8",
