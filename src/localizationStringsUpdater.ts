@@ -1,26 +1,32 @@
 import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType } from "./models";
 
 export class LocalizationStringsUpdater {
-    public static UpdateDestinationFolders(indexedSourceStrings: IndexedFoldersSet, indexedDestinationJson: IndexedFoldersSet): IndexedFoldersSet {
+    public static stringsToSkip: string[] = ["short_description", "long_description"];
 
+    public static UpdateDestinationFolders(sourceVisuals: IndexedFoldersSet, destinationVisuals: IndexedFoldersSet): IndexedFoldersSet {
         let updatedVisuals: IndexedFoldersSet = new IndexedFoldersSet();
 
-        for (let visualName in indexedSourceStrings) {
+        for (let visualName in sourceVisuals) {
 
-            let folders: IndexedObjects = indexedSourceStrings[visualName];
+            let folders: IndexedObjects = sourceVisuals[visualName];
 
             for (let folderName in folders) {
                 let sourceStrings: DisplayNameAndKeyPairs = folders[folderName],
                 destinationStrings: DisplayNameAndKeyPairs = new DisplayNameAndKeyPairs(),
                 isUpdated: boolean = false;
 
-                if (!indexedDestinationJson[visualName] || !indexedDestinationJson[visualName][folderName]) {                                     
+                if (!destinationVisuals[visualName] || !destinationVisuals[visualName][folderName]) {                                     
                     destinationStrings = sourceStrings;
                     isUpdated = true;   
                     console.log("added " + visualName + " " + folderName);
                 } else {
-                    destinationStrings = indexedDestinationJson[visualName][folderName];
+                    destinationStrings = destinationVisuals[visualName][folderName];
                     for (let displayNameKey in sourceStrings) {
+
+                        if (LocalizationStringsUpdater.stringsToSkip.indexOf(displayNameKey) !== -1) {
+                            continue;
+                        }
+
                         let displayName: string = sourceStrings[displayNameKey];
                         
                         if (!destinationStrings[displayNameKey] || destinationStrings[displayNameKey] !== displayName) {
