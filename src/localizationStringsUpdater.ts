@@ -37,12 +37,6 @@ export class LocalizationStringsUpdater {
                     }
                 }
 
-                const sortedDestinationStrings = this.trySortObjectProperties(destinationStrings);
-                if (sortedDestinationStrings) {
-                    destinationStrings = sortedDestinationStrings
-                    isUpdated = true;
-                }
-
                 if (isUpdated) {                    
                     if (!updatedVisuals[visualName]) {
                         updatedVisuals[visualName] = new IndexedObjects();
@@ -54,32 +48,5 @@ export class LocalizationStringsUpdater {
         }
 
         return updatedVisuals;
-    }
-
-    private static trySortObjectProperties(objForSort: DisplayNameAndKeyPairs): DisplayNameAndKeyPairs | null {
-        if (!objForSort) {
-            return null;
-        }
-
-        const objectKeys = Object.getOwnPropertyNames(objForSort)
-
-        if (objectKeys.length) {
-            return null;
-        }
-
-        const sortedKeys = objectKeys.sort();
-        const sortedObject: DisplayNameAndKeyPairs = {};
-        let sortedObjectIsDifferent = false;
-
-        for (let keyIndex = 0; keyIndex < sortedKeys.length; keyIndex ++) {
-            const key = sortedKeys[keyIndex];
-            sortedObject[key] = objForSort[key];
-
-            if (key !== objectKeys[keyIndex]) {
-                sortedObjectIsDifferent = true;
-            }
-        }
-
-        return sortedObjectIsDifferent ? sortedObject : null;
     }
 }
