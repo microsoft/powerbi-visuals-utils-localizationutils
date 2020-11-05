@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="resources.resjson" PsrId="306" FileType="1" SrcCul="en-US" TgtCul="th-TH" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="BranchName" Val="" />
+    <Str Name="BuildNumber" Val="" />
+    <Str Name="ProductName" Val="" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@SettingsPath@\default.lss" Type="Lss" />
+  <Item ItemId=";String Table" ItemType="0" PsrId="306" Leaf="false">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
+      <Disp Icon="Str" Disp="true" LocTbl="false" />
+      <Item ItemId=";Role_DisplayName_Values" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Values]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[มูลค่า]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";SandDance_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SandDance is the Microsoft Research data visualization project, spearheaded by Steven M. Drucker and Roland Fernandez, that experiments with new genres of visualization and represents an innovation in user interactions. With SandDance, every data element is always represented on the screen, and animated transitions are used between views to help people explore, understand, and communicate insights in their data.]A;The SandDance custom visual puts this innovation from Microsoft Research into the hands of users through the open, extensible visualization framework of Power BI that can leverage rich connectivity, modeling, and interactive reporting.]A;If you need a visualization that lets you 'see the forest for the trees', or in other words shows the big picture by observing the more granular details, then SandDance is for you. The focus of SandDance is on tasks where data is not pre-aggregated (that is, many individual records), and can be rearranged in groups on the screen to create meaning.]A;Once you have created a SandDance chart you can change the View, and there are some interesting types available, including 3D. You can also Sum by any column in the dataset. While this may look like a summary chart, it is actually created with many rectangles. This can be seen more clearly if we color the rectangles differently. In the Color by options you can select the color palette. You can use Facet by to view the same visualization broken up by different ranges of a particular attribute.]A;You can change the behavior of dragging the cursor from the default of selecting shapes to zoom or 3D rotate using the navigation panel button in the menu bar of SandDance. And that's just the beginning of how you can customize SandDance -- there are many other functionalities that you can enable using the settings button.]A;For more detailed help, check out http://www.sanddance.ms]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[SandDance คือโครงการแสดงภาพจากข้อมูลของ Microsoft Research ซึ่งนำโดย Steven M. Drucker และ Roland Fernandez ที่ทดลองกับการแสดงภาพประเภทใหม่และแสดงนวัตกรรมในการโต้ตอบของผู้ใช้ โดยการใช้ SandDance ทุกองค์ประกอบข้อมูลทั้งหมดจะถูกแสดงบนหน้าจอเสมอ และใช้การเปลี่ยนภาพเคลื่อนไหวระหว่างมุมมองเพื่อช่วยให้ผู้คนสำรวจ ทำความเข้าใจ และสื่อสารข้อมูลเชิงลึกในข้อมูลของพวกเขา]A;การแสดงผลด้วยภาพแบบกำหนดเอง SandDance ส่งนวัตกรรมนี้จาก Microsoft Research ถึงมือผู้ใช้ผ่านทางเฟรมเวิร์กการแสดงภาพแบบเปิดที่สามารถขยายได้ของ Power BI ซึ่งสามารถยกระดับการเชื่อมต่อ การวางรูปแบบ และการรายงานแบบโต้ตอบที่สมบูรณ์]A;ถ้าคุณต้องการการแสดงภาพที่ช่วยให้คุณ 'มองเห็นภาพรวมจากหน่วยย่อย' หรือในอีกนัยหนึ่งคือ การแสดงภาพขนาดใหญ่โดยการสังเกตรายละเอียดเล็กๆ แล้วละก็ SandDance เหมาะสำหรับคุณ โฟกัสของ SandDance จะอยู่ในงานที่ไม่ได้รวมข้อมูลล่วงหน้า (ซึ่งก็คือระเบียนแต่ละระเบียนจำนวนมาก) และสามารถจัดการใหม่ได้ในกลุ่มบนหน้าจอเพื่อสร้างความหมาย]A;เมื่อคุณได้สร้างแผนภูมิ SandDance คุณสามารถเปลี่ยนมุมมอง ซึ่งมีบางชนิดที่น่าสนใจ รวมถึง 3D คุณยังสามารถหา ผลรวม ตามคอลัมน์ใดๆ ในชุดข้อมูลได้ ซึ่งอาจดูเหมือนแผนภูมิสรุป แต่จริงๆ ได้ถูกสร้างขึ้นด้วยรูปสี่เหลี่ยมผืนผ้าจำนวนมาก โดยสามารถดูได้อย่างชัดเจนถ้าเราใช้สีที่แตกต่างกันกับรูปสี่เหลี่ยม ในตัวเลือก สี คุณสามารถเลือกจานสีได้ คุณสามารถใช้ แฟเช็ต เพื่อดูการแสดงภาพเดียวกันที่แบ่งตามช่วงของแอตทริบิวต์เฉพาะที่แตกต่างกัน]A;คุณสามารถเปลี่ยนลักษณะการทำงานของการลากเคอร์เซอร์จากค่าเริ่มต้นของการเลือกรูปร่างเพื่อย่อ/ขยาย หรือหมุนแบบ 3 มิติโดยใช้ปุ่มแผงนำทางในแถบเมนูของ SandDance และทั้งหมดนี่เป็นเพียงจุดเริ่มต้นของวิธีที่คุณสามารถปรับแต่ง SandDance ยังมีฟังก์ชันการใช้งานอื่นๆ อีกมากมายที่คุณสามารถเปิดใช้งานโดยใช้ปุ่มการตั้งค่า]A;สำหรับวิธีใช้แบบละเอียดเพิ่มเติม ลองดูที่ http://www.sanddance.ms]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";SandDance_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Experience data visualization innovation and novel natural user interaction techniques]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[พบนวัตกรรมการจัดรูปแบบการแสดงข้อมูลและเทคนิคการโต้ตอบกับผู้ใช้อย่างเป็นธรรมชาติใหม่]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Presentation" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Presentation]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[การนำเสนอ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[แสดง]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+    </Item>
+  </Item>
+</LCX>
