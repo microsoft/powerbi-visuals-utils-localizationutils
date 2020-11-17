@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="resources.resjson" PsrId="306" FileType="1" SrcCul="en-US" TgtCul="ja-JP" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="BranchName" Val="" />
+    <Str Name="BuildNumber" Val="" />
+    <Str Name="ProductName" Val="" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@SettingsPath@\default.lss" Type="Lss" />
+  <Item ItemId=";String Table" ItemType="0" PsrId="306" Leaf="false">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
+      <Disp Icon="Str" Disp="true" LocTbl="false" />
+      <Item ItemId=";Role_DisplayName_Values" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Values]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[値]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";SandDance_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SandDance is the Microsoft Research data visualization project, spearheaded by Steven M. Drucker and Roland Fernandez, that experiments with new genres of visualization and represents an innovation in user interactions. With SandDance, every data element is always represented on the screen, and animated transitions are used between views to help people explore, understand, and communicate insights in their data.]A;The SandDance custom visual puts this innovation from Microsoft Research into the hands of users through the open, extensible visualization framework of Power BI that can leverage rich connectivity, modeling, and interactive reporting.]A;If you need a visualization that lets you 'see the forest for the trees', or in other words shows the big picture by observing the more granular details, then SandDance is for you. The focus of SandDance is on tasks where data is not pre-aggregated (that is, many individual records), and can be rearranged in groups on the screen to create meaning.]A;Once you have created a SandDance chart you can change the View, and there are some interesting types available, including 3D. You can also Sum by any column in the dataset. While this may look like a summary chart, it is actually created with many rectangles. This can be seen more clearly if we color the rectangles differently. In the Color by options you can select the color palette. You can use Facet by to view the same visualization broken up by different ranges of a particular attribute.]A;You can change the behavior of dragging the cursor from the default of selecting shapes to zoom or 3D rotate using the navigation panel button in the menu bar of SandDance. And that's just the beginning of how you can customize SandDance -- there are many other functionalities that you can enable using the settings button.]A;For more detailed help, check out http://www.sanddance.ms]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[SandDance は、M. Drucker 氏と Roland Fernandez 氏が指揮を執る Microsoft Research のデータ視覚化プロジェクトで、視覚化の新しいジャンルを実験し、革新的なユーザー対話を提供しています。SandDance では、すべてのデータ要素が常に画面に表示され、ビューとビューの間の移行がアニメーション表示されるため、データに含まれる情報をユーザーが探索し、理解し、やり取りするために役立ちます。]A;SandDance カスタム視覚エフェクトは、Microsoft Research からのこの革新的な機能を Power BI のオープンで拡張可能な視覚化フレームワークを通してユーザーの手に渡すものであり、この機能を使って豊富な接続性、モデリング、対話形式のレポートを利用できます。]A;"木を見て森を見る" ことのできる、つまり細かい詳細情報を見ることで大局を表示できる視覚エフェクトをお探しなら、SandDance が最適です。SandDance の焦点は、データが事前に集計されていない (つまり、多数の個々のレコードが存在する) タスクに向けられており、データを画面上でグループに再編成して意味を持たせることができます。]A;SandDance グラフをいったん作成した後は、ビューを変更することができます。3D を含め、いくつかの興味深い種類があります。また、データセット内の任意の列によって集計することもできます。これはサマリー グラフと同じもののように見えるかもしれませんが、実際には多数の四角形で作成されています。それぞれの四角形の色を変えてみると、そのことがよくわかります。色のオプションでは、カラー パレットを選択できます。ファセットを使用すると、同じ視覚エフェクトを、特定の属性の異なる範囲で分析して表示できます。]A;SandDance のメニュー バーのナビゲーション パネルにあるボタンを使って、カーソルをドラッグしたときの動作を、図形の選択 (既定) から、ズームまたは 3D 回転に変更することができます。なお、これは SandDance をカスタマイズできる方法のごく一部です。設定ボタンを使って有効化できる機能が、その他にもたくさんあります。]A;詳細なヘルプについては、http://www.sanddance.ms をご覧ください]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";SandDance_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Experience data visualization innovation and novel natural user interaction techniques]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[データ視覚化のイノベーションと、自然で新しいユーザー対話の技術を体験できます]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Presentation" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Presentation]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[プレゼンテーション]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[表示]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+    </Item>
+  </Item>
+</LCX>
