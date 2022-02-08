@@ -8,7 +8,6 @@ class TranslationsValidator {
     private static exportFileName: string = "missed_translations.csv";
 
     private static export(rows: string[]): void {
-        var fs = require('fs');
         var stream = fs.createWriteStream(TranslationsValidator.exportFileName);
 
         stream.once('open', function () {

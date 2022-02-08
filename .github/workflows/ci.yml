@@ -1,0 +1,15 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/pipelines
+    - name: Run a multi-line script
+      run: |
+        npm i
+        npm run capabilitiesToResources

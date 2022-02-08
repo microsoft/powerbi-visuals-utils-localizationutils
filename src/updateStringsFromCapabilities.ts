@@ -1,4 +1,4 @@
-import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType, UpdateType, UpdateBranch } from "./models";
+import { IndexedObjects, IndexedFoldersSet, SourceType, UpdateType, UpdateBranch } from "./models";
 import { CapabilitiesParser } from "./capabilitiesParser";
 import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";

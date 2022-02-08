@@ -1,23 +1,21 @@
-import * as GitHubApi from "github";
+import { Octokit } from "@octokit/rest";
 
 export class GithubApiCreator { 
-    private static github: GitHubApi;    
+    private static github: Octokit;    
     private static token: string = <string>process.env.token;
 
-    public static CreateGithubApi(): GitHubApi {
+    public static CreateGithubApi(): Octokit {
         if (!GithubApiCreator.github) {
-            GithubApiCreator.github = new GitHubApi({
-                    debug: false,
-                    protocol: "https",
-                    host: "api.github.com",
-                    followRedirects: false,
-                    timeout: 10000,
-                    headers: {
-                        "encoding": "null" 
-                    }
-                });
+            GithubApiCreator.github = new Octokit({
+                protocol: "https",
+                host: "api.github.com",
+                timeout: 10000,
+                headers: {
+                    "encoding": "null"
+                }
+            });
 
-            GithubApiCreator.github.authenticate({
+            GithubApiCreator.github.auth({
                 type: "oauth",
                 token: GithubApiCreator.token
             });

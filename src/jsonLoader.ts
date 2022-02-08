@@ -1,6 +1,6 @@
 import { IndexedObjects, SourceType, UpdateType, IndexedFoldersSet } from './models';
-import { RequestPromise, get } from "request-promise-native";
-import * as GitHubApi from "github";
+import { get } from "request-promise-native";
+import { Octokit } from "@octokit/rest";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
 import { GithubApiCreator } from "./githubApiCreator";
 import { LoaderUtils } from "./loaderUtils"; 
@@ -138,7 +138,7 @@ export class JsonLoader {
 
     public static async GetJsonsWithFoldersFromGithub(repoType: SourceType, updateType: UpdateType, forceMicrosoftMasterSource?: boolean, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> {
 
-        let github: GitHubApi = GithubApiCreator.CreateGithubApi();
+        let github: Octokit = GithubApiCreator.CreateGithubApi();
 
         if (updateType === UpdateType.UtilsToCv) {
             return JsonLoader.GetJsonsUtilsToCv(repoType, updateType, forceMicrosoftMasterSource, checkForExistingPullRequest);
@@ -155,14 +155,14 @@ export class JsonLoader {
         let fileName: string = repo + ".tar.gz";
         let filePath: string = folder + "/" + fileName;
 
-        return GithubApiCreator.CreateGithubApi().repos.getArchiveLink({
+        return GithubApiCreator.CreateGithubApi().rest.repos.downloadZipballArchive({
             archive_format: "tarball",
             owner: owner,
             ref: ref,
             repo: repo
         })
         .then((data) => {
-            return JsonLoader.GetJsonByUrl(data.meta.location).promise();
+            return JsonLoader.GetJsonByUrl(data.url).promise();
         })
         .then((targz) => {
             return LoaderUtils.ExtractTargz(targz, filePath, folder);
@@ -223,14 +223,13 @@ export class JsonLoader {
         let fileName: string = "localizationUtils.tar.gz";
         let filePath: string = folder + "/" + fileName;
 
-        return GithubApiCreator.CreateGithubApi().repos.getArchiveLink({
-            archive_format: "tarball",
+        return await GithubApiCreator.CreateGithubApi().rest.repos.downloadTarballArchive({
             owner: owner,
             ref: ref,
             repo: repo
         })
         .then((data) => {
-            return JsonLoader.GetJsonByUrl(data.meta.location).promise();
+            return JsonLoader.GetJsonByUrl(data.url).promise();
         })
         .then((targz) => {
             return LoaderUtils.ExtractTargz(targz, filePath, folder);
@@ -256,21 +255,24 @@ export class JsonLoader {
         });
     }
 
-    private static async GetFolders(github: GitHubApi, path: string, repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<string[]> {
+    private static async GetFolders(github: Octokit, path: string, repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<string[]> {
         let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? JsonLoader.microsoft : JsonLoader.pbicvbot;
         let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? "heads/master" : "heads/locUpdate";
 
-        return github.repos.getContent({
+        const { data } = await github.rest.repos.getContent({
             owner: owner,
             path: path,
             repo: repo,
             ref: ref
         })
-        .then((folders): string[] => {
-            if (folders && folders.data.length && folders.data[0].name) {
-                return folders.data.filter((x: any) => x.name != "en-US" && x.type === "dir").map((x: any) => x.name);
-            } 
+        if (!Array.isArray(data)) {
             return [];
-        });
+        }
+    
+        for (const item of data) {
+            console.log(item)
+        }
+        
+        return data.filter((x: any) => x.name != "en-US" && x.type === "dir").map((x: any) => x.name);
     }
 }
