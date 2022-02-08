@@ -1,0 +1,36 @@
+{
+  "name": "CapabilitiesParser",
+  "version": "1.0.1",
+  "description": "",
+  "main": "allResourcesToUtilsRepo.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "",
+    "capabilitiesToResources": "npm run tsc && node ../../dist/updateStringsFromCapabilities.js",
+    "allResourcesToUtilsRepo": "npm run tsc && node ../../dist/allResourcesToUtilsRepo.js",
+    "utilsRepoToAllResources": "npm run tsc && node ../../dist/updateStringsFromCommonRepo.js",
+    "validateJsons": "npm run tsc && node ../../dist/jsonValidator.js",
+    "validateTranslations": "npm run tsc && node ../../dist/translationsValidator.js",
+    "lint": "tslint -r \"node_modules/tslint-microsoft-contrib\" \"+(src|test)/**/*.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "17.0.15",
+    "@types/request-promise-native": "1.0.18",
+    "request": "^2.88.2",
+    "request-promise-native": "1.0.9",
+    "tslint": "^6.1.3",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "4.5.5"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.12.0",
+    "@types/decompress": "4.2.4",
+    "@types/jquery": "3.5.13",
+    "decompress": "4.2.1",
+    "decompress-targz": "4.1.1",
+    "jquery": "3.6.0"
+  }
+}
