@@ -8,7 +8,14 @@ jobs:
 
     steps:
     - name: Get all dirs
-      run: ls
+      run: |
+        ls
+        cd ..
+        ls
+        cd ..
+        ls
+        cd ..
+        ls
     - name: Install packages
       run: npm install
     - name: Run test
