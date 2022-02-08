@@ -9,9 +9,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: get env
-          run: echo ${{ github.token }}
       - name: Install packages
           run: npm install --force
       - name: Run test
-          run: npm run capabilitiesToResources
+          run: npm run validateJsons
