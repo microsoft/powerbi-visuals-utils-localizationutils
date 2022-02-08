@@ -10,5 +10,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         cd ..
-        npm i
+        ls
+        npm install
         npm run capabilitiesToResources
