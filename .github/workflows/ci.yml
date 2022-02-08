@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a multi-line script
+    - name: Get all dirs
       run: ls
+    - name: Install packages
       run: npm install
+    - name: Run test
       run: npm run capabilitiesToResources
