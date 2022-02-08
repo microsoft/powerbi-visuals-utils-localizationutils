@@ -8,7 +8,7 @@ import { GithubApiCreator } from "./githubApiCreator";
 
 class LocalizationStringsUtils {
     public static async Parse() {
-        let github: GitHubApi = GithubApiCreator.CreateGithubApi(); 
+        let github: Octokit = GithubApiCreator.CreateGithubApi(); 
 
         let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
             LocalizationStringsUploader.localizationUtilsRepoName,
