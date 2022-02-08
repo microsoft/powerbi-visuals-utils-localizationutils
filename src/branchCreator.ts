@@ -14,23 +14,28 @@ export class BranchCreator {
 
         for (let visualName in data) { 
             if (data[visualName]) { 
-                try {
-                    return github.rest.git.getRef({
-                        owner: BranchCreator.ms,
-                        repo: visualName,
-                        ref: "heads/master"
-                    })
-                    .then((ref) => {
-                        github.rest.git.createRef({
-                            owner: BranchCreator.pbicvbot,
+                await github.rest.git.getRef({
+                    owner: BranchCreator.pbicvbot,
+                    repo: visualName,
+                    ref: locUpdateRefName
+                })
+                .then((ref) => {
+                    if (!ref) {
+                        return github.rest.git.getRef({
+                            owner: BranchCreator.ms,
                             repo: visualName,
-                            ref: locUpdateRefName,
-                            sha: ref.data.object.sha
-                        });
-                    });  
-                } catch (error) {
-                    console.log(error)
-                }
+                            ref: "heads/master"
+                        })
+                        .then((ref) => {
+                            github.rest.git.createRef({
+                                owner: BranchCreator.pbicvbot,
+                                repo: visualName,
+                                ref: locUpdateRefName,
+                                sha: ref.data.object.sha
+                            });
+                        });                        
+                    }
+                });
             }
         }
     }
