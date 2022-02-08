@@ -8,8 +8,6 @@ jobs:
 
     steps:
     - name: Run a multi-line script
-      run: |
-        cd ..
-        ls
-        npm install
-        npm run capabilitiesToResources
+      run: ls
+      run: npm install
+      run: npm run capabilitiesToResources
