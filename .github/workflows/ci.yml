@@ -3,6 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
 
     steps:
