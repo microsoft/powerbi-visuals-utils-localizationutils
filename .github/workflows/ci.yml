@@ -1,2 +1,25 @@
-include:
-  - local: /.workflows/pipelines/validateJsons.yml
+name: validateJsons
+
+on: [push, pull_request]
+
+jobs:
+  validateJsons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install packages
+        run: npm install --force
+      - name: Run
+        run: npm run validateJsons
+  validateTranslations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install packages
+        run: npm install --force
+      - name: Run
+        run: npm run validateTranslations
