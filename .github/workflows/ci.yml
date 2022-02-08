@@ -9,5 +9,6 @@ jobs:
     steps:
     - name: Run a multi-line script
       run: |
+        cd ..
         npm i
         npm run capabilitiesToResources
