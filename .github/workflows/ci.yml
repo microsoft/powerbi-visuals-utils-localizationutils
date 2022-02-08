@@ -6,14 +6,12 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-    - name: get env
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: ls
-    - name: Install packages
-        run: npm install --force
-    - name: Run test
-        run: npm run capabilitiesToResources
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: get env
+          run: echo ${{ github.token }}
+      - name: Install packages
+          run: npm install --force
+      - name: Run test
+          run: npm run capabilitiesToResources
