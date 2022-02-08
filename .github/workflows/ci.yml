@@ -10,6 +10,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Install packages
-          run: npm install --force
+        run: npm install --force
       - name: Run test
-          run: npm run validateJsons
+        run: npm run validateJsons
