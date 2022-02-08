@@ -1,15 +1,2 @@
-name: CI
-
-on: [push, pull_request]
-
-jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - name: Install packages
-        run: npm install --force
-      - name: Run test
-        run: npm run validateJsons
+include:
+  - local: /.workflows/pipelines/validateJsons.yml
