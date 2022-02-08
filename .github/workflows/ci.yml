@@ -12,6 +12,6 @@ jobs:
     - name: Get all dirs
       run: ls
     - name: Install packages
-      run: npm install
+      run: npm install --force
     - name: Run test
       run: npm run capabilitiesToResources
