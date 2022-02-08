@@ -1,4 +1,4 @@
-name: validateJsons
+name: Tests
 
 on: [push, pull_request]
 
@@ -23,3 +23,33 @@ jobs:
         run: npm install --force
       - name: Run
         run: npm run validateTranslations
+  utilsRepoToAllResources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install packages
+        run: npm install --force
+      - name: Run
+        run: npm run utilsRepoToAllResources
+  allResourcesToUtilsRepo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install packages
+        run: npm install --force
+      - name: Run
+        run: npm run allResourcesToUtilsRepo
+  capabilitiesToResources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install packages
+        run: npm install --force
+      - name: Run
+        run: npm run capabilitiesToResources
