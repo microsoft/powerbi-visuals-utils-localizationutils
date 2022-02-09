@@ -10,7 +10,7 @@ export class BranchCreator {
     public static async CreateBranchesIfNotExist(branchName: string) {
         let github: Octokit = GithubApiCreator.CreateGithubApi(); 
 
-        let locUpdateRefName: string = "refs/heads/" + branchName;
+        let locUpdateRefName: string = "heads/" + branchName;
 
         for (let visualName in data) { 
             if (data[visualName]) { 

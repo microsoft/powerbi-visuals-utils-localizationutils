@@ -234,6 +234,7 @@ export class LocalizationStringsUploader {
             ref: "heads/master"
         })
             .then((ref) => {
+                console.log(ref)
                 headRefSha = ref.data.object.sha;
 
                 return github.rest.git.updateRef({
