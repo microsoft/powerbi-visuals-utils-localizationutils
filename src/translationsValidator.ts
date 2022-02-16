@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const visualNames = require("../repositories.json");
+const visualsToParse = require("../repositories.json");
 
 class TranslationsValidator {
     private static resjsonFileName: string = "resources.resjson";
@@ -25,8 +25,8 @@ class TranslationsValidator {
 
         console.log("All jsons paths building started.")
 
-        for (let visualName in visualNames) {
-            if (visualNames[visualName]) {
+        for (let visualName in visualsToParse) {
+            if (visualsToParse[visualName]) {
                 let visualResourcesPath: string = path.join(__dirname, "..", visualName);
                 let localeFolders: string[] = fs.readdirSync(visualResourcesPath);
 

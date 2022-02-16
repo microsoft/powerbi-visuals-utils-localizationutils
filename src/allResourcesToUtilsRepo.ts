@@ -1,21 +1,22 @@
-import { DisplayNameAndKeyPairs, IndexedLocalizationStrings, IndexedObjects, SourceType, UpdateType } from "./models";
-import { CapabilitiesParser } from "./capabilitiesParser";
+import { IndexedObjects, SourceType, UpdateType } from "./models";
 import { JsonLoader } from "./jsonLoader";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
 import { LocalizationStringsUpdater } from "./localizationStringsUpdater";
 import { Octokit } from "@octokit/rest";
 import { GithubApiCreator } from "./githubApiCreator";
 
+const config = require('../config.json');
+
 class LocalizationStringsUtils {
+    private static githubApi: Octokit = GithubApiCreator.CreateGithubApi()
     public static async Parse() {
-        let github: Octokit = GithubApiCreator.CreateGithubApi(); 
 
         let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
             LocalizationStringsUploader.localizationUtilsRepoName,
-            "pbicvbot:master");
+            `${config.ownerName}:main`);
 
         if (!prExists) {
-            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(github, LocalizationStringsUploader.localizationUtilsRepoName, "heads/master");
+            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, "heads/main");
         }
 
         let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),

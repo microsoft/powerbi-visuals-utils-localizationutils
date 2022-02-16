@@ -2,6 +2,8 @@ import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType }
 import { Octokit } from "@octokit/rest";
 import { GithubApiCreator } from "./githubApiCreator";
 
+const config = require('../config.json');
+
 interface ShaModel {
     treeSha: string;
     commitSha: string;
@@ -9,13 +11,12 @@ interface ShaModel {
 }
 
 export class LocalizationStringsUploader {
-    private static github: Octokit;
-    public static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
-    public static ms: string = "Microsoft";
+    private static githubApi: Octokit = GithubApiCreator.CreateGithubApi();
     private static enUs: string = "en-US";
-    private static pullRequestTitle: string = "Localization string update (auto PR by pbicvbot)";
+    private static pbicvbot: string = config.ownerName;
 
-    private static pbicvbot: string = "pbicvbot";
+    public static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
+    public static ms: string = "AleksSavelev";
 
     public static async UploadStringsToCommonRepo(updatedVisuals: IndexedFoldersSet) {
 
@@ -24,15 +25,11 @@ export class LocalizationStringsUploader {
             return null;
         }
 
-        let sha: ShaModel;
-
-        let github: Octokit = GithubApiCreator.CreateGithubApi();
-
         let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms,
             LocalizationStringsUploader.localizationUtilsRepoName,
-            "pbicvbot:master");
+            `${this.pbicvbot}:main`);
 
-        sha = await LocalizationStringsUploader.GetShaModelForCurrentCommit(github, LocalizationStringsUploader.localizationUtilsRepoName, "heads/master");
+        const sha: ShaModel = await LocalizationStringsUploader.GetShaModelForCurrentCommit(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, "heads/main");
 
         let namedBlobs: { [key: string]: string } = {};
         let promises: Promise<any>[] = [];
@@ -41,7 +38,7 @@ export class LocalizationStringsUploader {
             let content: IndexedObjects = updatedVisuals[visualName][LocalizationStringsUploader.enUs];
 
             promises.push(
-                github.rest.git.createBlob({
+                this.githubApi.rest.git.createBlob({
                     content: JSON.stringify(content, null, "\t"),
                     encoding: "utf-8",
                     owner: LocalizationStringsUploader.pbicvbot,
@@ -71,14 +68,14 @@ export class LocalizationStringsUploader {
             });
         }
 
-        github.rest.git.createTree({
+        this.githubApi.rest.git.createTree({
             owner: LocalizationStringsUploader.pbicvbot,
             repo: LocalizationStringsUploader.localizationUtilsRepoName,
             base_tree: sha.treeSha,
             tree: trees
         })
             .then((newTree) => {
-                return github.rest.git.createCommit({
+                return this.githubApi.rest.git.createCommit({
                     message: "updated localization strings",
                     tree: newTree.data.sha,
                     owner: LocalizationStringsUploader.pbicvbot,
@@ -87,26 +84,26 @@ export class LocalizationStringsUploader {
                 });
             })
             .then((ref) => {
-                return github.rest.git.updateRef({
+                return this.githubApi.rest.git.updateRef({
                     force: true,
                     owner: LocalizationStringsUploader.pbicvbot,
                     repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                    ref: "heads/master",
+                    ref: "heads/main",
                     sha: ref.data.sha
                 });
             })
             .then(() => {
-                return github.rest.pulls.list({
+                return this.githubApi.rest.pulls.list({
                     owner: LocalizationStringsUploader.ms,
                     repo: LocalizationStringsUploader.localizationUtilsRepoName
                 })
                     .then(() => {
                         if (!prExists) {
-                            return github.rest.pulls.create({
-                                base: "master",
+                            return this.githubApi.rest.pulls.create({
+                                base: "main",
                                 owner: LocalizationStringsUploader.ms,
                                 repo: LocalizationStringsUploader.localizationUtilsRepoName,
-                                head: "pbicvbot:master",
+                                head: `${this.pbicvbot}:main`,
                                 title: "Localization strings update"
                             });
                         }
@@ -124,24 +121,20 @@ export class LocalizationStringsUploader {
             return null;
         }
 
-        let promises: Promise<any>[] = [];
-
-        let github: Octokit = GithubApiCreator.CreateGithubApi();
-
-        let branchRef: string = source === SourceType.Capabilities ? "heads/locUpdateCapabilities" : "heads/locUpdate";
-        let prHead: string = source === SourceType.Capabilities ? "pbicvbot:locUpdateCapabilities" : "pbicvbot:locUpdate";
+        const branchRef: string = source === SourceType.Capabilities ? "heads/locUpdateCapabilities" : "heads/locUpdate";
+        const prHead: string = `${this.pbicvbot} : ${source === SourceType.Capabilities ? "locUpdateCapabilities" : "locUpdate"}`;
 
         for (let visualName in updatedVisuals) {
-            let folders: IndexedObjects = updatedVisuals[visualName];
+            const folders: IndexedObjects = updatedVisuals[visualName];
 
             let sha: ShaModel;
 
-            let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, visualName, prHead);
+            const prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, visualName, prHead);
 
             if (!prExists) {
-                sha = await LocalizationStringsUploader.UpdateBranchFromMasterRepo(github, visualName, branchRef);
+                sha = await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, visualName, branchRef);
             } else {
-                sha = await LocalizationStringsUploader.GetShaModelForCurrentCommit(github, visualName, branchRef);
+                sha = await LocalizationStringsUploader.GetShaModelForCurrentCommit(this.githubApi, visualName, branchRef);
             }
 
             if (Object.keys(folders).length) {
@@ -154,7 +147,7 @@ export class LocalizationStringsUploader {
 
                     let content: DisplayNameAndKeyPairs = folders[folderName];
                     
-                    promises.push(github.rest.git.createBlob({
+                    promises.push(this.githubApi.rest.git.createBlob({
                         content: JSON.stringify(content, null, "\t"),
                         encoding: "utf-8",
                         owner: LocalizationStringsUploader.pbicvbot,
@@ -180,7 +173,7 @@ export class LocalizationStringsUploader {
                         }
                         );
                         console.log("before create tree " + visualName);
-                        return github.rest.git.createTree({
+                        return this.githubApi.rest.git.createTree({
                             owner: LocalizationStringsUploader.pbicvbot,
                             repo: visualName,
                             base_tree: sha.treeSha,
@@ -190,7 +183,7 @@ export class LocalizationStringsUploader {
                     .then((newTree) => {
                         console.log("after create tree " + visualName);
                         console.log("before create commit " + visualName);
-                        return github.rest.git.createCommit({
+                        return this.githubApi.rest.git.createCommit({
                             message: "updated localization strings",
                             tree: newTree.data.sha,
                             owner: LocalizationStringsUploader.pbicvbot,
@@ -200,7 +193,7 @@ export class LocalizationStringsUploader {
                     })
                     .then((ref) => {
                         console.log("after create commit " + visualName);
-                        return github.rest.git.updateRef({
+                        return this.githubApi.rest.git.updateRef({
                             force: true,
                             owner: LocalizationStringsUploader.pbicvbot,
                             repo: visualName,
@@ -212,8 +205,8 @@ export class LocalizationStringsUploader {
                         if (!prExists) {
                             let title: string = "Localization strings from " + (source === SourceType.Capabilities ? "capabilities" : "utils") + " update";
 
-                            return github.rest.pulls.create({
-                                base: "master",
+                            return this.githubApi.rest.pulls.create({
+                                base: "main",
                                 owner: LocalizationStringsUploader.ms,
                                 repo: visualName,
                                 head: prHead,
@@ -231,34 +224,28 @@ export class LocalizationStringsUploader {
         return github.rest.git.getRef({
             owner: LocalizationStringsUploader.ms,
             repo: repo,
-            ref: "heads/master"
-        })
-            .then((ref) => {
-                console.log(ref)
-                headRefSha = ref.data.object.sha;
+            ref: "heads/main"
+        }).then((ref) => {
+            headRefSha = ref.data.object.sha;
 
-                return github.rest.git.updateRef({
-                    force: true,
-                    ref: branchRef,
-                    owner: LocalizationStringsUploader.pbicvbot,
-                    repo: repo,
-                    sha: headRefSha
-                });
-            })
-            .then(() => {
-                return github.rest.repos.getCommit({
-                    owner: LocalizationStringsUploader.pbicvbot,
-                    repo: repo,
-                    ref: headRefSha
-                });
-            })
-            .then((commit) => {
-                return {
-                    treeSha: commit.data.commit.tree.sha,
-                    commitSha: commit.data.sha,
-                    headCommitSha: headRefSha
-                }
+            return github.rest.git.updateRef({
+                force: true,
+                ref: branchRef,
+                owner: LocalizationStringsUploader.pbicvbot,
+                repo: repo,
+                sha: headRefSha
             });
+        }).then(() => github.rest.repos.getCommit({
+                owner: LocalizationStringsUploader.pbicvbot,
+                repo: repo,
+                ref: headRefSha
+            })
+        ).then((commit) => ({
+                treeSha: commit.data.commit.tree.sha,
+                commitSha: commit.data.sha,
+                headCommitSha: headRefSha
+            })
+        );
     }
 
     public static async GetShaModelForCurrentCommit(github: Octokit, repo: string, ref: string): Promise<ShaModel> {
@@ -288,7 +275,7 @@ export class LocalizationStringsUploader {
     }
 
     public static async IsPullRequestExists(owner: string, repo: string, head: string): Promise<boolean> {
-        return GithubApiCreator.CreateGithubApi().rest.pulls.list({
+        return this.githubApi.rest.pulls.list({
             owner: owner,
             repo: repo
         })

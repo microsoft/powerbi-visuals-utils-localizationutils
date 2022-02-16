@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const visualNames = require("../repositories.json");
+const visualsToParse = require("../repositories.json");
 
 class JsonValidator {
     private static resjsonFileName: string = "resources.resjson";
@@ -11,8 +11,8 @@ class JsonValidator {
 
         console.log("All jsons paths building started.")
 
-        for (let visualName in visualNames) {            
-            if (visualNames[visualName]) { 
+        for (let visualName in visualsToParse) {            
+            if (visualsToParse[visualName]) { 
                 console.log(visualName + ": getting all directories.");
 
                 console.log("dirname: " + __dirname + ";.." + "; visualName: " + visualName);

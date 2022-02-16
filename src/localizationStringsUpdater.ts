@@ -1,4 +1,4 @@
-import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet, SourceType } from "./models";
+import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet } from "./models";
 
 export class LocalizationStringsUpdater {
     public static stringsToSkip: string[] = ["short_description", "long_description"];

@@ -1,15 +1,16 @@
 import * as fs from "fs";
 import * as path from "path";
-import * as zlib from "zlib";
+
+import { IndexedObjects } from "./models";
+
 const decompress = require('decompress');
 const decompressTargz = require('decompress-targz');
 
-import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet } from "./models";
-
 export class LoaderUtils {
-    public static async ExtractTargz(targz: any, srcFilePath: string, distFolderPath: string): Promise<void> {   
+    public static async ExtractTargz(targz: any, srcFilePath: string): Promise<void> {   
         fs.writeFileSync(srcFilePath, targz);
-        return  decompress(srcFilePath, "dist", {
+        
+        return decompress(srcFilePath, "dist", {
             plugins: [
                 decompressTargz()
             ]

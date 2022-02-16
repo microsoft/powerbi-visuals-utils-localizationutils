@@ -1,41 +1,41 @@
 import { Octokit } from "@octokit/rest";
-const data = require('../repositories.json');
 import { GithubApiCreator } from "./githubApiCreator";
+
+const visualsToParse = require('../repositories.json');
+const config = require('../config.json');
 
 export class BranchCreator { 
     private static ms: string = "Microsoft";
-    private static enUs: string = "en-US";
-    private static pbicvbot: string = "pbicvbot";
+    private static ownerName: string = config.ownerName;
 
     public static async CreateBranchesIfNotExist(branchName: string) {
         let github: Octokit = GithubApiCreator.CreateGithubApi(); 
 
         let locUpdateRefName: string = "heads/" + branchName;
 
-        for (let visualName in data) { 
-            if (data[visualName]) { 
-                await github.rest.git.getRef({
-                    owner: BranchCreator.pbicvbot,
+        for (let visualName in visualsToParse) { 
+            if (visualsToParse[visualName]) { 
+                await github.rest.git.listMatchingRefs({
+                    owner: BranchCreator.ownerName,
                     repo: visualName,
                     ref: locUpdateRefName
-                })
-                .then((ref) => {
-                    if (!ref) {
-                        return github.rest.git.getRef({
+                }).then((refs) => {
+                    if(!refs.data.length){
+                        github.rest.git.getRef({
                             owner: BranchCreator.ms,
                             repo: visualName,
-                            ref: "heads/master"
+                            ref: "heads/main"
                         })
                         .then((ref) => {
                             github.rest.git.createRef({
-                                owner: BranchCreator.pbicvbot,
+                                owner: BranchCreator.ownerName,
                                 repo: visualName,
                                 ref: locUpdateRefName,
                                 sha: ref.data.object.sha
                             });
-                        });                        
+                        });
                     }
-                });
+                })
             }
         }
     }
