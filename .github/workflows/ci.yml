@@ -3,17 +3,17 @@ name: Tests
 on: [push]
 
 jobs:
-  validateTranslations:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - uses: actions/labeler@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Install packages
-        run: npm i
-      - name: Run
-        run: npm run validateTranslations
+  utilsRepoToAllResources:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - uses: actions/labeler@v2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Install packages
+      run: npm i
+    - name: Run
+      run: npm run utilsRepoToAllResources
   
