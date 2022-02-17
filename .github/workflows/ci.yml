@@ -21,7 +21,7 @@ jobs:
           persist-credentials: false
       - uses: actions/labeler@v2
         env:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages
         run: npm i
       - name: Run
