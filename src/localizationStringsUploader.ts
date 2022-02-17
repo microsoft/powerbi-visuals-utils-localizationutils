@@ -220,11 +220,16 @@ export class LocalizationStringsUploader {
 
     public static async UpdateBranchFromMasterRepo(github: Octokit, repo: string, branchRef: string): Promise<ShaModel> {
         let headRefSha: string = "";
+        const msRefName = await this.githubApi.rest.git.listMatchingRefs({
+            owner: LocalizationStringsUploader.ms,
+            repo: repo,
+            ref: "heads/main"
+        }).then(refs => refs.data.length ? "main" : "master")
 
         return github.rest.git.getRef({
             owner: LocalizationStringsUploader.ms,
             repo: repo,
-            ref: "heads/main"
+            ref: `heads/${msRefName}`
         }).then((ref) => {
             headRefSha = ref.data.object.sha;
 
@@ -235,11 +240,14 @@ export class LocalizationStringsUploader {
                 repo: repo,
                 sha: headRefSha
             });
-        }).then(() => github.rest.repos.getCommit({
+        }).then(() => {
+            console.log("updated")
+            return github.rest.repos.getCommit({
                 owner: LocalizationStringsUploader.pbicvbot,
                 repo: repo,
                 ref: headRefSha
             })
+        }
         ).then((commit) => ({
                 treeSha: commit.data.commit.tree.sha,
                 commitSha: commit.data.sha,
