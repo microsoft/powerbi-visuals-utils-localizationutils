@@ -16,7 +16,7 @@ export class LocalizationStringsUploader {
     private static pbicvbot: string = config.ownerName;
 
     public static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
-    public static ms: string = "AleksSavelev";
+    public static ms: string = "Microsoft";
 
     public static async UploadStringsToCommonRepo(updatedVisuals: IndexedFoldersSet) {
 
