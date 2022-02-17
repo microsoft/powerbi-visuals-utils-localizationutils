@@ -1,11 +1,9 @@
 name: Tests
 
-on:
-  schedule:
-    - cron: '40 10 * * *'
+on: [push]
 
 jobs:
-  validateJsons_schedule:
+  validateJsons:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
