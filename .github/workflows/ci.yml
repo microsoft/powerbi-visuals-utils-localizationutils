@@ -3,7 +3,7 @@ name: Tests
 on: [push]
 
 jobs:
-  utilsRepoToAllResources:
+  allResourcesToUtilsRepo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,5 +15,5 @@ jobs:
       - name: Install packages
         run: npm i
       - name: Run
-        run: npm run utilsRepoToAllResources
+        run: npm run allResourcesToUtilsRepo
   
