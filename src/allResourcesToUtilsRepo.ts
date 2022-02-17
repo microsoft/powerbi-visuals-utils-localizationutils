@@ -22,7 +22,7 @@ class LocalizationStringsUtils {
             `${config.ownerName}:${mainRefName}`);
 
         if (!prExists) {
-            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, `heads/${mainRefName}`);
+            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, `heads/master`);
         }
 
         let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),
