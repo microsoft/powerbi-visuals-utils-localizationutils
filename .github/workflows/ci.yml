@@ -2,7 +2,7 @@ name: Tests
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '35 10 * * *'
 
 jobs:
   validateJsons:
@@ -15,7 +15,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages
-        run: npm install
+        run: npm ci
       - name: Run validateJsons
         run: npm run validateJsons
   
