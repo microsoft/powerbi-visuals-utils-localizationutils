@@ -2,8 +2,7 @@ import { Octokit } from "@octokit/rest";
 import { createActionAuth } from "@octokit/auth-action";
 
 export class GithubApiCreator { 
-    private static github: Octokit;    
-    private static token: string = <string>process.env.token;
+    private static github: Octokit;
 
     public static CreateGithubApi(): Octokit {
         if (!GithubApiCreator.github) {
@@ -18,7 +17,7 @@ export class GithubApiCreator {
             });
 
         }
-        console.log(GithubApiCreator.token)
+        
         return GithubApiCreator.github;
     }
 }

@@ -3,7 +3,7 @@ name: Tests
 on: [push]
 
 jobs:
-  allResourcesToUtilsRepo:
+  capabilitiesToResources:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,5 +17,4 @@ jobs:
       - name: Run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run allResourcesToUtilsRepo
-  
+        run: npm run capabilitiesToResources

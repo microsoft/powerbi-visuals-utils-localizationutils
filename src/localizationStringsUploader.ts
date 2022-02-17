@@ -241,7 +241,6 @@ export class LocalizationStringsUploader {
                 sha: headRefSha
             });
         }).then(() => {
-            console.log("updated")
             return github.rest.repos.getCommit({
                 owner: LocalizationStringsUploader.pbicvbot,
                 repo: repo,
