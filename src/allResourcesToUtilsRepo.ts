@@ -9,14 +9,20 @@ const config = require('../config.json');
 
 class LocalizationStringsUtils {
     private static githubApi: Octokit = GithubApiCreator.CreateGithubApi()
+
     public static async Parse() {
+        const mainRefName = await this.githubApi.rest.git.listMatchingRefs({
+            owner: LocalizationStringsUploader.ms,
+            repo: LocalizationStringsUploader.localizationUtilsRepoName,
+            ref: "heads/main"
+        }).then(refs => refs.data.length ? "main" : "master")
 
         let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
             LocalizationStringsUploader.localizationUtilsRepoName,
-            `${config.ownerName}:main`);
+            `${config.ownerName}:${mainRefName}`);
 
         if (!prExists) {
-            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, "heads/main");
+            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, `heads/${mainRefName}`);
         }
 
         let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),

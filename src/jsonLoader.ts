@@ -41,24 +41,18 @@ export class JsonLoader {
         let repoPath: string = forceMicrosoftMasterSource || (updateType === UpdateType.CvToUtils && type === SourceType.LocalizationStrings) ? JsonLoader.microsoftPath : JsonLoader.pbicvbotPath;
 
         if (type === SourceType.Capabilities) {
-            let mainBranchName = "main"
-            this.githubApi.rest.git.listMatchingRefs({
-                owner: JsonLoader.pbicvbot,
-                repo: visualName,
-                ref: "heads/main"
-            }).then(refs => mainBranchName = refs.data.length ? "main" : "master")
-            return JsonLoader.microsoftPath + visualName + `/${mainBranchName}/capabilities.json`;
+            return JsonLoader.microsoftPath + visualName + "/master/capabilities.json";
         } else if (type === SourceType.UtilsRepo) {
             return repoPath
             + JsonLoader.localizationUtilsRepoName
-            + "/main/"
+            + "/master/"
             + visualName
             + (folder ? "/" + folder + "/resources.resjson" : "/en-US/resources.resjson");
         }
 
         return repoPath
             + visualName
-            + (forceMicrosoftMasterSource || updateType === UpdateType.CvToUtils ? "/main/stringResources/" :
+            + (forceMicrosoftMasterSource || updateType === UpdateType.CvToUtils ? "/master/stringResources/" :
                                 updateType === UpdateType.CapabilitiesToCv ?
                                     "/locUpdateCapabilities/stringResources/" : "/locUpdate/stringResources/")
             + (folder ? folder : JsonLoader.enUs)
