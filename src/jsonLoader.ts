@@ -242,7 +242,7 @@ export class JsonLoader {
     private static async GetJsonsFromUtils(repo: string): Promise<IndexedFoldersSet> {
         const folder: string = "dist";
         const fileName: string = "localizationUtils.tar.gz";
-        const filePath: string = "../" + folder + "/" + fileName;
+        const filePath: string = folder + "/" + fileName;
         const ref = await JsonLoader.getMainRefName(repo)
 
         return await this.githubApi.rest.repos.downloadTarballArchive({
