@@ -2,10 +2,10 @@ name: Tests
 
 on:
   schedule:
-    - cron: '35 10 * * *'
+    - cron: '40 10 * * *'
 
 jobs:
-  validateJsons:
+  validateJsons_schedule:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
