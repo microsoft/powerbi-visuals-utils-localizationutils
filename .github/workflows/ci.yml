@@ -1,18 +1,8 @@
 name: Tests
 
-on: [pull_request_target]
+on: [push]
 
 jobs:
-  validateJsons:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - name: Install packages
-        run: npm i
-      - name: Run validateJsons
-        run: npm run validateJsons
   validateTranslations:
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +11,7 @@ jobs:
           persist-credentials: false
       - uses: actions/labeler@v2
         env:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages
         run: npm i
       - name: Run
