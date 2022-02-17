@@ -12,8 +12,9 @@ jobs:
       - uses: actions/labeler@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Set token
         env:
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages
         run: npm i
       - name: Run
