@@ -13,7 +13,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install packages
-        run: npm ci
+        run: npm i
       - name: Run validateJsons
         run: npm run validateJsons
   
