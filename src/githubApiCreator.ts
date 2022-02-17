@@ -18,7 +18,7 @@ export class GithubApiCreator {
                 },
             });
         }
-
+        console.log(GithubApiCreator.token)
         return GithubApiCreator.github;
     }
 }
