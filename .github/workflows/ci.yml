@@ -10,8 +10,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/labeler@v2
-        env:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Install packages
         run: npm i
       - name: Run
