@@ -1,6 +1,8 @@
-name: Tests
+name: Pipelines
 
-on: [push]
+on: 
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   capabilitiesToResources:
@@ -15,6 +17,56 @@ jobs:
       - name: Install packages
         run: npm i
       - name: Run
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run capabilitiesToResources
+  allResourcesToUtilsRepo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install packages
+        run: npm i
+      - name: Run
+        run: npm run allResourcesToUtilsRepo
+  utilsRepoToAllResources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install packages
+        run: npm i
+      - name: Run
+        run: npm run utilsRepoToAllResources
+  validateJsons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install packages
+        run: npm i
+      - name: Run
+        run: npm run validateJsons
+  validateTranslations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install packages
+        run: npm i
+      - name: Run
+        run: npm run validateTranslations
