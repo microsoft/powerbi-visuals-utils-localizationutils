@@ -9,26 +9,37 @@ const config = require('../config.json');
 
 class LocalizationStringsUtils {
     private static githubApi: Octokit = GithubApiCreator.CreateGithubApi()
+    private static ownerName: string = config.ownerName
+
+    private static async GetDefaultBranchName(owner: string, repoName: string){
+        const repo = await LocalizationStringsUtils.githubApi.rest.repos.get({
+            owner,
+            repo: repoName,
+        })
+        return repo.data["default_branch"]
+    }
 
     public static async Parse() {
-        const mainRefName = await this.githubApi.rest.git.listMatchingRefs({
-            owner: LocalizationStringsUploader.ms,
-            repo: LocalizationStringsUploader.localizationUtilsRepoName,
-            ref: "heads/main"
-        }).then(refs => refs.data.length ? "main" : "master")
+        const mainRefName = await LocalizationStringsUtils.GetDefaultBranchName(LocalizationStringsUploader.ms, LocalizationStringsUploader.mainRepoName)
 
-        let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(LocalizationStringsUploader.ms, 
-            LocalizationStringsUploader.localizationUtilsRepoName,
-            `${config.ownerName}:${mainRefName}`);
+        let isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(
+            LocalizationStringsUploader.ms, 
+            LocalizationStringsUploader.mainRepoName,
+            `${LocalizationStringsUtils.ownerName}:${mainRefName}`
+        );
 
-        if (!prExists) {
-            await LocalizationStringsUploader.UpdateBranchFromMasterRepo(this.githubApi, LocalizationStringsUploader.localizationUtilsRepoName, `heads/master`);
+        if (!isPullRequestExists) {
+            await LocalizationStringsUploader.UpdateBranchFromMainRepo(
+                LocalizationStringsUtils.githubApi, 
+                LocalizationStringsUploader.mainRepoName, 
+                `heads/${mainRefName}`
+            );
         }
 
-        let sourceJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),
-            destinationJsons: Promise<IndexedObjects> = JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, UpdateType.CvToUtils, !prExists, false);
+        let sourceJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.LocalizationStrings, UpdateType.CvToUtils),
+            destinationJsons: IndexedObjects = await JsonLoader.GetJsonsWithFoldersFromGithub(SourceType.UtilsRepo, UpdateType.CvToUtils, !isPullRequestExists);
 
-        let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(await sourceJsons, await destinationJsons);
+        let updatedVisuals: IndexedObjects = LocalizationStringsUpdater.UpdateDestinationFolders(sourceJsons, destinationJsons);
         await LocalizationStringsUploader.UploadStringsToCommonRepo(updatedVisuals);
     }
 }

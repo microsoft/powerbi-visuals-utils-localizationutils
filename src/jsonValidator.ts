@@ -42,10 +42,10 @@ class JsonValidator {
             let fileString: string = fs.readFileSync(jsonPath, "utf8");
 
             try {
-                let obj: {} = JSON.parse(fileString);
+                JSON.parse(fileString);
                 console.log("\x1b[32m%s\x1b[0m", jsonPath + " is valid");
             } catch (err){
-                ++ brokenFilesCount;
+                ++brokenFilesCount;
                 console.log("\x1b[31m%s\x1b[0m", jsonPath + " error occured: " + (<any>err).message);
             }    
         }

@@ -13,10 +13,10 @@ const config = require('../config.json');
 export class JsonLoader {
     private static microsoftPath: string = "https://raw.githubusercontent.com/Microsoft/";
     private static pbicvbotPath: string = "https://raw.githubusercontent.com/pbicvbot/";
-    private static localizationUtilsRepoName: string = "powerbi-visuals-utils-localizationutils";
+    private static mainRepoName: string = config.repoName;
     private static capabilities: string = "capabilities";
     private static microsoft: string = "Microsoft";
-    private static pbicvbot: string = config.ownerName;
+    private static ownerName: string = config.ownerName;
     private static enUs: string = "en-US";
     private static githubApi: Octokit = GithubApiCreator.CreateGithubApi();
 
@@ -28,49 +28,57 @@ export class JsonLoader {
         });
     }
 
-    private static async getMainRefName(repo: string, owner?: string): Promise<string> {
-        return await this.githubApi.rest.git.listMatchingRefs({
-            owner: owner ?? JsonLoader.pbicvbot,
-            repo: repo,
-            ref: "heads/main"
-        }).then(refs => refs.data.length ? "main" : "master")
+    private static async GetDefaultBranchName(repoName: string, owner?: string): Promise<string> {
+        const repo = await JsonLoader.githubApi.rest.repos.get({
+            owner: owner ?? JsonLoader.ownerName,
+            repo: repoName,
+        })
+        return repo.data["default_branch"]
     }
 
-    private static BuildUrl(visualName: string, type: SourceType, updateType: UpdateType, folder?: string, forceMicrosoftMasterSource?: boolean): string {
+    private static async BuildUrl(visualName: string, type: SourceType, updateType: UpdateType, folder?: string, forceMicrosoftMainSource?: boolean): Promise<string> {
         
-        let repoPath: string = forceMicrosoftMasterSource || (updateType === UpdateType.CvToUtils && type === SourceType.LocalizationStrings) ? JsonLoader.microsoftPath : JsonLoader.pbicvbotPath;
+        const repoPath: string = forceMicrosoftMainSource || (updateType === UpdateType.CvToUtils && type === SourceType.LocalizationStrings) 
+            ? JsonLoader.microsoftPath 
+            : JsonLoader.pbicvbotPath;
 
         if (type === SourceType.Capabilities) {
-            return JsonLoader.microsoftPath + visualName + "/master/capabilities.json";
+            return JsonLoader.microsoftPath + visualName + "/main/capabilities.json";
         } else if (type === SourceType.UtilsRepo) {
             return repoPath
-            + JsonLoader.localizationUtilsRepoName
-            + "/master/"
+            + JsonLoader.mainRepoName
+            + "/main/"
             + visualName
-            + (folder ? "/" + folder + "/resources.resjson" : "/en-US/resources.resjson");
+            + (folder ? `/${folder}/resources.resjson` : "/en-US/resources.resjson");
         }
 
         return repoPath
             + visualName
-            + (forceMicrosoftMasterSource || updateType === UpdateType.CvToUtils ? "/master/stringResources/" :
-                                updateType === UpdateType.CapabilitiesToCv ?
-                                    "/locUpdateCapabilities/stringResources/" : "/locUpdate/stringResources/")
+            + (
+                forceMicrosoftMainSource || updateType === UpdateType.CvToUtils 
+                ? "/main/stringResources/" 
+                : (
+                    updateType === UpdateType.CapabilitiesToCv 
+                    ? "/locUpdateCapabilities/stringResources/" 
+                    : "/locUpdate/stringResources/"
+                )
+            )
             + (folder ? folder : JsonLoader.enUs)
             + "/resources.resjson";
     }
 
-    private static async GetJsonsUtilsToCv(repoType: SourceType): Promise<IndexedFoldersSet> { 
+    private static async GetJsonsUtilsToCv(repoType: SourceType, checkForExistingPullRequest?: boolean): Promise<IndexedFoldersSet> { 
         if (repoType === SourceType.UtilsRepo) {
-            return JsonLoader.GetJsonsFromUtils(JsonLoader.localizationUtilsRepoName);
+            return JsonLoader.GetJsonsFromUtils(JsonLoader.mainRepoName);
         }
 
-        return JsonLoader.GetJsonsFromRepos(repoType);        
+        return JsonLoader.GetJsonsFromRepos(repoType, checkForExistingPullRequest);        
     }
 
     private static async GetJsons(
         repoType: SourceType, 
         updateType: UpdateType, 
-        forceMicrosoftMasterSource?: boolean, 
+        forceMicrosoftMainSource?: boolean, 
         checkForExistingPullRequest?: boolean
     ): Promise<IndexedFoldersSet> {
         let visualNames: string[] = [];
@@ -81,13 +89,13 @@ export class JsonLoader {
                 let folderNames: string[] = [];
 
                 if (checkForExistingPullRequest) {
-                    let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(
+                    let isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(
                         JsonLoader.microsoft, 
                         visualName,
-                        `${this.pbicvbot} : ${updateType === UpdateType.CapabilitiesToCv ? "locUpdateCapabilities" : "locUpdate"}`
+                        `${this.ownerName}:${updateType === UpdateType.CapabilitiesToCv ? "locUpdateCapabilities" : "locUpdate"}`
                     );
                     
-                    forceMicrosoftMasterSource = !prExists;
+                    forceMicrosoftMainSource = !isPullRequestExists;
                 }
 
                 if (repoType === SourceType.Capabilities) {
@@ -101,7 +109,7 @@ export class JsonLoader {
                 for (let i in folderNames) {
                     let folder = folderNames[i];                    
 
-                    let url: string = JsonLoader.BuildUrl(visualName, repoType, updateType, folder, forceMicrosoftMasterSource);
+                    let url: string = await JsonLoader.BuildUrl(visualName, repoType, updateType, folder, forceMicrosoftMainSource);
                     visualNames.push(visualName);
 
                     allPromises.push(
@@ -153,54 +161,55 @@ export class JsonLoader {
     public static async GetJsonsWithFoldersFromGithub(
         repoType: SourceType, 
         updateType: UpdateType, 
-        forceMicrosoftMasterSource?: boolean, 
+        forceMicrosoftMainSource?: boolean, 
         checkForExistingPullRequest?: boolean
     ): Promise<IndexedFoldersSet> {
 
         if (updateType === UpdateType.UtilsToCv) {
-            return JsonLoader.GetJsonsUtilsToCv(repoType);
+            return JsonLoader.GetJsonsUtilsToCv(repoType, checkForExistingPullRequest);
         }
 
-        return JsonLoader.GetJsons(repoType, updateType, forceMicrosoftMasterSource, checkForExistingPullRequest);        
+        return JsonLoader.GetJsons(repoType, updateType, forceMicrosoftMainSource, checkForExistingPullRequest);        
     }
 
-    private static async GetJsonsFromRepo(repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<IndexedFoldersSet> {
-        let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? JsonLoader.microsoft : JsonLoader.pbicvbot;
+    private static async GetJsonsFromRepo(repo: string, type: SourceType, forceMicrosoftMainSource?: boolean): Promise<IndexedFoldersSet> {
+        const owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? JsonLoader.microsoft : JsonLoader.ownerName;
 
-        let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? `heads/${await JsonLoader.getMainRefName(repo, owner)}` : "heads/locUpdate";
+        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo, owner)
+        const ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? `heads/${defaultBranchName}` : "heads/locUpdate";
 
-        let folder: string =  Path.join("dist");
-        let fileName: string = repo + ".tar.gz";
-        let filePath: string = folder + "/" + fileName;
+        const folder: string =  Path.join("dist");
+        const fileName: string = repo + ".tar.gz";
+        const filePath: string = folder + "/" + fileName;
 
-        return this.githubApi.rest.repos.downloadTarballArchive({
+        const data = await this.githubApi.rest.repos.downloadTarballArchive({
             owner: owner,
             ref: ref,
             repo: repo
         })
-        .then((data) => {
-            return JsonLoader.GetJsonByUrl(data.url).promise();
-        })
-        .then((targz) => {
-            return LoaderUtils.ExtractTargz(targz, filePath);
-        })
-        .then(() => {
-            let rootFolder = Path.join("dist", fs.readdirSync("dist")
-                .filter(directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf(repo) > 0)[0]);
 
-            let visualFolderPath: string = Path.join(rootFolder, "stringResources");
+        const targz = await JsonLoader.GetJsonByUrl(data.url).promise()
+        await LoaderUtils.ExtractTargz(targz, filePath)
+        
+        const rootFolder = Path.join(
+            "dist", 
+            fs.readdirSync("dist").filter(
+                currentDirectory => fs.lstatSync(Path.join("dist", currentDirectory)).isDirectory() && currentDirectory.indexOf(repo) > 0
+            )[0]
+        );
 
-            let obj: any = {};
-            obj[repo] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
+        const obj: any = {};
 
-            return obj;
-        });
+        const visualFolderPath: string = Path.join(rootFolder, "stringResources");
+        obj[repo] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
+
+        return obj;
     }
 
     private static async GetJsonsFromRepos(
         repoType: SourceType, 
         checkForExistingPullRequest?: boolean, 
-        forceMicrosoftMasterSource?: boolean
+        forceMicrosoftMainSource?: boolean
     ): Promise<IndexedFoldersSet> {
         
         let allPromises: Promise<IndexedObjects>[] = [];
@@ -208,14 +217,14 @@ export class JsonLoader {
         for (let visualName in visualsToParse) {
             if (visualsToParse[visualName]) {
                 if (checkForExistingPullRequest) {
-                    let prExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
+                    let isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
                         visualName,
-                        `${JsonLoader.pbicvbot}:locUpdate`);
+                        `${JsonLoader.ownerName}:locUpdate`);
                     
-                    forceMicrosoftMasterSource = !prExists;
+                    forceMicrosoftMainSource = !isPullRequestExists;
                 }
 
-                allPromises.push(JsonLoader.GetJsonsFromRepo(visualName, repoType, forceMicrosoftMasterSource));
+                allPromises.push(JsonLoader.GetJsonsFromRepo(visualName, repoType, forceMicrosoftMainSource));
             }
         }
 
@@ -237,41 +246,40 @@ export class JsonLoader {
         const folder: string = "dist";
         const fileName: string = "localizationUtils.tar.gz";
         const filePath: string = folder + "/" + fileName;
-        const ref = await JsonLoader.getMainRefName(repo)
+        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo)
 
-        return await this.githubApi.rest.repos.downloadTarballArchive({
-            owner: this.pbicvbot,
-            ref: ref,
+        const data = await this.githubApi.rest.repos.downloadTarballArchive({
+            owner: this.ownerName,
+            ref: defaultBranchName,
             repo: repo
         })
-        .then((data) => {
-            return JsonLoader.GetJsonByUrl(data.url).promise();
-        })
-        .then((targz) => {
-            return LoaderUtils.ExtractTargz(targz, filePath);
-        })
-        .then(() => {
-            let foldersSet: IndexedFoldersSet = {}; 
 
-            let locUtils: string = fs.readdirSync("dist")
-                .filter(directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf("localizationutils") > 0)[0];
+        const targz = await JsonLoader.GetJsonByUrl(data.url).promise();
+        await LoaderUtils.ExtractTargz(targz, filePath);
 
-            let rootFolder = Path.join("dist", locUtils);
+        let foldersSet: IndexedFoldersSet = {}; 
 
-            for (let visualName in visualsToParse) {
-                if (visualsToParse[visualName]) {
-                    let visualFolderPath: string = Path.join(rootFolder, visualName);
-                    foldersSet[visualName] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
-                }
+        let locUtils: string = fs.readdirSync("dist").filter(
+            directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf("localizationutils") > 0
+        )[0];
+
+        let rootFolder = Path.join("dist", locUtils);
+
+        for (let visualName in visualsToParse) {
+            if (visualsToParse[visualName]) {
+                let visualFolderPath: string = Path.join(rootFolder, visualName);
+                foldersSet[visualName] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
             }
+        }
 
-            return foldersSet;
-        });
+        return foldersSet;
     }
 
-    private static async GetFolders(github: Octokit, path: string, repo: string, type: SourceType, forceMicrosoftMasterSource?: boolean): Promise<string[]> {
-        let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? JsonLoader.microsoft : JsonLoader.pbicvbot;
-        let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMasterSource ? `heads/${await JsonLoader.getMainRefName(repo, owner)}` : "heads/locUpdate";
+    private static async GetFolders(github: Octokit, path: string, repo: string, type: SourceType, forceMicrosoftMainSource?: boolean): Promise<string[]> {
+        let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? JsonLoader.microsoft : JsonLoader.ownerName;
+        
+        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo, owner)
+        let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? `heads/${defaultBranchName}` : "heads/locUpdate";
 
         const { data } = await github.rest.repos.getContent({
             owner: owner,
