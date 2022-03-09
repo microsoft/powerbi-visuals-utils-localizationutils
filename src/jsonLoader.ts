@@ -2,7 +2,7 @@ import { IndexedObjects, SourceType, UpdateType, IndexedFoldersSet } from './mod
 import { get } from "request-promise-native";
 import { Octokit } from "@octokit/rest";
 import { LocalizationStringsUploader } from "./localizationStringsUploader";
-import { GithubApiCreator } from "./githubApiCreator";
+import { ApiService } from "./apiService";
 import { LoaderUtils } from "./loaderUtils"; 
 import * as fs from "fs";
 import * as Path from "path";
@@ -18,7 +18,7 @@ export class JsonLoader {
     private static microsoft: string = "Microsoft";
     private static ownerName: string = config.ownerName;
     private static enUs: string = "en-US";
-    private static githubApi: Octokit = GithubApiCreator.CreateGithubApi();
+    private static api: Octokit = ApiService.Create();
 
     public static GetJsonByUrl(url: string) {
         return get({
@@ -27,15 +27,7 @@ export class JsonLoader {
             encoding: null
         });
     }
-
-    private static async GetDefaultBranchName(repoName: string, owner?: string): Promise<string> {
-        const repo = await JsonLoader.githubApi.rest.repos.get({
-            owner: owner ?? JsonLoader.ownerName,
-            repo: repoName,
-        })
-        return repo.data["default_branch"]
-    }
-
+    
     private static async BuildUrl(visualName: string, type: SourceType, updateType: UpdateType, folder?: string, forceMicrosoftMainSource?: boolean): Promise<string> {
         
         const repoPath: string = forceMicrosoftMainSource || (updateType === UpdateType.CvToUtils && type === SourceType.LocalizationStrings) 
@@ -81,15 +73,15 @@ export class JsonLoader {
         forceMicrosoftMainSource?: boolean, 
         checkForExistingPullRequest?: boolean
     ): Promise<IndexedFoldersSet> {
-        let visualNames: string[] = [];
-        let allPromises: any[] = [];
+        const visualNames: string[] = [];
+        const allPromises: any[] = [];
 
-        for (let visualName in visualsToParse) {
+        for (const visualName in visualsToParse) {
             if (visualsToParse[visualName]) {
                 let folderNames: string[] = [];
 
                 if (checkForExistingPullRequest) {
-                    let isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(
+                    const isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(
                         JsonLoader.microsoft, 
                         visualName,
                         `${this.ownerName}:${updateType === UpdateType.CapabilitiesToCv ? "locUpdateCapabilities" : "locUpdate"}`
@@ -106,10 +98,10 @@ export class JsonLoader {
 
                 folderNames = folderNames.filter(x => x !== "qps-ploc");
 
-                for (let i in folderNames) {
-                    let folder = folderNames[i];                    
+                for (const i in folderNames) {
+                    const folder = folderNames[i];                    
 
-                    let url: string = await JsonLoader.BuildUrl(visualName, repoType, updateType, folder, forceMicrosoftMainSource);
+                    const url: string = await JsonLoader.BuildUrl(visualName, repoType, updateType, folder, forceMicrosoftMainSource);
                     visualNames.push(visualName);
 
                     allPromises.push(
@@ -132,14 +124,14 @@ export class JsonLoader {
 
         return Promise.all(allPromises)
             .then((values) => {  
-                let allJsons: IndexedFoldersSet = {}; 
+                const allJsons: IndexedFoldersSet = {}; 
 
-                for (let i in values) {
-                        let val = values[i];
+                for (const i in values) {
+                        const val = values[i];
                         console.log("Visual " + val.visualName + " prepared for parsing");
 
                         // remove byte order mark from json string. Found in linedotchart
-                        let val1 = val.response.toString().replace('\uFEFF', '');
+                        const val1 = val.response.toString().replace('\uFEFF', '');
                         
                         if (!allJsons[val.visualName]) {
                             allJsons[val.visualName] = new IndexedObjects();
@@ -153,12 +145,12 @@ export class JsonLoader {
                 
                 return allJsons;
             }).catch((reject) => {
-                console.log("Get jsons from github failed: " + reject);
+                console.log("Get jsons failed: " + reject);
                 throw reject;
             });
     }
 
-    public static async GetJsonsWithFoldersFromGithub(
+    public static async GetJsonsWithFolders(
         repoType: SourceType, 
         updateType: UpdateType, 
         forceMicrosoftMainSource?: boolean, 
@@ -175,14 +167,14 @@ export class JsonLoader {
     private static async GetJsonsFromRepo(repo: string, type: SourceType, forceMicrosoftMainSource?: boolean): Promise<IndexedFoldersSet> {
         const owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? JsonLoader.microsoft : JsonLoader.ownerName;
 
-        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo, owner)
+        const defaultBranchName = await ApiService.GetDefaultBranchName(owner, repo)
         const ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? `heads/${defaultBranchName}` : "heads/locUpdate";
 
         const folder: string =  Path.join("dist");
         const fileName: string = repo + ".tar.gz";
         const filePath: string = folder + "/" + fileName;
 
-        const data = await this.githubApi.rest.repos.downloadTarballArchive({
+        const data = await this.api.rest.repos.downloadTarballArchive({
             owner: owner,
             ref: ref,
             repo: repo
@@ -207,17 +199,17 @@ export class JsonLoader {
     }
 
     private static async GetJsonsFromRepos(
-        repoType: SourceType, 
+        repoType: SourceType,
         checkForExistingPullRequest?: boolean, 
         forceMicrosoftMainSource?: boolean
     ): Promise<IndexedFoldersSet> {
         
-        let allPromises: Promise<IndexedObjects>[] = [];
+        const allPromises: Promise<IndexedObjects>[] = [];
 
-        for (let visualName in visualsToParse) {
+        for (const visualName in visualsToParse) {
             if (visualsToParse[visualName]) {
                 if (checkForExistingPullRequest) {
-                    let isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
+                    const isPullRequestExists: boolean = await LocalizationStringsUploader.IsPullRequestExists(JsonLoader.microsoft, 
                         visualName,
                         `${JsonLoader.ownerName}:locUpdate`);
                     
@@ -230,10 +222,10 @@ export class JsonLoader {
 
         return Promise.all(allPromises)
             .then((foldersSets) => {
-                let foldersSet: IndexedFoldersSet = {};
+                const foldersSet: IndexedFoldersSet = {};
 
-                for (let i in foldersSets) {
-                    for (let visualName in foldersSets[i]) {
+                for (const i in foldersSets) {
+                    for (const visualName in foldersSets[i]) {
                         foldersSet[visualName] = foldersSets[i][visualName];
                     }
                 }
@@ -246,9 +238,9 @@ export class JsonLoader {
         const folder: string = "dist";
         const fileName: string = "localizationUtils.tar.gz";
         const filePath: string = folder + "/" + fileName;
-        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo)
+        const defaultBranchName = await ApiService.GetDefaultBranchName(this.ownerName, repo)
 
-        const data = await this.githubApi.rest.repos.downloadTarballArchive({
+        const data = await this.api.rest.repos.downloadTarballArchive({
             owner: this.ownerName,
             ref: defaultBranchName,
             repo: repo
@@ -257,17 +249,17 @@ export class JsonLoader {
         const targz = await JsonLoader.GetJsonByUrl(data.url).promise();
         await LoaderUtils.ExtractTargz(targz, filePath);
 
-        let foldersSet: IndexedFoldersSet = {}; 
+        const foldersSet: IndexedFoldersSet = {}; 
 
-        let locUtils: string = fs.readdirSync("dist").filter(
+        const locUtils: string = fs.readdirSync("dist").filter(
             directory => fs.lstatSync(Path.join("dist", directory)).isDirectory() && directory.indexOf("localizationutils") > 0
         )[0];
 
-        let rootFolder = Path.join("dist", locUtils);
+        const rootFolder = Path.join("dist", locUtils);
 
-        for (let visualName in visualsToParse) {
+        for (const visualName in visualsToParse) {
             if (visualsToParse[visualName]) {
-                let visualFolderPath: string = Path.join(rootFolder, visualName);
+                const visualFolderPath: string = Path.join(rootFolder, visualName);
                 foldersSet[visualName] = LoaderUtils.GetIndexedObjects(visualFolderPath, true);
             }
         }
@@ -275,13 +267,13 @@ export class JsonLoader {
         return foldersSet;
     }
 
-    private static async GetFolders(github: Octokit, path: string, repo: string, type: SourceType, forceMicrosoftMainSource?: boolean): Promise<string[]> {
-        let owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? JsonLoader.microsoft : JsonLoader.ownerName;
+    private static async GetFolders(api: Octokit, path: string, repo: string, type: SourceType, forceMicrosoftMainSource?: boolean): Promise<string[]> {
+        const owner: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? JsonLoader.microsoft : JsonLoader.ownerName;
         
-        const defaultBranchName = await JsonLoader.GetDefaultBranchName(repo, owner)
-        let ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? `heads/${defaultBranchName}` : "heads/locUpdate";
+        const defaultBranchName = await ApiService.GetDefaultBranchName(repo, owner)
+        const ref: string = type !== SourceType.LocalizationStrings || forceMicrosoftMainSource ? `heads/${defaultBranchName}` : "heads/locUpdate";
 
-        const { data } = await github.rest.repos.getContent({
+        const { data } = await api.rest.repos.getContent({
             owner: owner,
             path: path,
             repo: repo,

@@ -18,7 +18,7 @@ export class LoaderUtils {
     }
 
     public static GetIndexedObjects(pathToLocales: string, skipEnUs?: boolean): IndexedObjects {
-        let indexedObject: IndexedObjects = new IndexedObjects();
+        const indexedObject: IndexedObjects = new IndexedObjects();
 
         let locales: string[] = fs.readdirSync(pathToLocales);
 
@@ -27,9 +27,9 @@ export class LoaderUtils {
         }
 
         locales.filter(x => x !== "qps-ploc" && fs.lstatSync(path.join(pathToLocales, x)).isDirectory()).forEach((locale) => {
-            let localePath: string = path.join(pathToLocales, locale);
+            const localePath: string = path.join(pathToLocales, locale);
 
-            let fileString: string = fs.readFileSync(path.join(localePath, "resources.resjson"), "utf8");
+            const fileString: string = fs.readFileSync(path.join(localePath, "resources.resjson"), "utf8");
 
             indexedObject[locale] = JSON.parse(fileString.replace('\uFEFF', ''));
         });

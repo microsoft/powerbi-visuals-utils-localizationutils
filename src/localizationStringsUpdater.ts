@@ -4,13 +4,13 @@ export class LocalizationStringsUpdater {
     public static stringsToSkip: string[] = ["short_description", "long_description"];
 
     public static UpdateDestinationFolders(sourceVisuals: IndexedFoldersSet, destinationVisuals: IndexedFoldersSet): IndexedFoldersSet {
-        let updatedVisuals: IndexedFoldersSet = new IndexedFoldersSet();
+        const updatedVisuals: IndexedFoldersSet = new IndexedFoldersSet();
 
-        for (let visualName in sourceVisuals) {
+        for (const visualName in sourceVisuals) {
 
-            let folders: IndexedObjects = sourceVisuals[visualName];
+            const folders: IndexedObjects = sourceVisuals[visualName];
 
-            for (let folderName in folders) {
+            for (const folderName in folders) {
                 let sourceStrings: DisplayNameAndKeyPairs = folders[folderName],
                 destinationStrings: DisplayNameAndKeyPairs = new DisplayNameAndKeyPairs(),
                 isUpdated: boolean = false;
@@ -21,13 +21,13 @@ export class LocalizationStringsUpdater {
                     console.log("added " + visualName + " " + folderName);
                 } else {
                     destinationStrings = destinationVisuals[visualName][folderName];
-                    for (let displayNameKey in sourceStrings) {
+                    for (const displayNameKey in sourceStrings) {
 
                         if (LocalizationStringsUpdater.stringsToSkip.indexOf(displayNameKey) !== -1) {
                             continue;
                         }
 
-                        let displayName: string = sourceStrings[displayNameKey];
+                        const displayName: string = sourceStrings[displayNameKey];
                         
                         if (!destinationStrings[displayNameKey] || destinationStrings[displayNameKey] !== displayName) {
                             console.log("updated " + visualName + " " + folderName + " " + displayName)

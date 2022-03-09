@@ -2,18 +2,18 @@ import { DisplayNameAndKeyPairs, IndexedObjects, IndexedFoldersSet } from './mod
 
 export class CapabilitiesParser {
     public static parseCapabilities(jsons: IndexedFoldersSet): IndexedFoldersSet {
-        let localizationStrings: IndexedFoldersSet = new IndexedFoldersSet();
+        const localizationStrings: IndexedFoldersSet = new IndexedFoldersSet();
 
-        for (let visualName in jsons) {
+        for (const visualName in jsons) {
             
-            let folders: any = jsons[visualName];
+            const folders: any = jsons[visualName];
 
-            for (let index in folders) {
-                let capabilities: any = folders[index];
+            for (const index in folders) {
+                const capabilities: any = folders[index];
 
-                let currentLocStrings: DisplayNameAndKeyPairs = new DisplayNameAndKeyPairs();
-                let dataRolesStrings: DisplayNameAndKeyPairs = CapabilitiesParser.parseDataRoles(<any[]>capabilities.dataRoles);
-                let objectsStrings: DisplayNameAndKeyPairs = CapabilitiesParser.parseObjects(<{[key: string]: string}>capabilities.objects);
+                const currentLocStrings: DisplayNameAndKeyPairs = new DisplayNameAndKeyPairs();
+                const dataRolesStrings: DisplayNameAndKeyPairs = CapabilitiesParser.parseDataRoles(<any[]>capabilities.dataRoles);
+                const objectsStrings: DisplayNameAndKeyPairs = CapabilitiesParser.parseObjects(<{[key: string]: string}>capabilities.objects);
 
                 Object.assign(currentLocStrings, dataRolesStrings, objectsStrings);
 
@@ -26,7 +26,7 @@ export class CapabilitiesParser {
     }
 
     private static parseDataRoles(dataRoles: any[]): DisplayNameAndKeyPairs {
-        let strings: DisplayNameAndKeyPairs = {};
+        const strings: DisplayNameAndKeyPairs = {};
         dataRoles.forEach((role) => {
             if (role.displayName && role.displayNameKey && !strings[role.displayNameKey]) {
                 strings[role.displayNameKey] = role.displayName;
@@ -37,8 +37,8 @@ export class CapabilitiesParser {
     }
 
     private static parseObject(obj: any, strings: DisplayNameAndKeyPairs) {        
-        for (let prop in obj) {
-            let property: any = obj[prop];
+        for (const prop in obj) {
+            const property: any = obj[prop];
 
             if (property.displayName && property.displayNameKey && !strings[property.displayNameKey]) {
                 strings[property.displayNameKey] = property.displayName;
@@ -51,9 +51,9 @@ export class CapabilitiesParser {
     }
 
     private static parseObjects(objects: {[key: string]: {}}): DisplayNameAndKeyPairs {
-        let strings: DisplayNameAndKeyPairs = {};
-        for (let key in objects) {
-            let object: any = objects[key];
+        const strings: DisplayNameAndKeyPairs = {};
+        for (const key in objects) {
+            const object: any = objects[key];
 
             if (object.displayName && object.displayNameKey && !strings[object.displayNameKey]) {
                 strings[object.displayNameKey] = object.displayName;

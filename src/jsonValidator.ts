@@ -7,26 +7,26 @@ class JsonValidator {
     private static resjsonFileName: string = "resources.resjson";
 
     public static Run() {
-        let jsonPaths: string[] = [];
+        const jsonPaths: string[] = [];
 
         console.log("All jsons paths building started.")
 
-        for (let visualName in visualsToParse) {            
+        for (const visualName in visualsToParse) {            
             if (visualsToParse[visualName]) { 
                 console.log(visualName + ": getting all directories.");
 
                 console.log("dirname: " + __dirname + ";.." + "; visualName: " + visualName);
 
-                let visualResourcesPath: string = path.join(__dirname, "..", visualName);
+                const visualResourcesPath: string = path.join(__dirname, "..", visualName);
 
-                let localeFolders: string[] = fs.readdirSync(visualResourcesPath)
+                const localeFolders: string[] = fs.readdirSync(visualResourcesPath)
                                           .map(name => path.join(visualResourcesPath, name))
                                           .filter(directory => fs.lstatSync(directory).isDirectory());
 
                 console.log(visualName + ": all directories recieved.");
 
-                for (let i in localeFolders) {
-                    let localeFolder: string = localeFolders[i];
+                for (const i in localeFolders) {
+                    const localeFolder: string = localeFolders[i];
                     
                     jsonPaths.push(path.join(localeFolders[i], JsonValidator.resjsonFileName));
                     console.log(visualName + "/" + localeFolder + ": path has been built.");
@@ -37,9 +37,9 @@ class JsonValidator {
         let brokenFilesCount: number = 0;
 
         console.log("Validation process started");
-        for (let i in jsonPaths) {
-            let jsonPath: string = jsonPaths[i]
-            let fileString: string = fs.readFileSync(jsonPath, "utf8");
+        for (const i in jsonPaths) {
+            const jsonPath: string = jsonPaths[i]
+            const fileString: string = fs.readFileSync(jsonPath, "utf8");
 
             try {
                 JSON.parse(fileString);

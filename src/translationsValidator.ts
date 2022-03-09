@@ -8,7 +8,7 @@ class TranslationsValidator {
     private static exportFileName: string = "missed_translations.csv";
 
     private static export(rows: string[]): void {
-        var stream = fs.createWriteStream(TranslationsValidator.exportFileName);
+        const stream = fs.createWriteStream(TranslationsValidator.exportFileName);
 
         stream.once('open', function () {
 
@@ -21,20 +21,20 @@ class TranslationsValidator {
     }
 
     public static Run() {
-        let jsonPaths: { [visual: string]: { [key: string]: string } } = {};
+        const jsonPaths: { [visual: string]: { [key: string]: string } } = {};
 
         console.log("All jsons paths building started.")
 
-        for (let visualName in visualsToParse) {
+        for (const visualName in visualsToParse) {
             if (visualsToParse[visualName]) {
-                let visualResourcesPath: string = path.join(__dirname, "..", visualName);
-                let localeFolders: string[] = fs.readdirSync(visualResourcesPath);
+                const visualResourcesPath: string = path.join(__dirname, "..", visualName);
+                const localeFolders: string[] = fs.readdirSync(visualResourcesPath);
 
                 jsonPaths[visualName] = {};
 
-                for (let i in localeFolders) {
-                    let folder: string = localeFolders[i];
-                    let pathToFile: string = path.join(visualResourcesPath, folder);
+                for (const i in localeFolders) {
+                    const folder: string = localeFolders[i];
+                    const pathToFile: string = path.join(visualResourcesPath, folder);
 
                     if (!fs.lstatSync(pathToFile).isDirectory()) {
                         continue;
@@ -45,14 +45,14 @@ class TranslationsValidator {
         }
 
         let brokenFilesCount: number = 0;
-        let results: string[] = [];
+        const results: string[] = [];
 
         console.log("Validation process started");
 
-        for (let visual in jsonPaths) {
-            let visualLocales: { [key: string]: string } = jsonPaths[visual];
+        for (const visual in jsonPaths) {
+            const visualLocales: { [key: string]: string } = jsonPaths[visual];
 
-            let engStringsPath: string = visualLocales["en-US"];
+            const engStringsPath: string = visualLocales["en-US"];
 
             if (!engStringsPath) {
                 ++brokenFilesCount;
@@ -60,7 +60,7 @@ class TranslationsValidator {
             }
 
             let engStrings: { [key: string]: string } = {};
-            let fileString: string = fs.readFileSync(engStringsPath, "utf8");
+            const fileString: string = fs.readFileSync(engStringsPath, "utf8");
 
             try {
                 engStrings = JSON.parse(fileString);
@@ -69,12 +69,12 @@ class TranslationsValidator {
                 continue;
             }
 
-            for (let locale in visualLocales) {
+            for (const locale in visualLocales) {
                 if (locale === "en-US") {
                     continue;
                 }
-                let jsonPath: string = visualLocales[locale];
-                let fileString: string = fs.readFileSync(jsonPath, "utf8");
+                const jsonPath: string = visualLocales[locale];
+                const fileString: string = fs.readFileSync(jsonPath, "utf8");
 
                 let obj: any = {};
                 try {
@@ -84,7 +84,7 @@ class TranslationsValidator {
                 }
 
                 let index: number = 1;
-                for (let str in engStrings) {
+                for (const str in engStrings) {
                     index++;
                     if (!obj[str]) {
                         ++brokenFilesCount;
