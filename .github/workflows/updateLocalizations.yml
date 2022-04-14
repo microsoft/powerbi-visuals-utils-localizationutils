@@ -12,24 +12,26 @@ jobs:
           git submodule update
       - name: Copy EN translation
         run: |
-          for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="/visuals/"
-            newLocation="${file/$substring//localizations/}"
-            cp $file $newLocation;
-          done;
-      - name: Commit and push EN translation
-        run: git add . & git commit "new EN translation" & git push
-      - name: Copy translations
-        run: |
-          for file in ./localizations/*/stringResources/*/*.resjson; do 
-            substring="/localizations/"
-            newLocation="${file/$substring//visuals/}"
-            cp $file $newLocation;
-          done;
-      - name: Commit and push new changes to repos
-        run: |
-          mainFolder=$PWD
-          for folder in visuals/*; do
-            cd $mainFolder/$folder;
-            git add . & git commit "new translations" & git push;
-          done;
+        cd localizaztions/powerbi-visuals-tornado/stringResources/en-US/
+        ls
+      # for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
+      #   substring="/visuals/"
+      #   newLocation="${file/$substring//localizations/}"
+      #   cp $file $newLocation;
+      # done;
+      # - name: Commit and push EN translation
+      #   run: git add . & git commit "new EN translation" & git push
+      # - name: Copy translations
+      #   run: |
+      #     for file in ./localizations/*/stringResources/*/resources.resjson; do 
+      #       substring="/localizations/"
+      #       newLocation="${file/$substring//visuals/}"
+      #       cp $file $newLocation;
+      #     done;
+      # - name: Commit and push new changes to repos
+      #   run: |''
+      #     mainFolder=$PWD
+      #     for folder in visuals/*; do
+      #       cd $mainFolder/$folder;
+      #       git add . & git commit "new translations" & git push;
+      #     done;
