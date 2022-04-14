@@ -12,7 +12,7 @@ jobs:
           git submodule update
       - name: Copy EN translation
         run: |
-          cd localizaztions/powerbi-visuals-tornado/stringResources/en-US/
+          cd localizations/powerbi-visuals-tornado/stringresources/en-US/
           ls
       # for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
       #   substring="/visuals/"
