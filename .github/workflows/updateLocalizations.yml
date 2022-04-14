@@ -13,9 +13,11 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
+            ls
             path=$(readlink -f $file)
             substring="/visuals/"
             newLocation="${path/$substring//localizations/}"
+            echo $file
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
