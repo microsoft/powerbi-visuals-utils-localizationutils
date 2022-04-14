@@ -13,11 +13,8 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            ls
-            path=$(readlink -f $file)
             substring="/visuals/"
-            newLocation="${path/$substring//localizations/}"
-            echo $file
+            newLocation="${file/$substring//localizations/}"
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
@@ -25,9 +22,8 @@ jobs:
       - name: Copy translations
         run: |
           for file in ./localizations/*/stringResources/*/*.resjson; do 
-            path=$(readlink -f $file)
             substring="/localizations/"
-            newLocation="${path/$substring//visuals/}"
+            newLocation="${file/$substring//visuals/}"
             cp $file $newLocation;
           done;
       - name: Commit and push new changes to repos
