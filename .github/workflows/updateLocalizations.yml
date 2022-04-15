@@ -12,17 +12,11 @@ jobs:
           git submodule update
       - name: Copy EN translation
         run: |
-          cd localizations
-          ls
-          cd PowerBI-visuals-Tornado
-          ls
-          cd stringresources
-          ls
-      # for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-      #   substring="/visuals/"
-      #   newLocation="${file/$substring//localizations/}"
-      #   cp $file $newLocation;
-      # done;
+          for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
+            substring="/visuals/stringresources/en-us"
+            newLocation="${file/$substring//localizations/stringResources}/en-US"
+            cp $file $newLocation;
+          done;
       # - name: Commit and push EN translation
       #   run: git add . & git commit "new EN translation" & git push
       # - name: Copy translations
