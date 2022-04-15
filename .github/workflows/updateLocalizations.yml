@@ -15,7 +15,8 @@ jobs:
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
             substring="/visuals/stringresources/en-us"
             newLocation="${file/$substring//localizations/stringResources/en-US}"
-            cp --remove-destination $file $newLocation;
+            rm $newLocation
+            cp $file $newLocation;
           done;
       # - name: Commit and push EN translation
       #   run: git add . & git commit "new EN translation" & git push
