@@ -13,22 +13,25 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="/visuals/stringresources/en-us/resources.resjson"
+            substring="/visuals/stringresources/en-us"
             newLocation="${file/$substring//localizations/stringResources/en-US}"
             if ! cmp $file $newLocation
             then
               cp $file $newLocation;
             fi
           done;
-      # - name: Commit and push EN translation
-      #   run: git add . & git commit "new EN translation" & git push
-      # - name: Copy translations
-      #   run: |
-      #     for file in ./localizations/*/stringResources/*/resources.resjson; do 
-      #       substring="/localizations/"
-      #       newLocation="${file/$substring//visuals/}"
-      #       cp $file $newLocation;
-      #     done;
+      - name: Commit and push EN translation
+        run: git add . & git commit "new EN translation" & git push
+      - name: Copy translations
+        run: |
+          for file in ./localizations/*/stringResources/*/resources.resjson; do 
+            substring="/localizations/stringresources"
+            newLocation="${file/$substring//visuals/stringResources}"
+            if ! cmp $file $newLocation
+            then
+              cp $file $newLocation;
+            fi
+          done;
       # - name: Commit and push new changes to repos
       #   run: |''
       #     mainFolder=$PWD
