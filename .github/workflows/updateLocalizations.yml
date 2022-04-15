@@ -13,7 +13,7 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="/visuals/stringresources/en-us"
+            substring="/visuals/stringresources/en-us/resources.resjson"
             newLocation="${file/$substring//localizations/stringResources/en-US}"
             rm $newLocation
             cp $file $newLocation;
