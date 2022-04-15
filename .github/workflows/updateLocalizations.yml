@@ -15,7 +15,7 @@ jobs:
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
             substring="/visuals/stringresources/en-us/resources.resjson"
             newLocation="${file/$substring//localizations/stringResources/en-US}"
-            if ! cmp $file $newLocation~
+            if ! cmp $file $newLocation
             then
               cp $file $newLocation;
             fi
