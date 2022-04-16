@@ -12,6 +12,7 @@ jobs:
           git submodule update
       - name: Copy EN translation
         run: |
+          shopt -s nocaseglob
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
             substring="/visuals"
             location="${file/$substring//localizations}"
@@ -23,6 +24,7 @@ jobs:
         run: git add . & git commit "new EN translation" & git push
       - name: Copy translations
         run: |
+          shopt -s nocaseglob
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
             substring="/visuals"
             location="${file/$substring//localizations}"
