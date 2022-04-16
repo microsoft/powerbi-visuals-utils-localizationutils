@@ -7,8 +7,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
             submodules: 'true'
-      - name: Check Case Sensitivity
-        uses: credfeto/action-case-checker@v1.2.1
       - name: Update submodules
         run: 
           git submodule update
@@ -19,6 +17,7 @@ jobs:
             location="${file/$substring//localizations}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
+            shopt -u nocasematch
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
@@ -30,6 +29,7 @@ jobs:
             location="${file/$substring//localizations}"
             substring="/stringresources"
             oldFile="${location/$substring//stringResources}"
+            shopt -u nocasematch
             cp $oldFile $file;
           done;
       - name: Commit and push new changes to repos
