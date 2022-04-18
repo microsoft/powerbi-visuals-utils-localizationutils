@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --global user.name 'pbicvbot'
           git config --global user.email 'pbicvbot@microsoft.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:microsoft@github.com/${{ github.repository }}
           git commit -am "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
@@ -43,8 +43,9 @@ jobs:
           git config --global user.name 'pbicvbot'
           git config --global user.email 'pbicvbot@microsoft.com'
           mainFolder=$PWD
-          for folder in visuals/*; do
-            cd $mainFolder/$folder;
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          for folder in localizations/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            cd $mainFolder/localizations/repoName;
+            git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
             git commit -am "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
