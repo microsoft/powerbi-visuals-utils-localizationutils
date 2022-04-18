@@ -13,8 +13,7 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Update submodules
         run: 
-          git pull --recurse-submodules
-          git submodule update --remote --recursive
+          git submodule update
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
