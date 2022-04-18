@@ -24,7 +24,9 @@ jobs:
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
-        run: git add . & git commit "new EN translation" & git push
+        run: |
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git commit -am "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -40,5 +42,5 @@ jobs:
           for folder in visuals/*; do
             cd $mainFolder/$folder;
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
+            git commit -am "New translations" && git push || echo "No changes to commit"
           done;
