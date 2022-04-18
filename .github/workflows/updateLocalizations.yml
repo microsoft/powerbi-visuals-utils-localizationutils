@@ -46,5 +46,5 @@ jobs:
           for folder in visuals/*; do
             cd $mainFolder/$folder;
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git commit -am "New translations" && git push || echo "No changes to commit"
+            git commit -am "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
