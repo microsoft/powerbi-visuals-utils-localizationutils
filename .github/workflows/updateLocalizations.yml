@@ -28,7 +28,7 @@ jobs:
           git config --global user.name 'pbicvbot'
           git config --global user.email 'pbicvbot@microsoft.com'
           git remote set-url origin https://x-access-token:microsoft@github.com/${{ github.repository }}
-          git commit -am "New translation" && git push || echo "No changes to commit"
+          git add . && git commit "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -47,5 +47,5 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd $mainFolder/localizations/$repoName;
             git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
-            git commit -am "New translations" && git push origin HEAD:master || echo "No changes to commit"
+            git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
