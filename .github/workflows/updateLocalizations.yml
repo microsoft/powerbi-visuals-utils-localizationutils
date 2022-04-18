@@ -25,8 +25,10 @@ jobs:
           done;
       - name: Commit and push EN translation
         run: |
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git commit -am "New translation" && git push || echo "No changes to commit"
+          git config --global user.name 'pbicvbot'
+          git config --global user.email 'pbicvbot@microsoft.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -38,6 +40,8 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
+          git config --global user.name 'pbicvbot'
+          git config --global user.email 'pbicvbot@microsoft.com'
           mainFolder=$PWD
           for folder in visuals/*; do
             cd $mainFolder/$folder;
