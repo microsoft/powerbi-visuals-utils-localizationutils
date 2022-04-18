@@ -6,8 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.CI_TOKEN }}
-          submodules: 'true'
+          submodules: true
+          persist-credentials: false
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Update submodules
         run: 
           git pull --recurse-submodules
