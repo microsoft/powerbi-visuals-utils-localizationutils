@@ -6,10 +6,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-            submodules: 'true'
+          token: ${{ secrets.CI_TOKEN }}
+          submodules: 'true'
       - name: Update submodules
         run: 
-          git submodule update
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -35,5 +37,6 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             cd $mainFolder/$folder;
-            git add . & git commit "new translations" & git push;
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
           done;
