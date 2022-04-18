@@ -17,7 +17,6 @@ jobs:
             location="${file/$substring/localizations/}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
-            shopt -us nocasematch
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
@@ -29,7 +28,6 @@ jobs:
             location="${file/$substring/localizations/}"
             substring="/stringresources"
             oldFile="${location/$substring//stringResources}"
-            shopt -s nocasematch
             cp $oldFile $file;
           done;
       - name: Commit and push new changes to repos
