@@ -13,8 +13,8 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="/visuals"
-            location="${file/$substring//localizations}"
+            substring="visuals/"
+            location="${file/$substring/localizations/}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
             shopt -us nocasematch
@@ -25,8 +25,8 @@ jobs:
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
-            substring="/visuals"
-            location="${file/$substring//localizations}"
+            substring="visuals/"
+            location="${file/$substring/localizations/}"
             substring="/stringresources"
             oldFile="${location/$substring//stringResources}"
             shopt -s nocasematch
