@@ -45,7 +45,9 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            cd $mainFolder/$folder;
+            repoPath=$mainFolder/$folder
+            cd $repoPath;
             git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
+            git status
             git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
