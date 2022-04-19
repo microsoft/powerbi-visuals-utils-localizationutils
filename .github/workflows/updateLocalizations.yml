@@ -42,12 +42,12 @@ jobs:
         run: |
           git config --global user.name 'pbicvbot'
           git config --global user.email 'pbicvbot@microsoft.com'
-          mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            repoPath=$mainFolder/$folder
-            cd $repoPath;
-            git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
+            repoPath="${mainFolder}/${folder}"
+            cd "$folder";
             git status
+            git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
             git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
+            cd ../..
           done;
