@@ -7,9 +7,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: de-vri-es/setup-git-credentials@v2
-        with:
-          credentials: ${{secrets.GIT_CREDENTIALS}}
       - uses: actions/labeler@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
@@ -46,6 +43,6 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$folder"
-            git add . && git commit -m "New translations" && git push origin HEAD:master
+            git add . && git commit -m "New translations" && git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$repoName.git"
             cd ../..
           done;
