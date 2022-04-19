@@ -45,7 +45,7 @@ jobs:
           mainFolder=$PWD
           for folder in localizations/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            cd $mainFolder/localizations/$repoName;
+            cd $mainFolder/visuals/$repoName;
             git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
             git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
