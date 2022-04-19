@@ -44,7 +44,6 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$folder"
-            git remote add origin git@github.com:Microsoft/$repoName.git
             git add . && git commit -m "New translations" && git push origin HEAD:master
             cd ../..
           done;
