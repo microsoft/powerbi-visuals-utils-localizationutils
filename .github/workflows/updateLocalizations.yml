@@ -11,6 +11,10 @@ jobs:
       - uses: actions/labeler@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Set config details
+        run: |
+          git config --global user.name 'pbicvbot'
+          git config --global user.email 'pbicvbot@microsoft.com'
       - name: Update submodules
         run: 
           git submodule update
@@ -25,10 +29,7 @@ jobs:
           done;
       - name: Commit and push EN translation
         run: |
-          git config --global user.name 'pbicvbot'
-          git config --global user.email 'pbicvbot@microsoft.com'
-          git remote set-url origin https://x-access-token:microsoft@github.com/${{ github.repository }}
-          git add . && git commit "New translation" && git push || echo "No changes to commit"
+          git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -40,14 +41,10 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
-          git config --global user.name 'pbicvbot'
-          git config --global user.email 'pbicvbot@microsoft.com'
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            repoPath="${mainFolder}/${folder}"
-            cd "$folder";
-            git status
-            git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
-            git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
+            cd "$folder"
+            git remote add origin git@github.com:Microsoft/$repoName.git
+            git add . && git commit -m "New translations" && git push origin HEAD:master
             cd ../..
           done;
