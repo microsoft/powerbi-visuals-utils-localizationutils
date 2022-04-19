@@ -43,9 +43,9 @@ jobs:
           git config --global user.name 'pbicvbot'
           git config --global user.email 'pbicvbot@microsoft.com'
           mainFolder=$PWD
-          for folder in localizations/*; do
+          for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            cd $mainFolder/visuals/$repoName;
+            cd $mainFolder/$folder;
             git remote set-url origin https://x-access-token:microsoft@github.com/$repoName
             git add . && git commit "New translations" && git push origin HEAD:master || echo "No changes to commit"
           done;
