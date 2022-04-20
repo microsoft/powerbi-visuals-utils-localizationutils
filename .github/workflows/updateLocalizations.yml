@@ -40,10 +40,10 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
+          mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            cd "$folder"
-            git checkout main
+            cd "$mainFolder/$folder"
+            git checkout master
             git add . && git commit -m "New translations" && git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$repoName.git"
-            cd ../..
           done;
