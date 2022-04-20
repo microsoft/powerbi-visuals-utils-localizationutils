@@ -1,0 +1,49 @@
+on: push
+
+jobs:
+  update_translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Set config details
+        run: |
+          git config --global user.name 'pbicvbot'
+          git config --global user.email 'pbicvbot@microsoft.com'
+      - name: Update submodules
+        run: 
+          git submodule update
+      - name: Copy EN translation
+        run: |
+          for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
+            substring="visuals/"
+            location="${file/$substring/localizations/}"
+            substring="/stringresources"
+            newLocation="${location/$substring//stringResources}"
+            cp $file $newLocation;
+          done;
+      - name: Commit and push EN translation
+        run: |
+          git add . && git commit -m "New translation" && git push || echo "No changes to commit"
+      - name: Copy translations
+        run: |
+          for file in ./visuals/*/stringResources/*/resources.resjson; do 
+            substring="visuals/"
+            location="${file/$substring/localizations/}"
+            substring="/stringresources"
+            oldFile="${location/$substring//stringResources}"
+            cp $oldFile $file;
+          done;
+      - name: Commit and push new changes to repos
+        run: |
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            cd "$mainFolder/$folder"
+            git checkout master
+            git add . && git commit -m "New translations" && git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$repoName.git"
+          done;
