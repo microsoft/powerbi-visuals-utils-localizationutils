@@ -9,11 +9,11 @@ jobs:
           submodules: true
       - uses: actions/labeler@v2
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: "${{ secrets.TOKEN }}"
       - name: Set config details
         run: |
-          git config --global user.name 'pbicvbot'
-          git config --global user.email 'pbicvbot@microsoft.com'
+          git config --global user.name 'pbcvloc'
+          git config --global user.email 'pbcvloc@microsoft.com'
       - name: Update submodules
         run: 
           git submodule update
@@ -45,5 +45,5 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git checkout master
-            git add . && git commit -m "New translations" && git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$repoName.git"
+            git add . && git commit -m "New translations" && git push "https://microsoft:$GITHUB_TOKEN@github.com/$repoName.git"
           done;
