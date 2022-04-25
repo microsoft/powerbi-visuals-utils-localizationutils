@@ -41,12 +41,10 @@ jobs:
       - name: Commit and push new changes to repos
         run: |
           mainFolder=$PWD
+          git submodule sync --recursive
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git remote -v
-            git remote remove origin
-            git remote set-url origin https://github.com/microsoft/$repoName.git
             git remote -v
             # git checkout master
             # git add . && git commit -m "New translations" && git push "https://pbcvloc:${{ secrets.TOKEN }}@github.com/$repoName.git"
