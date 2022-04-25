@@ -45,7 +45,6 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git remote remove origin
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$repoName
             git checkout master
             git add . && git commit -m "New translations" && git push "https://pbcvloc:${{ secrets.TOKEN }}@github.com/$repoName.git"
