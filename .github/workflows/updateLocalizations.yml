@@ -46,7 +46,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git remote remove origin
-            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/project/$repoName.git
+            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
             git checkout master
             git add . && git commit -m "New translations" && git push --follow-tags origin HEAD:master
           done;
