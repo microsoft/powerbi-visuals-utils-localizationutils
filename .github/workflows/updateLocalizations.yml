@@ -45,5 +45,5 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git checkout master
-            git add . && git commit -m "New translations" && git push "https://microsoft:${{ secrets.TOKEN }}@github.com/$repoName.git"
+            git add . && git commit -m "New translations" && git push "https://pbcvloc:${{ secrets.TOKEN }}@github.com/$repoName.git"
           done;
