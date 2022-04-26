@@ -48,6 +48,5 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            git checkout master
             git add . && git commit -m "New translations" && git push origin master || git push origin main || "No changes to commit"
           done;
