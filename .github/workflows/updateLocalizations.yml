@@ -39,6 +39,11 @@ jobs:
             oldFile="${location/$substring//stringResources}"
             cp $oldFile $file;
           done;
+      - uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          branch: master
+          unprotect_reviews: true
       - name: Commit and push new changes to repos
         run: |
           mainFolder=$PWD
@@ -47,7 +52,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git remote remove origin
-            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-Tornado.git
+            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
             git checkout master
             git add . && git commit -m "New translations" && git push origin master
           done;
