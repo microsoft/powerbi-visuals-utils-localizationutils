@@ -8,6 +8,13 @@ jobs:
         with:
           submodules: true
           persist-credentials: false
+          token: ${{ secrets.TOKEN }}
+      - name: Checkout private tools
+        uses: actions/checkout@v3
+        with:
+          repository: microsoft/powerbi-visulas-wordcloud
+          token: ${{ secrets.TOKEN }} 
+          path: visuals/powerbi-visulas-wordcloud
       - uses: actions/labeler@v2
         with:
           repo-token: ${{ secrets.TOKEN }}
@@ -48,11 +55,12 @@ jobs:
         run: |
           mainFolder=$PWD
           git submodule sync --recursive
-          for folder in visuals/*; do
-            repoName=$(echo $folder| cut -d'/' -f 2)
-            cd "$mainFolder/$folder"
-            git remote remove origin
-            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
-            git checkout master
-            git add . && git commit -m "New translations" && git push origin master
-          done;
+          # for folder in visuals/*; do
+          #   repoName=$(echo $folder| cut -d'/' -f 2)
+          #   cd "$mainFolder/$folder"
+          cd visuals/powerbi-visulas-wordcloud
+          git remote remove origin
+          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
+          git checkout master
+          git add . && git commit -m "New translations" && git push origin master
+          # done;
