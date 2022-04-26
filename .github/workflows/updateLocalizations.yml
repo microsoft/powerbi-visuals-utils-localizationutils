@@ -46,6 +46,7 @@ jobs:
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            echo $defaultBranchName
             git status
             git checkout $defaultBranchName
             git add . && git commit -m "New translations" && git push origin HEAD:$defaultBranchName || "No changes to commit"
