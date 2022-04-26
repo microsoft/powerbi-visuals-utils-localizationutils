@@ -8,14 +8,13 @@ jobs:
         with:
           submodules: true
           persist-credentials: false
-          token: ${{ secrets.TOKEN }}
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.TOKEN }}
       - name: Set config details
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
-      - name: Update submodules
-        run: 
-          git submodule sync --recursive
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -26,7 +25,7 @@ jobs:
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
-        run: 
+        run:
           git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
@@ -40,14 +39,13 @@ jobs:
       - name: Commit and push new changes to repos
         run: |
           mainFolder=$PWD
+          git submodule sync --recursive
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            echo $defaultBranchName
-            git status
             git checkout $defaultBranchName
-            git add . && git commit -m "New translations" && git push origin HEAD:$defaultBranchName || "No changes to commit"
+            git add . && git commit -m "New translations" && git push origin $defaultBranchName
           done;
