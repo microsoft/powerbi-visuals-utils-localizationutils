@@ -9,12 +9,6 @@ jobs:
           submodules: true
           persist-credentials: false
           token: ${{ secrets.TOKEN }}
-      - name: Checkout private tools
-        uses: actions/checkout@v3
-        with:
-          repository: microsoft/powerbi-visuals-wordcloud
-          token: ${{ secrets.TOKEN }} 
-          path: visuals/powerbi-visuals-wordcloud
       - uses: actions/labeler@v2
         with:
           repo-token: ${{ secrets.TOKEN }}
@@ -24,7 +18,7 @@ jobs:
           git config --global user.email 'pbcvloc@microsoft.com'
       - name: Update submodules
         run: 
-          git submodule update
+          git submodule sync --recursive
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -35,7 +29,7 @@ jobs:
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
-        run: |
+        run: 
           git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
@@ -49,13 +43,11 @@ jobs:
       - name: Commit and push new changes to repos
         run: |
           mainFolder=$PWD
-          git submodule sync --recursive
-          # for folder in visuals/*; do
-          #   repoName=$(echo $folder| cut -d'/' -f 2)
-          #   cd "$mainFolder/$folder"
-          cd "visuals/powerbi-visuals-wordcloud"
-          git remote remove origin
-          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
-          git checkout main
-          git add . && git commit -m "New translations" && git push origin main
-          # done;
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            cd "$mainFolder/$folder"
+            git remote remove origin
+            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
+            git checkout master
+            git add . && git commit -m "New translations" && git push origin master || git push origin main || "No changes to commit"
+          done;
