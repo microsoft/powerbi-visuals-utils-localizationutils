@@ -40,6 +40,7 @@ jobs:
         run: |
           mainFolder=$PWD
           git submodule sync --recursive
+          git submodule update
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
