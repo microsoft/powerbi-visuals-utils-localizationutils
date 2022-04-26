@@ -46,11 +46,6 @@ jobs:
             oldFile="${location/$substring//stringResources}"
             cp $oldFile $file;
           done;
-      - uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.TOKEN }}
-          branch: master
-          unprotect_reviews: true
       - name: Commit and push new changes to repos
         run: |
           mainFolder=$PWD
