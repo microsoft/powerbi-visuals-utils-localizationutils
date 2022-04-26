@@ -53,7 +53,7 @@ jobs:
           # for folder in visuals/*; do
           #   repoName=$(echo $folder| cut -d'/' -f 2)
           #   cd "$mainFolder/$folder"
-          cd visuals/powerbi-visuals-wordcloud
+          cd "visuals/powerbi-visuals-wordcloud"
           git remote remove origin
           git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
           git checkout master
