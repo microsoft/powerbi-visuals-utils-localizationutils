@@ -49,5 +49,5 @@ jobs:
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-Tornado.git
             git checkout master
-            git add . && git commit -m "New translations" && git push HEAD:origin
+            git add . && git commit -m "New translations" && git push origin master
           done;
