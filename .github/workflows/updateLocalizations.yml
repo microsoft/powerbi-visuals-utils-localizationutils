@@ -54,10 +54,8 @@ jobs:
           #   repoName=$(echo $folder| cut -d'/' -f 2)
           #   cd "$mainFolder/$folder"
           cd "visuals/powerbi-visuals-wordcloud"
-          ls
-          git status
           git remote remove origin
           git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/PowerBI-visuals-WordCloud.git
-          git checkout master
-          git add . && git commit -m "New translations" && git push origin master
+          git checkout main
+          git add . && git commit -m "New translations" && git push origin main
           # done;
