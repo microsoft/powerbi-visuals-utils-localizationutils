@@ -9,9 +9,6 @@ jobs:
           submodules: true
           persist-credentials: false
           token: ${{ secrets.TOKEN }}
-      - uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.TOKEN }}
       - name: Set config details
         run: |
           git config --global user.name 'pbcvloc'
@@ -22,10 +19,10 @@ jobs:
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="visuals/"
-            location="${file/$substring/localizations/}"
-            substring="/stringresources"
-            newLocation="${location/$substring//stringResources}"
+            substring = "visuals/"
+            location = "${file/$substring/localizations/}"
+            substring = "/stringresources"
+            newLocation = "${location/$substring//stringResources}"
             cp $file $newLocation;
           done;
       - name: Commit and push EN translation
@@ -34,19 +31,21 @@ jobs:
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
-            substring="visuals/"
-            location="${file/$substring/localizations/}"
-            substring="/stringresources"
-            oldFile="${location/$substring//stringResources}"
+            substring = "visuals/"
+            location = "${file/$substring/localizations/}"
+            substring = "/stringresources"
+            oldFile = "${location/$substring//stringResources}"
             cp $oldFile $file;
           done;
       - name: Commit and push new changes to repos
         run: |
-          mainFolder=$PWD
+          mainFolder = $PWD
           for folder in visuals/*; do
-            repoName=$(echo $folder| cut -d'/' -f 2)
+            repoName = $(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
+            deffultBranchName = $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git checkout $defaultBranchName
             git add . && git commit -m "New translations" && git push origin master || git push origin main || "No changes to commit"
           done;
