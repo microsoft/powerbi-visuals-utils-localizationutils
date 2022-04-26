@@ -30,6 +30,11 @@ jobs:
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
+            git remote remove origin
+            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git status
+            git checkout $defaultBranchName
             substring="visuals/"
             location="${file/$substring/localizations/}"
             substring="/stringresources"
@@ -44,10 +49,5 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git remote remove origin
-            git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git status
-            git checkout $defaultBranchName
             git add . && git commit -m "New translations" && git push origin $defaultBranchName
           done;
