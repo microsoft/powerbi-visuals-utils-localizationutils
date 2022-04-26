@@ -15,6 +15,10 @@ jobs:
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
+      - name: Update submodules
+        run: |
+          git submodule init
+          git submodule update --remote --merge
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -44,7 +48,6 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            git submodule update
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git status
             git checkout $defaultBranchName
