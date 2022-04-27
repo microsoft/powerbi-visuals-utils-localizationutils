@@ -18,8 +18,10 @@ jobs:
       - name: Update submodules
         run: |
           git submodule init
-          git status
-          git submodule update --remote --rebase
+          for folder in visuals/*; do
+            git reset master $folder
+          done;
+          git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
