@@ -19,7 +19,7 @@ jobs:
         run: |
           git submodule init
           for folder in visuals/*; do
-            git reset master $folder
+            git reset HEAD $folder
           done;
           git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy EN translation
