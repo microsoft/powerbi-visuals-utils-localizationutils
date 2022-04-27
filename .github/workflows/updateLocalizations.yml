@@ -18,9 +18,12 @@ jobs:
       - name: Update submodules
         run: |
           git submodule init
+          mainFolder=$PWD
           for folder in visuals/*; do
-            git reset HEAD $folder
+            cd "$mainFolder/$folder"
+            git reset HEAD
           done;
+          cd $mainFolder
           git add . && git commit -m "New translation" && git push || echo "No changes to commit"
       - name: Copy EN translation
         run: |
