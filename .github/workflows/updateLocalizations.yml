@@ -22,6 +22,8 @@ jobs:
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
             git status
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git checkout $defaultBranchName
             git reset HEAD
             git status
           done;
