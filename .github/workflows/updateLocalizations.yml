@@ -57,5 +57,5 @@ jobs:
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git checkout $defaultBranchName >/dev/null
             git add .
-            git commit -m "New translations" && git push origin $defaultBranchName && echo "Successfully updated $repoName" || echo "No updates for $repoName"
+            git commit -m "New translations" >/dev/null && git push origin $defaultBranchName && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
           done;
