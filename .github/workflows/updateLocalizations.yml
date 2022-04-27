@@ -21,7 +21,9 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
+            git status
             git reset HEAD
+            git status
           done;
           cd $mainFolder
           git add . && git commit -m "New translation" && git push || echo "No changes to commit"
