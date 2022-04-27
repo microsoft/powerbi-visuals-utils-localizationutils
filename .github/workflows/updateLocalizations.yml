@@ -8,9 +8,7 @@ jobs:
         with:
           submodules: true
           persist-credentials: false
-      - uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN }}
       - name: Set config details
         run: |
           git config --global user.name 'pbcvloc'
