@@ -18,6 +18,7 @@ jobs:
       - name: Update submodules
         run: |
           git submodule init
+          git status
           git submodule update --remote --rebase
       - name: Copy EN translation
         run: |
