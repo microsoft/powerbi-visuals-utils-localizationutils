@@ -13,6 +13,7 @@ jobs:
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
+          git config core.ignorecase true
       - name: Update submodules
         run: |
           git submodule init
@@ -20,8 +21,8 @@ jobs:
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git checkout $defaultBranchName
-            git pull
+            git checkout $defaultBranchName >/dev/null
+            git pull >/dev/null
             echo "$folder updated"
           done;
           cd $mainFolder
@@ -36,7 +37,7 @@ jobs:
           done;
       - name: Commit and push EN translation
         run:
-          git add . && git commit -m "New translation" && git push || echo "No changes to commit"
+          git add . && git commit -m "New translation" >/dev/null && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -48,14 +49,12 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
-          mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git checkout $defaultBranchName >/dev/null
             git add .
             git commit -m "New translations" >/dev/null && git push origin $defaultBranchName && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
           done;
