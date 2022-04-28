@@ -13,6 +13,7 @@ jobs:
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
+          git config core.ignorecase true
       - name: Update submodules
         run: |
           git submodule init
@@ -48,6 +49,7 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
+          mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
