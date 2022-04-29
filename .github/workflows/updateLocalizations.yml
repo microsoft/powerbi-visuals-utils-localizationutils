@@ -24,7 +24,7 @@ jobs:
             git checkout $defaultBranchName >/dev/null
             git pull >/dev/null
             echo "$folder updated"
-            git checkout -b new-translations
+            git checkout new-translations 2>/dev/null && git rebase $defaultBranchName || git checkout -b new-translations
           done;
           cd $mainFolder
       - name: Copy EN translation
@@ -56,14 +56,15 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            git add .
-            # git commit -m "New translations" >/dev/null && git push --set-upstream origin new-translations && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
-            git push --set-upstream origin new-translations
+            git add . && git commit -m "New translations" >/dev/null && \
+              (git push origin new-translations || git push --set-upstream origin new-translations) || \
+              echo "Update wasn't finished for $repoName"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git config user.name
             git status
             curl \
               -X POST \
               -H "Accept: application/vnd.github.v3+json" \
               https://api.github.com/repos/microsoft/$repoName/pulls \
-              -d '{"title":"Amazing new feature","body":"Please pull these awesome changes in!","head":"new-translations","base":"$defaultBranchName"}'
+              -d '{"title":"New translations","head":"new-translations","base":"$defaultBranchName"}'
           done;
