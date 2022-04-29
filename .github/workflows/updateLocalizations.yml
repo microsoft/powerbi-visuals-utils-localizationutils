@@ -20,8 +20,7 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git checkout $defaultBranchName >/dev/null
+            git checkout -b new-translations >/dev/null
             git pull >/dev/null
             echo "$folder updated"
           done;
@@ -55,7 +54,12 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add .
-            git commit -m "New translations" >/dev/null && git push origin $defaultBranchName && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
+            git commit -m "New translations" >/dev/null && git push --set-upstream origin new-translations && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            curl \
+              -X POST \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/microsoft/$repoName/pulls \
+              -d '{"title":"Amazing new feature","body":"Please pull these awesome changes in!","head":"new-translations","base":"$defaultBranchName"}'
           done;
