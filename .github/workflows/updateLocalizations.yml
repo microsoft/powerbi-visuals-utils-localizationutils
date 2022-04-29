@@ -57,7 +57,8 @@ jobs:
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
             git add .
-            git commit -m "New translations" >/dev/null && git push --set-upstream origin new-translations && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
+            # git commit -m "New translations" >/dev/null && git push --set-upstream origin new-translations && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
+            git push --set-upstream origin new-translations
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git status
             curl \
