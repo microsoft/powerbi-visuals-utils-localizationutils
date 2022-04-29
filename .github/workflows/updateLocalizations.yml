@@ -24,7 +24,7 @@ jobs:
             git checkout $defaultBranchName >/dev/null
             git pull >/dev/null
             echo "$folder updated"
-            git checkout -b new-translations >/dev/null
+            git checkout -b new-translations
           done;
           cd $mainFolder
       - name: Copy EN translation
@@ -59,6 +59,7 @@ jobs:
             git add .
             git commit -m "New translations" >/dev/null && git push --set-upstream origin new-translations && echo "Successfully updated $repoName" || echo "Update wasn't finished for $repoName"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git status
             curl \
               -X POST \
               -H "Accept: application/vnd.github.v3+json" \
