@@ -20,9 +20,11 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
-            git checkout -b new-translations >/dev/null
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git checkout $defaultBranchName >/dev/null
             git pull >/dev/null
             echo "$folder updated"
+            git checkout -b new-translations >/dev/null
           done;
           cd $mainFolder
       - name: Copy EN translation
