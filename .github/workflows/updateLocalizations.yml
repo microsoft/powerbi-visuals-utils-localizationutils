@@ -21,12 +21,13 @@ jobs:
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git checkout $defaultBranchName >/dev/null
-            git pull >/dev/null
+            git checkout $defaultBranchName >/dev/null && git pull >/dev/null
             echo "$folder updated"
             git checkout new-translations 2>/dev/null && git pull && git rebase $defaultBranchName || git checkout -b new-translations
           done;
           cd $mainFolder
+          git remote remove origin
+          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/$env.GITHUB_REPOSITORY.git
           git add . && git commit -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
@@ -60,10 +61,10 @@ jobs:
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -m "New translations" >/dev/null && \
               (git push origin new-translations || git push --set-upstream origin new-translations) &&
-            curl \
-              -X POST \
-              -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/microsoft/$repoName/pulls \
-              -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
+              curl \
+                -X POST \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/repos/microsoft/$repoName/pulls \
+                -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
               echo "No changes for $repoName"
           done;
