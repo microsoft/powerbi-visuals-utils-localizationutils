@@ -18,7 +18,7 @@ jobs:
         run: |
           mainFolder=$PWD
           git remote remove origin
-          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/$env.GITHUB_REPOSITORY.git
+          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/{{ $env.GITHUB_REPOSITORY }}.git
           git branch
           echo $env.GITHUB_REPOSITORY
           git checkout master
