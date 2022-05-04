@@ -19,6 +19,7 @@ jobs:
           mainFolder=$PWD
           git remote remove origin
           git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/$env.GITHUB_REPOSITORY.git
+          git branch -r
           git checkout master
           git submodule init
           for folder in visuals/*; do
