@@ -24,10 +24,10 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git checkout $defaultBranchName >/dev/null && git pull >/dev/null
-            echo "$folder updated"
-            git checkout new-translations 2>/dev/null && git pull && git rebase $defaultBranchName|| git checkout -b new-translations
+            # defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            # git checkout $defaultBranchName >/dev/null && git pull >/dev/null
+            # echo "$folder updated"
+            # git checkout new-translations 2>/dev/null && git pull && git rebase $defaultBranchName|| git checkout -b new-translations
           done;
           git pull --recurse-submodules
           git submodule update --remote --recursive
