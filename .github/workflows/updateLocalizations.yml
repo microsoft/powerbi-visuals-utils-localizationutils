@@ -16,8 +16,11 @@ jobs:
           git config core.ignorecase true
       - name: Update submodules
         run: |
-          git submodule init
           mainFolder=$PWD
+          git remote remove origin
+          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/$env.GITHUB_REPOSITORY.git
+          git checkout main
+          git submodule init
           for folder in visuals/*; do
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
@@ -26,8 +29,6 @@ jobs:
             git checkout new-translations 2>/dev/null && git pull && git rebase $defaultBranchName || git checkout -b new-translations
           done;
           cd $mainFolder
-          git remote remove origin
-          git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/$env.GITHUB_REPOSITORY.git
           git add . && git commit -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
