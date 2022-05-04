@@ -28,13 +28,9 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            # defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            # git checkout $defaultBranchName >/dev/null && git pull >/dev/null
             echo "$folder updated"
-            # git checkout new-translations 2>/dev/null && git pull && git rebase $defaultBranchName|| git checkout -b new-translations
+            git checkout new-translations >/dev/null || git checkout -b new-translations
           done;
-          git pull --recurse-submodules
-          git submodule update --remote --recursive
           cd $mainFolder
           git add . && git commit -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
@@ -54,9 +50,9 @@ jobs:
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
             substring="visuals/"
             location="${file/$substring/localizations/}"
-            substring="/stringresources"
-            oldFile="${location/$substring//stringResources}"
-            cp $oldFile $file;
+            # substring="/stringresources"
+            # oldFile="${location/$substring//stringResources}"
+            cp $location $file;
           done;
       - name: Commit and push new changes to repos
         run: |
