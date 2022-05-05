@@ -18,7 +18,7 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --remote --recursive
-      - name: Update submodules
+      - name: Update remote links
         run: |
           mainFolder=$PWD
           git remote remove origin
@@ -31,7 +31,7 @@ jobs:
             echo "$repoName updated"
             git checkout new-translations >/dev/null || git checkout -b new-translations
           done;
-          cd $mainFolder
+          cd "$mainFolder"
           git add . && git commit -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
@@ -61,13 +61,12 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            # git add . && git commit -m "New translations" >/dev/null && \
-            #   (git push origin new-translations || git push --set-upstream origin new-translations) &&
-            #   curl \
-            #     -X POST \
-            #     -H "Accept: application/vnd.github.v3+json" \
-            #     https://api.github.com/repos/microsoft/$repoName/pulls \
-            #     -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
-            #   echo "No changes for $repoName"
-            git diff
+            git add . && git commit -m "New translations" >/dev/null && \
+              (git push origin new-translations || git push --set-upstream origin new-translations) &&
+              curl \
+                -X POST \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/repos/microsoft/$repoName/pulls \
+                -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
+              echo "No changes for $repoName"
           done;
