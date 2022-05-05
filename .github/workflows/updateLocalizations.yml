@@ -28,7 +28,7 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://pbcvloc:${{secrets.TOKEN}}@github.com/microsoft/$repoName.git
-            echo "$folder updated"
+            echo "$repoName updated"
             git checkout new-translations >/dev/null || git checkout -b new-translations
           done;
           cd $mainFolder
@@ -61,12 +61,13 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git add . && git commit -m "New translations" >/dev/null && \
-              (git push origin new-translations || git push --set-upstream origin new-translations) &&
-              curl \
-                -X POST \
-                -H "Accept: application/vnd.github.v3+json" \
-                https://api.github.com/repos/microsoft/$repoName/pulls \
-                -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
-              echo "No changes for $repoName"
+            # git add . && git commit -m "New translations" >/dev/null && \
+            #   (git push origin new-translations || git push --set-upstream origin new-translations) &&
+            #   curl \
+            #     -X POST \
+            #     -H "Accept: application/vnd.github.v3+json" \
+            #     https://api.github.com/repos/microsoft/$repoName/pulls \
+            #     -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
+            #   echo "No changes for $repoName"
+            git status
           done;
