@@ -67,6 +67,6 @@ jobs:
                 -X POST \
                 -H "Accept: application/vnd.github.v3+json" \
                 https://api.github.com/repos/microsoft/$repoName/pulls \
-                -d '{"title":"New translations","head":"microsoft:new-translations","base":"$defaultBranchName"}' || \
+                -d '{"title":"New translations","head":"new-translations","base":"$defaultBranchName"}' || \
               echo "No changes for $repoName"
           done;
