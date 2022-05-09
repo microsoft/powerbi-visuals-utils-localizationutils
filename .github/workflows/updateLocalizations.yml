@@ -14,9 +14,6 @@ jobs:
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
           git config core.ignorecase true
-          gh auth login
-        env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
       - name: Update submodules
         run: |
           git pull --recurse-submodules
@@ -59,6 +56,7 @@ jobs:
           done;
       - name: Commit and push new changes to repos
         run: |
+          gh auth login
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
@@ -74,3 +72,5 @@ jobs:
               #   https://api.github.com/repos/microsoft/$repoName/pulls \
               #   -d '{"title":"New translations","head":"new-translations","base":"$defaultBranchName"}' || \
           done;
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN }}
