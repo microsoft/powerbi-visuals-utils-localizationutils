@@ -9,6 +9,10 @@ jobs:
           submodules: true
           persist-credentials: false
           token: ${{ secrets.TOKEN }}
+      - uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_TOKEN }}
+          passphrase: ${{ secrets.PASS_PHRASE }}
       - name: Set config details
         run: |
           git config --global user.name 'pbcvloc'
@@ -60,7 +64,6 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git status
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -m "New translations" >/dev/null && \
               (git push --force origin new-translations || git push --set-upstream origin new-translations) &&
