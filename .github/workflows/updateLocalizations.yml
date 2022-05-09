@@ -60,16 +60,12 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
+            git status
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -m "New translations" >/dev/null && \
               (git push --force origin new-translations || git push --set-upstream origin new-translations) &&
               gh pr create -B "$defaultBranchName" -b "Auto created" -t "New translations" || \
               echo "No changes for $repoName"
-              # curl \
-              #   -X POST \
-              #   -H "Accept: application/vnd.github.v3+json" \
-              #   https://api.github.com/repos/microsoft/$repoName/pulls \
-              #   -d '{"title":"New translations","head":"new-translations","base":"$defaultBranchName"}' || \
           done;
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
