@@ -9,7 +9,7 @@ jobs:
           submodules: true
           persist-credentials: false
           token: ${{ secrets.TOKEN }}
-      - uses: crazy-max/ghaction-import-gpg@subkey
+      - uses: crazy-max/ghaction-import-gpg@v4
         with:
           gpg_private_key: ${{ secrets.GPG_TOKEN }}
           passphrase: ${{ secrets.PASS_PHRASE }}
