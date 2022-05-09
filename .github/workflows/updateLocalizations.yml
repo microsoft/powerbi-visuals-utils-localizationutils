@@ -17,7 +17,7 @@ jobs:
       - name: Update submodules
         run: |
           git pull --recurse-submodules
-          git submodule update --remote --recursive
+          git submodule update --init --recursive --remote
       - name: Update remote links
         run: |
           mainFolder=$PWD
