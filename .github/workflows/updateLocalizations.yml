@@ -13,7 +13,6 @@ jobs:
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
-          git config --global user.signingkey 482773E4DB24A5AF
           git config core.ignorecase true
       - uses: crazy-max/ghaction-import-gpg@v4
         with:
@@ -37,7 +36,7 @@ jobs:
             git checkout new-translations >/dev/null || git checkout -b new-translations
           done;
           cd "$mainFolder"
-          git add . && git commit -m "New translation" >/dev/null && git push || echo "No submodule updates"
+          git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -49,7 +48,7 @@ jobs:
           done;
       - name: Commit and push EN translation
         run:
-          git add . && git commit -m "New translation" >/dev/null && git push || echo "No changes to commit"
+          git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -66,7 +65,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git add . && git commit -m "New translations" >/dev/null && \
+            git add . && git commit -S -m "New translations" >/dev/null && \
               (git push --force origin new-translations || git push --set-upstream origin new-translations) &&
               gh pr create -B "$defaultBranchName" -b "Auto created" -t "New translations" || \
               echo "No changes for $repoName"
