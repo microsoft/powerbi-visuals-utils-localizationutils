@@ -15,8 +15,6 @@ jobs:
           passphrase: ${{ secrets.PASS_PHRASE }}
       - name: Set config details
         run: |
-          git config --global user.name 'pbcvloc'
-          git config --global user.email 'pbcvloc@microsoft.com'
           git config core.ignorecase true
       - name: Update submodules
         run: |
