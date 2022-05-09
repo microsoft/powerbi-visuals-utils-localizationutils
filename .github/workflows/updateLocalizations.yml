@@ -13,12 +13,12 @@ jobs:
         run: |
           git config --global user.name 'pbcvloc'
           git config --global user.email 'pbcvloc@microsoft.com'
-          git config --global user.signingkey "${{ secrets.GPG_TOKEN }}"
+          git config --global user.signingkey 482773E4DB24A5AF
           git config core.ignorecase true
-      # - uses: crazy-max/ghaction-import-gpg@v4
-      #   with:
-      #     gpg_private_key: ${{ secrets.GPG_TOKEN }}
-      #     passphrase: ${{ secrets.PASS_PHRASE }}
+      - uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_TOKEN }}
+          passphrase: ${{ secrets.PASS_PHRASE }}
       - name: Update submodules
         run: |
           git pull --recurse-submodules
