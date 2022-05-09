@@ -9,11 +9,10 @@ jobs:
           submodules: true
           persist-credentials: false
           token: ${{ secrets.TOKEN }}
-      - name: Configure GPG Key
-        run: |
-          echo -n "$GPG_TOKEN" | base64 --decode | gpg --import
-        env:
-          GPG_TOKEN: ${{ secrets.GPG_TOKEN }}
+      - uses: crazy-max/ghaction-import-gpg@subkey
+        with:
+          gpg_private_key: ${{ secrets.GPG_TOKEN }}
+          passphrase: ${{ secrets.PASS_PHRASE }}
       - name: Set config details
         run: |
           git config --global user.name 'pbcvloc'
