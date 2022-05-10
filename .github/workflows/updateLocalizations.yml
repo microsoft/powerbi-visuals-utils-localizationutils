@@ -59,7 +59,7 @@ jobs:
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
-            if [[ $folder == *"/en-US/"* ]]; then 
+            if [[ $file == *"/en-US/"* ]]; then 
               echo $file
               continue
             fi
