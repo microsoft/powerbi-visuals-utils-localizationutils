@@ -41,10 +41,9 @@ jobs:
             git remote remove origin
             git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
             echo "Remote for $repoName updated"
-            git checkout $NEW_BRANCH_NAME >/dev/null || git checkout -b $NEW_BRANCH_NAME
+            git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
           done;
           cd "$mainFolder"
-          git status
           git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
