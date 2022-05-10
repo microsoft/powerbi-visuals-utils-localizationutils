@@ -76,5 +76,3 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          GIT_COMMITTER_NAME: ${{ steps.import-gpg.outputs.name }}
-          GIT_COMMITTER_EMAIL: ${{ steps.import-gpg.outputs.email }}
