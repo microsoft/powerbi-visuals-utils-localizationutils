@@ -60,13 +60,10 @@ jobs:
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
             if [[ $file == *"/en-US/"* ]]; then 
-              echo $file
               continue
             fi
             substring="visuals/"
             location="${file/$substring/localizations/}"
-            # substring="/stringresources"
-            # oldFile="${location/$substring//stringResources}"
             cp $location $file;
           done;
       - name: Commit and push new changes to repos
@@ -82,4 +79,4 @@ jobs:
               echo "No changes for $repoName"
           done;
         env:
-          GITHUB_TOKEN: $LOC_BOT_TOKEN
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
