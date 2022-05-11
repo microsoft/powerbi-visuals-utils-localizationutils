@@ -41,12 +41,10 @@ jobs:
           cd "$mainFolder"
       - name: Update submodules
         run: |
-          git remote -v
-          git branch
+          git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
-          git status
-          # git add . && git commit -S -m "New translation" && git push || echo "No submodule updates"
+          git add . && git commit -S -m "New translation" && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
