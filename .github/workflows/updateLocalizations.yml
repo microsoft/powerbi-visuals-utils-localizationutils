@@ -34,7 +34,7 @@ jobs:
           git pull origin use-pbicvbot-in-pipeline
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            git submodule set-url [--] "./visuals/$repoName" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
+            git submodule set-url -- "./visuals/$repoName" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
             echo "Remote for $repoName updated"
             cd "$mainFolder/$folder"
             git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
