@@ -41,8 +41,8 @@ jobs:
           cd "$mainFolder"
       - name: Update submodules
         run: |
-          git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
           git pull --recurse-submodules
+          git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
           git submodule update --init --recursive --remote
           git add . && git commit -S -m "New translation" && git push || echo "No submodule updates"
       - name: Copy EN translation
