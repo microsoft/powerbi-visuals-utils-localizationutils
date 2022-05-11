@@ -76,7 +76,7 @@ jobs:
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -S -m "New translations" >/dev/null && \
-              (git push --force origin $NEW_BRANCH_NAME || git push --set-upstream origin $NEW_BRANCH_NAME) &&
+              (git push origin $NEW_BRANCH_NAME || git push --set-upstream origin $NEW_BRANCH_NAME) &&
               gh pr create -B "$defaultBranchName" -b "Auto created" -t "New translations" || \
               echo "No changes for $repoName"
           done;
