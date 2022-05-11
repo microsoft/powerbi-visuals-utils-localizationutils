@@ -26,29 +26,25 @@ jobs:
           git_config_global: true
           git_user_signingkey: true
           git_commit_gpgsign: true
+      - name: Update remote links
+        run: |
+          mainFolder=$PWD
+          git remote remove origin
+          git remote add origin "https://github.com/AleksSavelev/powerbi-visuals-utils-localizationutils"
+          git pull origin 
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            git submodule set-url [--] "./visuals/$repoName" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
+            echo "Remote for $repoName updated"
+            cd "$mainFolder/$folder"
+            git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
+          done;
+          cd "$mainFolder"
       - name: Update submodules
         run: |
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
-      - name: Update remote links
-        run: |
-          git pull --recurse-submodules
-          git submodule update --init --recursive --remote
-          mainFolder=$PWD
-          git remote remove origin
-          git remote add origin "https://github.com/AleksSavelev/powerbi-visuals-utils-localizationutils"
-          for folder in visuals/*; do
-            repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "Remote for $repoName updated"
-            cd "$mainFolder/$folder"
-            git submodule set-url "$mainFolder/$folder" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
-            git fetch
-            git checkout origin/$NEW_BRANCH_NAME
-            git branch $NEW_BRANCH_NAME -f
-            git checkout $NEW_BRANCH_NAME
-            git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
-          done;
-          cd "$mainFolder"
+          git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
