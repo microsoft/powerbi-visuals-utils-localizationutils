@@ -44,6 +44,7 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
+          git fetch
           git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
       - name: Copy EN translation
         run: |
