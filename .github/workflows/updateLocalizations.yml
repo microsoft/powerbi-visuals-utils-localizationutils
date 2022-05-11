@@ -31,7 +31,6 @@ jobs:
           mainFolder=$PWD
           git remote remove origin
           git remote add origin "https://github.com/AleksSavelev/powerbi-visuals-utils-localizationutils"
-          git pull origin use-pbicvbot-in-pipeline
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             git submodule set-url -- "./visuals/$repoName" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
@@ -42,7 +41,7 @@ jobs:
           cd "$mainFolder"
       - name: Update submodules
         run: |
-          git fetch
+          git pull origin use-pbicvbot-in-pipeline
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
           git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
