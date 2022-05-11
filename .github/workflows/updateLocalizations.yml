@@ -33,9 +33,9 @@ jobs:
           git remote add origin "https://github.com/AleksSavelev/powerbi-visuals-utils-localizationutils"
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            git submodule set-url -- "$folder" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
             echo "Remote for $repoName updated"
             cd "$mainFolder/$folder"
+            git submodule set-url "$mainFolder/$folder" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
             git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
           done;
           cd "$mainFolder"
