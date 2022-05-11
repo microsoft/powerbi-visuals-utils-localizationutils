@@ -37,6 +37,7 @@ jobs:
             cd "$mainFolder/$folder"
             git submodule set-url "$mainFolder/$folder" "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git"
             git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
+            git fetch -v
           done;
           cd "$mainFolder"
       - name: Update submodules
