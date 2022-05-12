@@ -42,6 +42,7 @@ jobs:
             cd "$mainFolder/$folder"
             git remote remove origin
             git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
+            git fetch
             echo "Remote for $repoName updated"
             git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
           done;
