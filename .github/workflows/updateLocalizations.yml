@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       LOC_BOT_NAME: "pbcvloc"
+      LOC_BOT_EMAIL: "pbcvloc@microsoft.com"
       LOC_BOT_TOKEN: ${{secrets.TOKEN}}
       NEW_BRANCH_NAME: "new-translations"
     steps:
@@ -16,7 +17,7 @@ jobs:
       - name: Set config details
         run: |
           git config --global user.name $LOC_BOT_NAME
-          git config --global user.email 'pbcvloc@microsoft.com'
+          git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
       - uses: crazy-max/ghaction-import-gpg@v4
@@ -77,7 +78,7 @@ jobs:
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -S -m "New translations" >/dev/null && \
               (git push origin $NEW_BRANCH_NAME || git push --set-upstream origin $NEW_BRANCH_NAME) &&
-              gh pr create -B "$defaultBranchName" -b "Auto created" -t "New translations" || \
+              gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
               echo "No changes for $repoName"
           done;
         env:
