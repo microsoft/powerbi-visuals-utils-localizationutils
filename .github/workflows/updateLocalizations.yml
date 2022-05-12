@@ -17,7 +17,8 @@ jobs:
         run: |
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email 'pbcvloc@microsoft.com'
-          git config --unset core.ignorecase
+          git config --global core.ignorecase true
+          git config --global core.autocrlf false
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
