@@ -18,6 +18,7 @@ jobs:
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email 'pbcvloc@microsoft.com'
           git config --global core.ignorecase true
+          git config --global core.autocrlf false
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
@@ -34,8 +35,7 @@ jobs:
         run: |
           mainFolder=$PWD
           git remote remove origin
-          git remote add origin "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/AleksSavelev/powerbi-visuals-utils-localizationutils.git"
-          git checkout use-pbicvbot-in-pipeline
+          git remote add origin "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/powerbi-visuals-utils-localizationutils.git"
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
