@@ -96,6 +96,8 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
+            additions_changes=$('$(gh pr view --json additions)' | jq '.additions')
+            echo $additions_changes
             gh pr review --approve
           done;
         env:
