@@ -102,7 +102,7 @@ jobs:
               continue
             fi
             gh pr review --approve
-            gh pr merge -s
+            gh pr merge -s --auto
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
