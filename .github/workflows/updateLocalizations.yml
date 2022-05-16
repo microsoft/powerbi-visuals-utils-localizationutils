@@ -97,7 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             additions_changes=$(gh pr view --json additions)
-            echo $additions_changes
+            echo $($additions_changes | jq -r ".additions")
             gh pr review --approve
           done;
         env:
