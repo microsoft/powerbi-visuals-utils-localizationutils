@@ -96,9 +96,13 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            additions_changes=$(gh pr view --json additions)
-            echo $(grep -Po '"additions":.*?[^\\]",' $additions_changes)
+            empty_changes='{"additions":0,"deletions":0}'
+            changes=$(gh pr view --json additions,deletions)
+            if [[ $changes == $empty_changes ]]; then
+              continue
+            fi
             gh pr review --approve
+            gh pr merge -s
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
