@@ -6,15 +6,17 @@ jobs:
     env: 
       LOC_BOT_NAME: "pbcvloc"
       LOC_BOT_EMAIL: "pbcvloc@microsoft.com"
-      LOC_BOT_TOKEN: ${{secrets.TOKEN}}
-      NEW_BRANCH_NAME: "new-translations"
+      LOC_BOT_TOKEN: ${{secrets.LOC_TOKEN}}
+      APPROVE_BOT_NAME: "pbcvloc2"
+      APPROVE_BOT_EMAIL: "pbcvloc2@microsoft.com"
+      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
           persist-credentials: false
-          token: ${{ secrets.TOKEN }}
-      - name: Set config details
+          token: ${{ secrets.LOC_TOKEN }}
+      - name: Set Loc bot config details
         run: |
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email $LOC_BOT_EMAIL
@@ -44,7 +46,7 @@ jobs:
             git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
             git fetch
             echo "Remote for $repoName updated"
-            git checkout $NEW_BRANCH_NAME || git checkout -b $NEW_BRANCH_NAME
+            git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
           done;
           cd "$mainFolder"
           git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
@@ -78,9 +80,23 @@ jobs:
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -S -m "New translations" >/dev/null && \
-              (git push origin $NEW_BRANCH_NAME || git push --set-upstream origin $NEW_BRANCH_NAME) &&
+              (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) &&
               gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
               echo "No changes for $repoName"
           done;
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
+      - name: Set approve bot config details
+        run: |
+          git config --global user.name $APPROVE_BOT_NAME
+          git config --global user.email $APPROVE_BOT_EMAIL
+      - name: Approve pull requests
+        run: |
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            cd "$mainFolder/$folder"
+            gh pr review --approve
+          done;
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
