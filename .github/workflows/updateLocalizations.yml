@@ -97,6 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             pr=$(gh pr list -B $BRANCH_NAME)
+            echo $pr
             if [[ $pr == *"no pull requests"* ]]; then 
               continue
             fi
