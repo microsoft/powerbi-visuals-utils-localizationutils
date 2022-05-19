@@ -81,7 +81,8 @@ jobs:
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && git commit -S -m "New translations" >/dev/null && \
               (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) &&
-              gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations"
+              gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+              echo "No changes for $repoName"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
