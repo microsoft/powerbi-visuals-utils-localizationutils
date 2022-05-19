@@ -96,7 +96,7 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            pr=$(gh pr list -B $BRANCH_NAME)
+            pr=$(gh pr checks $BRANCH_NAME)
             echo $pr
             if [[ $pr ]]; then
               continue
