@@ -96,6 +96,11 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
+            pr=$(gh pr list -b $BRANCH_NAME)
+            echo $pr
+            if [[ $pr ]]; then
+              continue
+            fi
             empty_changes='{"additions":0,"deletions":0}'
             changes=$(gh pr view --json additions,deletions)
             if [[ $changes == $empty_changes ]]; then
