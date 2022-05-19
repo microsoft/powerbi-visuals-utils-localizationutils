@@ -96,7 +96,7 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            pr=$(gh pr list -B $BRANCH_NAME)
+            pr=$(gh pr list -B $BRANCH_NAME --json)
             echo $pr
             if [[ $pr == *"no pull requests"* ]]; then 
               continue
