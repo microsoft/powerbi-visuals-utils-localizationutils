@@ -103,6 +103,7 @@ jobs:
             fi
             empty_changes='{"additions":0,"deletions":0}'
             changes=$(gh pr view --json additions,deletions)
+            echo $changes
             if [[ $changes == $empty_changes ]]; then
               continue
               echo "No changes for $repoName"
