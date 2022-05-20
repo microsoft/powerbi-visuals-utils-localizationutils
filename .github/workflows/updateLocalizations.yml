@@ -97,6 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             empty_changes='{"additions":0,"deletions":0}'
+            echo "$repoName"
             changes=$(gh pr view --json additions,deletions)
             echo "changes"
             if [[ $changes == $empty_changes] || [$changes == *"no pull requests"* ]]; then
