@@ -98,13 +98,15 @@ jobs:
             cd "$mainFolder/$folder"
             empty_changes='{"additions":0,"deletions":0}'
             changes=$(gh pr view --json additions,deletions)
+            echo "changes"
             if [[ $changes == $empty_changes || $changes == *"no pull requests"* ]]; then
               continue
               echo "No changes for $repoName"
             fi
             gh pr review --approve
+            echo "Pull request to $repoName was approved"
             gh pr merge -s --auto
-            echo "Translations was merged to $repoName"
+            echo "Pull request to $repoName was merged"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
