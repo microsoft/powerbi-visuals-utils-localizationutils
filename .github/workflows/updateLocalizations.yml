@@ -97,13 +97,17 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            changes=$(gh search prs --author=@me --state=open --json isPullRequest,number)
-              echo "$changes"
-            if [[ $changes == "[]" ]]; then
+            isPullRequest=$(gh search prs --author=@me --state=open --json isPullRequest,number)
+            echo "$isPullRequest"
+            if [[ $isPullRequest == "[]" ]]; then
+              echo "No pull request for $repoName"
+              continue
+            fi
+            empty_changes='{"additions":0,"deletions":0}'
+            echo "$repoName"
+            changes=$(gh pr view --json additions,deletions)
+            if [[ $changes == $empty_changes ]]; then
               echo "No changes for $repoName"
-              empty_changes='{"additions":0,"deletions":0}'
-              echo "$repoName"
-              changes=$(gh pr view --json additions,deletions)
               continue
             fi
             gh pr review --approve
