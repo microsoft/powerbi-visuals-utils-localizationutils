@@ -97,15 +97,12 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            echo $(gh search prs --repo=$repoName --json number,state)
-            isPullRequest=$(gh search prs --author="pbicvloc" --json number,state)
-            echo "$isPullRequest"
+            isPullRequest=$(gh search prs --repo="https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git" --json number,state)
             if [[ $isPullRequest == "[]" ]]; then
               echo "No pull request for $repoName"
               continue
             fi
             empty_changes='{"additions":0,"deletions":0}'
-            echo "$repoName"
             changes=$(gh pr view --json additions,deletions)
             if [[ $changes == $empty_changes ]]; then
               echo "No changes for $repoName"
@@ -113,6 +110,8 @@ jobs:
             fi
             gh pr review --approve
             echo "Pull request to $repoName was approved"
+            # gh pr merge -s --auto
+            # echo "Pull request to $repoName was merged"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
