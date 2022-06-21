@@ -79,8 +79,8 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git add .
-            git commit -S -m "New translations" >/dev/null 
+            git add . && \
+            git commit -S -m "New translations" >/dev/null && \
             (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
             gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
             echo "No changes for $repoName"
