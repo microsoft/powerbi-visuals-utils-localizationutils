@@ -97,7 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            isPullRequest=$(gh search prs --repo=microsoft/$repoName --state=open --base=new-translations --json number,state)
+            isPullRequest=$(gh search prs --repo=microsoft/$repoName --state=open --base:new-translations --json number,state)
             echo $isPullRequest
             if [[ $isPullRequest == "[]" ]]; then
               echo "No pull request for $repoName"
