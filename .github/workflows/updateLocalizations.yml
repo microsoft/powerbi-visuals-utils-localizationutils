@@ -96,11 +96,9 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            empty_changes='{"additions":0,"deletions":0}'
             echo "$repoName"
             changes=$(gh search prs --author=@me --state=open --json isPullRequest)
-            echo "$changes"
-            if [[ $changes == $empty_changes ]]; then
+            if [[ $changes == "[]" ]]; then
               continue
               echo "No changes for $repoName"
             fi
