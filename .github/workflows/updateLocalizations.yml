@@ -97,7 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            echo $(gh search prs --base="new-translations" --json number,state)
+            echo $(gh search prs --base="new-translations" --repo=$repoName --json number,state)
             isPullRequest=$(gh search prs --author="pbicvloc" --json number,state)
             echo "$isPullRequest"
             if [[ $isPullRequest == "[]" ]]; then
