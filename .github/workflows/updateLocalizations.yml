@@ -96,9 +96,7 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            echo "$repoName"
             pullRequestNumber=$(gh search prs --repo=microsoft/$repoName --state=open --head=new-translations --json number)
-            echo $pullRequestNumber
             if [[ $pullRequestNumber == "[]" ]]; then
               echo "No pull request for $repoName"
               continue
@@ -111,8 +109,8 @@ jobs:
             fi
             gh pr review --approve
             echo "Pull request to $repoName was approved"
-            # gh pr merge -s --auto
-            # echo "Pull request to $repoName was merged"
+            gh pr merge -s --auto
+            echo "Pull request to $repoName was merged"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
