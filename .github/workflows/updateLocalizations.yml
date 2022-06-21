@@ -97,8 +97,8 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            echo $(gh search prs -- -state=closed --json number)
-            isPullRequest=$(gh search prs -- -state=closed --json number)
+            echo $(gh search prs --state=open --json number)
+            isPullRequest=$(gh search prs --state=open --json number)
             echo "$isPullRequest"
             if [[ $isPullRequest == "[]" ]]; then
               echo "No pull request for $repoName"
