@@ -79,10 +79,11 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git add . && git commit -S -m "New translations" >/dev/null && \
-              (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) &&
-              gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
-              echo "No changes for $repoName"
+            git add .
+            git commit -S -m "New translations" >/dev/null 
+            (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
+            gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+            echo "No changes for $repoName"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
@@ -96,7 +97,7 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            pullRequestNumber=$(gh search prs --repo=microsoft/$repoName --state=open --head=new-translations --json number)
+            pullRequestNumber=$(gh search prs --repo=microsoft/$repoName --state=open --head=$BRANCH_NAME --json number)
             if [[ $pullRequestNumber == "[]" ]]; then
               echo "No pull request for $repoName"
               continue
@@ -109,8 +110,8 @@ jobs:
             fi
             gh pr review --approve
             echo "Pull request to $repoName was approved"
-            gh pr merge -s --auto
-            echo "Pull request to $repoName was merged"
+            # gh pr merge -s --auto
+            # echo "Pull request to $repoName was merged"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
