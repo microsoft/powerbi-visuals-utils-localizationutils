@@ -97,15 +97,15 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            isPullRequest=$(gh search prs --repo=microsoft/$repoName --state=open --head=new-translations --json number,state)
-            echo $isPullRequest
-            if [[ $isPullRequest == "[]" ]]; then
+            pullRequestNumber=$(gh search prs --repo=microsoft/$repoName --state=open --head=new-translations --json number)
+            echo $pullRequestNumber
+            if [[ $pullRequestNumber == "[]" ]]; then
               echo "No pull request for $repoName"
               continue
             fi
-            empty_changes='{"additions":0,"deletions":0}'
+            emptyChanges='{"additions":0,"deletions":0}'
             changes=$(gh pr view --json additions,deletions)
-            if [[ $changes == $empty_changes ]]; then
+            if [[ $changes == $emptyChanges ]]; then
               echo "No changes for $repoName"
               continue
             fi
