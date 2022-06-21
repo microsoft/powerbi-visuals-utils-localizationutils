@@ -99,13 +99,11 @@ jobs:
             echo "$repoName"
             changes=$(gh search prs --author=@me --state=open --json isPullRequest)
             if [[ $changes == "[]" ]]; then
-              continue
               echo "No changes for $repoName"
+              continue
             fi
             gh pr review --approve
             echo "Pull request to $repoName was approved"
-            gh pr merge -s --auto
-            echo "Pull request to $repoName was merged"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
