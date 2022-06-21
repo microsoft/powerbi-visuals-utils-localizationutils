@@ -98,7 +98,7 @@ jobs:
             cd "$mainFolder/$folder"
             echo "$repoName"
             echo $(gh search prs --base="new-translations" --json number,state)
-            isPullRequest=$(gh search prs --assignee="pbicvloc" --json number,state)
+            isPullRequest=$(gh search prs --author="pbicvloc" --json number,state)
             echo "$isPullRequest"
             if [[ $isPullRequest == "[]" ]]; then
               echo "No pull request for $repoName"
