@@ -42,9 +42,9 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git remote remove origin
-            git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
-            git fetch
+            git remote remove origin >/dev/null
+            git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git >/dev/null
+            git fetch >/dev/null
             echo "Remote for $repoName updated"
             git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
           done;
@@ -82,8 +82,8 @@ jobs:
             git add . && \
             git commit -S -m "New translations" >/dev/null && \
             (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
-            gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
-            echo "No changes for $repoName"
+            gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations"
+            echo "$repoName is up to date"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
