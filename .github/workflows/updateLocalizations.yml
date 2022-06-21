@@ -98,7 +98,7 @@ jobs:
             cd "$mainFolder/$folder"
             empty_changes='{"additions":0,"deletions":0}'
             echo "$repoName"
-            changes=$(gh pr view --json additions,deletions)
+            changes=$(gh search prs --author=@me --state=open --json additions,deletions)
             if [[ $changes == $empty_changes ]]; then
               continue
               echo "No changes for $repoName"
