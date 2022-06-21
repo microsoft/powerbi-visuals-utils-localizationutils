@@ -97,7 +97,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            changes=$(gh search prs --author=@me --state=open --json)
+            changes=$(gh search prs --author=@me --state=open --json isPullRequest,number)
               echo "$changes"
             if [[ $changes == "[]" ]]; then
               echo "No changes for $repoName"
