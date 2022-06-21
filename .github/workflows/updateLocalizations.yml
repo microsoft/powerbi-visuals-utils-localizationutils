@@ -97,9 +97,13 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
             echo "$repoName"
-            changes=$(gh search prs --author=@me --state=open --json isPullRequest)
+            changes=$(gh search prs --author=@me --state=open --json)
+              echo "$changes"
             if [[ $changes == "[]" ]]; then
               echo "No changes for $repoName"
+              empty_changes='{"additions":0,"deletions":0}'
+              echo "$repoName"
+              changes=$(gh pr view --json additions,deletions)
               continue
             fi
             gh pr review --approve
