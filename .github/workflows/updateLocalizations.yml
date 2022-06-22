@@ -42,14 +42,16 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             cd "$mainFolder/$folder"
-            git remote remove origin >/dev/null
-            git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git >/dev/null
-            git fetch >/dev/null
+            git remote remove origin
+            git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
+            git fetch
             echo "Remote for $repoName updated"
             git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
           done;
           cd "$mainFolder"
-          git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No submodule updates"
+          echo "::group::commit changes"   
+            git add . && git commit -S -m "New translation" && git push || echo "No submodule updates"
+          echo "::endgroup::"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -61,7 +63,7 @@ jobs:
           done;
       - name: Commit and push EN translation
         run:
-          git add . && git commit -S -m "New translation" >/dev/null && git push || echo "No changes to commit"
+          git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
       - name: Copy translations
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -80,10 +82,10 @@ jobs:
             cd "$mainFolder/$folder"
             defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             git add . && \
-            git commit -S -m "New translations" >/dev/null && \
+            git commit -S -m "New translations" && \
             (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
-            gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations"
-            echo "$repoName is up to date"
+            gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+            echo "new pull request to $repoName wasn't created"
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
