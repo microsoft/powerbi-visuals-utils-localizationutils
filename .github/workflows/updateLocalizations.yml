@@ -34,16 +34,16 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
-      - name: Update remote links
+      - name: Update remote links for localization utils
         run: |
-          mainFolder=$PWD
-          echo "::group::update remote for loc utils"  
             git remote remove origin
             git remote add origin "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/powerbi-visuals-utils-localizationutils.git"
-          echo "::endgroup::"
+      - name: Update remote links for submodules
+        run: |
+          mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "::group::update remote for $repoName"  
+            echo "::group::Update remote for $repoName"  
               cd "$mainFolder/$folder"
               git remote remove origin
               git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
@@ -52,10 +52,6 @@ jobs:
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
           done;
-          cd "$mainFolder"
-          echo "::group::commit changes"   
-            git add . && git commit -S -m "New translation" && git push || echo "No submodule updates"
-          echo "::endgroup::"
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -65,10 +61,10 @@ jobs:
             newLocation="${location/$substring//stringResources}"
             cp $file $newLocation;
           done;
-      - name: Commit and push EN translation
+      - name: Commit and push changes
         run:
           git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
-      - name: Copy translations
+      - name: Copy translations to submodules
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
             if [[ $file == *"/en-US/"* ]]; then 
@@ -78,7 +74,7 @@ jobs:
             location="${file/$substring/localizations/}"
             cp $location $file;
           done;
-      - name: Commit and push new changes to repos
+      - name: Commit and push new changes to submodules
         run: |
           mainFolder=$PWD
           for folder in visuals/*; do
@@ -87,10 +83,10 @@ jobs:
               cd "$mainFolder/$folder"
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               git add . && \
-              git commit -S -m "New translations" && \
-              (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
-              gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
-              echo "new pull request to $repoName wasn't created"
+                git commit -S -m "New translations" && \
+                (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
+                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+                echo "new pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
