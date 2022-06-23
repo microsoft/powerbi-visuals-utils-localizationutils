@@ -96,7 +96,7 @@ jobs:
             echo "::endgroup::"
           done;
         env:
-          GITHUB_TOKEN: ${{ secrets.LOC_TOKEN }}
+          GH_TOKEN: ${{ secrets.LOC_TOKEN }}
       - name: Set approve bot config details
         run: |
           git config --global user.name $APPROVE_BOT_NAME
