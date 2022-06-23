@@ -6,7 +6,7 @@ jobs:
     env: 
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      LOC_BOT_TOKEN: ${{secrets.LOC_TOKEN}}
+      GH_TOKEN: ${{secrets.LOC_TOKEN}}
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
       BRANCH_NAME: "new-translations"
@@ -34,10 +34,10 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
-      - name: Update remote links for localization utils
-        run: |
-            git remote remove origin
-            git remote add origin "https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/powerbi-visuals-utils-localizationutils.git"
+      # - name: Update remote links for localization utils
+      #   run: |
+            # git remote remove origin
+            # git remote add origin "https://$LOC_BOT_NAME:$GH_TOKEN@github.com/microsoft/powerbi-visuals-utils-localizationutils.git"
       - name: Update remote links for submodules
         run: |
           mainFolder=$PWD
@@ -47,7 +47,7 @@ jobs:
               cd "$mainFolder/$folder"
               git remote get-url origin
               # git remote remove origin
-              # git remote add origin https://$LOC_BOT_NAME:$LOC_BOT_TOKEN@github.com/microsoft/$repoName.git
+              # git remote add origin https://$LOC_BOT_NAME:$GH_TOKEN@github.com/microsoft/$repoName.git
               git fetch
               echo "Remote for $repoName updated"
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
