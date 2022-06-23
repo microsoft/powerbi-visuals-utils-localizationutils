@@ -81,7 +81,7 @@ jobs:
           done;
       - name: Commit and push new changes to submodules
         run: |
-          echo ${{ secrets.LOC_TOKEN }} | gh auth login --with-token
+          gh auth login --with-token ${{ secrets.LOC_TOKEN }}
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
@@ -95,8 +95,6 @@ jobs:
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
-        env:
-          GH_TOKEN: ${{ secrets.LOC_TOKEN }}
       - name: Set approve bot config details
         run: |
           git config --global user.name $APPROVE_BOT_NAME
