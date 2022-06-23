@@ -4,11 +4,11 @@ jobs:
   update_translations:
     runs-on: ubuntu-latest
     env: 
-      LOC_BOT_NAME: "pbcvloc"
-      LOC_BOT_EMAIL: "pbcvloc@microsoft.com"
+      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
+      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       LOC_BOT_TOKEN: ${{secrets.LOC_TOKEN}}
-      APPROVE_BOT_NAME: "pbcvloc2"
-      APPROVE_BOT_EMAIL: "pbcvloc2@microsoft.com"
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
       BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v3
