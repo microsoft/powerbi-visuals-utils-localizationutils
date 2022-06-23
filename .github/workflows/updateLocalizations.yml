@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true
+          submodules: 'recursive'
           ssh-key: ${{ secrets.SSH_LOC_KEY }}
           persist-credentials: false
       - name: Set Loc bot config details
