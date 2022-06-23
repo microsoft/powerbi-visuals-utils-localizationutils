@@ -94,7 +94,6 @@ jobs:
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
-      GH_TOKEN: ${{secrets.LOC_TOKEN}}
       - name: Set approve bot config details
         run: |
           git config --global user.name $APPROVE_BOT_NAME
