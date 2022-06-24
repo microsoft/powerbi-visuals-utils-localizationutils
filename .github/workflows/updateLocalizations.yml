@@ -17,10 +17,9 @@ jobs:
             ${{ secrets.SSH_TORNADO_KEY}}
           repo-mappings: |
             github.com/microsoft/powerbi-visuals-tornado.git
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           submodules: recursive
-          persist-credentials: true
       - name: Set Loc bot config details
         run: |
           git config --global user.name $LOC_BOT_NAME
