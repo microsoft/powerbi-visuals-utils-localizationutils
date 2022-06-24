@@ -39,7 +39,7 @@ jobs:
             echo "::group::Checkout on branch in $repoName"  
               cd "$mainFolder/$folder"
               git fetch
-              git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git checkout --track origin/$BRANCH_NAME || git checkout -b $BRANCH_NAME
               git pull
             echo "::endgroup::"
           done;
