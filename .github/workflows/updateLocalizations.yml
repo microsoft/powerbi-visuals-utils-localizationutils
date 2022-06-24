@@ -21,7 +21,6 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
-          git -C visuals/* config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
@@ -36,6 +35,7 @@ jobs:
           git submodule update --init --recursive --remote
           mainFolder=$PWD
           for folder in visuals/*; do
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Checkout on branch in $repoName"  
               cd "$mainFolder/$folder"
