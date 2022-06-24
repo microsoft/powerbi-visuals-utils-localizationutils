@@ -40,6 +40,7 @@ jobs:
               cd "$mainFolder/$folder"
               git fetch
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git pull
             echo "::endgroup::"
           done;
       # - name: Update remote links for submodules
