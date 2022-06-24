@@ -38,8 +38,8 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Checkout on branch in $repoName"  
               cd "$mainFolder/$folder"
+              git fetch origin new-translations
               git checkout --track $BRANCH_NAME || git checkout -b $BRANCH_NAME
-              git fetch
               git pull
             echo "::endgroup::"
           done;
@@ -87,7 +87,6 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
-              git pull
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               git add . && \
                 git commit -S -m "New translations" && \
