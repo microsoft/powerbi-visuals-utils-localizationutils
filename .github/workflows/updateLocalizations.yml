@@ -21,6 +21,7 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
+          git -C submodPath config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
@@ -39,8 +40,7 @@ jobs:
             echo "::group::Checkout on branch in $repoName"  
               cd "$mainFolder/$folder"
               git fetch origin new-translations
-              git checkout --track $BRANCH_NAME || git checkout -b $BRANCH_NAME
-              git reset --hard origin/new-translations
+              git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
           done;
       # - name: Update remote links for submodules
