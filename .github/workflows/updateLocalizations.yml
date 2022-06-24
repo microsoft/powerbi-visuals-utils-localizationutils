@@ -21,7 +21,7 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
-          git -C submodPath config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+          git -C visuals/* config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
