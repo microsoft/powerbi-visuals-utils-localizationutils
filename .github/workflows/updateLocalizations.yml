@@ -22,7 +22,7 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
-          gh config set -h github.com git_protocol ssh
+          mkdir $HOME/.ssh && echo "${{ secrets.SSH_LOC_KEY }}" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh/id_rsa 
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
         with:
