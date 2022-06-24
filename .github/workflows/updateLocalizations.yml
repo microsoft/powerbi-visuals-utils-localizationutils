@@ -11,12 +11,6 @@ jobs:
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
       BRANCH_NAME: "new-translations"
     steps:
-      - uses: shaunco/ssh-agent@git-repo-mapping
-        with:
-          ssh-private-key: |
-            ${{ secrets.SSH_TORNADO_KEY}}
-          repo-mappings: |
-            github.com/microsoft/powerbi-visuals-tornado.git
       - uses: actions/checkout@v2
         with:
           submodules: recursive
@@ -36,6 +30,7 @@ jobs:
           git_commit_gpgsign: true
       - name: Update submodules
         run: |
+          mkdir $HOME/.ssh && echo "${{secrets.SSH_TORNADO_KEY}}" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh/id_rsa
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
           mainFolder=$PWD
