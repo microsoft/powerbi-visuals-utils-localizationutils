@@ -40,7 +40,7 @@ jobs:
               cd "$mainFolder/$folder"
               git fetch origin new-translations
               git checkout --track $BRANCH_NAME || git checkout -b $BRANCH_NAME
-              git pull
+              git reset --hard origin/new-translations
             echo "::endgroup::"
           done;
       # - name: Update remote links for submodules
