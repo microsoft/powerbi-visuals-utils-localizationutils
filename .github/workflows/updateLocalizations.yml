@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ secrets.LOC_TOKEN}}
           submodules: recursive
       - name: Set Loc bot config details
         run: |
@@ -30,7 +31,6 @@ jobs:
           git_commit_gpgsign: true
       - name: Update submodules
         run: |
-          mkdir $HOME/.ssh && echo "${{secrets.SSH_TORNADO_KEY}}" > $HOME/.ssh/id_rsa && chmod 600 $HOME/.ssh/id_rsa
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
           mainFolder=$PWD
