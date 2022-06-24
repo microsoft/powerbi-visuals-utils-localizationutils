@@ -15,6 +15,7 @@ jobs:
         with:
           token: ${{ secrets.LOC_TOKEN}}
           submodules: recursive
+          persist-credentials: true
       - name: Set Loc bot config details
         run: |
           git config --global user.name $LOC_BOT_NAME
@@ -35,30 +36,14 @@ jobs:
           git submodule update --init --recursive --remote
           mainFolder=$PWD
           for folder in visuals/*; do
-            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
             repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "::group::Checkout on branch in $repoName"  
+            echo "::group::Configure $repoName" 
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
-              git fetch origin new-translations
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
             cd $mainFolder
           done;
-      # - name: Update remote links for submodules
-      #   run: |
-      #     mainFolder=$PWD
-      #     for folder in visuals/*; do
-      #       repoName=$(echo $folder| cut -d'/' -f 2)
-      #       echo "::group::Update remote for $repoName"  
-      #         cd "$mainFolder/$folder"
-      #         git remote get-url origin
-              # git remote remove origin
-              # git remote add origin https://$LOC_BOT_NAME:$GH_TOKEN@github.com/microsoft/$repoName.git
-          #     git fetch
-          #     echo "Remote for $repoName updated"
-          #     git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
-          #   echo "::endgroup::"
-          # done;
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
