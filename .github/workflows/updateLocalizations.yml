@@ -38,8 +38,8 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Checkout on branch in $repoName"  
               cd "$mainFolder/$folder"
+              git checkout --track $BRANCH_NAME || git checkout -b $BRANCH_NAME
               git fetch
-              git checkout --track origin/$BRANCH_NAME || git checkout -b $BRANCH_NAME
               git pull
             echo "::endgroup::"
           done;
