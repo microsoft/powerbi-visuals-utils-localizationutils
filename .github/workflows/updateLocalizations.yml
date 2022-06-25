@@ -20,14 +20,6 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.ignorecase true
           git config --global core.autocrlf false
-      - uses: crazy-max/ghaction-import-gpg@v4
-        id: import-gpg
-        with:
-          gpg_private_key: ${{ secrets.GPG_TOKEN }}
-          passphrase: ${{ secrets.PASS_PHRASE }}
-          git_config_global: true
-          git_user_signingkey: true
-          git_commit_gpgsign: true
       - name: Update submodules
         run: |
           git pull --recurse-submodules
@@ -86,6 +78,10 @@ jobs:
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
       BRANCH_NAME: "new-translations"
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          persist-credentials: true
       - name: Set Loc bot config details
         run: |
           git config --global user.name $APPROVE_BOT_NAME
