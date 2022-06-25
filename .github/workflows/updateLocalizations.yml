@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{ secrets.LOC_TOKEN}}
           submodules: recursive
-          persist-credentials: true
+          persist-credentials: false
       - name: Set Loc bot config details
         run: |
           git config --global user.name $LOC_BOT_NAME
