@@ -30,16 +30,17 @@ jobs:
           git_commit_gpgsign: true
       - name: Update submodules
         run: |
-          git submodule update --init -- visuals/*
-          git pull --recurse-submodules
+          git submodule update --init
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Configure $repoName" 
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               cd "$mainFolder/$folder"
               git fetch
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git rebase $defaultBranchName
             echo "::endgroup::"
             cd $mainFolder
           done;
