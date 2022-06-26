@@ -1,13 +1,15 @@
 on: push
 
 jobs:
+  runs-on: ubuntu-latest
+  env: 
+    LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
+    LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
+    GH_TOKEN: ${{secrets.LOC_TOKEN}}
+    APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+    APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+    BRANCH_NAME: "new-translations"
   update_translations:
-    runs-on: ubuntu-latest
-    env: 
-      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
-      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      GH_TOKEN: ${{secrets.LOC_TOKEN}}
-      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -72,11 +74,7 @@ jobs:
             echo "::endgroup::"
           done;
   approve_pull_requests:
-    runs-on: ubuntu-latest
-    env: 
-      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-      BRANCH_NAME: "new-translations"
+    needs: update_translations
     steps:
       - uses: actions/checkout@v2
         with:
@@ -98,7 +96,6 @@ jobs:
       - name: Approve pull requests
         run: |
           git submodule init
-          ls
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
