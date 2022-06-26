@@ -30,13 +30,12 @@ jobs:
           git_commit_gpgsign: true
       - name: Update submodules
         run: |
-          git pull --recurse-submodules
           git submodule update --init --recursive --remote
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Configure $repoName" 
-            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
+              git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
