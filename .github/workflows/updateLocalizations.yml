@@ -101,7 +101,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number,author)
+              pullRequestNumber=$(gh pr list --state=open --repo=microsoft/$repoName --head=$BRANCH_NAME --json number,author)
               echo $pullRequestNumber
               if [[ $pullRequestNumber == "[]" ]]; then
                 echo "No pull request for $repoName"
