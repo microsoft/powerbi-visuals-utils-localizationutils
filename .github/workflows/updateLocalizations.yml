@@ -31,6 +31,7 @@ jobs:
       - name: Update submodules
         run: |
           git submodule update --init --recursive --remote
+          git pull --recurse-submodules
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
