@@ -1,13 +1,15 @@
 on: push
 
 jobs:
-  update_translations:
   runs-on: ubuntu-latest
-  env: 
+  env:
     LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
     LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
     GH_TOKEN: ${{secrets.LOC_TOKEN}}
+    APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+    APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     BRANCH_NAME: "new-translations"
+  update_translations:
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,8 +46,7 @@ jobs:
             cp $file $newLocation;
           done;
       - name: Commit and push changes
-        run:
-          git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
+        run: git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
       - name: Copy translations to submodules
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -73,11 +74,6 @@ jobs:
           done;
   approve_pull_requests:
     needs: update_translations
-    runs-on: ubuntu-latest
-    env: 
-      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v2
         with:
