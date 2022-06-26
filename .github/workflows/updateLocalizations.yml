@@ -36,11 +36,11 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Configure $repoName" 
-              git fetch
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
-              git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git fetch
               git pull
+              git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
             cd $mainFolder
           done;
