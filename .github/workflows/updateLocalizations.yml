@@ -1,15 +1,13 @@
 on: push
 
 jobs:
+  update_translations:
   runs-on: ubuntu-latest
   env: 
     LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
     LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
     GH_TOKEN: ${{secrets.LOC_TOKEN}}
-    APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-    APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     BRANCH_NAME: "new-translations"
-  update_translations:
     steps:
       - uses: actions/checkout@v2
         with:
@@ -75,6 +73,11 @@ jobs:
           done;
   approve_pull_requests:
     needs: update_translations
+    runs-on: ubuntu-latest
+    env: 
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -95,13 +98,13 @@ jobs:
           git_commit_gpgsign: true
       - name: Approve pull requests
         run: |
-          git submodule init
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              pullRequestNumber=$(gh pr list --repo=microsoft/$repoName --state=open --head=$BRANCH_NAME --json number)
+              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number,author)
+              echo $pullRequestNumber
               if [[ $pullRequestNumber == "[]" ]]; then
                 echo "No pull request for $repoName"
                 continue
