@@ -3,7 +3,7 @@ on: push
 jobs:
   update_translations:
     runs-on: ubuntu-latest
-    env:
+    env: 
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
@@ -73,9 +73,10 @@ jobs:
   approve_pull_requests:
     runs-on: ubuntu-latest
     needs: update_translations
-    env:
+    env: 
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -101,7 +102,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              pullRequestNumber=$(gh pr list --state=open --repo=microsoft/$repoName --head=$BRANCH_NAME --json number,author)
+              pullRequestNumber=$(gh pr list --repo=microsoft/$repoName --state=open --head=$BRANCH_NAME --json number)
               echo $pullRequestNumber
               if [[ $pullRequestNumber == "[]" ]]; then
                 echo "No pull request for $repoName"
@@ -121,3 +122,4 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
+          
