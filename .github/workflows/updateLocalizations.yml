@@ -102,7 +102,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              pullRequestNumber=$(gh pr list --repo=microsoft/$repoName --state=open --head=$BRANCH_NAME --json number)
+              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number)
               echo $pullRequestNumber
               if [[ $pullRequestNumber == "[]" ]]; then
                 echo "No pull request for $repoName"
@@ -122,4 +122,3 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          
