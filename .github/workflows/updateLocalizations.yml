@@ -40,6 +40,7 @@ jobs:
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git pull
             echo "::endgroup::"
             cd $mainFolder
           done;
