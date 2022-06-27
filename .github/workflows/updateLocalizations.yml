@@ -39,6 +39,7 @@ jobs:
               cd "$mainFolder/$folder"
               git fetch
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
+              git rebase $defaultBranchName
             echo "::endgroup::"
             cd $mainFolder
           done;
@@ -114,7 +115,7 @@ jobs:
               fi
               gh pr review $BRANCH_NAME --approve
               echo "Pull request to $repoName was approved"
-              # gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
+              gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
               echo "Pull request to $repoName was merged"
             echo "::endgroup::"
           done;
