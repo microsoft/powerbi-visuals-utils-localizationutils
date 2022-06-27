@@ -39,9 +39,6 @@ jobs:
               cd "$mainFolder/$folder"
               git fetch
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
-              git rebase $defaultBranchName
-              git add .
-              git rebase --continue
             echo "::endgroup::"
             cd $mainFolder
           done;
