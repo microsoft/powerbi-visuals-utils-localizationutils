@@ -18,7 +18,6 @@ jobs:
         run: |
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email $LOC_BOT_EMAIL
-          git config --global core.ignorecase true
           git config --global core.autocrlf false
       - uses: crazy-max/ghaction-import-gpg@v4
         id: import-gpg
@@ -96,7 +95,6 @@ jobs:
         run: |
           git config --global user.name $APPROVE_BOT_NAME
           git config --global user.email $APPROVE_BOT_EMAIL
-          git config --global core.ignorecase true
       - name: Approve pull requests
         run: |
           mainFolder=$PWD
