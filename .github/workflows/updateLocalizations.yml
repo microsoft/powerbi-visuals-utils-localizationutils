@@ -33,7 +33,6 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             echo "::group::Configure $repoName" 
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
@@ -104,7 +103,6 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
               pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number)
@@ -112,9 +110,10 @@ jobs:
                 echo "No pull request for $repoName"
                 continue
               fi
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff origin/$defaultBranchName)"
               if [[ $changes == "" ]]; then
-                gh pr close -d --head=$BRANCH_NAME
+                gh pr close -d --head=$defaultBranchName
                 echo "No changes for $repoName"
                 continue
               fi
