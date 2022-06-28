@@ -71,6 +71,7 @@ jobs:
               cd "$mainFolder/$folder"
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff origin/$defaultBranchName)"
+              git diff
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
