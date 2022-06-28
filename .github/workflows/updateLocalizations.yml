@@ -35,7 +35,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Configure $repoName" 
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
-              defaultBranchName=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               cd "$mainFolder/$folder"
               git fetch
               console.log($defaultBranchName)
@@ -72,7 +72,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
-              defaultBranchName=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) && \
