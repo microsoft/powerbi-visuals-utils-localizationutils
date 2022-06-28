@@ -112,7 +112,7 @@ jobs:
                 continue
               fi
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              changes="$(git diff origin/$defaultBranchName)"
+              changes="$(git diff)"
               if [[ $changes == "" ]]; then
                 gh pr close -d $BRANCH_NAME
                 echo "No changes for $repoName"
