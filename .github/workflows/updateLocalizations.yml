@@ -71,11 +71,16 @@ jobs:
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              changes="$(git diff origin/$defaultBranchName)"
+              if [[ $changes == "" ]]; then
+                echo "No changes for $repoName"
+                continue
+              fi
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) || echo "New pull request to $repoName wasn't created"
-                # gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
-                
+                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+                echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
   approve_pull_requests:
@@ -99,29 +104,24 @@ jobs:
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              changes="$(git diff origin/master)"
-              echo $changes
-              if [[ $changes == "" ]]; then
+              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number)
+              if [[ $pullRequestNumber == "[]" ]]; then
                 echo "No pull request for $repoName"
                 continue
               fi
-              # pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number)
-              # if [[ $pullRequestNumber == "[]" ]]; then
-              #   echo "No pull request for $repoName"
-              #   continue
-              # fi
-              # emptyChanges='{"additions":0,"deletions":0}'
-              # changes=$(gh pr view $BRANCH_NAME --json additions,deletions)
-              # if [[ $changes == $emptyChanges ]]; then
-              #   echo "No changes for $repoName"
-              #   continue
-              # fi
-              # gh pr review $BRANCH_NAME --approve
-              # echo "Pull request to $repoName was approved"
+              changes="$(git diff origin/$defaultBranchName)"
+              if [[ $changes == "" ]]; then
+                gh pr close -d --head=$BRANCH_NAME
+                echo "No changes for $repoName"
+                continue
+              fi
+              gh pr review $BRANCH_NAME --approve
+              echo "Pull request to $repoName was approved"
               # gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
-              # echo "Pull request to $repoName was merged"
+              echo "Pull request to $repoName was merged"
             echo "::endgroup::"
           done;
         env:
