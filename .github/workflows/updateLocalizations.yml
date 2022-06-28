@@ -112,9 +112,6 @@ jobs:
               fi
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff origin/$defaultBranchName)"
-              git diff
-              echo "----------------------"
-              git diff origin/$defaultBranchName
               if [[ $changes == "" ]]; then
                 gh pr close -d $BRANCH_NAME
                 echo "No changes for $repoName"
@@ -122,7 +119,7 @@ jobs:
               fi
               gh pr review $BRANCH_NAME --approve
               echo "Pull request to $repoName was approved"
-              # gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
+              gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
               echo "Pull request to $repoName was merged"
             echo "::endgroup::"
           done;
