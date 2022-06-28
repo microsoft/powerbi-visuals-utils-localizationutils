@@ -38,7 +38,7 @@ jobs:
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               cd "$mainFolder/$folder"
               git fetch
-              console.log($defaultBranchName)
+              echo $defaultBranchName
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
               git rebase $defaultBranchName
             echo "::endgroup::"
