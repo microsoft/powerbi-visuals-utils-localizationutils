@@ -35,12 +35,11 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Configure $repoName" 
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
-              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               cd "$mainFolder/$folder"
               git fetch
-              echo $defaultBranchName
+              echo $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
-              git rebase $defaultBranchName
+              git rebase $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
             echo "::endgroup::"
             cd $mainFolder
           done;
