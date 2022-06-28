@@ -101,7 +101,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              changes=$(git diff *)
+              changes="$(git diff)"
               echo $changes
               if [[ $changes == "" ]]; then
                 echo "No pull request for $repoName"
@@ -121,7 +121,7 @@ jobs:
               # gh pr review $BRANCH_NAME --approve
               # echo "Pull request to $repoName was approved"
               # gh pr merge $BRANCH_NAME -s --auto -d -t "New translations"
-              echo "Pull request to $repoName was merged"
+              # echo "Pull request to $repoName was merged"
             echo "::endgroup::"
           done;
         env:
