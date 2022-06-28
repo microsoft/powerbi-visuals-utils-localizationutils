@@ -70,8 +70,7 @@ jobs:
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              changes="$(git diff origin/$defaultBranchName)"
-              git diff
+              changes="$(git diff)"
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
@@ -112,7 +111,7 @@ jobs:
                 continue
               fi
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              changes="$(git diff)"
+              changes="$(git diff origin/$defaultBranchName)"
               if [[ $changes == "" ]]; then
                 gh pr close -d $BRANCH_NAME
                 echo "No changes for $repoName"
