@@ -101,7 +101,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Approve and merge to $repoName"  
               cd "$mainFolder/$folder"
-              changes="$(git diff)"
+              changes="$(git diff origin/master)"
               echo $changes
               if [[ $changes == "" ]]; then
                 echo "No pull request for $repoName"
