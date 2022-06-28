@@ -106,7 +106,7 @@ jobs:
               if [[ $changes == "" ]]; then
                 echo "No pull request for $repoName"
                 continue
-              # fi
+              fi
               # pullRequestNumber=$(gh pr list --state=open --head=$BRANCH_NAME --json number)
               # if [[ $pullRequestNumber == "[]" ]]; then
               #   echo "No pull request for $repoName"
