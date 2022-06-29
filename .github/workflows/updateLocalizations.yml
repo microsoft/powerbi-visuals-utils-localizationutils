@@ -78,6 +78,7 @@ jobs:
               cd "$mainFolder/$folder"
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff)"
+              echo $PR_NAME
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
@@ -85,12 +86,13 @@ jobs:
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH || git push --set-upstream origin $BRANCH) || echo "New pull request to $repoName wasn't created"
-                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations (${{steps.info.outputs.pr-date}})" || \
+                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t $PR_NAME || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
           BRANCH: ${{steps.info.outputs.branch}}
+          PR_NAME: "New translations (${{steps.info.outputs.pr-date}})"
   approve_pull_requests:
     runs-on: ubuntu-latest
     needs: update_translations
