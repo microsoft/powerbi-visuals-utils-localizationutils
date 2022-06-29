@@ -69,14 +69,14 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
+              date=$(date)
+              echo $date
               defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff)"
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
               fi
-              date=$(date)
-              echo $date
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) || echo "New pull request to $repoName wasn't created"
