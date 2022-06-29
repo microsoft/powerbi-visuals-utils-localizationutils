@@ -96,7 +96,6 @@ jobs:
     env: 
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-      BRANCH_NAME: "new-translations"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -133,4 +132,4 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          BRANCH: ${{jobs.update_trnslations.steps.info.outputs.branch}}
+          BRANCH: ${{jobs.update_translations.steps.info.outputs.branch}}
