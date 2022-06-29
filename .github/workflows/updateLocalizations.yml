@@ -7,14 +7,13 @@ jobs:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
-      BRANCH_NAME: "new-translations"
     outputs:
       branch-name: ${{steps.info.outputs.branch}}
     steps:
       - name: Prepare info
         id: info
         run: |
-          echo "::set-output name=branch::$(date +'$BRANCH_NAME_%F_%H-%M-%S')"
+          echo "::set-output name=branch::$(date +'new-translations_%F_%H-%M-%S')"
           echo "::set-output name=pr-date::$(date +'%F %T %Z')"
       - uses: actions/checkout@v2
         with:
