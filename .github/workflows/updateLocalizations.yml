@@ -8,6 +8,8 @@ jobs:
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
       BRANCH_NAME: "new-translations"
+    outputs:
+      branch-name: ${{steps.info.outputs.branch}}
     steps:
       - name: Prepare info
         id: info
@@ -132,4 +134,4 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          BRANCH: ${{jobs.update_translations.steps.info.outputs.branch}}
+          BRANCH: ${{needs.update_translations.outputs.branch}}
