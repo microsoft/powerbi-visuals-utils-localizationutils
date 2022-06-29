@@ -46,7 +46,7 @@ jobs:
             cd $mainFolder
           done;
         env:
-          BRANCH: $steps.info.outputs.branch
+          BRANCH: ${{steps.info.outputs.branch}}
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -84,12 +84,12 @@ jobs:
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH || git push --set-upstream origin $BRANCH) || echo "New pull request to $repoName wasn't created"
-                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations ($steps.info.outputs.pr-date)" || \
+                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations (${{steps.info.outputs.pr-date}})" || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
-          BRANCH: $steps.info.outputs.branch
+          BRANCH: ${{steps.info.outputs.branch}}
   approve_pull_requests:
     runs-on: ubuntu-latest
     needs: update_translations
@@ -133,4 +133,4 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          BRANCH: $jobs.update_trnslations.steps.info.outputs.branch
+          BRANCH: ${{jobs.update_trnslations.steps.info.outputs.branch}}
