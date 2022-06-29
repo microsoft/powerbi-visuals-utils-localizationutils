@@ -133,4 +133,4 @@ jobs:
           done;
         env:
           GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          BRANCH: ${{needs.update_translations.outputs.branch}}
+          BRANCH: ${{needs.update_translations.outputs.branch-name}}
