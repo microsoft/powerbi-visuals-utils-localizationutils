@@ -7,8 +7,8 @@ jobs:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
-      BRANCH_NAME: "new-translations"
-      DATE: date
+      BRANCH_NAME: "new-translations $(date +'%F_%H-%M-%S')"
+      DATE: $(date +'%F %T %Z')
     steps:
       - uses: actions/checkout@v2
         with:
@@ -38,7 +38,6 @@ jobs:
               git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
               cd "$mainFolder/$folder"
               git fetch
-              datetime=$(DATE +'%F_%H-%M')
               git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
             echo "::endgroup::"
             cd $mainFolder
@@ -77,11 +76,10 @@ jobs:
                 echo "No changes for $repoName"
                 continue
               fi
-              date=$(date +'%F %T %Z')
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) || echo "New pull request to $repoName wasn't created"
-                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations ($date)" || \
+                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations ($Date)" || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
