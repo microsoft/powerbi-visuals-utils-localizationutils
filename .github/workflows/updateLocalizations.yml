@@ -75,10 +75,12 @@ jobs:
                 echo "No changes for $repoName"
                 continue
               fi
+              date=$(date)
+              echo $date
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH_NAME || git push --set-upstream origin $BRANCH_NAME) || echo "New pull request to $repoName wasn't created"
-                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations" || \
+                gh pr create -B "$defaultBranchName" -b "Auto created Pull Request with new translations" -t "New translations ($date)" || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
