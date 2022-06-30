@@ -3,20 +3,51 @@ on: push
 jobs:
   update_translations:
     runs-on: ubuntu-latest
+    env: 
+      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
+      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
+      GH_TOKEN: ${{secrets.LOC_TOKEN}}
+    outputs:
+      branch-name: ${{steps.info.outputs.branch}}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - uses: actions/labeler@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Set config details
+      - name: Prepare info
+        id: info
         run: |
-          git config --global user.name 'pbicvbot'
-          git config --global user.email 'pbicvbot@microsoft.com'
+          echo "::set-output name=branch::$(date +'new-translations_%F_%H-%M-%S')"
+          echo "::set-output name=pr-date::$(date +'%F %T %Z')"
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.LOC_TOKEN}}
+          submodules: recursive
+          persist-credentials: true
+      - name: Set Loc bot config details
+        run: |
+          git config --global user.name $LOC_BOT_NAME
+          git config --global user.email $LOC_BOT_EMAIL
+          git config --global core.autocrlf false
+      - uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_TOKEN }}
+          passphrase: ${{ secrets.PASS_PHRASE }}
+          git_config_global: true
+          git_user_signingkey: true
+          git_commit_gpgsign: true
       - name: Update submodules
-        run: 
-          git submodule update
+        run: |
+          git submodule update --init
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            echo "::group::Configure $repoName" 
+              git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
+              cd "$mainFolder/$folder"
+              git fetch
+              git checkout -b $BRANCH
+            echo "::endgroup::"
+            cd $mainFolder
+          done;
+        env:
+          BRANCH: ${{steps.info.outputs.branch}}
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -26,24 +57,81 @@ jobs:
             newLocation="${location/$substring//stringResources}"
             cp $file $newLocation;
           done;
-      - name: Commit and push EN translation
-        run: |
-          git add . && git commit -m "New translation" && git push || echo "No changes to commit"
-      - name: Copy translations
+      - name: Commit and push changes
+        run: git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
+      - name: Copy translations to submodules
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
+            if [[ $file == *"/en-US/"* ]]; then 
+              continue
+            fi
             substring="visuals/"
             location="${file/$substring/localizations/}"
-            substring="/stringresources"
-            oldFile="${location/$substring//stringResources}"
-            cp $oldFile $file;
+            cp $location $file;
           done;
-      - name: Commit and push new changes to repos
+      - name: Commit and push new changes to submodules
         run: |
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            cd "$mainFolder/$folder"
-            git checkout master
-            git add . && git commit -m "New translations" && git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$repoName.git"
+            echo "::group::Commit to $repoName"  
+              cd "$mainFolder/$folder"
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              changes="$(git diff)"
+              if [[ $changes == "" ]]; then
+                echo "No changes for $repoName"
+                continue
+              fi
+              git add . && \
+                git commit -S -m "New translations" && \
+                (git push origin $BRANCH || git push --set-upstream origin $BRANCH) || echo "New pull request to $repoName wasn't created"
+                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t $PR_NAME || \
+                echo "New pull request to $repoName wasn't created"
+            echo "::endgroup::"
           done;
+        env:
+          BRANCH: ${{steps.info.outputs.branch}}
+          PR_NAME: "New translations (${{steps.info.outputs.pr-date}})"
+  approve_pull_requests:
+    runs-on: ubuntu-latest
+    needs: update_translations
+    env: 
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          persist-credentials: true
+      - name: Set Loc bot config details
+        run: |
+          git config --global user.name $APPROVE_BOT_NAME
+          git config --global user.email $APPROVE_BOT_EMAIL
+      - name: Approve pull requests
+        run: |
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            echo "::group::Approve and merge to $repoName"  
+              cd "$mainFolder/$folder"
+              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
+              if [[ $pullRequestNumber == "[]" ]]; then
+                echo "No pull request for $repoName"
+                continue
+              fi
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              changes="$(git diff origin/$defaultBranchName)"
+              if [[ $changes == "" ]]; then
+                gh pr close -d $BRANCH
+                echo "No changes for $repoName"
+                continue
+              fi
+              gh pr review $BRANCH --approve
+              echo "Pull request to $repoName was approved"
+              gh pr merge $BRANCH -s --auto -d -t "New translations"
+              echo "Pull request to $repoName was merged"
+            echo "::endgroup::"
+          done;
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
+          BRANCH: ${{needs.update_translations.outputs.branch-name}}
