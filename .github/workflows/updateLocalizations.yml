@@ -90,10 +90,54 @@ jobs:
               git add . && \
                 git commit -S -m "New translations" && \
                 (git push origin $BRANCH || git push --set-upstream origin $BRANCH) || echo "New pull request to $repoName wasn't created"
-                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t $PR_NAME || \
+                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
           BRANCH: ${{steps.info.outputs.branch}}
-          PR_NAME: 'New translations (${{steps.info.outputs.pr-date}})'
+          PR_NAME: "New translations (${{steps.info.outputs.pr-date}})"
+  approve_pull_requests:
+    environment: update localizations
+    runs-on: ubuntu-latest
+    needs: update_translations
+    env: 
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          persist-credentials: true
+      - name: Set Loc bot config details
+        run: |
+          git config --global user.name $APPROVE_BOT_NAME
+          git config --global user.email $APPROVE_BOT_EMAIL
+      - name: Approve pull requests
+        run: |
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            echo "::group::Approve and merge to $repoName"  
+              cd "$mainFolder/$folder"
+              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
+              if [[ $pullRequestNumber == "[]" ]]; then
+                echo "No pull request for $repoName"
+                continue
+              fi
+              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              changes="$(git diff origin/$defaultBranchName)"
+              if [[ $changes == "" ]]; then
+                gh pr close -d $BRANCH
+                echo "No changes for $repoName"
+                continue
+              fi
+              gh pr review $BRANCH --approve
+              echo "Pull request to $repoName was approved"
+              gh pr merge $BRANCH -s --auto -d -t "New translations"
+              echo "Pull request to $repoName was merged"
+            echo "::endgroup::"
+          done;
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
+          BRANCH: ${{needs.update_translations.outputs.branch-name}}
