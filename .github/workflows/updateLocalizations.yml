@@ -2,6 +2,7 @@ on: push
 
 jobs:
   update_translations:
+    environment: update localizations
     runs-on: ubuntu-latest
     env: 
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
@@ -93,6 +94,7 @@ jobs:
           BRANCH: ${{steps.info.outputs.branch}}
           PR_NAME: "New translations (${{steps.info.outputs.pr-date}})"
   approve_pull_requests:
+    environment: update localizations
     runs-on: ubuntu-latest
     needs: update_translations
     env: 
