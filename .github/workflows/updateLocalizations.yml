@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   update_translations:
@@ -35,7 +38,8 @@ jobs:
           git_commit_gpgsign: true
       - name: Update submodules
         run: |
-          git submodule update --init
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
           mainFolder=$PWD
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
