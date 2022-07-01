@@ -134,7 +134,7 @@ jobs:
               fi
               gh pr review $BRANCH --approve
               echo "Pull request to $repoName was approved"
-              gh pr merge $BRANCH -s --auto -d -t "New translations"
+              gh pr merge $BRANCH -s --auto -t "New translations"
               echo "Pull request to $repoName was merged"
             echo "::endgroup::"
           done;
