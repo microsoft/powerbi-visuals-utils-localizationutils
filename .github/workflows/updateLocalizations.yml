@@ -30,6 +30,7 @@ jobs:
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.autocrlf false
+          git config core.longpaths true 
       - uses: crazy-max/ghaction-import-gpg@v4
         with:
           gpg_private_key: ${{secrets.GPG_TOKEN}}
