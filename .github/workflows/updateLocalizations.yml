@@ -1,27 +1,114 @@
-on:
-  push:
-    branches:
-      - main
+on: 
+  workflow_dispatch
 
 jobs:
-  update_translations:
+  update_en_localization:
     environment: update localizations
     runs-on: ubuntu-latest
-    env: 
+    env:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     outputs:
-      branch-name: ${{steps.info.outputs.branch}}
+      branch-name: ${{steps.info.outputs.branch-name}}
+      pr-name: ${{steps.info.outputs.pr-name}}
     steps:
       - name: Prepare info
         id: info
         run: |
-          echo "::set-output name=branch::$(date +'new-translations_%F_%H-%M-%S')"
-          echo "::set-output name=pr-date::$(date +'%F %T %Z')"
+          echo "::set-output name=branch-name::$(date +'new-translations_%F_%H-%M-%S')"
+          echo "::set-output name=pr-name::$(date +'New translations (%F %T %Z)')"
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.LOC_TOKEN}}
+          token: ${{secrets.LOC_TOKEN}}
+          submodules: recursive
+          persist-credentials: true
+      - name: Set Loc bot config details
+        run: |
+          git config --global user.name $LOC_BOT_NAME
+          git config --global user.email $LOC_BOT_EMAIL
+          git config --global core.autocrlf false
+          git config core.longpaths true 
+      - uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{secrets.GPG_TOKEN}}
+          passphrase: ${{secrets.PASS_PHRASE}}
+          git_config_global: true
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+      - name: Update submodules
+        run: |
+          git checkout -b $BRANCH
+          git submodule init
+          git submodule update --remote --recursive
+        env:
+          BRANCH: ${{steps.info.outputs.branch-name}}
+      - name: Copy EN translation
+        run: |
+          for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
+            substring="visuals/"
+            location="${file/$substring/localizations/}"
+            substring="/stringresources"
+            newLocation="${location/$substring//stringResources}"
+            cp $file $newLocation;
+          done;
+      - name: Commit and push changes
+        run: |
+          changes="$(git diff)"
+          if [[ $changes != "" ]]; then
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            git add . && \
+              git commit -S -m "New translations" && \
+              git push --set-upstream origin $BRANCH && \
+              gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
+              echo "New pull request to $repoName wasn't created"
+          else
+            echo "No changes"
+          fi
+        env:
+          PR_NAME: ${{steps.info.outputs.pr-name}}
+          BRANCH: ${{steps.info.outputs.branch-name}}
+      - name: Set Loc bot config details
+        run: |
+          git config --global user.name $APPROVE_BOT_NAME
+          git config --global user.email $APPROVE_BOT_EMAIL
+      - name: Approve pull request
+        run: |
+          pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
+          if [[ $pullRequestNumber != "[]" ]]; then
+            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+            changes="$(git diff origin/$defaultBranchName)"
+            if [[ $changes != "" ]]; then
+              gh pr review $BRANCH --approve
+              echo "Pull request was approved"
+              gh pr merge $BRANCH -s --auto -t "New translations"
+              echo "Pull request was merged"
+            else
+              gh pr close -d $BRANCH
+              echo "No changes"
+            fi
+          else
+            echo "No pull request"
+          fi
+        env:
+          GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
+          BRANCH: ${{steps.info.outputs.branch-name}}
+  update_other_localizations:
+    environment: update localizations
+    runs-on: ubuntu-latest
+    needs: update_en_localization
+    env:
+      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
+      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
+      GH_TOKEN: ${{secrets.LOC_TOKEN}}
+      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.LOC_TOKEN}}
           submodules: recursive
           persist-credentials: true
       - name: Set Loc bot config details
@@ -31,8 +118,8 @@ jobs:
           git config --global core.autocrlf false
       - uses: crazy-max/ghaction-import-gpg@v4
         with:
-          gpg_private_key: ${{ secrets.GPG_TOKEN }}
-          passphrase: ${{ secrets.PASS_PHRASE }}
+          gpg_private_key: ${{secrets.GPG_TOKEN}}
+          passphrase: ${{secrets.PASS_PHRASE}}
           git_config_global: true
           git_user_signingkey: true
           git_commit_gpgsign: true
@@ -52,18 +139,7 @@ jobs:
             cd $mainFolder
           done;
         env:
-          BRANCH: ${{steps.info.outputs.branch}}
-      - name: Copy EN translation
-        run: |
-          for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
-            substring="visuals/"
-            location="${file/$substring/localizations/}"
-            substring="/stringresources"
-            newLocation="${location/$substring//stringResources}"
-            cp $file $newLocation;
-          done;
-      - name: Commit and push changes
-        run: git add . && git commit -S -m "New translation" && git push || echo "No changes to commit"
+          BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
       - name: Copy translations to submodules
         run: |
           for file in ./visuals/*/stringResources/*/resources.resjson; do 
@@ -89,26 +165,14 @@ jobs:
               fi
               git add . && \
                 git commit -S -m "New translations" && \
-                (git push origin $BRANCH || git push --set-upstream origin $BRANCH) || echo "New pull request to $repoName wasn't created"
+                git push --set-upstream origin $BRANCH && \ 
                 gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
-          BRANCH: ${{steps.info.outputs.branch}}
-          PR_NAME: "New translations (${{steps.info.outputs.pr-date}})"
-  approve_pull_requests:
-    environment: update localizations
-    runs-on: ubuntu-latest
-    needs: update_translations
-    env: 
-      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
-          persist-credentials: true
+          BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
+          PR_NAME: ${{needs.update_en_localization.outputs.pr-name}}
       - name: Set Loc bot config details
         run: |
           git config --global user.name $APPROVE_BOT_NAME
@@ -139,5 +203,5 @@ jobs:
             echo "::endgroup::"
           done;
         env:
-          GITHUB_TOKEN: ${{ secrets.APPROVE_TOKEN }}
-          BRANCH: ${{needs.update_translations.outputs.branch-name}}
+          GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
+          BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
