@@ -18,9 +18,9 @@ jobs:
       - name: Prepare info
         id: info
         run: |
-          echo "::set-output name=branch-name::$(date +'new-translations_%F_%H-%M-%S')"
-          echo "::set-output name=pr-name::$(date +'New translations (%F %T %Z)')"
-      - uses: actions/checkout@v2
+          echo "branch-name=$(date +'new-translations_%F_%H-%M-%S')" >> $GITHUB_OUTPUT
+          echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.LOC_TOKEN}}
           submodules: recursive
@@ -31,7 +31,7 @@ jobs:
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.autocrlf false
           git config core.longpaths true 
-      - uses: crazy-max/ghaction-import-gpg@v4
+      - uses: crazy-max/ghaction-import-gpg@v5
         with:
           gpg_private_key: ${{secrets.GPG_TOKEN}}
           passphrase: ${{secrets.PASS_PHRASE}}
@@ -106,7 +106,7 @@ jobs:
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.LOC_TOKEN}}
           submodules: recursive
@@ -116,7 +116,7 @@ jobs:
           git config --global user.name $LOC_BOT_NAME
           git config --global user.email $LOC_BOT_EMAIL
           git config --global core.autocrlf false
-      - uses: crazy-max/ghaction-import-gpg@v4
+      - uses: crazy-max/ghaction-import-gpg@v5
         with:
           gpg_private_key: ${{secrets.GPG_TOKEN}}
           passphrase: ${{secrets.PASS_PHRASE}}
@@ -163,10 +163,11 @@ jobs:
                 echo "No changes for $repoName"
                 continue
               fi
-              git add . && \
-                git commit -S -m "New translations" && \
-                git push --set-upstream origin $BRANCH && \ 
-                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
+              >-
+                git add . &&
+                git commit -S -m "New translations" &&
+                git push --set-upstream origin $BRANCH &&
+                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
                 echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
