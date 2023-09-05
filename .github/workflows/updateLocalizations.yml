@@ -158,7 +158,6 @@ jobs:
             if [[ $file == *"/en-US/"* ]]; then 
               continue
             fi
-            echo $file
             substring="visuals/"
             location="${file/$substring/localizations/}"
             cp $location $file;
