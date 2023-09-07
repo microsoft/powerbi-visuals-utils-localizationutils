@@ -43,6 +43,12 @@ jobs:
           git checkout -b $BRANCH
           git submodule init
           git submodule update --remote --recursive
+          for folder in visuals/*; do
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+          done;
+          echo "::group::Fetch dev branch" 
+            git submodule foreach --recursive 'git fetch; git checkout dev || echo "No dev branch in $name"'
+          echo "::endgroup::"
         env:
           BRANCH: ${{steps.info.outputs.branch-name}}
       - name: Copy EN translation
@@ -127,17 +133,15 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --remote --recursive
-          mainFolder=$PWD
           for folder in visuals/*; do
-            repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "::group::Configure $repoName" 
-              git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
-              cd "$mainFolder/$folder"
-              git fetch
-              git checkout -b $BRANCH
-            echo "::endgroup::"
-            cd $mainFolder
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
           done;
+          echo "::group::Fetch dev branch" 
+            git submodule foreach --recursive '\
+              git fetch; \
+              git checkout dev || echo "No dev branch in $name"; \
+              git checkout -b $BRANCH'
+          echo "::endgroup::"
         env:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
       - name: Copy translations to submodules
@@ -157,18 +161,20 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
-              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               changes="$(git diff)"
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
               fi
-              >-
-                git add . &&
-                git commit -S -m "New translations" &&
-                git push --set-upstream origin $BRANCH &&
-                gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
-                echo "New pull request to $repoName wasn't created"
+              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              if git show-ref --quiet refs/heads/dev; then 
+                originalBranchName=dev 
+              fi
+              git add . &&
+              git commit -S -m "New translations" &&
+              git push --set-upstream origin $BRANCH &&
+              gh pr create -B $originalBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
+              echo "New pull request to $repoName wasn't created"
             echo "::endgroup::"
           done;
         env:
@@ -190,8 +196,11 @@ jobs:
                 echo "No pull request for $repoName"
                 continue
               fi
-              defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              changes="$(git diff origin/$defaultBranchName)"
+              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              if git show-ref --quiet refs/heads/dev; then 
+                originalBranchName=dev 
+              fi
+              changes="$(git diff origin/$originalBranchName)"
               if [[ $changes == "" ]]; then
                 gh pr close -d $BRANCH
                 echo "No changes for $repoName"
