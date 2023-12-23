@@ -1,0 +1,36 @@
+trigger: none # https://aka.ms/obpipelines/triggers
+
+resources:
+  repositories:
+    - repository: powerbi-visuals-utils-localizationutils
+      endpoint: 'pbicvloc GitHub'
+      type: github
+      name: microsoft/powerbi-visuals-utils-localizationutils
+      ref: refs/heads/main
+
+stages:
+- stage: build
+  jobs:
+  - job: main
+    pool:
+      type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
+
+    steps:
+      - checkout: powerbi-visuals-utils-localizationutils
+      - task: OneLocBuild@2
+        inputs:
+          locProj: 'LocProject.json'
+          outDir: '$(Build.ArtifactStagingDirectory)'
+          isCreatePrSelected: true
+          repoType: 'gitHub'
+          prSourceBranchPrefix: 'locfiles'
+          gitHubPatVariable: '$(GitHubPAT)'
+          gitHubPrMergeMethod: 'squash'
+          packageSourceAuth: 'patAuth'
+          patVariable: '$(OneLocBuildPAT)'
+          lsBuildWarningLevel: '1'
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Pipeline Artifact'
+        inputs:
+            targetPath: '$(Build.ArtifactStagingDirectory)'
+            artifact: drop
