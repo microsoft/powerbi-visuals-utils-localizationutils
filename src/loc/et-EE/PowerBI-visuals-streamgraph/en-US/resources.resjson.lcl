@@ -42,20 +42,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Streamgraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_AxisFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[A stream graph, is a type of stacked area graph which is displaced around a central axis, resulting in a flowing, organic shape.]A;Stream graphs display the changes in data over time of different categories through the use of flowing, organic shapes that somewhat resemble a river-like stream. This makes Stream Graphs aesthetically pleasing and more engaging to look at.]A;In a Stream graph, the size of each individual stream shape is proportional to the values in each category. The axis that a Stream Graph flows parallel to, is used for the time scale.]A;Stream graphs are ideal for displaying high-volume datasets, in-order to discover trends and patterns over time across a wide range of categories.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
+          <Val><![CDATA[Axis Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Voogdiagramm on teatud tüüpi virnastatud kihtdiagramm, mis kuvatakse keskse telje ümber, mille tulemuseks on voolav ja orgaaniline kuju.]A;Voogdiagrammid kuvavad erinevate kategooriate andmete muudatused aja jooksul voolavate ja orgaaniliste kujudena, mis meenutavad jõe voolamist. See annab voogdiagrammidele meeldiva välimuse ja teeb need kaasahaaravamaks.]A;Voogdiagrammis on iga individuaalse voo kuju suurus proportsionaalne iga kategooria väärtustega. Telge, millega voogdiagramm paralleelselt voolab, kasutatakse ajaskaala jaoks.]A;Voogdiagrammid on ideaalsed suuremahuliste andmekomplektide kuvamiseks, et tuvastada trende ja mustreid aja jooksul paljudes erinevates kategooriates.]A;See on avatud lähtekoodiga visuaal. Hankige kood GitHubist: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Streamgraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A stacked area chart with smooth interpolation. Often used to display values over time]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Virnastatud kihtdiagramm sujuva interpoleerimisega. Kasutatakse tihti väärtuste kuvamiseks aja jooksul]]></Val>
+            <Val><![CDATA[Telje värv]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -65,6 +56,105 @@
           <Val><![CDATA[Column]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Veerg]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kumerust]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_CurvatureValue" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature Value]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kõvera väärtus]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Andmete nihe]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Expand" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Laienda]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Silhouette" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Silhouette]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Siluett]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Order]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Andmejärjestus]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Ascending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Ascending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tõusev järjestus]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Descending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Descending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Laskuv järjestus]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_InsideOut" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Inside Out]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Seespool]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_None" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[None]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pole]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Reverse" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reverse]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pööra ümber]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -86,6 +176,15 @@
           <Val><![CDATA[General]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Üldine]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_HighPrecision" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[High Precision]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Suur täpsus]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -228,6 +327,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show Axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kuva telg]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_ShowValues" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show Values]]></Val>
@@ -252,6 +360,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Pealkiri]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Title Color]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>

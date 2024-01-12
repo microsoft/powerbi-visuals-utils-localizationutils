@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Tornado_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tornádové grafy jsou speciálním typem pruhového grafu, ve kterém jsou kategorie dat uvedeny místo standardní vodorovné prezentace svisle a kategorie jsou uspořádány tak, aby se největší pruh v grafu zobrazil jako první, druhý největší jako druhý a tak dále. Tento název získaly proto, že se konečný graf vizuálně podobá polovině nebo úplnému tornádu.]A;Tornádový graf je běžný nástroj sloužící k znázornění citlivosti výsledku na změny ve vybraných proměnných. Zobrazuje vliv měnících se proměnných na výstup. Vždy se mění jedna proměnná a všechny ostatní vstupní proměnné si zachovávají své počáteční hodnoty (nominální). Obvykle pro každý vstup zvolíte nízkou nebo vysokou hodnotu.]A;Tento vizuál je typu open source. Kód můžete získat z Githubu: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Tornado_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Porovnání relativního významu proměnných mezi dvěma skupinami]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Color]]></Val>
@@ -289,7 +271,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Zobrazení]]></Val>
+            <Val><![CDATA[Zobrazit]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

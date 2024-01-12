@@ -15,27 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Sankey_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Діаграма Sankey дає змогу швидко й точно визначати джерела, місця призначення та проміжні етапи. Для взаємодії можна клацнути посилання або сам потік. До того ж, функції перехресного виділення й фільтрування Power BI допомагають отримувати ще цікавіші аналітичні висновки з пов’язаних даних.]A;Ця візуалізація широко використовується в енергетичній галузі. Проте в інших галузях із неї теж багато користі. Діаграма Sankey дає змогу візуалізувати інформацію, яка має початок і кінець, або динамічні зв’язки з багатьма проміжними елементами (як-от дані про переміщення користувача на веб-сайті, матеріали виробничого підрозділу, контроль за переказами коштів у бізнес-процесах). Погляньте на ці дані з абсолютно іншої точки зору та отримайте цікаві аналітичні висновки.]A;Це візуалізація з відкритим кодом. Отримайте його на сайті GitHub https://github.com/Microsoft/powerbi-visuals-sankey.]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for ex how the user landed and navigated in a web site, or a material in a manufacturing unit, control or money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Sankey_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Схема потоків, де ширина ряду пропорційна кількості потоку.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Cycles" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Cycles displaying]]></Val>
@@ -198,6 +177,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_NodeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ширина]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
@@ -279,11 +267,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_TooltipDisplayInput" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Input]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ввід]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_TooltipDisplayName" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ім’я]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TooltipDisplayOutput" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Output]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Результат]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

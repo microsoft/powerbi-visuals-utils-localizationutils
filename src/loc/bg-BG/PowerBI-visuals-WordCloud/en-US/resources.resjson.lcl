@@ -89,10 +89,13 @@
       </Item>
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Max font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Max font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Максимален размер на шрифта]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Max font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -107,10 +110,13 @@
       </Item>
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Min font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Min font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Минимален размер на шрифта]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Min font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -134,10 +140,13 @@
       </Item>
       <Item ItemId=";Visual_Quality" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Quality]]></Val>
+          <Val><![CDATA[Quality (%)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Качество]]></Val>
+            <Val><![CDATA[Качество (%)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Quality]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -155,6 +164,15 @@
           <Val><![CDATA[Show]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Показване]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_ShowAll" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show all]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Показване на всички]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -231,20 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";WordCloud_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_WordCloud_minRepetitionsToDisplay" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Word Cloud is a visual representation of word frequency and value. Use it to get instant insight into the most important terms in your data.]A;With the interactive experience of Word Cloud in Power BI, you no longer have to tediously dig through large volumes of text to find out which terms are prominent or prevalent. You can simply visualize them as Word Cloud and get the big picture instantly and user Power BI’s interactivity to slice and dice further to uncover the themes behind the text content.]A;This visual also puts you in control on the appearance of the work cloud, be it the size or usage of space and how to treat the data. You can choose to break the words in the text to look for the frequency word or keep word break off to project a measure as a value of the text. You can also enable stop words to remove the common terms from the word cloud to avoid the clutter. By enabling rotation and playing with the angles allowed, you can become very creative with this visual.]A;Optionally you can also use a measure to provide weightage to the text. If none provided, it will simply use the frequency. Check out the formatting pane for more options.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
+          <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Добавката Word Cloud е визуално представяне на честотата на използване и стойността на думите. Използвайте я, за да получите незабавни аналитични данни относно най-важните термини в данните си.]A;Благодарение на интерактивните функции на Word Cloud в Power BI вече не е нужно да преглеждате досадните огромни обеми с текст, за да откриете кои термини се отличават или преобладават. Можете просто да ги визуализирате под формата на облак с думи в Word Cloud и да получите незабавно цялата картина, като използвате интерактивните функции на Power BI за допълнително сегментиране и разкриване на ключовите теми зад текстовото съдържание.]A;Този визуален обект ви предоставя контрол над оформлението на облака с думи – от това какъв да е размерът или използването на пространството до това как се обработват данните. Можете да използвате опцията за прекъсване на думите в текста, за да потърсите думата с най-голяма честота, или да изберете да не включвате прекъсването, за да прожектирате избрана мярка като стойност на текста. Можете също да разрешите изключването на думи, за да премахнете често срещаните термини от облака с думи с цел да избегнете претрупването. Като активирате ротацията и експериментирате с разрешените ъгли, можете да постигнете много креативни резултати с този визуален обект.]A;В допълнение разполагате и с опция да използвате мярка, за да добавите параметър за значимост към текста. Ако не го направите, Word Cloud просто ще използва честотата. Разгледайте прозореца за форматиране за допълнителни опции.]A;Това е визуален обект с отворен код. Може да изтеглите кода от GitHub на адрес: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";WordCloud_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Create a fun visual from frequent text in your data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Създаване на забавен визуален обект от често срещан текст във вашите данни]]></Val>
+            <Val><![CDATA[Минимален брой повторения за показване]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

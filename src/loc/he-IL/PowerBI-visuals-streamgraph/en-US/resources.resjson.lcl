@@ -42,20 +42,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Streamgraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_AxisFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[A stream graph, is a type of stacked area graph which is displaced around a central axis, resulting in a flowing, organic shape.]A;Stream graphs display the changes in data over time of different categories through the use of flowing, organic shapes that somewhat resemble a river-like stream. This makes Stream Graphs aesthetically pleasing and more engaging to look at.]A;In a Stream graph, the size of each individual stream shape is proportional to the values in each category. The axis that a Stream Graph flows parallel to, is used for the time scale.]A;Stream graphs are ideal for displaying high-volume datasets, in-order to discover trends and patterns over time across a wide range of categories.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
+          <Val><![CDATA[Axis Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[גרף זרימה הוא סוג של תרשים שטח מוערם המוזז סביב ציר מרכזי, ומתבטא בצורה זורמת ואורגנית.]A;גרפים של זרימה מציגים את השינויים בנתונים לאורך זמן בקטגוריות שונות באמצעות צורות זורמות ואורגניות שמזכירות בצורה מסוימת נהר זורם. תכונה זו הופכת את הגרפים של הזרימה לנעימים לעין ולמושכים יותר למראה.]A;בגרף זרימה, הגודל של כל צורת זרימה נפרדת יחסי לערכים בכל קטגוריה. הציר שבמקביל לו גרף הזרימה זורם משמש עבור סרגל הזמן.]A;גרפים של זרימה מתאימים במיוחד להצגה של ערכות נתונים בעלות נפח גבוה, כדי לגלות מגמות ודפוסים לאורך זמן במגוון רחב של קטגוריות.]A;זהו עזר חזותי בקוד פתוח. הורד את הקוד מ- GitHub: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Streamgraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A stacked area chart with smooth interpolation. Often used to display values over time]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[תרשים שטח מוערם עם אינטרפולציה חלקה. משמש לעתים קרובות להצגת ערכים לאורך זמן]]></Val>
+            <Val><![CDATA[צבע ציר]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -65,6 +56,105 @@
           <Val><![CDATA[Column]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[עמודה]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[עקמומיות]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_CurvatureValue" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature Value]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ערך הקשת]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[היסט נתונים]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Expand" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[הרחב]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Silhouette" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Silhouette]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[צללית]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Order]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[סדר נתונים]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Ascending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Ascending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[סדר עולה]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Descending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Descending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[סדר יורד]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_InsideOut" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Inside Out]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[פנימי החוצה]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_None" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[None]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ללא]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Reverse" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reverse]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[הפוך]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -86,6 +176,15 @@
           <Val><![CDATA[General]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[כללי]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_HighPrecision" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[High Precision]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[רמת דיוק גבוהה]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -175,7 +274,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Right]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[‏‏ימין]]></Val>
+            <Val><![CDATA[לימין]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -228,6 +327,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show Axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[הצג ציר]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_ShowValues" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show Values]]></Val>
@@ -252,6 +360,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[כותרת]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Title Color]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>

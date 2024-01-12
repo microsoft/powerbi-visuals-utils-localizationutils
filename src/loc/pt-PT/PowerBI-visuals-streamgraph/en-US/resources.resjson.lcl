@@ -42,20 +42,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Streamgraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_AxisFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[A stream graph, is a type of stacked area graph which is displaced around a central axis, resulting in a flowing, organic shape.]A;Stream graphs display the changes in data over time of different categories through the use of flowing, organic shapes that somewhat resemble a river-like stream. This makes Stream Graphs aesthetically pleasing and more engaging to look at.]A;In a Stream graph, the size of each individual stream shape is proportional to the values in each category. The axis that a Stream Graph flows parallel to, is used for the time scale.]A;Stream graphs are ideal for displaying high-volume datasets, in-order to discover trends and patterns over time across a wide range of categories.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
+          <Val><![CDATA[Axis Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Um gráfico de fluxo é um tipo de gráfico de áreas empilhadas que é colocado à volta de um eixo central, resultando numa forma fluida e orgânica.]A;Os gráficos de fluxo mostram as alterações dos dados ao longo do tempo em diversas categorias através da utilização de formas fluidas e orgânicas, algo semelhantes ao curso de um rio. Isto torna os Gráficos de Fluxo esteticamente agradáveis e com um visual mais envolvente.]A;Num Gráfico de fluxo, o tamanho de cada forma de fluxo individual é proporcional aos valores em cada categoria. O eixo que um Gráfico de Fluxo segue em fluxo paralelo é utilizado na escala de tempo.]A;Os gráficos de fluxo são ideais para apresentar conjuntos de dados de volume elevado, para descobrir tendências e padrões ao longo do tempo numa vasta gama de categorias.]A;Este é um visual de open source. Obtenha o código do GitHub: https://github.com/Microsoft/powerbi-visuals-streamgraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Streamgraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A stacked area chart with smooth interpolation. Often used to display values over time]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Um gráfico de áreas empilhadas com interpolação suave. Costuma ser utilizado para apresentar os valores ao longo do tempo]]></Val>
+            <Val><![CDATA[Cor do Eixo]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -65,6 +56,102 @@
           <Val><![CDATA[Column]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Coluna]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_CurvatureValue" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Curvature Value]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Valor de Curvatura]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Deslocamento de Dados]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Expand" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Expandir]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOffset_Silhouette" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Silhouette]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Silhueta]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Data Order]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ordem dos Dados]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Ascending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Ascending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ascendente]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Descending" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Descending]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Descendente]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_InsideOut" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Inside Out]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[De Dentro para Fora]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_None" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[None]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Nenhum]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DataOrder_Reverse" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reverse]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Inverter]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -86,6 +173,15 @@
           <Val><![CDATA[General]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Geral]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_HighPrecision" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[High Precision]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Alta Precisão]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -228,6 +324,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show Axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Mostrar Eixo]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_ShowValues" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show Values]]></Val>
@@ -252,6 +357,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Título]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Title Color]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>

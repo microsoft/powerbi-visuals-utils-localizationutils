@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Gantt_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[甘特圖是一種橫條圖，以時間軸說明排程。當您在互動式畫布中將甘特圖與其他見解圖表放在一起時，就能用全新的方式管理專案。在 Power BI 中，當視覺效果彼此互動時，您可以用不同的角度查看資源配置、工作完成度、剩餘工作，確實掌握未來情勢。]A;甘特圖是專案管理組合中不可或區的一部份。專案管理者和主管都愛用甘特圖，這種圖表以一目了然的有效方式，在提供許多詳細資料的同時，以視覺呈現專案的整體時間軸、目前狀態與進度 (或落後程度) 及指派。]A;透過這個自訂視覺效果，您可以指定工作、開始日期、持續時間和完成度 %，加以轉譯成甘特圖。請注意，完成度 % 必須為十進位值 (例如 0.85 表示 85%)，而開始日期為日期欄位，而非日期階層。]A;您也可透過圖例控制橫條的色彩，以及使用專案中的任何相關欄位當作圖例來達成此目的，例如工作類型。此外，您也可以指定資源欄位，在甘特圖中列在橫條旁。]A;這是開放原始碼視覺效果。從 GitHub 取得程式碼: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Gantt_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[這種橫條圖搭配資源說明專案時間軸或排程]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Completion" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[% Completion]]></Val>
@@ -56,15 +38,6 @@
           <Val><![CDATA[End Date]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[結束日期]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Role_ExtraInformation" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Extra information]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[額外資訊]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -271,7 +244,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Day]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[日]]></Val>
+            <Val><![CDATA[天]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -506,51 +479,6 @@
           <Val><![CDATA[Full text]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[全文檢索]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt Date type]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[甘特圖日期類型]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Day" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Day]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[日]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Month" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Month]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[月]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Week" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Week]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[週]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Year" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Year]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[年]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -851,6 +779,15 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[高度]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[圓角]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

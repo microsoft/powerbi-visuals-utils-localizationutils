@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Gantt_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ein Gantt-Diagramm ist ein Balkendiagramm, das einen Ablaufplan mit einer Zeitachse veranschaulicht. Wenn Sie ein Gantt-Diagramm zusammen mit anderen aufschlussreichen Diagrammen auf eine interaktive Canvas platzieren, können Sie Ihr Projekt auf eine ganz neue Art und Weise verwalten. Da Visuals in Power BI miteinander interagieren, können Sie sich Ihre Ressourcenzuordnungen sowie abgeschlossene und ausstehende Aufgaben aus verschiedenen Blickwinkeln ansehen und haben die Zukunft Ihres Projekts fest im Griff.]A;Gantt-Diagramme sind ein unentbehrlicher Bestandteil des Projektmanagementportfolios. Projektmanager und ihre Vorgesetzten sind begeistert von Gantt-Diagrammen, weil diese den kompletten Zeitablauf eines Projekts, den aktuellen Status und Fortschritt (bzw. Stillstand) sowie alle Zuordnungen mit hoher Detailgenauigkeit und dennoch effektiv auf einen Blick sichtbar machen.]A;Mit diesem benutzerdefinierten Visual können Sie Aufgaben, Startdatum, Dauer und Prozentsatz der Fertigstellung angeben, damit diese Werte als Gantt-Diagramm gerendert werden. Hinweis: Für den Prozentsatz der Fertigstellung wird ein Dezimalwert (0,85 bedeutet 85 %) und ein Startdatum erwartet (ein Datumsfeld, keine Datumshierarchie).]A;Sie können auch die Farbe der Balken mit einer Legende steuern. Zu diesem Zweck können Sie jedes beliebige relevante Feld aus Ihrem Projekt als Legende verwenden, wie z. B. den Aufgabentyp. Darüber hinaus können Sie auch das Ressourcenfeld angeben, das im Gantt-Diagramm neben dem Balken angezeigt werden soll.]A;Dies ist ein Open Source-Visual. Rufen Sie den Code aus GitHub ab: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Gantt_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ein Typ eines Balkendiagramms, der einen Projektzeitplan mit Ressourcen anzeigt.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Completion" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[% Completion]]></Val>
@@ -56,15 +38,6 @@
           <Val><![CDATA[End Date]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Enddatum]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Role_ExtraInformation" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Extra information]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Zusätzliche Informationen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -510,51 +483,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_GanttDateType" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt Date type]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Gantt-Datumstyp]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Day" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Day]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tag]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Month" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Month]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Monat]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Week" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Week]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Woche]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Year" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Year]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Jahr]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_General" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[General]]></Val>
@@ -851,6 +779,15 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Höhe]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Abgerundete Ecken]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
