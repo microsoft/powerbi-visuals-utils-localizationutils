@@ -208,8 +208,8 @@ jobs:
                 continue
               fi
               gh pr review $BRANCH --approve || echo "Cann't approve Pull Request to $repoName"
-              gh pr merge $BRANCH -s --auto -t "New translations" && \
-                echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
+              gh pr merge $BRANCH -s --auto -t "New translations" && 
+              echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
             echo "::endgroup::"
           done;
         env:
