@@ -89,10 +89,13 @@
       </Item>
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Max font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Max font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Fondi max suurus]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Max font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -107,10 +110,13 @@
       </Item>
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Min font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Min font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Fondi min suurus]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Min font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -134,10 +140,13 @@
       </Item>
       <Item ItemId=";Visual_Quality" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Quality]]></Val>
+          <Val><![CDATA[Quality (%)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kvaliteet]]></Val>
+            <Val><![CDATA[Kvaliteet (%)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Quality]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -155,6 +164,15 @@
           <Val><![CDATA[Show]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Kuva]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_ShowAll" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show all]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kuva kõik]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -231,20 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";WordCloud_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_WordCloud_minRepetitionsToDisplay" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Word Cloud is a visual representation of word frequency and value. Use it to get instant insight into the most important terms in your data.]A;With the interactive experience of Word Cloud in Power BI, you no longer have to tediously dig through large volumes of text to find out which terms are prominent or prevalent. You can simply visualize them as Word Cloud and get the big picture instantly and user Power BI’s interactivity to slice and dice further to uncover the themes behind the text content.]A;This visual also puts you in control on the appearance of the work cloud, be it the size or usage of space and how to treat the data. You can choose to break the words in the text to look for the frequency word or keep word break off to project a measure as a value of the text. You can also enable stop words to remove the common terms from the word cloud to avoid the clutter. By enabling rotation and playing with the angles allowed, you can become very creative with this visual.]A;Optionally you can also use a measure to provide weightage to the text. If none provided, it will simply use the frequency. Check out the formatting pane for more options.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
+          <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Word Cloud on sõna sageduse ja väärtuse visuaalne esitus. Kasutage seda, et saada kohene ülevaade andmetes olevatest kõige olulisematest mõistetest.]A;Power BI Word Cloudi interaktiivne kogemus tagab selle, et te ei pea esileküündivate ja levinud mõistete leidmiseks suures mahus teksti läbi töötama. Saate neid lihtsalt sõnapilvena visualiseerida ja kohe tervikpilti hoomata. Samuti saate Power BI kasutajale mõeldud interaktiivsuse, mille abil on neid võimalik veelgi enam tükeldada ja paljastada tekstikonteksti taga peituvad teemad.]A;Visuaal annab teie kätesse ka tööpilve välimuse – olgu selleks siis ruumikasutus või maht või andmete käsitlusviis. Võite teksti sõnu tükeldada, et leida sagedasi sõnu või sõnakatkestust mitte kasutada, et projitseerida mõõt teksti väärtusena. Saate lubada ka stopp-sõnad, mis eemaldavad üleliigse müra vältimiseks sõnapilvest levinud mõisted. Kui lubate pööramise ja katsetate lubatud nurkadega, võite visuaali kasutada vägagi loominguliselt.]A;Soovi korral võite kasutada ka mõõtu, et anda tekstile osakaalu. Kui seda pole antud, kasutatakse lihtsalt sagedust. Täiendavate suvandite saamiseks vaadake vormingupaani.]A;See on avatud lähtekoodiga visuaal. Hankige kood GitHubist: https://github.com/Microsoft/PowerBI-visuals-wordcloud.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";WordCloud_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Create a fun visual from frequent text in your data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Looge lõbus visuaal sagedasest tekstist teie andmetes]]></Val>
+            <Val><![CDATA[Kuvatav korduste minimaalne arv]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

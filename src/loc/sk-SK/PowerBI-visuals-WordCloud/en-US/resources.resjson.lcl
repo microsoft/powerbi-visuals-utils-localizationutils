@@ -89,10 +89,13 @@
       </Item>
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Max font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Max font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Maximálna veľkosť písma]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Max font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -107,10 +110,13 @@
       </Item>
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Min font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Min font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Minimálna veľkosť písma]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Min font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -134,10 +140,13 @@
       </Item>
       <Item ItemId=";Visual_Quality" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Quality]]></Val>
+          <Val><![CDATA[Quality (%)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kvalita]]></Val>
+            <Val><![CDATA[Kvalita (%)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Quality]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -155,6 +164,15 @@
           <Val><![CDATA[Show]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Zobraziť]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_ShowAll" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show all]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zobraziť všetko]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -231,20 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";WordCloud_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_WordCloud_minRepetitionsToDisplay" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Word Cloud is a visual representation of word frequency and value. Use it to get instant insight into the most important terms in your data.]A;With the interactive experience of Word Cloud in Power BI, you no longer have to tediously dig through large volumes of text to find out which terms are prominent or prevalent. You can simply visualize them as Word Cloud and get the big picture instantly and user Power BI’s interactivity to slice and dice further to uncover the themes behind the text content.]A;This visual also puts you in control on the appearance of the work cloud, be it the size or usage of space and how to treat the data. You can choose to break the words in the text to look for the frequency word or keep word break off to project a measure as a value of the text. You can also enable stop words to remove the common terms from the word cloud to avoid the clutter. By enabling rotation and playing with the angles allowed, you can become very creative with this visual.]A;Optionally you can also use a measure to provide weightage to the text. If none provided, it will simply use the frequency. Check out the formatting pane for more options.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
+          <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Word Cloud je vizuálne vyjadrenie slovnej frekvencie a hodnoty. Použite ho na rýchle pochopenie najdôležitejších výrazov vo vašich údajoch.]A;S interaktívnymi možnosťami vizuálu Word Cloud v službe Power BI už viac nebudete musieť zdĺhavo prehľadávať rozsiahle texty, aby ste zistili, ktoré výrazy sú často používané alebo prevládajúce. Môžete ich jednoducho vizualizovať pomocou vizuálu Word Cloud a okamžite získate rámcový prehľad. Môžete použiť možnosti interakcie v službe Power BI a výrazy podrobnejšie rozdeliť, aby ste odkryli témy, ktoré v sebe ukrýva textový obsah.]A;Tento vizuál vám tiež umožňuje upravovať vzhľad pracovného cloudu, či už jeho veľkosť alebo využitie cloudového priestoru, ako aj spôsob spracovávania údajov. Môžete sa rozhodnúť oddeliť slová v texte, ak chcete vyhľadávať frekventované slovo, alebo nechať slovo vyčleniť mieru v projekte, ktorá bude predstavovať hodnotu textu. Môžete tiež povoliť stop slová na odstránenie bežných výrazov z vizuálu Word Cloud, aby ste predišli neporiadku. Povolením otáčania a používania povolených uhlov môžete tento vizuál využívať veľmi kreatívne.]A;Voliteľne môžete použiť aj mierku na poskytnutie váhy textu. Ak nie je k dispozícii, vizuál jednoducho použije frekvenciu. Ďalšie možnosti nájdete na table formátovania.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";WordCloud_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Create a fun visual from frequent text in your data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Vytvorenie zábavného vizuálu z často sa vyskytujúceho textu vo vašich údajoch]]></Val>
+            <Val><![CDATA[Minimálny počet opakovaní na zobrazenie]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

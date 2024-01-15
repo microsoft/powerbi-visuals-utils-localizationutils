@@ -89,10 +89,13 @@
       </Item>
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Max font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Max font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Maximaler Schriftgrad]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Max font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -107,10 +110,13 @@
       </Item>
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Min font size]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Min font size (%)]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Minimaler Schriftgrad]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Min font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -134,10 +140,13 @@
       </Item>
       <Item ItemId=";Visual_Quality" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Quality]]></Val>
+          <Val><![CDATA[Quality (%)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Qualität]]></Val>
+            <Val><![CDATA[Qualität (%)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Quality]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -155,6 +164,15 @@
           <Val><![CDATA[Show]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Anzeigen]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_ShowAll" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show all]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Alle anzeigen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -231,20 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";WordCloud_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_WordCloud_minRepetitionsToDisplay" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Word Cloud is a visual representation of word frequency and value. Use it to get instant insight into the most important terms in your data.]A;With the interactive experience of Word Cloud in Power BI, you no longer have to tediously dig through large volumes of text to find out which terms are prominent or prevalent. You can simply visualize them as Word Cloud and get the big picture instantly and user Power BI’s interactivity to slice and dice further to uncover the themes behind the text content.]A;This visual also puts you in control on the appearance of the work cloud, be it the size or usage of space and how to treat the data. You can choose to break the words in the text to look for the frequency word or keep word break off to project a measure as a value of the text. You can also enable stop words to remove the common terms from the word cloud to avoid the clutter. By enabling rotation and playing with the angles allowed, you can become very creative with this visual.]A;Optionally you can also use a measure to provide weightage to the text. If none provided, it will simply use the frequency. Check out the formatting pane for more options.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
+          <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Eine Wortwolke ist eine visuelle Darstellung der Häufigkeit und Bedeutung von Wörtern. Mit einer Wortwolke erhalten Sie sofort Erkenntnisse zu den wichtigsten Begriffen in Ihren Daten.]A;Mit der interaktiven Benutzeroberfläche der Wortwolke in Power BI müssen Sie sich nicht länger mühsam durch Unmengen von Text wühlen, um herauszufinden, welche Begriffe vorherrschend sind. Sie können die Begriffe ganz einfach als Wortwolke visualisieren und sich so im Handumdrehen einen Gesamtüberblick verschaffen. Nutzen Sie dann die interaktiven Features von Power BI, um weiter ins Detail zu gehen und die Themen hinter den Textinhalten aufzudecken.]A;Mit diesem Visual können Sie auch das Aussehen der Wortwolke im Hinblick auf Größe, Raumaufteilung und Darstellung der Daten genau steuern. Sie können die Wörter im Text getrennt behandeln, um die Häufigkeit eines Worts zu zeigen, oder die Wörtertrennung deaktivieren, um einen Messwert als Textwert abzubilden. Sie können auch Stoppwörter aktivieren, um allgemeine Begriffe aus der Wortwolke zu entfernen und so eine Überfrachtung zu vermeiden. Dieses Visual bietet Ihnen viel Raum für Kreativität: Sie können die Wörter z. B. drehen und in verschiedenen Winkeln anordnen.]A;Optional können Sie auch einen Messwert verwenden, um Wörter im Text zu gewichten. Wenn kein Messwert angegeben wird, verwendet die Wortwolke einfach die Häufigkeit. Im Formatierungsbereich finden Sie viele weitere Optionen.]A;Dies ist ein Open Source-Visual. Rufen Sie den Code aus GitHub ab: https://github.com/Microsoft/PowerBI-visuals-wordcloud]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";WordCloud_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Create a fun visual from frequent text in your data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Hiermit erstellen Sie ein ansprechendes Visual aus Textbausteinen, die häufig in Ihren Daten vorkommen.]]></Val>
+            <Val><![CDATA[Mindestanzahl der anzuzeigenden Wiederholungen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

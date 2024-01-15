@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Gantt_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ganttov grafikon vrsta je trakastog grafikona za ilustraciju rasporeda pomoću vremenske osi. Kada Ganttov grafikon dodate uz ostale informativne grafikone na interaktivnom radnom području, projektom možete upravljati na posve novi način. Kako u dodatku Power BI vizuali ostvaruju međusobnu interakciju, dodjelu resursa, dovršenost zadataka i preostale zadatke možete vidjeti iz drukčije perspektive i dobiti dobru predodžbu o budućnosti.]A;Ganttovi su grafikoni nezaobilazan dio portfelja za upravljanje projektima. Voditelji projekata i rukovoditelji vole Ganttove grafikone jer na vrlo učinkovit i pregledan način vizualno pokazuju cijelu vremensku crtu projekta, trenutni status i napredovanje (ili nenapredovanje) uz zadatak s brojnim detaljima.]A;Pomoću tog prilagođenog vizuala možete navesti zadatke, datum početka, trajanje i postotak dovršenosti za prikaz u obliku Ganttova grafikona. Imajte na umu da se za postotak dovršenosti očekuje decimalna vrijednost (npr. 0,85 znači 85 %), a za datum početka polje datumsko polje, a ne datumska hijerarhija.]A;Možete i odrediti boju trake s legendom. Kao legendu za ogledni zadatak za ovu namjenu možete koristiti bilo koje relevantno polje iz projekta. Uz to, možete navesti polje resursa, koje će bit navedeno pokraj trake na Ganttovu grafikonu.]A;To je vizual otvorenog koda. Kod preuzmite sa servisa GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Gantt_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Vrsta trakastog grafikona koja ilustrira vremensku crtu projekta ili raspored s resursima]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Completion" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[% Completion]]></Val>
@@ -56,15 +38,6 @@
           <Val><![CDATA[End Date]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Datum završetka]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Role_ExtraInformation" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Extra information]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Dodatne informacije]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -280,7 +253,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Friday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[petak]]></Val>
+            <Val><![CDATA[Petak]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -289,7 +262,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Monday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ponedjeljak]]></Val>
+            <Val><![CDATA[Ponedjeljak]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -298,7 +271,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Saturday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[subota]]></Val>
+            <Val><![CDATA[Subota]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -316,7 +289,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Thursday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[četvrtak]]></Val>
+            <Val><![CDATA[Četvrtak]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -325,7 +298,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Tuesday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[utorak]]></Val>
+            <Val><![CDATA[Utorak]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -334,7 +307,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Wednesday]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[srijeda]]></Val>
+            <Val><![CDATA[Srijeda]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -506,51 +479,6 @@
           <Val><![CDATA[Full text]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Cijeli tekst]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Gantt Date type]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Vrsta datuma za Ganttov dijagram]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Day" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Day]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Dan]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Month" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Month]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mjesec]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Week" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Week]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tjedan]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_GanttDateType_Year" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Year]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Godina]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -851,6 +779,15 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Visina]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zaobljeni kutovi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
