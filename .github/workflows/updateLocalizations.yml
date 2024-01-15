@@ -185,6 +185,7 @@ jobs:
           git config --global user.name $APPROVE_BOT_NAME
           git config --global user.email $APPROVE_BOT_EMAIL
       - name: Approve pull requests
+        continue-on-error: true
         run: |
           mainFolder=$PWD
           for folder in visuals/*; do
@@ -206,10 +207,9 @@ jobs:
                 echo "No changes for $repoName"
                 continue
               fi
-              gh pr review $BRANCH --approve
-              echo "Pull request to $repoName was approved"
-              gh pr merge $BRANCH -s --auto -t "New translations"
-              echo "Pull request to $repoName was merged"
+              gh pr review $BRANCH --approve || echo "Cann't approve Pull Request to $repoName"
+              gh pr merge $BRANCH -s --auto -t "New translations" && \
+                echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
             echo "::endgroup::"
           done;
         env:
