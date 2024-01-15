@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Tornado_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Диаграмите от тип „Торнадо“ са специален вид стълбовидни диаграми, в които категориите на данните са изброени вертикално вместо чрез стандартното хоризонтално представяне, а категориите са подредени така, че най-големият стълб да се показва най-горе в диаграмата, вторият по големина на второ място от горе надолу и т.н. Те носят това име, тъй като финалната диаграма наподобява визуално половин или цяло торнадо.]A;Диаграмата от този тип е често използван инструмент за изобразяване на зависимостта на даден резултат към промените в избрани променливи. Диаграмата показва ефекта върху крайния резултат при промяна на всяка входна променлива поотделно и при запазване на първоначалните (номинални) стойности на всички останали входни променливи. В повечето случаи избирате една ниска и една висока стойност за всички входящи променливи.]A;Това е визуален обект с отворен код. Може да изтеглите кода от GitHub на адрес: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Tornado_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Сравнение на относителното значение на променливите между две групи]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Color]]></Val>

@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Tornado_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tornado Chart は、特殊な種類の棒グラフで、データのカテゴリが通常の水平方向ではなく垂直方向に配置され、棒の最も長いカテゴリがグラフの一番上に表示され、2 番目に長いカテゴリが上から 2 番目に表示されます (以下同様)。この名前の由来は、最終的なグラフの見た目が竜巻の半分または全体に似ているところにあります。]A;Tornado Chart は、選択した変数の変化に対する結果の感度を描画するために使用する一般的なツールです。このグラフには、各入力変数を変えた場合の出力への影響を一度に表示することができ、その他のすべての入力変数は初期 (公称) 値に保持します。通常は、各入力の "低" の値と "高" の値を選択します。]A;これは、オープンソースの視覚エフェクトです。コードは GitHub から取得します : https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Tornado_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[2 つのグループ間の変数の相対的重要度を比較します]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Color]]></Val>
