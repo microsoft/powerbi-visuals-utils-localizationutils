@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature Value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ערך הקשת]]></Val>
+            <Val><![CDATA[ערך עקמומיות]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[פנימי החוצה]]></Val>
+            <Val><![CDATA[מבפנים החוצה]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -184,7 +184,7 @@
         <Str Cat="Text">
           <Val><![CDATA[High Precision]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[רמת דיוק גבוהה]]></Val>
+            <Val><![CDATA[דיוק גבוה]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[צבע כותרת]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

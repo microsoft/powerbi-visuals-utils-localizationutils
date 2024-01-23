@@ -64,7 +64,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Кривизни]]></Val>
+            <Val><![CDATA[Кривина]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Усередині назовні]]></Val>
+            <Val><![CDATA[Зсередини назовні]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -331,7 +331,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show Axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Відобразити вісь]]></Val>
+            <Val><![CDATA[Показати вісь]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Колір заголовка]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

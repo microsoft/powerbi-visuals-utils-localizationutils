@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Krümmung]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -78,6 +81,9 @@
       <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Datenoffset]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -130,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Innen nach außen]]></Val>
+            <Val><![CDATA[Nach außen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -139,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[NONE]]></Val>
+            <Val><![CDATA[Keine]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -148,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Umkehren]]></Val>
+            <Val><![CDATA[Zurücksetzen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

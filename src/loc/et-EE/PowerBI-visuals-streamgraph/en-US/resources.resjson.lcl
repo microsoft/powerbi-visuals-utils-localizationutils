@@ -64,7 +64,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kumerust]]></Val>
+            <Val><![CDATA[Kumerus]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature Value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kõvera väärtus]]></Val>
+            <Val><![CDATA[Kumeruse väärtus]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -118,7 +118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tõusev järjestus]]></Val>
+            <Val><![CDATA[Kasvav]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -127,7 +127,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Descending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Laskuv järjestus]]></Val>
+            <Val><![CDATA[Kahanev]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Seespool]]></Val>
+            <Val><![CDATA[Pahupidi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -145,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pole]]></Val>
+            <Val><![CDATA[Puudub]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -184,7 +184,7 @@
         <Str Cat="Text">
           <Val><![CDATA[High Precision]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Suur täpsus]]></Val>
+            <Val><![CDATA[Kõrge täpsus]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pealkirja värv]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

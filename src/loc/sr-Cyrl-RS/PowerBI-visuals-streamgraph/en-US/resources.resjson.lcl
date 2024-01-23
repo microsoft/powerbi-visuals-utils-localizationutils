@@ -64,7 +64,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Закривљеност]]></Val>
+            <Val><![CDATA[Крива]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature Value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Вредност закривљености]]></Val>
+            <Val><![CDATA[Вредност криве]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -118,7 +118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Растући]]></Val>
+            <Val><![CDATA[Растућим редоследом]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -127,7 +127,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Descending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Опадајући]]></Val>
+            <Val><![CDATA[Опадајућим редоследом]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Изнутра споља]]></Val>
+            <Val><![CDATA[Унутра]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Боја наслова]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

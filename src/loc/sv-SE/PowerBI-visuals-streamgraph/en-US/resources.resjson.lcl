@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Krökning]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -88,7 +91,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expand]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Expandera]]></Val>
+            <Val><![CDATA[Visa]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -151,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Omvänd]]></Val>
+            <Val><![CDATA[Byt tillbaka]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -289,7 +292,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Top]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Överkant]]></Val>
+            <Val><![CDATA[Högsta]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -363,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Rubrikfärg]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

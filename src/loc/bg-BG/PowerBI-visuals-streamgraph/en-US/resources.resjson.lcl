@@ -91,7 +91,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expand]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Разгъване]]></Val>
+            <Val><![CDATA[Разширяване]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -153,6 +153,9 @@
       <Item ItemId=";Visual_DataOrder_Reverse" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Обратен]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -363,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Цвят на заглавие]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

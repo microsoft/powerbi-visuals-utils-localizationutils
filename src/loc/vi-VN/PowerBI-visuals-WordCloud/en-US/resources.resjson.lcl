@@ -90,8 +90,8 @@
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Cỡ phông tối đa]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Cỡ phông tối đa (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Max font size]]></Val>
@@ -111,8 +111,8 @@
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Min font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Cỡ phông tối thiểu]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Cỡ phông tối thiểu (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Min font size]]></Val>
@@ -142,7 +142,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Quality (%)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Chất lượng (%)]]></Val>
+            <Val><![CDATA[Chất lượng (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Quality]]></Val>
@@ -172,7 +172,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show all]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Hiển thị tất cả]]></Val>
+            <Val><![CDATA[Hiện tất cả]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

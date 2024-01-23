@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature Value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Valor de corba]]></Val>
+            <Val><![CDATA[Valor de la curvatura]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -82,7 +82,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Data Offset]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Desplaçament de dades]]></Val>
+            <Val><![CDATA[Desplaçament de les dades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -109,7 +109,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Data Order]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Orde de les dades]]></Val>
+            <Val><![CDATA[Ordre de les dades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Interior cap a fora]]></Val>
+            <Val><![CDATA[A l'inrevés]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -184,7 +184,7 @@
         <Str Cat="Text">
           <Val><![CDATA[High Precision]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Precisió alta]]></Val>
+            <Val><![CDATA[Alta precisió]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Color del títol]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

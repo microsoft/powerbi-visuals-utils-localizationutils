@@ -90,8 +90,8 @@
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Gehienezko letra-tamaina]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Gehieneko letra-tamaina (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Max font size]]></Val>
@@ -111,8 +111,8 @@
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Min font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Gutxieneko letra-tamaina]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Gutxieneko letra-tamaina (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Min font size]]></Val>
@@ -172,7 +172,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show all]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Erakutsi guztiak]]></Val>
+            <Val><![CDATA[Erakutsi denak]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -253,7 +253,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Erakutsi beharreko errepikapenen gutxieneko kopurua]]></Val>
+            <Val><![CDATA[Bistaratu beharreko gutxieneko errepikapen kopurua]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

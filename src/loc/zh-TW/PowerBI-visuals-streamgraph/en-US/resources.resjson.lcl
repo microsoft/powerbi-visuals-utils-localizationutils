@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[曲率]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -78,6 +81,9 @@
       <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[資料位移]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -103,7 +109,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Data Order]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[數據順序]]></Val>
+            <Val><![CDATA[資料順序]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -130,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[向內向外]]></Val>
+            <Val><![CDATA[發散]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -334,7 +340,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show Values]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[顯示值]]></Val>
+            <Val><![CDATA[顯示值 ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -360,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[標題色彩]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
