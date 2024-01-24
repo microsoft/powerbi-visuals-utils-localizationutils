@@ -46,7 +46,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Axis Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[अक्ष का रंग]]></Val>
+            <Val><![CDATA[अक्ष रेखा का रंग]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -100,7 +100,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Silhouette]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[सिल्हूट]]></Val>
+            <Val><![CDATA[छायाचित्र]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -109,7 +109,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Data Order]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[डेटा क्रम]]></Val>
+            <Val><![CDATA[डेटा का क्रम]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -154,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[उलटें]]></Val>
+            <Val><![CDATA[उल्टा]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[शीर्षक का रंग]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
