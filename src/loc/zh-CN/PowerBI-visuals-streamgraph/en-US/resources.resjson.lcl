@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[曲率]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -78,6 +81,9 @@
       <Item ItemId=";Visual_DataOffset" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Data Offset]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[数据偏移]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -130,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[从内向外]]></Val>
+            <Val><![CDATA[从内到外]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -139,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[没有]]></Val>
+            <Val><![CDATA[无]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -148,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[反向]]></Val>
+            <Val><![CDATA[撤销]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

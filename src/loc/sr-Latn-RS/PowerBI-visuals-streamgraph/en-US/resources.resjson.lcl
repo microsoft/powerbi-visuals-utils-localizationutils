@@ -64,7 +64,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Zakrivljena linija]]></Val>
+            <Val><![CDATA[Kriva]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Curvature Value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Vrednost zakrivljene linije]]></Val>
+            <Val><![CDATA[Vrednost krive]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -91,7 +91,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expand]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Razvij]]></Val>
+            <Val><![CDATA[Proširi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -118,7 +118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Rastući]]></Val>
+            <Val><![CDATA[Rastućim redosledom]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -127,7 +127,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Descending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Opadajući]]></Val>
+            <Val><![CDATA[Opadajućim redosledom]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Unutra unutra]]></Val>
+            <Val><![CDATA[Naopako]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -145,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Nijedno]]></Val>
+            <Val><![CDATA[Nijedna]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Boja naslova]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

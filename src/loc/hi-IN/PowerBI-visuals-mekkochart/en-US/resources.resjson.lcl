@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";MekkoChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Since it captures two dimensions in one chart, you can quickly spot the large segments as well the ones that are underrepresented in one quick glance. You can either use the same measure for the column height and width or use different ones depending on your need.]A;Similar to a treemap, the dimensional values are represented by the length and width of each rectangle. The width of a column is proportional to the total value of the column.]A;Segmentation and Pattern analysis are a big part of business analysis and with traditional charts you need to piece multiple individual items together in your mental map to draw conclusions. For dealing with such complex business analysis involving multiple variables/dimensions, the iconic marimekko design is very appealing and the Mekko chart makes it super easy to achieve this in Power BI.]A;The Mekko chart visual also allows you to control the legends, data colors, and data labels for a truly customized presentation.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[चूंकि यह दो आयामों को एक चार्ट में कैप्चर करता है, इसलिए आप एक ही नजर में बड़े सेगमेंट्स के साथ-साथ उन अनुभागों को भी तत्काल स्पॉट कर सकते हैं, जिन्हें प्रमुखता से नहीं दर्शाया गया है. आप अपनी आवश्यकता के अनुसार स्तंभ की ऊँचाई और चौड़ाई के लिए या तो उसी माप का उपयोग कर सकते हैं या भिन्न मापों को उपयोग में ला सकते हैं.]A;किसी ट्रीमैप की ही तरह आयामी मान प्रत्येक रेक्टेंगल की लंबाई और चौड़ाई के द्वारा दर्शाए जाते हैं. किसी स्तंभ की चौड़ाई स्तंभ के कुल मान के आनुपातिक होती है.]A;सेगमेंटेशन और पैटर्न विश्लेषण व्यावसायिक विश्लेषण का एक बड़ा हिस्सा हैं और पारंपरिक चार्ट के साथ निष्कर्ष निकालने के लिए आपको अपने मेंटल मैप में एकाधिक अलग-अलग आइटम्स को एक साथ विभक्त करने की आवश्यकता होती है. एकाधिक चरों/आयामों को शामिल करने वाले ऐसे जटिल व्यावसायिक विश्लेषण के साथ डील करने के लिए आयकॉनिक marimekko डिज़ाइन बेहद आकर्षक है और Mekko चार्ट इसे Power BI में प्राप्त करने के लिए अत्यंत आसान बना देता है.]A;सही अर्थों में एक अनुकूलित प्रस्तुतीकरण के लिए Mekko चार्ट विज़ुअल आपको लेजेंड, डेटा रंग और डेटा लेबल नियंत्रित करने की अनुमति देता है.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";MekkoChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A mix of 100% stacked column chart and 100% stacked bar chart combined into one view]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[100% स्टैक्ड स्तंभ चार्ट और 100% स्टैक्ड बार चार्ट का मिश्रण एक ही दृश्य में संयोजित]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Ascending" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
@@ -105,11 +87,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_ColorDistibution" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_ColorDistribution" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Color distibution by value]]></Val>
+          <Val><![CDATA[Color distribution by value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[मान के आधार पर रंग वितरण]]></Val>
+            <Val><![CDATA[मान के अनुसार रंग वितरण]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -294,25 +276,16 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Enable" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_DrillControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Category gradient]]></Val>
+          <Val><![CDATA[Drill control]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ग्रेडिएंट श्रेणी]]></Val>
+            <Val><![CDATA[ड्रिल नियंत्रण]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_Enabled" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Enabled]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[सक्षम किया गया]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Enbaled" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Enabled]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
@@ -339,11 +312,56 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[फ़ॉन्ट]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font_Bold" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bold text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[बोल्ड पाठ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font_Control" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font Control]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[फ़ॉन्ट नियंत्रण]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font_Italic" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Italicize text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[पाठ को इटैलिक में लिखें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Font_Size" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Text Size]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[पाठ आकार]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font_Underline" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Underline text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[पाठ को रेखांकित करें]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -447,6 +465,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Since it captures two dimensions in one chart, you can quickly spot the large segments as well the ones that are underrepresented in one quick glance. You can either use the same measure for the column height and width or use different ones depending on your need.]A;Similar to a treemap, the dimensional values are represented by the length and width of each rectangle. The width of a column is proportional to the total value of the column.]A;Segmentation and Pattern analysis are a big part of business analysis and with traditional charts you need to piece multiple individual items together in your mental map to draw conclusions. For dealing with such complex business analysis involving multiple variables/dimensions, the iconic marimekko design is very appealing and the Mekko chart makes it super easy to achieve this in Power BI.]A;The Mekko chart visual also allows you to control the legends, data colors, and data labels for a truly customized presentation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[चूंकि यह दो आयामों को एक चार्ट में कैप्चर करता है, इसलिए आप एक ही नजर में बड़े सेगमेंट्स के साथ-साथ उन अनुभागों को भी तत्काल स्पॉट कर सकते हैं, जिन्हें प्रमुखता से नहीं दर्शाया गया है. आप अपनी आवश्यकता के अनुसार स्तंभ की ऊँचाई और चौड़ाई के लिए या तो उसी माप का उपयोग कर सकते हैं या भिन्न मापों को उपयोग में ला सकते हैं.]A;किसी ट्रीमैप की ही तरह आयामी मान प्रत्येक रेक्टेंगल की लंबाई और चौड़ाई के द्वारा दर्शाए जाते हैं. किसी स्तंभ की चौड़ाई स्तंभ के कुल मान के आनुपातिक होती है.]A;सेगमेंटेशन और पैटर्न विश्लेषण व्यावसायिक विश्लेषण का एक बड़ा हिस्सा हैं और पारंपरिक चार्ट के साथ निष्कर्ष निकालने के लिए आपको अपने मेंटल मैप में एकाधिक अलग-अलग आइटम्स को एक साथ विभक्त करने की आवश्यकता होती है. एकाधिक चरों/आयामों को शामिल करने वाले ऐसे जटिल व्यावसायिक विश्लेषण के साथ डील करने के लिए आयकॉनिक marimekko डिज़ाइन बेहद आकर्षक है और Mekko चार्ट इसे Power BI में प्राप्त करने के लिए अत्यंत आसान बना देता है.]A;सही अर्थों में एक अनुकूलित प्रस्तुतीकरण के लिए Mekko चार्ट विज़ुअल आपको लेजेंड, डेटा रंग और डेटा लेबल नियंत्रित करने की अनुमति देता है.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Series" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Series]]></Val>
@@ -470,6 +497,15 @@
           <Val><![CDATA[Display % in category scope]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[श्रेणी स्कोप में % प्रदर्शित करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A mix of 100% stacked column chart and 100% stacked bar chart combined into one view]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[100% स्टैक्ड स्तंभ चार्ट और 100% स्टैक्ड बार चार्ट का मिश्रण एक ही दृश्य में संयोजित]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

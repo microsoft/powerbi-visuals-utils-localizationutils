@@ -90,8 +90,8 @@
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Max teckenstorlek]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Maximal teckenstorlek (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Max font size]]></Val>
@@ -111,8 +111,8 @@
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Min font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Minsta teckenstorlek]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Minsta teckenstorlek (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Min font size]]></Val>
@@ -253,7 +253,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Minsta antal repetitioner som ska visas]]></Val>
+            <Val><![CDATA[Minsta antal upprepningar som ska visas]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

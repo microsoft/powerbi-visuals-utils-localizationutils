@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zakřivení]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -133,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Uvnitř ven]]></Val>
+            <Val><![CDATA[Zevnitř ven]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -142,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[žádné]]></Val>
+            <Val><![CDATA[Žádné]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -151,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Zpět]]></Val>
+            <Val><![CDATA[Reverzní]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -363,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Barva nadpisu]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

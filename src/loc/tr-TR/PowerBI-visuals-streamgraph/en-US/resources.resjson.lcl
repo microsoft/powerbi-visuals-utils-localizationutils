@@ -63,6 +63,9 @@
       <Item ItemId=";Visual_Curvature" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Curvature]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Eğrilik]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -79,7 +82,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Data Offset]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Veri Uzaklığı]]></Val>
+            <Val><![CDATA[Veri Farkı]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -115,7 +118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Artan]]></Val>
+            <Val><![CDATA[Artan düzende]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -124,7 +127,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Descending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Azalan]]></Val>
+            <Val><![CDATA[Azalan düzende]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -133,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[İç Çıkış]]></Val>
+            <Val><![CDATA[Tersyüz]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -142,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[None]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[yok]]></Val>
+            <Val><![CDATA[Yok]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -151,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Tersine Çevir]]></Val>
+            <Val><![CDATA[Tersine çevir]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -328,7 +331,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show Axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Eksen Göster]]></Val>
+            <Val><![CDATA[Ekseni Göster]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -363,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Başlık Rengi]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

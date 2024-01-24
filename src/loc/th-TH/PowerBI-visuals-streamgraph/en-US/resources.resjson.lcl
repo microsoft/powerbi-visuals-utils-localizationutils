@@ -118,7 +118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Ascending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[น้อยไปหามาก]]></Val>
+            <Val><![CDATA[จากน้อยไปมาก]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -127,7 +127,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Descending]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[มากไปหาน้อย]]></Val>
+            <Val><![CDATA[จากมากไปน้อย]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Inside Out]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ด้านในด้านนอก]]></Val>
+            <Val><![CDATA[กลับด้าน]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -154,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Reverse]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ย้อนกลับ]]></Val>
+            <Val><![CDATA[ตรงข้าม]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -366,6 +366,9 @@
       <Item ItemId=";Visual_TitleLabelsFill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Title Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[สีของชื่อเรื่อง]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

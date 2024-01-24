@@ -90,8 +90,8 @@
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[最大フォント サイズ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[最大フォント サイズ (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Max font size]]></Val>
@@ -111,8 +111,8 @@
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Min font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[最小フォント サイズ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[最小フォント サイズ (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Min font size]]></Val>
@@ -172,7 +172,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Show all]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[すべて表示]]></Val>
+            <Val><![CDATA[すべてを表示]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -253,7 +253,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[表示する繰り返しの最小数]]></Val>
+            <Val><![CDATA[表示される繰り返しの最小数]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

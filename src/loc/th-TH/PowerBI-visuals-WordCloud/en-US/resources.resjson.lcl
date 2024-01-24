@@ -90,8 +90,8 @@
       <Item ItemId=";Visual_MaxFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[ขนาดฟอนต์สูงสุด]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ขนาดแบบอักษรสูงสุด (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Max font size]]></Val>
@@ -111,8 +111,8 @@
       <Item ItemId=";Visual_MinFontSize" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Min font size (%)]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[ขนาดฟอนต์ต่ำสุด]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ขนาดแบบอักษรต่ำสุด (%)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Min font size]]></Val>
@@ -253,7 +253,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Minimum number of repetitions to display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[จํานวนต่ําสุดของการทําซ้ําที่จะแสดง]]></Val>
+            <Val><![CDATA[จํานวนต่ำสุดของการทําซ้ำที่จะแสดง]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
