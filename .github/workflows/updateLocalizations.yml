@@ -58,6 +58,10 @@ jobs:
             location="${file/$substring/localizations/}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
+            if [ ! -d "$newLocation" ]; then
+              echo "$newLocation does not exist. Creating it..."
+              mkdir -p "$newLocation"
+            fi
             cp $file $newLocation;
           done;
       - name: Commit and push changes
@@ -152,6 +156,10 @@ jobs:
             fi
             substring="visuals/"
             location="${file/$substring/localizations/}"
+            if [ ! -d "$location" ]; then
+              echo "$location does not exist. Creating it..."
+              mkdir -p "$location"
+            fi
             cp $location $file;
           done;
       - name: Commit and push new changes to submodules
