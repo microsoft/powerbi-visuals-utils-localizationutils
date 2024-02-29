@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";RadarChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Radarski grafikon predstavlja grafički metod prikazivanja podataka sa više promenljivih u obliku dvodimenzionalnog grafikona sa tri ili više kvantitativne promenljive prikazane na osama koje počinju od iste tačke. Relativni položaj i ugao osa obično nisu informativni.]A;Svakoj promenljivoj se obezbeđuje osa koja počinje od centra. Sve ose se raspoređuju radijalno, sa jednakom udaljenošću između svake, uz održavanje iste razmere između svih osa. Koordinatne linije koje povezuju ose često se koriste kao vođica. Svaka vrednost promenljive prikazana je duž svoje pojedinačne ose i sve promenljive u skupu podataka povezane su kako bi oblikovale poligon.]A;Radarski grafikoni su korisni da bi se videlo koje promenljive imaju visoke ili niske rezultate u skupu podataka, što ih čini idealnim za prikazivanje performansi, na primer, za analizu veština zaposlenog ili sportista, poređenje proizvoda itd.]A;Ovo je open source vizuelni element. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";RadarChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Više mera prikazano na kategorijskoj osi. Korisno za poređenje atributa]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AxisStart" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis shift]]></Val>
@@ -186,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Font]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left]]></Val>
@@ -218,6 +209,15 @@
           <Val><![CDATA[Line Width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Širina linije]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Radarski grafikon predstavlja grafički metod prikazivanja podataka sa više promenljivih u obliku dvodimenzionalnog grafikona sa tri ili više kvantitativne promenljive prikazane na osama koje počinju od iste tačke. Relativni položaj i ugao osa obično nisu informativni.]A;Svakoj promenljivoj se obezbeđuje osa koja počinje od centra. Sve ose se raspoređuju radijalno, sa jednakom udaljenošću između svake, uz održavanje iste razmere između svih osa. Koordinatne linije koje povezuju ose često se koriste kao vođica. Svaka vrednost promenljive prikazana je duž svoje pojedinačne ose i sve promenljive u skupu podataka povezane su kako bi oblikovale poligon.]A;Radarski grafikoni su korisni da bi se videlo koje promenljive imaju visoke ili niske rezultate u skupu podataka, što ih čini idealnim za prikazivanje performansi, na primer, za analizu veština zaposlenog ili sportista, poređenje proizvoda itd.]A;Ovo je open source vizuelni element. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -267,6 +267,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Više mera prikazano na kategorijskoj osi. Korisno za poređenje atributa]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -281,6 +290,15 @@
           <Val><![CDATA[South]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Jug]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tekst]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

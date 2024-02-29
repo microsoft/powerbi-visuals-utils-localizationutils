@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[A Sankey diagrammal egyetlen pillantásra egyértelműen átláthatók a források, a célok és a köztes lépések, valamint hogy a folyamat hogyan áramlik ezek közt. A diagram emellett a hivatkozásokra vagy magára a folyamatra kattintva ki is bontható, és a Power BI keresztkiemelési/szűrési funkciójának köszönhetően még érdekesebb megállapítások nyerhetők ki a kapcsolódó adatokból.]A;Ezt a diagramtípust emiatt igen széles körben használják az energiaiparban, de valamennyi iparágban alkalmazható különféle érdekes esetek ábrázolására. Olyan információk megjelenítésére használható, amelyeknek van eleje és vége, vagy amelyek dinamikus kapcsolatokkal rendelkeznek számos köztes elemmel, például hogy a felhasználó honnan hová lépett a webhelyen, hogy egy anyag merre halad a gyártósoron, vagy hogy milyen pénzmozgás-ellenőrzések vannak egy üzleti folyamatban. Ez a diagramtípus egy teljesen eltérő perspektívát képes bemutatni, és érdekes megállapításokat hoz előtérbe.]A;Ez egy nyílt forráskódú vizualizáció. A kód letölthető a GitHubról: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Sankey settings]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Sankey-beállítások]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Önhivatkozások vastagságának figyelmen kívül hagyása]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Folyamatábra, amelyben a sorozat szélessége arányos a folyamat mennyiségével]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

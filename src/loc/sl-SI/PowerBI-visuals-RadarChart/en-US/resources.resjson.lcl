@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";RadarChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Polarni grafikon je grafični način prikaza podatkov z več spremenljivkami v obliki dvodimenzionalnega grafikona s tremi ali več kvantitativnimi spremenljivkami, prikazanimi na oseh, ki izhajajo iz iste točke. Relativni položaj in kot osi običajno nista zadosten vir informacij.]A;Vsaka spremenljivka je predstavljena z osjo, ki izhaja iz središča. Vse osi so razporejene radialno z enako medsebojno razdaljo, za vse osi pa je uporabljeno enako merilo. Mrežne črte, ki povezujejo posamezne osi, so pogosto uporabljene kot vodilo. Posamezne vrednosti spremenljivk so prikazane vzdolž posameznih osi, vse spremenljivke v naboru podatkov pa so medsebojno povezane tako, da tvorijo mnogokotnik.]A;Polarni grafikoni so uporabni, ker lahko z njimi prikažete, katere spremenljivke imajo v naboru podatkov visoke rezultate in katere nizke – so odlični za prikazovanje učinkovitosti, kot so analiza sposobnosti zaposlenih ali športnikov, primerjave izdelkov itd.]A;To je odprtokodna ponazoritev. Kodo lahko pridobite na spletnem mestu storitve GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";RadarChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Več meritev, ki so prikazane na kategorijski osi. Uporabno za primerjavo atributov]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AxisStart" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis shift]]></Val>
@@ -186,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pisava]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left]]></Val>
@@ -218,6 +209,15 @@
           <Val><![CDATA[Line Width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Debelina črte]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Polarni grafikon je grafični način prikaza podatkov z več spremenljivkami v obliki dvodimenzionalnega grafikona s tremi ali več kvantitativnimi spremenljivkami, prikazanimi na oseh, ki izhajajo iz iste točke. Relativni položaj in kot osi običajno nista zadosten vir informacij.]A;Vsaka spremenljivka je predstavljena z osjo, ki izhaja iz središča. Vse osi so razporejene radialno z enako medsebojno razdaljo, za vse osi pa je uporabljeno enako merilo. Mrežne črte, ki povezujejo posamezne osi, so pogosto uporabljene kot vodilo. Posamezne vrednosti spremenljivk so prikazane vzdolž posameznih osi, vse spremenljivke v naboru podatkov pa so medsebojno povezane tako, da tvorijo mnogokotnik.]A;Polarni grafikoni so uporabni, ker lahko z njimi prikažete, katere spremenljivke imajo v naboru podatkov visoke rezultate in katere nizke – so odlični za prikazovanje učinkovitosti, kot so analiza sposobnosti zaposlenih ali športnikov, primerjave izdelkov itd.]A;To je odprtokodna ponazoritev. Kodo lahko pridobite na spletnem mestu storitve GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -267,6 +267,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Več meritev, ki so prikazane na kategorijski osi. Uporabno za primerjavo atributov]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -281,6 +290,15 @@
           <Val><![CDATA[South]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Južna Azija]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Besedilo]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

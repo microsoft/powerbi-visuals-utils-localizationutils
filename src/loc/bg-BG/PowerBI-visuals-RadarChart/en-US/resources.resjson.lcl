@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";RadarChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Радарната диаграма представлява графичен метод за показване на данни с множество променливи под формата на двуизмерна диаграма с три или повече количествени променливи, представени по оси, започващи от една и съща точка. Относителната позиция и ъгълът на осите обикновено са неинформационни.]A;Всяка променлива разполага с ос, която започва от центъра. Всички оси са разположени радиално, на еднакви разстояния една от друга, като същевременно се поддържа еднакъв мащаб между всички оси. Редовете в решетката, които свързват една ос с друга, често се използват като ориентир. Всяка променлива стойност е разположена по своята индивидуална ос и всички променливи в набора от данни се свързват, като образуват многоъгълник.]A;Радарните диаграми са удобни за определяне на високо или ниско разположените променливи в рамките на един набор от данни, което ги прави идеални за показване на ефективността, като например при анализ на уменията на служители или спортисти, при сравнение на продукти и др.]A;Това е визуален обект с отворен код. Може да изтеглите кода от GitHub на адрес: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";RadarChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Множество мерки, начертани върху категорийна ос. Полезна за сравняване на атрибути]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AxisStart" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis shift]]></Val>
@@ -186,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Шрифт]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left]]></Val>
@@ -218,6 +209,15 @@
           <Val><![CDATA[Line Width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ширина на линия]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Радарната диаграма представлява графичен метод за показване на данни с множество променливи под формата на двуизмерна диаграма с три или повече количествени променливи, представени по оси, започващи от една и съща точка. Относителната позиция и ъгълът на осите обикновено са неинформационни.]A;Всяка променлива разполага с ос, която започва от центъра. Всички оси са разположени радиално, на еднакви разстояния една от друга, като същевременно се поддържа еднакъв мащаб между всички оси. Редовете в решетката, които свързват една ос с друга, често се използват като ориентир. Всяка променлива стойност е разположена по своята индивидуална ос и всички променливи в набора от данни се свързват, като образуват многоъгълник.]A;Радарните диаграми са удобни за определяне на високо или ниско разположените променливи в рамките на един набор от данни, което ги прави идеални за показване на ефективността, като например при анализ на уменията на служители или спортисти, при сравнение на продукти и др.]A;Това е визуален обект с отворен код. Може да изтеглите кода от GitHub на адрес: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -267,6 +267,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Множество мерки, начертани върху категорийна ос. Полезна за сравняване на атрибути]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -281,6 +290,15 @@
           <Val><![CDATA[South]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Юг]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Текст]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";RadarChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Radarový graf je grafická metóda zobrazovania multivariačných údajov vo forme dvojrozmerného grafu troch alebo viacerých kvantitatívnych premenných reprezentovaných na osiach začínajúcich od toho istého bodu. Relatívna poloha a uhol osí je typicky neinformačný.]A;Každá premenná má os, ktorá sa začína od stredu. Všetky osi sú usporiadané radiálne s rovnakou vzdialenosťou medzi sebou a so zachovanou rovnakou mierkou medzi všetkými osami. Mriežky, ktoré sa pripájajú od osi k osi, sa často používajú ako vodiace mriežky. Každá premenná hodnota je vykreslená pozdĺž svojej jednotlivej osi a všetky premenné v množine údajov sú navzájom prepojené na vytvorenie mnohouholníka.]A;Radarové grafy sú užitočné na zobrazenie toho, ktoré premenné majú v rámci množiny údajov vysoké alebo nízke skóre, čo je ideálne na zobrazenie výkonnosti, napríklad na analýzu zručností zamestnancov alebo športových hráčov, porovnanie produktov atď.]A; Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";RadarChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Viaceré miery vykreslené nad osou kategórií. Užitočné na porovnanie atribútov.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AxisStart" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis shift]]></Val>
@@ -186,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Písmo]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left]]></Val>
@@ -218,6 +209,15 @@
           <Val><![CDATA[Line Width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Šírka čiary]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Radarový graf je grafická metóda zobrazovania multivariačných údajov vo forme dvojrozmerného grafu troch alebo viacerých kvantitatívnych premenných reprezentovaných na osiach začínajúcich od toho istého bodu. Relatívna poloha a uhol osí je typicky neinformačný.]A;Každá premenná má os, ktorá sa začína od stredu. Všetky osi sú usporiadané radiálne s rovnakou vzdialenosťou medzi sebou a so zachovanou rovnakou mierkou medzi všetkými osami. Mriežky, ktoré sa pripájajú od osi k osi, sa často používajú ako vodiace mriežky. Každá premenná hodnota je vykreslená pozdĺž svojej jednotlivej osi a všetky premenné v množine údajov sú navzájom prepojené na vytvorenie mnohouholníka.]A;Radarové grafy sú užitočné na zobrazenie toho, ktoré premenné majú v rámci množiny údajov vysoké alebo nízke skóre, čo je ideálne na zobrazenie výkonnosti, napríklad na analýzu zručností zamestnancov alebo športových hráčov, porovnanie produktov atď.]A; Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -267,6 +267,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Viaceré miery vykreslené nad osou kategórií. Užitočné na porovnanie atribútov.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -281,6 +290,15 @@
           <Val><![CDATA[South]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Juh]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Text]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

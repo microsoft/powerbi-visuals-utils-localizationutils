@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ChicletSlicer_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Chiclet Slicer was inspired by the great slicer control found in Excel since 2010, but with much greater customization options.]A;Chiclet are a slicers made of buttons, that can also be arranged horizontally for a very efficient real estate use, or arranged as a matrix for a super compact form.]A;Chiclet slicer also supports cross highlighting.]A;That's not all - they can even contain images!]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-chicletslicer]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Čiklet segmentator je inspirisan odličnom kontrolom segmentatora koja se nalazi u programu Excel od verzije 2010, ali sa mnogo više opcija za prilagođavanje.]A;Čiklet predstavlja segmentatore sačinjene od dugmadi koja se takođe može rasporediti horizontalno radi veoma efikasnog korišćenja u poslovima za nekretninama, odnosno može se rasporediti kao matrica radi postizanja izuzetno kompaktnog oblika.]A;Čiklet segmentator takođe podržava unakrsno isticanje.]A;To nije sve – oni čak mogu i da sadrže slike!]A;Ovo je open source vizuelni element. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/PowerBI-visuals-chicletslicer]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ChicletSlicer_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Display image and/or text buttons that act as an in-canvas filter on other visuals]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Prikažite dugmad za sliku i/ili tekst koja se ponaša kao filter na platnu u drugim vizuelnim elementima]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -102,6 +84,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Onemogućena boja]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Enable_Tailoring" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Crop text]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -393,11 +381,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Transparancy" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Tooltips" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Transparency]]></Val>
+          <Val><![CDATA[Tooltips]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Prozirnost]]></Val>
+            <Val><![CDATA[Opisi alatki]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

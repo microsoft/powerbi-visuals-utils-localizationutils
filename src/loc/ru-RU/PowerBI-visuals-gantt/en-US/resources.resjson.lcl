@@ -51,6 +51,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Role_Milestones" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Milestones]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Вехи]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Role_Parent" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Parent]]></Val>
@@ -93,6 +102,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Подсказки]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bars Rounded Corners]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -558,6 +573,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Диаграмма Ганта — это тип линейчатой диаграммы, которая иллюстрирует расписание на шкале времени. Если поместить диаграмму Ганта вместе с другими аналитическими диаграммами на интерактивный холст, можно управлять проектом совершенно по-новому. В Power BI при взаимодействии визуальных элементов друг с другом вы можете взглянуть на выделение ресурсов, степень завершенности задач и оставшиеся задачи с разных точек зрения и получить более точное представление о дальнейших перспективах проекта.]A;Диаграммы Ганта — это неотъемлемая часть портфеля управления проектами. Проект-менеджеры и руководители любят диаграммы Ганта за то, что они наглядно показывают общую временную шкалу проекта, текущее состояние и ход выполнения (или его отсутствие), а также подробное распределение задач.]A;С помощью этого пользовательского визуального элемента вы можете указать задачи, дату начала, длительность и выполнение в процентах в виде диаграммы Ганта. Обратите внимание, что для параметра \"Выполнение в процентах\" требуется десятичное значение (например, 0,85 означает 85%), а \"Дата начала\" — это поле даты, а не иерархия дат.]A;Вы также можете изменить цвет отрезка с условным обозначением. В качестве условного обозначения можно использовать любое релевантное поле проекта, например тип задачи. Кроме того, вы можете указать поле ресурсов, которое будет находиться рядом с отрезком на диаграмме.]A;Это визуальный элемент с открытым кодом. Найти код можно на GitHub: https://github.com/Microsoft/powerbi-visuals-gantt.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MaxCompletion" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max completion]]></Val>
@@ -729,6 +753,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Тип линейчатой диаграммы, которая иллюстрирует временную шкалу или расписание проекта вместе с ресурсами.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -779,15 +812,6 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Высота]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Rounded Corners]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Скругленные углы]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

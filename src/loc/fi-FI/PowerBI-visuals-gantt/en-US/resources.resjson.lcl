@@ -51,6 +51,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Role_Milestones" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Milestones]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Välitavoitteet]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Role_Parent" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Parent]]></Val>
@@ -93,6 +102,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Työkaluvihjeet]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bars Rounded Corners]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -558,6 +573,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Gantt-kaavio on palkkikaaviotyyppi, joka havainnollistaa aikataulun aika-akselin kanssa. Kun asetat Gantt-kaavion yhdessä muiden merkityksellisten kaavioiden kanssa vuorovaikutteiselle pohjalle, voit hallita projektiasi kokonaan uudella tavalla. Power BI:ssä visualisoinnit ovat vuorovaikutuksessa toistensa kanssa, ja voit tarkastella resurssien varaamista, tehtävien valmistumista sekä jäljellä olevia tehtäviä eri perspektiivistä ja saada vakaan käsityksen tulevaisuudesta.]A;Gantt-kaaviot kuuluvat olennaisesti projektinhallinnan portfolioon. Projektipäälliköt ja johtajat rakastavat Gantt-kaavioita, koska ne näyttävät visuaalisesti erittäin tehokkaalla yhdellä silmäyksellä nähtävällä tavalla projektin kokonaisaikajanan, nykyisen tilan ja edistymisen (tai sen puutteen) yhdessä tehtävän kanssa merkittävän yksityiskohtaisesti.]A;Tämän mukautetun visualisoinnin avulla voit määrittää tehtävät, alkamispäivän, keston ja valmistumisprosentin hahmonnettaviksi Gantt-kaaviossa. Huomaa, että valmistumisprosentti odottaa desimaaliarvoa (esimerkiksi 0,85 tarkoittaa 85 prosenttia) ja alkamispäivää, joa on päivämääräkenttä, ei päivämäärähierarkia.]A;Voit myös määrittää palkin värin selitteen avulla. Voit käyttää mitä tahansa asianmukaista kenttää projektistasi selitteenä esimerkiksi tehtävätyypille tähän tarkoitukseen. Lisäksi voit määrittää myös resurssikentän, joka näkyy palkin vieressä Gantt-kaaviossa.]A;Tämä on avoimeen lähdekoodiin perustuva visualisointi. Hanki koodi GitHubista: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MaxCompletion" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Max completion]]></Val>
@@ -729,6 +753,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Palkkikaavion tyyppi, joka esittää projektin aikajanan tai aikataulun resurssien kanssa]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -779,15 +812,6 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Korkeus]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Rounded Corners]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pyöristetyt kulmat]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
