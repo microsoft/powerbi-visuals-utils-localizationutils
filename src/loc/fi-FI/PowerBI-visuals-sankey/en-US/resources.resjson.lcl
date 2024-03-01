@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Sankeyn avulla voit selvästi yhdellä nopealla silmäyksellä löytää lähteet, kohteet ja askeleet niiden välissä sekä sen, miten asiat kulkevat niiden välillä. Voit myös käsitellä sitä joko napsauttamalla linkkiä tai itse työnkulkua ja hyödyntämällä Power BI:n ristiinkorostuksen ti suodatuksen ominaisuutta, jotta saat entistäkin enemmän mielenkiintoisia merkityksellisiä tietoja liittyvistä tiedoista.]A;Osuvasti niitä käytetään laajalti energia-alalla. Mielenkiintoisia käyttötapauksia on kuitenkin kaikilla aloilla. Sen avulla kuka tahansa voi visualisoida tietoja, joilla on alku ja loppu tai dynaaminen suhde, jossa on useita välikohteita, kuten se, miten käyttäjä päätyi ja siirtyi sivustoon, materiaali valmistusyksikössä tai rahansiirtojen hallinta liiketoimintaprosessissa, käyttäen kokonaan eri perspektiiviä ja tuoden mielenkiintoisia merkityksellisiä tietoja näkyvin.]A;Tämä on avoimeen lähdekoodiin perustuva visualisointi. Hanki koodi GitHubista: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Sankey-asetukset]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ohita itseensä linkittävien linkkien painotus]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vuokaavio, jossa sarjan leveys on suhteessa vuon laatuun]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

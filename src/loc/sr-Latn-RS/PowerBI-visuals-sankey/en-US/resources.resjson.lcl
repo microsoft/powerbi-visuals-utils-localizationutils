@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Uz Sankey možete za tren oka jasno da pronađete izvore, odredišta i korake između njih, kao i način toka stvari u svima njima. Takođe možete da vršite interakciju sa njima tako što ćete kliknuti na vezu ili na tok i iskoristiti funkciju unakrsnog isticanja/filtriranja usluge Power BI da biste dobili još zanimljivije uvide u srodne podatke.]A;Oni se prikladno u velikoj meri koriste u industriji energetike. Međutim, i sve ostale industrije pronalaze zanimljive slučajeve za njihovo korišćenje. Sankey svima omogućava vizuelizaciju informacija koje imaju početak i kraj ili dinamički odnos sa mnogo posrednika, na primer kako je korisnik stigao na veb sajt i kretao se do njega odnosno materijal u proizvodnoj jedinici, kontrola nad transferima novca u poslovnim procesima u potpuno različitoj perspektivi i donosi zanimljive uvide u prednji plan.]A;Ovo je vizuelni element otvorenog koda. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Sankey postavke]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Zanemari stepen važnosti veza koje upućuju na same sebe]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Dijagram toka gde je širina grupe proporcionalna količini toka]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

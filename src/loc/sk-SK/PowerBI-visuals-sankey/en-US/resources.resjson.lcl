@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[S vizuálom Sankey prehľadne nájdete zdroje, ciele a súvisiace kroky a jedným krátkym pohľadom zistíte, ako to všetko nadväzuje a postupuje. S vizuálom môžete interaktívne pracovať kliknutím na čiaru alebo samotný postup. Pomocou funkcie krížového zvýrazňovania a filtrovania v službe Power BI získate zo súvisiacich údajov ešte zaujímavejšie poznatky.]A;Tento vizuál má široké uplatnenie v energetickom priemysle. Zaujímavé prípady jeho použitia ale nájdeme vo všetkých odvetviach. Každému umožňuje vizualizovať informácie, ktoré majú začiatok a koniec alebo dynamický vzťah s mnohými sprostredkovateľmi. Prináša úplne iný pohľad napríklad na to, ako používateľ prešiel na webovú lokalitu a navigoval na nej alebo ako použil materiál vo výrobnej jednotke, ako aj nový pohľad na kontrolné mechanizmy prevodov peňazí v obchodných procesoch, a prináša do popredia zaujímavé poznatky.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Nastavenia diagramu Sankey]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ignorovať váhu prepojení odkazujúcich na seba]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Diagram toku údajov, kde je šírka radu úmerná množstvu údajov v toku]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
