@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";RadarChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Sơ đồ radar là một phương pháp đồ họa dùng để hiển thị dữ liệu có nhiều biến dưới dạng biểu đồ hai chiều gồm ba hoặc nhiều biến định lượng được biểu diễn trên các trục bắt đầu từ cùng một điểm. Vị trí tương đối và góc của các trục thường không mang thông tin.]A;Mỗi biến sẽ có một trục xuất phát từ tâm. Tất cả các trục được bố trí theo hướng xuyên tâm, với khoảng cách giữa các trục bằng nhau, trong khi duy trì cùng tỷ lệ giữa tất cả các trục. Đường lưới kết nối các trục với nhau thường được sử dụng làm đường dẫn. Mỗi giá trị biến được biểu diễn dọc theo trục của riêng giá trị đó và tất cả các biến trong tập dữ liệu cũng như được kết nối cùng nhau để tạo thành một hình đa giác.]A;Chúng ta thường dùng sơ đồ Radar để xác định được biến nào có điểm cao hoặc thấp hơn trong một tập dữ liệu, từ đó loại sờ đồ này thường được dùng để hiển thị hiệu suất, chẳng hạn như Phân tích kỹ năng của nhân viên hoặc những người chơi thể thao, so sánh sản phẩm, v.v.]A;Đây là hình ảnh nguồn mở. Tải mã từ GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";RadarChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Biểu diễn nhiều giá trị đo trên một trục danh mục. Thường dùng để so sánh các thuộc tính]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AxisStart" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis shift]]></Val>
@@ -186,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Phông chữ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left]]></Val>
@@ -222,6 +213,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.]A;Each variable is provided an axis that starts from the center. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.]A;Radar Charts are useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance, such as Skill Analysis of Employee or sport players, product comparison, etc.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Sơ đồ radar là một phương pháp đồ họa dùng để hiển thị dữ liệu có nhiều biến dưới dạng biểu đồ hai chiều gồm ba hoặc nhiều biến định lượng được biểu diễn trên các trục bắt đầu từ cùng một điểm. Vị trí tương đối và góc của các trục thường không mang thông tin.]A;Mỗi biến sẽ có một trục xuất phát từ tâm. Tất cả các trục được bố trí theo hướng xuyên tâm, với khoảng cách giữa các trục bằng nhau, trong khi duy trì cùng tỷ lệ giữa tất cả các trục. Đường lưới kết nối các trục với nhau thường được sử dụng làm đường dẫn. Mỗi giá trị biến được biểu diễn dọc theo trục của riêng giá trị đó và tất cả các biến trong tập dữ liệu cũng như được kết nối cùng nhau để tạo thành một hình đa giác.]A;Chúng ta thường dùng sơ đồ Radar để xác định được biến nào có điểm cao hoặc thấp hơn trong một tập dữ liệu, từ đó loại sờ đồ này thường được dùng để hiển thị hiệu suất, chẳng hạn như Phân tích kỹ năng của nhân viên hoặc những người chơi thể thao, so sánh sản phẩm, v.v.]A;Đây là hình ảnh nguồn mở. Tải mã từ GitHub: https://github.com/Microsoft/PowerBI-visuals-RadarChart]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Name]]></Val>
@@ -236,6 +236,105 @@
           <Val><![CDATA[North]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Bắc]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_AddLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Thêm nhãn dữ liệu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_AddTitle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add legend title]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Thêm tiêu đề chú giải]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DeleteLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Delete data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Xóa nhãn dữ liệu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DeleteLegend" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Delete legend]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Xóa chú giải]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DeleteTitle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Delete title]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Xóa tiêu đề]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DrawPolygons" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Draw polygons]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vẽ hình đa giác]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatColors" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format data colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Định dạng màu dữ liệu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Định dạng nhãn dữ liệu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatLegend" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format legend]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Định dạng chú giải]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatTitle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format title]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Định dạng tiêu đề]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_Polygon" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[polygon]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[hình đa giác]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -267,6 +366,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple measures plotted over a categorical axis. Useful to compare attributes]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Biểu diễn nhiều giá trị đo trên một trục danh mục. Thường dùng để so sánh các thuộc tính]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -281,6 +389,15 @@
           <Val><![CDATA[South]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Nam]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Văn bản]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

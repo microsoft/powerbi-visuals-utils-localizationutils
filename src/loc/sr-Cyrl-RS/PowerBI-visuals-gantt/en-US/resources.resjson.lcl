@@ -51,6 +51,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Role_Milestones" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Milestones]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Кључне тачке]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Role_Parent" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Parent]]></Val>
@@ -96,11 +105,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bars Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Траке са заобљеним угловима]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_CategoryLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category Labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ознаке категорија]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Collapse_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collapse All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Скупи све]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -447,6 +474,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Expand_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Развиј све]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Fill]]></Val>
@@ -554,6 +590,15 @@
           <Val><![CDATA[Legend Name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Име легенде]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Гантов графикон представља тип тракастог графикона који илуструје распоред помоћу временске осе. Када на интерактивно платно поставите Гантов графикон заједно са другим графиконима који пружају увид, можете да управљате пројектом на потпуно нови начин. Док визуелни елементи услузи Power BI врше интеракцију једни са другима, можете да погледате доделу ресурса, довршење задатака, преостале задатке у различитој перспективи, као и да добијете контролу над будућношћу.]A;Гантови графикони су нераздвојни део портфолија за управљање пројектима. Менаџери пројеката и директори воле Гантове графиконе зато што они визуелно, на веома ефикасан начин за трен ока приказују свеукупну временску осу пројекта, тренутни статус и напредак (односно његов недостатак) уз додељивање велике количине детаља.]A;Помоћу овог прилагођеног визуелног елемента, можете да наведете задатке, датум почетка, трајање, проценат довршености како бисте их приказали у виду Гантовог графикона. Имајте у виду да проценат довршености очекује децималну вредност (на пример, 0,85 значи 85%), а датум почетка очекује поље за датум, не хијерархију датума.]A;Такође можете да контролишете боју траке помоћу легенде. Можете да користите било које релевантно поље из пројекта као легенду, на пример, тип задатка за ову сврху. Поред тога, можете и да наведете поље ресурса, које би било наведено поред траке у Гантовом графикону.]A;Ово је визуелни елемент отвореног кода. Преузмите кôд из услуге GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -729,6 +774,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Тип тракастог графикона који илуструје временску осу пројекта или распоред са ресурсима]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -779,15 +833,6 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Висина]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Rounded Corners]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Заобљени углови]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

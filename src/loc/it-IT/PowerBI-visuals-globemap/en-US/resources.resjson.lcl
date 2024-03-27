@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Globemap_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Globe Map is a 3D Map that makes the map exploration experience more immersive and magical. It provide the sense of connection to the data with the physical world. This, combined with our spatial ability, brings a new perspective to the data when presented as 3D objects.]A;Use it with any location data. The location could be an address, city, county , state/province or country/region. On this 3D map, you can project a measure as the height of the bar. The 3D bars reduce the clutter of overlapping bubbles and allow you to get instant insight. GlobeMap also allows you to rotate the Globe and see it from different angles.]A;Globe Map also supports heat map on the spatial map. You can use a second measure for heat intensity and draw immediate attention to the right areas.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Globe Map è una mappa 3D che rende l'esperienza di esplorazione ancor più coinvolgente e straordinaria, in quanto connette i dati al mondo fisico. Questa caratteristica, combinata con la capacità di orientamento nello spazio, conferisce ai dati una nuova prospettiva quando vengono presentati come oggetti 3D.]A;Può essere usato con tutti i dati località. La località può essere un indirizzo, una città, una contea, uno stato o una provincia oppure un paese o un'area geografica. Su questa mappa 3D è possibile proiettare una misura espressa come altezza della barra. Le barre 3D consentono di ridurre l'ingombro delle bolle sovrapposte e di ottenere quindi informazioni dettagliate immediate. GlobeMap permette anche di ruotare il globo e visualizzarlo da diverse angolazioni.]A;Globe Map supporta anche l'uso di mappe termiche sulla mappa spaziale. È possibile usare una seconda misura per l'intensità del calore e attirare immediatamente l'attenzione sulle aree appropriate.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Globemap_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Plot locations on an interactive 3D map]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Posizioni tracciate su una mappa 3D interattiva]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Description_DisplayName_Latitude" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Overrides the latitude of locations]]></Val>
@@ -146,6 +128,33 @@
           <Val><![CDATA[Color saturation]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Saturazione colore]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Globe Map is a 3D Map that makes the map exploration experience more immersive and magical. It provide the sense of connection to the data with the physical world. This, combined with our spatial ability, brings a new perspective to the data when presented as 3D objects.]A;Use it with any location data. The location could be an address, city, county , state/province or country/region. On this 3D map, you can project a measure as the height of the bar. The 3D bars reduce the clutter of overlapping bubbles and allow you to get instant insight. GlobeMap also allows you to rotate the Globe and see it from different angles.]A;Globe Map also supports heat map on the spatial map. You can use a second measure for heat intensity and draw immediate attention to the right areas.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Globe Map è una mappa 3D che rende l'esperienza di esplorazione più immersiva e magica. Fornisce un senso di connessione tra dati e mondo fisico. Unita alla possibilità spaziale, offre una nuova prospettiva per leggere i dati presentati sotto forma di oggetti 3D.]A;Usalo con qualsiasi dato geografico. La posizione può essere un indirizzo, una città, una regione/provincia o stato/regione. In questa mappa 3D puoi proiettare una misura come altezza della barra. Le barre 3D riducono il disordine degli elementi che si sovrappongono e ti consentono di avere una visione chiara a colpo d'occhio. GlobeMap ti aiuta inoltre a ruotare il globo e a vederlo da diverse prospettive.]A;Globe Map supporta anche la mappa termica nella mappa spaziale. Puoi usare una seconda misura per l'intensità del calore e attirare immediatamente l'attenzione nell'area desiderata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatDataPoint" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format data point colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Colori formattazione punto dati]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Plot locations on an interactive 3D map]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Posizioni tracciate su una mappa 3D interattiva]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
