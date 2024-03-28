@@ -17,7 +17,7 @@ class JsonValidator {
 
                 console.log("dirname: " + __dirname + ";.." + "; visualName: " + visualName);
 
-                let visualResourcesPath: string = path.join(__dirname, "..", visualName);
+                let visualResourcesPath: string = path.join(__dirname, "..", "localizations", visualName.toLowerCase(), "stringResources");
 
                 let localeFolders: string[] = fs.readdirSync(visualResourcesPath)
                                           .map(name => path.join(visualResourcesPath, name))

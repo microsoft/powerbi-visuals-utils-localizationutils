@@ -51,6 +51,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Role_Milestones" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Milestones]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Hitos]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Role_Parent" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Parent]]></Val>
@@ -96,11 +105,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bars Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Esquinas redondeadas de barras]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_CategoryLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category Labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Etiquetas de categoría]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Collapse_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collapse All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Contraer todo]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -447,6 +474,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Expand_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Expandir todo]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Fill]]></Val>
@@ -554,6 +590,15 @@
           <Val><![CDATA[Legend Name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Nombre de leyenda]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[El diagrama de Gantt es un tipo de gráfico de barras para mostrar una programación con un eje de tiempo. Al colocar un diagrama de Gantt con otros gráficos relevantes en un lienzo interactivo, podrá administrar el proyecto de una forma completamente nueva. En Power BI, como los objetos visuales interactúan entre sí, puede analizar la asignación de recursos, la finalización de tareas y las tareas restantes con otra perspectiva y obtener una representación firme de los valores futuros.]A;Los diagramas de Gantt son una parte indispensable de la cartera de administración de proyectos. A los jefes de proyecto y los directivos les encantan los diagramas de Gantt, ya que muestran a simple vista y de forma efectiva la escala de tiempo general del proyecto, el estado actual y el progreso (o su falta de ello), así como la tarea, con detalles considerables.]A;Con este objeto visual personalizado, puede especificar las tareas, la fecha de inicio, la duración y el porcentaje de finalización para representarlos como un diagrama de Gantt. Tenga en cuenta que el porcentaje de finalización espera un valor decimal (por ejemplo, 0,85 equivale a 85 %) y la fecha de inicio espera un campo de fecha, no una jerarquía de fechas.]A;También puede controlar el color de la barra con una leyenda. Puede usar cualquier campo relevante del proyecto como leyenda (por ejemplo, el tipo de tarea) para esta finalidad. Además, también puede especificar el campo del recurso, que se mostraría junto a la barra en el diagrama de Gantt.]A;Este es un objeto visual de código abierto. Descargue el código desde GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -729,6 +774,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tipo de gráfico de barras donde se muestra una escala de tiempo de un proyecto o una programación con recursos.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -779,15 +833,6 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Alto]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Rounded Corners]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Esquinas redondeadas]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
