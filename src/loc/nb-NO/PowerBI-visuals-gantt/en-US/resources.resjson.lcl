@@ -51,6 +51,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Role_Milestones" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Milestones]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Milepæler]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Role_Parent" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Parent]]></Val>
@@ -96,11 +105,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bars Rounded Corners]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Stolper avrundede hjørner]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_CategoryLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category Labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Kategorietiketter]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Collapse_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collapse All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skjul alle]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -447,6 +474,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Expand_All" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand All]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Utvid alle]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Fill]]></Val>
@@ -554,6 +590,15 @@
           <Val><![CDATA[Legend Name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Navn på forklaring]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Gantt-diagrammet er et type stolpediagram som brukes til å illustrere en tidsplan med tidsakse. Når du plasserer Gantt-diagrammet sammen med andre illustrerende diagrammer på et interaktivt lerret, kan du administrere prosjektet på helt ny måte. Når visualobjekter samhandler i Power BI, kan du ved å vise ressurstildelingen, oppgavegjennomføringen og gjenstående aktiviteter med ulike perspektiver, få god oversikt over fremdriften.]A;Gantt-diagram er en uunnværlig del av prosjektlederens portefølje. Prosjektledere og overordnede elsker Gantt-diagrammer fordi de raskt og effektivt viser hele tidslinjen til prosjektet, gjeldende status og fremdrift (eller mangel på fremdrift) sammen med tilordningen, med mange detaljer.]A;Med dette tilpassede visualobjektet kan du angi aktiviteter, startdato, varighet og %fullføring, og gjengi dem i et Gantt-diagram. Legg merke til at %fullføring forventer en desimalverdi (0,85 betyr for eksempel 85%) og startdato, et datofelt og ikke et datohierarki.]A;Du kan også kontrollere fargen på feltet med en forklaring. Du kan bruke alle relevante felt fra prosjektet som forklaring, for eksempel aktivitetstype. I tillegg kan du også angi ressursfeltet som skal vises ved siden av feltet i Gantt-diagrammet.]A;Dette er et visualobjekt med åpen kildekode. Hent koden fra GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -729,6 +774,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type of bar chart which illustrates a project timeline or schedule with resources]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[En stolpediagramtype som illustrerer en prosjekttidslinje eller tidsplan med ressurser]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -779,15 +833,6 @@
           <Val><![CDATA[Height]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Høyde]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TaskSettings_RoundedCorners" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Rounded Corners]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Avrundede hjørner]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
