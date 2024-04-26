@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Cu Sankey, puteți găsi în mod clar și dintr-o privire sursele, destinațiile și pașii intermediari, precum și modul în care sunt transmise diversele elemente între acestea. De asemenea, puteți să interacționați cu acesta făcând clic pe link sau pe fluxul propriu-zis și să valorificați caracteristica de evidențiere/filtrare încrucișată din Power BI, pentru a obține și mai multe detalii interesante despre datele asociate.]A;Aceste diagrame sunt utilizate pe scară largă în industria energetică. Însă există cazuri de utilizări interesante în toate industriile. Îi stimulează pe toți să vizualizeze informațiile care au un început și un sfârșit sau relații dinamice cu mai mulți intermediari, de exemplu, să afle modul în care a ajuns și a navigat un utilizator pe un site web sau un material dintr-o unitate de producție, să controleze transferurile de fonduri din procesele de afaceri dintr-o perspectivă complet diferită și să dezvăluie detalii interesante.]A;Acesta este un element vizual open source. Obțineți codul de la GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Setări pentru Sankey]]></Val>
+            <Val><![CDATA[Setări Sankey]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ignorați ponderea legăturilor automate]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Diagramă flux în care lățimea seriei este proporțională cu cantitatea fluxului]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

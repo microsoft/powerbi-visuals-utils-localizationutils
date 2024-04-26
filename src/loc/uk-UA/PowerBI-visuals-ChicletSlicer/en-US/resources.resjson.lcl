@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ChicletSlicer_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Chiclet Slicer was inspired by the great slicer control found in Excel since 2010, but with much greater customization options.]A;Chiclet are a slicers made of buttons, that can also be arranged horizontally for a very efficient real estate use, or arranged as a matrix for a super compact form.]A;Chiclet slicer also supports cross highlighting.]A;That's not all - they can even contain images!]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-chicletslicer]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Chiclet Slicer створено на основі ефективного роздільника, що використовується в Excel]A;2010 і новіших версіях. Проте ця візуалізація підтримує значно більше варіантів налаштування.]A;Клавіші – це роздільники на основі кнопок. Їх можна впорядкувати по горизонталі або у вигляді матриці (для максимальної компактності).]A;Chiclet Slicer також підтримує перехресне виділення. І це ще далеко не все: можна додавати навіть зображення.]A; Це візуалізація з відкритим кодом. Отримайте його на сайті GitHub https://github.com/Microsoft/PowerBI-visuals-chicletslicer.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ChicletSlicer_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Display image and/or text buttons that act as an in-canvas filter on other visuals]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Відображення кнопок із текстом і/або зображеннями, які діють як фільтри на полотні в інших візуалізаціях.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -101,6 +83,15 @@
           <Val><![CDATA[Disabled Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Колір, якщо вимкнуто]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Enable_Tailoring" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Crop text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Обітнути текст]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -393,11 +384,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Transparancy" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Tooltips" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Transparency]]></Val>
+          <Val><![CDATA[Tooltips]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Прозорість]]></Val>
+            <Val><![CDATA[Підказки]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

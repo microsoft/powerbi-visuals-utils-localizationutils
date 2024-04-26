@@ -258,11 +258,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Les graphiques en entonnoir sont un type particulier de graphique à barres dans lequel les catégories de données sont répertoriées verticalement, et non horizontalement comme c'est normalement le cas. Les catégories sont triées de telle sorte que la barre la plus grande s'affiche en haut du graphique, la deuxième juste en dessous, et ainsi de suite. Ce visuel est appelé ainsi car le graphique final ressemble à la moitié d'un entonnoir ou à un entonnoir entier.]A;Un graphique en entonnoir est un outil couramment utilisé pour représenter la sensibilité d'un résultat aux changements apportés à certaines variables. Il montre l'effet sur la sortie du changement d'une seule variable d'entrée (toutes les autres variables d'entrée conservant leurs valeurs initiales). En général, vous choisissez une valeur faible et une valeur élevée pour chaque entrée.]A;Ce visuel est open source. Obtenez le code sur GitHub ici : https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Position" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Position]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Position]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Comparaison de l'importance relative des variables entre deux groupes]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
