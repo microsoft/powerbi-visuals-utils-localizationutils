@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";BulletChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Bullet chart serves as a replacement for dashboard gauges and meters. Bullet charts were developed to overcome the fundamental issues of gauges and meters.]A;The bullet chart features a single, primary measure (for example, current year-to-date revenue), compares that measure to one or more other measures to enrich its meaning (for example, compared to a target), and displays it in the context of qualitative ranges of performance, such as poor, satisfactory, and good. The qualitative ranges are displayed as varying intensities of a single hue to make them discernible by those who are color blind and to restrict the use of colors on the dashboard to a minimum.]A;Bullet charts may be horizontal or vertical, and may be stacked to allow comparisons of several measures at once.]A;The Bullet chart consists of 5 primary components:]A;[#LI]5D;Text label: Your chart caption which defines what your chart is about and the unit of measurement.[/#LI]5D;]A;[#LI]5D;Quantitative Scale: Measures the value of your metric on a linear axis.[/#LI]5D;]A;[#LI]5D;The Featured Measure: The bar that displays the primary performance measure (eg: Revenue YTD).[/#LI]5D;]A;[#LI]5D;Comparative Measure: The measure against which you want to compare your featured measure (eg: Target revenue).[/#LI]5D;]A;[#LI]5D;Qualitative Scale: The background fill that encodes qualitative ranges like bad, satisfactory, and good.[/#LI]5D;]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Punkttegnsdiagrammer fungerer som en erstatning for dashboard målere og tællere. Punkttegnsdiagrammer er udviklet til at løse de grundlæggende problemer med målere og tællere.]A;Punkttegnsdiagrammet har en enkelt, primær måling (f.eks, aktuelle år-til-dato indtjening), sammenligner denne måling med en eller flere andre målinger for at fremhæve betydningen (f.eks, sammenholdt med en målværdi) og viser det i konteksten for kvalitative præstationsområder, som for eksempel dårlig, tilfredsstillende og god. De kvalitative områder vises som varierende intensitet af en enkelt nuance, så de kan skelnes af farveblinde og begrænser brugen af farver i dashboardet til et minimum.]A;Punkttegnsdiagrammer kan være vandrette eller lodrette og er muligvis stablet, så de muliggør sammenligninger af flere målinger samtidigt.]A;Punkttegnsdiagrammet består af 5 primære komponenter:]A;[#LI]5D;Tekstetiket: Diagrammets titel, der definerer, hvad diagrammet drejer sig om, og måleenheden. [/#LJeg]5D;]A;[#LI]5D;Kvantitativ skala: Måler værdien af din metrikværdien for en lineær akse. [/#LJeg]5D;]A;[#LI]5D;Den valgte måling: Den stav, der viser den primære præstationsmåling (f.eks: Indtjening år til dato). [/#LJeg]5D;]A;[#LI]5D;Sammenligningsmåling: Den måling, som du vil sammenligne med din udvalgte måling (f.eks: Målværdien for indtægter). [/#LJeg]5D;]A;[#LI]5D;Kvalitativ skala: Baggrundsudfyldning, der koder kvalitative intervaller som forkert, tilfredsstillende og god. [/#LJeg]5D;]A;Dette er en visualisering med åben kildekode. Koden kan hentes fra GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";BulletChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A bar chart with extra visual elements to provide additional context. Useful for tracking goals]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Et liggende søjlediagram med ekstra visuelle elementer, der tilfører yderligere sammenhænge. Nyttige til at spore mål]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Axis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis]]></Val>
@@ -47,6 +29,24 @@
           <Val><![CDATA[Axis color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Aksefarve]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_AxisShowMain" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vis hovedakse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_AxisSync" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Synkronisér akse]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -69,23 +69,14 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Categoty" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Category]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kategori]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[color]]></Val>
+          <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[farve]]></Val>
+            <Val><![CDATA[Farve]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[Color]]></Val>
+            <Val><![CDATA[color]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -243,11 +234,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skrifttype]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Good" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Good]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[God]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bullet chart serves as a replacement for dashboard gauges and meters. Bullet charts were developed to overcome the fundamental issues of gauges and meters.]A;The bullet chart features a single, primary measure (for example, current year-to-date revenue), compares that measure to one or more other measures to enrich its meaning (for example, compared to a target), and displays it in the context of qualitative ranges of performance, such as poor, satisfactory, and good. The qualitative ranges are displayed as varying intensities of a single hue to make them discernible by those who are color blind and to restrict the use of colors on the dashboard to a minimum.]A;Bullet charts may be horizontal or vertical, and may be stacked to allow comparisons of several measures at once.]A;The Bullet chart consists of 5 primary components:]A;[#LI]5D;Text label: Your chart caption which defines what your chart is about and the unit of measurement.[/#LI]5D;]A;[#LI]5D;Quantitative Scale: Measures the value of your metric on a linear axis.[/#LI]5D;]A;[#LI]5D;The Featured Measure: The bar that displays the primary performance measure (eg: Revenue YTD).[/#LI]5D;]A;[#LI]5D;Comparative Measure: The measure against which you want to compare your featured measure (eg: Target revenue).[/#LI]5D;]A;[#LI]5D;Qualitative Scale: The background fill that encodes qualitative ranges like bad, satisfactory, and good.[/#LI]5D;]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Punkttegnsdiagrammer fungerer som en erstatning for dashboard målere og tællere. Punkttegnsdiagrammer er udviklet til at løse de grundlæggende problemer med målere og tællere.]A;Punkttegnsdiagrammet har en enkelt, primær måling (f.eks, aktuelle år-til-dato indtjening), sammenligner denne måling med en eller flere andre målinger for at fremhæve betydningen (f.eks, sammenholdt med en målværdi) og viser det i konteksten for kvalitative præstationsområder, som for eksempel dårlig, tilfredsstillende og god. De kvalitative områder vises som varierende intensitet af en enkelt nuance, så de kan skelnes af farveblinde og begrænser brugen af farver i dashboardet til et minimum.]A;Punkttegnsdiagrammer kan være vandrette eller lodrette og er muligvis stablet, så de muliggør sammenligninger af flere målinger samtidigt.]A;Punkttegnsdiagrammet består af 5 primære komponenter:]A;[#LI]5D;Tekstetiket: Diagrammets titel, der definerer, hvad diagrammet drejer sig om, og måleenheden. [/#LJeg]5D;]A;[#LI]5D;Kvantitativ skala: Måler værdien af din metrikværdien for en lineær akse. [/#LJeg]5D;]A;[#LI]5D;Den valgte måling: Den stav, der viser den primære præstationsmåling (f.eks: Indtjening år til dato). [/#LJeg]5D;]A;[#LI]5D;Sammenligningsmåling: Den måling, som du vil sammenligne med din udvalgte måling (f.eks: Målværdien for indtægter). [/#LJeg]5D;]A;[#LI]5D;Kvalitativ skala: Baggrundsudfyldning, der koder kvalitative intervaller som forkert, tilfredsstillende og god. [/#LJeg]5D;]A;Dette er en visualisering med åben kildekode. Koden kan hentes fra GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -293,6 +302,105 @@
           <Val><![CDATA[Needs Improvement]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Kræver forbedring]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_AddLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tilføj datamærkater]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DeleteLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Delete data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skjul datamærkater]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DoNotSyncAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Do not sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Synkroniser ikke akse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Formatér akse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatColors" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Formatér farver]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Formatér datamærker]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_HideAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Hide axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skjul akse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_HideMainAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Hide main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skjul hovedakse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_ShowAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vis akse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_ShowMainAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vis hovedakse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_SyncAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Synkronisér akse]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -347,6 +455,15 @@
           <Val><![CDATA[Satisfactory]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Tilfredsstillende]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A bar chart with extra visual elements to provide additional context. Useful for tracking goals]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Et liggende søjlediagram med ekstra visuelle elementer, der tilfører yderligere sammenhænge. Nyttige til at spore mål]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

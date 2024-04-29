@@ -258,11 +258,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Диаграмма \"торнадо\" — это особый тип линейчатой диаграммы, в которой категории данных расположены по вертикали, а не по горизонтали, как обычно. Категория с самым большим отрезком находится вверху диаграммы, ниже — второй по величине отрезок и так далее. Итоговая диаграмма визуально напоминает торнадо — отсюда и название.]A;Диаграмма \"торнадо\" часто используется, чтобы показать результат изменения выбранных переменных. В выходных данных отображается эффект изменения каждой входной переменной за раз, все остальные входные переменные сохраняют начальные (номинальные) значения. Обычно в качестве входной переменной нужно выбрать наименьшее и наибольшее значения.]A;Это визуальный элемент с открытым кодом. Найти код можно на GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Position" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Position]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Положение]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Сравнение относительной важности переменных между двумя группами]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

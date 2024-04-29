@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ChicletSlicer_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Chiclet Slicer was inspired by the great slicer control found in Excel since 2010, but with much greater customization options.]A;Chiclet are a slicers made of buttons, that can also be arranged horizontally for a very efficient real estate use, or arranged as a matrix for a super compact form.]A;Chiclet slicer also supports cross highlighting.]A;That's not all - they can even contain images!]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-chicletslicer]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[A gombsoros szeletelőt egy olyan remek szeletelővezérlő inspirálta, amely az Excelben 2010 óta megtalálható, azonban ez sokkal jobb testre szabási lehetőségeket kínál.]A;A gombrosok gombokból álló szeletelők, amelyek vízszintesen is elrendezhetők a jobb helykihasználás érdekében, vagy mátrixként nagyon kompakt kialakításúak.]A;A gombsoros szeletelő támogatja a keresztkiemeléseket is.]A;És ez nem minden. Még akár képeket is tartalmazhat!]A;Ez egy nyílt forráskódú vizualizáció. A kódot letöltheti a GitHubról: https://github.com/Microsoft/PowerBI-visuals-chicletslicer]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ChicletSlicer_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Display image and/or text buttons that act as an in-canvas filter on other visuals]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Képes és/vagy szöveges gombok megjelenítése, amely vásznon belüli szűrőként használhatók más vizualizációkhoz]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Role_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -101,6 +83,15 @@
           <Val><![CDATA[Disabled Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Szín letiltás esetén]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Enable_Tailoring" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Crop text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Szöveg körülvágása]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -393,11 +384,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Transparancy" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Tooltips" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Transparency]]></Val>
+          <Val><![CDATA[Tooltips]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Átlátszóság]]></Val>
+            <Val><![CDATA[Elemleírások]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
