@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";BulletChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Bullet chart serves as a replacement for dashboard gauges and meters. Bullet charts were developed to overcome the fundamental issues of gauges and meters.]A;The bullet chart features a single, primary measure (for example, current year-to-date revenue), compares that measure to one or more other measures to enrich its meaning (for example, compared to a target), and displays it in the context of qualitative ranges of performance, such as poor, satisfactory, and good. The qualitative ranges are displayed as varying intensities of a single hue to make them discernible by those who are color blind and to restrict the use of colors on the dashboard to a minimum.]A;Bullet charts may be horizontal or vertical, and may be stacked to allow comparisons of several measures at once.]A;The Bullet chart consists of 5 primary components:]A;[#LI]5D;Text label: Your chart caption which defines what your chart is about and the unit of measurement.[/#LI]5D;]A;[#LI]5D;Quantitative Scale: Measures the value of your metric on a linear axis.[/#LI]5D;]A;[#LI]5D;The Featured Measure: The bar that displays the primary performance measure (eg: Revenue YTD).[/#LI]5D;]A;[#LI]5D;Comparative Measure: The measure against which you want to compare your featured measure (eg: Target revenue).[/#LI]5D;]A;[#LI]5D;Qualitative Scale: The background fill that encodes qualitative ranges like bad, satisfactory, and good.[/#LI]5D;]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[बुलेट चार्ट डैशबोर्ड गेज़ और मीटर्स के लिए प्रतिस्थापन के रूप में कार्य करता है. बुलेट चार्ट, गेज़ और मीटर्स की मूलभूत समस्याओं का समाधान करने के लिए विकसित किए गए थे.]A;बुलेट चार्ट एक एकल, प्राथमिक माप (उदाहरण के लिए, वर्तमान इयर-टू-डेट आय) सुविधा से युक्त होता है, इस माप को बेहतर बनाने के लिए माप की एक या अधिक मापों के साथ तुलना करता है (उदाहरण के लिए, किसी लक्ष्य से तुलना) और इसे प्रदर्शन की गुणात्मक श्रेणियों के संदर्भ में प्रदर्शित करता है, जैसे कि खराब, संतोषजनक और अच्छा. गुणात्मक श्रेणियों को रंग अंधता से पीड़ित व्यक्तियों के लिए दृष्टिगोचर बनाने और डैशबोर्ड पर रंगों का न्यूनतम उपयोग कराने हेतु किसी एकल वर्ण की भिन्न-भिन्न तीव्रताओं के रूप में प्रदर्शित किया जाता है.]A;बुलेट चार्ट क्षैतिज या अनुलंब हो सकते हैं और एक ही बार में कई मापों की तुलना की अनुमति देने के लिए स्टैक्ड हो सकते हैं.]A;बुलेट चार्ट में 5 प्राथमिक घटक शामिल होते हैं:]A;[#LI]5D;पाठ लेबल: आपका चार्ट कैप्शन, जो यह परिभाषित करता है कि आपका चार्ट किस बारे में है और माप की इकाई क्या है.[/#LI]5D;]A;[#LI]5D;परिमाणात्मक स्केल: किसी रेखीय अक्ष पर आपके मीट्रिक के मान को मापता है.[/#LI]5D;]A;[#LI]5D;फ़ीचर्ड माप: वह पट्टी, जो प्राथमिक प्रदर्शन माप प्रदर्शित करती है (उदा: आय YTD).[/#LI]5D;]A;[#LI]5D;तुलनात्मक माप: वह माप, जिसके विरुद्ध आप अपने फ़ीचर्ड माप की तुलना करना चाहते हैं (उदा: लक्ष्य आय).[/#LI]5D;]A;[#LI]5D;गुणात्मक स्केल: वह पृष्ठभूमि भरण, जो गुणात्मक श्रेणियों को खराब, संतोषजनक और अच्छा जैसी श्रेणियों में एनकोड करता है.[/#LI]5D;]A;यह एक ओपन सोर्स विज़ुअल है. GitHub से कोड प्राप्त करें: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";BulletChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A bar chart with extra visual elements to provide additional context. Useful for tracking goals]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[अतिरिक्त संदर्भ प्रदान करने के लिए अतिरिक्त विज़ुअल तत्वों वाला एक बार चार्ट. लक्ष्य ट्रैकिंग के लिए उपयोगी]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Axis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis]]></Val>
@@ -47,6 +29,24 @@
           <Val><![CDATA[Axis color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[अक्ष रेखा का रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_AxisShowMain" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[मुख्य अक्ष दिखाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_AxisSync" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष सिंक्रनाइज़ करें]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -69,23 +69,14 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Categoty" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Category]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[श्रेणी]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[color]]></Val>
+          <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[रंग]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[Color]]></Val>
+            <Val><![CDATA[color]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -243,11 +234,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[फ़ॉन्ट]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Good" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Good]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[अच्छा]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Bullet chart serves as a replacement for dashboard gauges and meters. Bullet charts were developed to overcome the fundamental issues of gauges and meters.]A;The bullet chart features a single, primary measure (for example, current year-to-date revenue), compares that measure to one or more other measures to enrich its meaning (for example, compared to a target), and displays it in the context of qualitative ranges of performance, such as poor, satisfactory, and good. The qualitative ranges are displayed as varying intensities of a single hue to make them discernible by those who are color blind and to restrict the use of colors on the dashboard to a minimum.]A;Bullet charts may be horizontal or vertical, and may be stacked to allow comparisons of several measures at once.]A;The Bullet chart consists of 5 primary components:]A;[#LI]5D;Text label: Your chart caption which defines what your chart is about and the unit of measurement.[/#LI]5D;]A;[#LI]5D;Quantitative Scale: Measures the value of your metric on a linear axis.[/#LI]5D;]A;[#LI]5D;The Featured Measure: The bar that displays the primary performance measure (eg: Revenue YTD).[/#LI]5D;]A;[#LI]5D;Comparative Measure: The measure against which you want to compare your featured measure (eg: Target revenue).[/#LI]5D;]A;[#LI]5D;Qualitative Scale: The background fill that encodes qualitative ranges like bad, satisfactory, and good.[/#LI]5D;]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[बुलेट चार्ट डैशबोर्ड गेज़ और मीटर्स के लिए प्रतिस्थापन के रूप में कार्य करता है. बुलेट चार्ट, गेज़ और मीटर्स की मूलभूत समस्याओं का समाधान करने के लिए विकसित किए गए थे.]A;बुलेट चार्ट एक एकल, प्राथमिक माप (उदाहरण के लिए, वर्तमान इयर-टू-डेट आय) सुविधा से युक्त होता है, इस माप को बेहतर बनाने के लिए माप की एक या अधिक मापों के साथ तुलना करता है (उदाहरण के लिए, किसी लक्ष्य से तुलना) और इसे प्रदर्शन की गुणात्मक श्रेणियों के संदर्भ में प्रदर्शित करता है, जैसे कि खराब, संतोषजनक और अच्छा. गुणात्मक श्रेणियों को रंग अंधता से पीड़ित व्यक्तियों के लिए दृष्टिगोचर बनाने और डैशबोर्ड पर रंगों का न्यूनतम उपयोग कराने हेतु किसी एकल वर्ण की भिन्न-भिन्न तीव्रताओं के रूप में प्रदर्शित किया जाता है.]A;बुलेट चार्ट क्षैतिज या अनुलंब हो सकते हैं और एक ही बार में कई मापों की तुलना की अनुमति देने के लिए स्टैक्ड हो सकते हैं.]A;बुलेट चार्ट में 5 प्राथमिक घटक शामिल होते हैं:]A;[#LI]5D;पाठ लेबल: आपका चार्ट कैप्शन, जो यह परिभाषित करता है कि आपका चार्ट किस बारे में है और माप की इकाई क्या है.[/#LI]5D;]A;[#LI]5D;परिमाणात्मक स्केल: किसी रेखीय अक्ष पर आपके मीट्रिक के मान को मापता है.[/#LI]5D;]A;[#LI]5D;फ़ीचर्ड माप: वह पट्टी, जो प्राथमिक प्रदर्शन माप प्रदर्शित करती है (उदा: आय YTD).[/#LI]5D;]A;[#LI]5D;तुलनात्मक माप: वह माप, जिसके विरुद्ध आप अपने फ़ीचर्ड माप की तुलना करना चाहते हैं (उदा: लक्ष्य आय).[/#LI]5D;]A;[#LI]5D;गुणात्मक स्केल: वह पृष्ठभूमि भरण, जो गुणात्मक श्रेणियों को खराब, संतोषजनक और अच्छा जैसी श्रेणियों में एनकोड करता है.[/#LI]5D;]A;यह एक ओपन सोर्स विज़ुअल है. GitHub से कोड प्राप्त करें: https://github.com/Microsoft/PowerBI-visuals-bulletchart]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -293,6 +302,105 @@
           <Val><![CDATA[Needs Improvement]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[सुधार की आवश्यकता है]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_AddLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[डेटा लेबल जोड़ें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DeleteLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Delete data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[डेटा लेबल हटाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_DoNotSyncAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Do not sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष सिंक्रनाइज़ न करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष फ़ॉर्मेट करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatColors" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[रंग फ़ॉर्मेट करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_FormatLabels" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Format data labels]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[डेटा लेबल फ़ॉर्मेट करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_HideAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Hide axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष छुपाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_HideMainAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Hide main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[मुख्य अक्ष छुपाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_ShowAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष दिखाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_ShowMainAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show main axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[मुख्य अक्ष दिखाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_OnObject_SyncAxis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Sync axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष सिंक्रनाइज़ करें]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -347,6 +455,15 @@
           <Val><![CDATA[Satisfactory]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[संतोषजनक]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A bar chart with extra visual elements to provide additional context. Useful for tracking goals]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अतिरिक्त संदर्भ प्रदान करने के लिए अतिरिक्त विज़ुअल तत्वों वाला एक बार चार्ट. लक्ष्य ट्रैकिंग के लिए उपयोगी]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

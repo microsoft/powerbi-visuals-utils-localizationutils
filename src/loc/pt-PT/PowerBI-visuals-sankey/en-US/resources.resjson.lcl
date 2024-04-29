@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Com o Sankey, pode claramente encontrar as origens, os destinos, os passos e a forma como os elementos fluem entre os mesmos, tudo de forma rápida. Também pode interagir com os mesmos ao clicar na ligação ou no fluxo propriamente dito e tirar partido da funcionalidade de realce/filtragem cruzados do Power BI para obter informações ainda mais interessantes em dados relacionados.]A;Adequadamente, são utilizados bastante na indústria energética, mas têm casos interessantes de utilização em todos os setores. Motiva todos os utilizadores a visualizar informações que têm um início e um fim ou uma relação dinâmica com muitos intermediadores, por exemplo, como o utilizador chegou a um site e navegou no mesmo ou um material numa unidade de fabrico, transferências de dinheiro ou controlos em processos comerciais numa perspetiva completamente diferente, trazendo informações interessantes para uma posição de destaque.]A;Este é um visual de open source. Obtenha o código do GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Definições de Sankey]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ignorar peso das ligações automáticas]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Diagrama de fluxo em que a largura da série é proporcional à quantidade do fluxo]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

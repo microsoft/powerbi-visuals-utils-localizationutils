@@ -258,11 +258,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tornado diagramos yra specialus juostinės diagramos tipas, kuriame duomenų kategorijos išvardijamos vertikaliai, o ne standartiškai horizontaliai; o kategorijos surikiuojamos taip, kad didžiausia juosta būtų rodoma diagramos viršuje, antra pagal dydį juosta būtų rodoma antra nuo viršaus ir t. t. Jos taip pavadintos, nes galutinė diagrama vizualiai panaši į pusę tornado arba visą tornadą.]A;Tornado diagrama yra dažnai naudojamas įrankis, naudojamas rezultato priklausomybei nuo pasirinktų kintamųjų pokyčių vaizduoti. Joje rodomas vienu metu pakeisto kiekvieno kintamojo poveikis išvesčiai, išlaikant pradines (nominaliąsias) visų kitų įvesties kintamųjų reikšmes. Paprastai kiekvienai įvesčiai parenkama maža ir didelė reikšmė.]A;Tai yra atvirojo kodo vaizdinis elementas. Šį kodą galite gauti iš „GitHub“: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Position" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Position]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Padėtis]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Comparing the relative importance of variables between two groups]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Santykinės kintamųjų svarbos lyginimas tarp dviejų grupių]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

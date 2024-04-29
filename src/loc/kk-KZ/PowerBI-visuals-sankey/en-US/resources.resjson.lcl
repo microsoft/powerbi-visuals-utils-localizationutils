@@ -159,6 +159,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[With Sankey, you can clearly find the sources, destinations and steps in between and how the stuff flow across them all in one quick glance. You can also interact with it either by clicking the link or the flow itself and leverage the cross highlighting/filtering feature of Power BI to get even more interesting insights in related data.]A;Fittingly they are used widely in the energy industry. But it finds interesting use cases across all industries. It energies everyone to visualize information that has a start and an end or dynamic relationship with many intermediaries, for example how the user landed and navigated in a web site, or a material in a manufacturing unit, control of money transfers in business processes in a completely different perspective and bring interesting insights to the forefront.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Sankey көмегімен деректер көздерін, тағайындалған нысандарды және олардың арасындағы қадамдарды анық таба аласыз және бір қарағанда олардың арасындағы ағынды көре аласыз. Сілтемені немесе ағынды басу арқылы онымен жұмыс істей аласыз және байланысқан деректердегі қызықтырақ мәліметтерді алу үшін Power BI жүйесінің айқас белгілеу/сүзу мүмкіндігін қолданыңыз.]A;Әдетте олар энергетика саласында кеңінен қолданылады. Бірақ оны барлық салаларда пайдалануға болады. Ол басы және соңы бар ақпаратты немесе көптеген аралық элементтері бар динамикалық қатынасты көрнекілендіру үшін күш береді, мысалы, пайдаланушының веб-сайтқа кіруі және навигациясы немесе өндіріс бөліміндегі материал, бизнес процестеріндегі ақша аударымдарын басқару, барлығы мүлдем өзгеше қырынан көрінеді және қызықты мәліметтер алдына шығарылады.]A;Бұл ашық кодты көрнекі элемент. Кодты алыңыз: GitHub: https://github.com/Microsoft/powerbi-visuals-sankey]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MinOptimalHeight" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Provide min optimal height of node]]></Val>
@@ -206,10 +215,13 @@
       </Item>
       <Item ItemId=";Visual_SankeySettings" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sankey settigns]]></Val>
+          <Val><![CDATA[Sankey settings]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Sankey параметрлері]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sankey settigns]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -227,6 +239,15 @@
           <Val><![CDATA[Ignore weight of self links]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Өз сілтемелерінің салмағын елемеу]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Flow diagram where the width of the series is proportional to the quantity of the flow]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Қатар ені ағын санына пропорционал ағын диаграммасы]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

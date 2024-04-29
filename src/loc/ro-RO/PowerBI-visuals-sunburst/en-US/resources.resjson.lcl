@@ -15,47 +15,20 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Sunburst_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Bold" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sunburst chart is used to visualize hierarchical data, depicted by concentric circles. The circle in the centre represents the root node, with the hierarchy moving outward from the center. A segment of the inner circle bears a hierarchical relationship to those segments of the outer circle which lie within the angular sweep of the parent segment.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-sunburst]]></Val>
+          <Val><![CDATA[Bold]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Diagrama raze de soare este utilizată pentru a vizualiza date ierarhice, ilustrate prin cercuri concentrice. Cercul din centru reprezintă nodul rădăcină, cu ierarhia deplasându-se spre exterior de la centru. Un segment al cercului interior deține o relație ierarhică cu segmentele cercului exterior, care se află în raza unghiulară a segmentului părinte.]A;Acesta este un element vizual open source. Obțineți codul de la GitHub: https://github.com/Microsoft/powerbi-visuals-sunburst]]></Val>
+            <Val><![CDATA[Aldin]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Sunburst_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_CategoryFontControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Multilevel donut chart for effectively visualizing hierarchical data]]></Val>
+          <Val><![CDATA[Selected Category Font]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Diagramă tor cu mai multe niveluri, pentru vizualizarea eficientă a datelor ierarhice]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Bottom" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Bottom]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Jos]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_BottomCenter" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Bottom Center]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Centru jos]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Culoare]]></Val>
+            <Val><![CDATA[Font de categorie selectată]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -96,18 +69,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_DisplayLegendOptions" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Legend]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Legendă]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Display legend options]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_DisplayUnits" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Display Units]]></Val>
@@ -117,21 +78,33 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_FontSize" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_FontControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Font size]]></Val>
+          <Val><![CDATA[Font]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Dimensiune font]]></Val>
+            <Val><![CDATA[Font]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Group" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_FontFamily" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Group]]></Val>
+          <Val><![CDATA[Font Family]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Grup]]></Val>
+            <Val><![CDATA[Familie de fonturi]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_FontSize" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font Size]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Dimensiune font]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Font size]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -144,29 +117,47 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Left" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Italic" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Left]]></Val>
+          <Val><![CDATA[Italic]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Partea stângă]]></Val>
+            <Val><![CDATA[Cursiv]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_LeftCenter" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_LabelFontControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Left Center]]></Val>
+          <Val><![CDATA[Label Font]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Centru stânga]]></Val>
+            <Val><![CDATA[Fontul etichetei]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_LegendName" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Legend" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Legend Name]]></Val>
+          <Val><![CDATA[Legend]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Nume legendă]]></Val>
+            <Val><![CDATA[Legendă]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LegendLabelColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Label Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Culoarea etichetei]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LegendShow" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Afişare]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -189,60 +180,36 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Right" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Right]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Partea dreaptă]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_RightCenter" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Right Center]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Centru dreapta]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Show]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Afişare]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_ShowCategoryLabel" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Show category label]]></Val>
+          <Val><![CDATA[Show Selected Category Label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Afișare etichetă categorie]]></Val>
+            <Val><![CDATA[Afișați eticheta de categorie selectată]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Show category label]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_ShowDataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Show data labels]]></Val>
+          <Val><![CDATA[Show Labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Afișare etichete de date]]></Val>
+            <Val><![CDATA[Afișați etichetele]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Show data labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_TextSize" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_ShowTitle" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Text Size]]></Val>
+          <Val><![CDATA[Show Title]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Dimensiune text]]></Val>
+            <Val><![CDATA[Afișați titlul]]></Val>
           </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Text size]]></Val>
-          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -264,38 +231,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Top" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Underline" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Top]]></Val>
+          <Val><![CDATA[Underline]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Sus]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TopCategoryColor" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Top category color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Culoare categorie de top]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TopCenter" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Top Center]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Centru sus]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Values" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Values]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Valori]]></Val>
+            <Val><![CDATA[Subliniere]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
