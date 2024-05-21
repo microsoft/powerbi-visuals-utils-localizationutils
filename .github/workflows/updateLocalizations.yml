@@ -58,9 +58,7 @@ jobs:
             location="${file/$substring/localizations/}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
-            if [ ! -d "$newLocation" ]; then
-              mkdir $newLocation
-            fi
+            test -f $newLocation || mkdir -p ${newLocation%resources.resjson*}
             cp $file $newLocation;
           done;
       - name: Commit and push changes
