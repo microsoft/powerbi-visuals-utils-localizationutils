@@ -58,7 +58,7 @@ jobs:
             location="${file/$substring/localizations/}"
             substring="/stringresources"
             newLocation="${location/$substring//stringResources}"
-            if [ ! -d "$DIRECTORY" ]; then
+            if [ ! -d "$newLocation" ]; then
               mkdir $newLocation
             fi
             cp $file $newLocation;
