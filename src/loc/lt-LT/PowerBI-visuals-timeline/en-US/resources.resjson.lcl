@@ -66,8 +66,8 @@
       <Item ItemId=";Visual_Cell_SelectedStrokeColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Selected cell stroke color]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Pasirinkta brūkšnio spalva]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pasirinkto langelio brūkštelėjimų spalva]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Selected stroke color]]></Val>
@@ -99,6 +99,9 @@
       <Item ItemId=";Visual_Cell_UnselectedStrokeColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Unselected cell stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Nepasirinkta langelio brūkštelėjimų spalva]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -261,6 +264,9 @@
       <Item ItemId=";Visual_FirstDayOfWeek_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[This option have no sense if ISO 8601 standard was picked]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ši parinktis neturi jokios prasmės, jei buvo parinktas ISO 8601 standartas]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -285,6 +291,9 @@
       <Item ItemId=";Visual_FiscalYear_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[This option have no sense if ISO 8601 standard was picked]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ši parinktis neturi jokios prasmės, jei buvo parinktas ISO 8601 standartas]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
