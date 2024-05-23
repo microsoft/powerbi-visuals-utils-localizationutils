@@ -42,6 +42,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Cell_Height" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cell height]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[셀 높이]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Cell_SelectedColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Selected cell color]]></Val>
@@ -56,19 +65,13 @@
       </Item>
       <Item ItemId=";Visual_Cell_SelectedStrokeColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Selected stroke color]]></Val>
+          <Val><![CDATA[Selected cell stroke color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[선택한 스트로크 색]]></Val>
+            <Val><![CDATA[선택한 셀 스트로크 색]]></Val>
           </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Cell_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Stroke color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[스트로크 색]]></Val>
-          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Selected stroke color]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -93,20 +96,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Cell_UnselectedStrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unselected cell stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[선택되지 않은 셀 스트로크 색]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Cell_Width" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Cell width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[셀 너비]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Cell_height" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Cell height]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[셀 높이]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -258,6 +261,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_FirstDayOfWeek_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This option have no sense if ISO 8601 standard was picked]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ISO 8601 표준을 선택한 경우 이 옵션은 의미가 없습니다.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_FiscalYear" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Fiscal Year]]></Val>
@@ -272,6 +284,15 @@
           <Val><![CDATA[Fiscal Year Start]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[회계 연도 시작]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_FiscalYear_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This option have no sense if ISO 8601 standard was picked]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ISO 8601 표준을 선택한 경우 이 옵션은 의미가 없습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
