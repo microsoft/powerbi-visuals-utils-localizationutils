@@ -148,19 +148,19 @@ jobs:
       - name: Copy translations to submodules
         run: |
           for visualPath in ./localizations/*; do 
-            for filePath in $visualPath/stringResources/*/resources.resjson; do 
-              if [[ $filePath == *"/en-US/"* ]]; then 
-                continue
-              fi
-              repoName=$(echo $visualPath| cut -d'/' -f 3)
-              echo "::group::Copy to $repoName"
+            repoName=$(echo $visualPath| cut -d'/' -f 3)
+            echo "::group::Copy to $repoName"
+              for filePath in $visualPath/stringResources/*/resources.resjson; do 
+                if [[ $filePath == *"/en-US/"* ]]; then 
+                  continue
+                fi
                 substring="localizations/"
                 newLocation="${filePath/$substring/visuals/}"
                 test -f $newLocation || mkdir -p ${newLocation%resources.resjson*}
                 echo "$filePath to $newLocation"
                 cp $filePath $newLocation;
-              echo "::endgroup::"
-            done;
+              done;
+            echo "::endgroup::"
           done;
       - name: Commit and push new changes to submodules
         run: |
