@@ -153,6 +153,7 @@ jobs:
             fi
             substring="visuals/"
             location="${file/$substring/localizations/}"
+            test -f $location || mkdir -p ${location%resources.resjson*}
             cp $location $file;
           done;
       - name: Commit and push new changes to submodules
