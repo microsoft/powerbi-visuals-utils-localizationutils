@@ -147,14 +147,14 @@ jobs:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
       - name: Copy translations to submodules
         run: |
-          for file in ./visuals/*/stringResources/*/resources.resjson; do 
+          for file in ./localizations/*/stringResources/*/resources.resjson; do 
             if [[ $file == *"/en-US/"* ]]; then 
               continue
             fi
-            substring="visuals/"
-            location="${file/$substring/localizations/}"
-            test -f $location || mkdir -p ${location%resources.resjson*}
-            cp $location $file;
+            substring="localizations/"
+            newLocation="${file/$substring/visuals/}"
+            test -f $newLocation || mkdir -p ${newLocation%resources.resjson*}
+            cp $file $newLocation;
           done;
       - name: Commit and push new changes to submodules
         run: |
