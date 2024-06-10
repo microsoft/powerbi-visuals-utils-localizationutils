@@ -1,3 +1,11 @@
-# Contributing
+# Add visual to the list for localizations update
+1) Add new repo to folder “visuals” as submodule 
+    $ cd visuals
+    $ git submodule add `URL`
+2) Add LocItem to LocProject.json
+3) Create pull request with your changes to main branch
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+# Configure new repo settings
+4) Add `pbicvloc` and `pbicvloc2` as collaborators with "Write" access (first one makes changes, second one approves pull requests with changes)
+5) Go to settings > general > scroll down to `Pull Requests` > find and set to true `Allow auto-merge`
+
