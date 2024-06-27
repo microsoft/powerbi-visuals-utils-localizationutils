@@ -16,6 +16,8 @@ stages:
       type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
 
     steps:
+      - checkout: self
+        persistCredentials: true
       - checkout: powerbi-visuals-utils-localizationutils
       - task: OneLocBuild@2
         env:
