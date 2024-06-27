@@ -1,4 +1,5 @@
-trigger: none # https://aka.ms/obpipelines/triggers
+trigger: 
+- main
 
 resources:
   repositories:
@@ -8,6 +9,9 @@ resources:
       name: microsoft/powerbi-visuals-utils-localizationutils
       ref: refs/heads/main
 
+pool:
+  name: PowerbiClients-Managed-Pool
+
 stages:
 - stage: build
   jobs:
@@ -16,12 +20,10 @@ stages:
       type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
 
     steps:
-      - checkout: self
-        persistCredentials: true
       - checkout: powerbi-visuals-utils-localizationutils
       - task: OneLocBuild@2
         env:
-          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+          SYSTEM_ACCESSTOKEN: $(MIToken)
         inputs:
           locProj: 'LocProject.json'
           outDir: '$(Build.ArtifactStagingDirectory)'
