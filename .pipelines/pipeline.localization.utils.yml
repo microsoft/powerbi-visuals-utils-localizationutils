@@ -18,17 +18,16 @@ stages:
     steps:
       - checkout: powerbi-visuals-utils-localizationutils
       - task: OneLocBuild@2
+        env:
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
         inputs:
           locProj: 'LocProject.json'
           outDir: '$(Build.ArtifactStagingDirectory)'
           isCreatePrSelected: true
           repoType: 'gitHub'
           prSourceBranchPrefix: 'locfiles'
-          gitHubPatVariable: '$(GitHubPAT)'
-          gitHubPrMergeMethod: 'squash'
+          dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
           packageSourceAuth: 'patAuth'
-          patVariable: '$(OneLocBuildPAT)'
-          lsBuildWarningLevel: '1'
       - task: PublishPipelineArtifact@1
         displayName: 'Publish Pipeline Artifact'
         inputs:
