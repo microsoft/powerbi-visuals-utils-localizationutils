@@ -8,18 +8,23 @@ resources:
       type: github
       name: microsoft/powerbi-visuals-utils-localizationutils
       ref: refs/heads/main
-
-pool:
-  name: PowerbiClients-Managed-Pool
+    - repository: tools
+      type: git
+      name: MWC/administrative-tools
+      ref: refs/heads/master
 
 stages:
 - stage: build
   jobs:
   - job: main
     pool:
+      name: PowerbiClients-Managed-Pool
       type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
 
     steps:
+      - checkout: self
+        persistCredentials: true
+      - template: "BuildTemplates/managedIdentityToken.yml@tools"
       - checkout: powerbi-visuals-utils-localizationutils
       - task: OneLocBuild@2
         env:
