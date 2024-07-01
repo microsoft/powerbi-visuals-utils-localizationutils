@@ -22,10 +22,9 @@ stages:
       type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
 
     steps:
-      - checkout: self
+      - checkout: powerbi-visuals-utils-localizationutils
         persistCredentials: true
       - template: "BuildTemplates/managedIdentityToken.yml@tools"
-      - checkout: powerbi-visuals-utils-localizationutils
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(MIToken)
