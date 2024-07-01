@@ -27,7 +27,7 @@ stages:
       - template: "BuildTemplates/managedIdentityToken.yml@tools"
       - task: OneLocBuild@2
         env:
-          SYSTEM_ACCESSTOKEN: $(MIToken)
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
         inputs:
           locProj: 'LocProject.json'
           outDir: '$(Build.ArtifactStagingDirectory)'
