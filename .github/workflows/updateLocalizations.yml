@@ -11,6 +11,7 @@ jobs:
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+      BRANCH_PATTERN: ${{secrets.BRANCH_PATTERN}}
     outputs:
       branch-name: ${{steps.info.outputs.branch-name}}
       pr-name: ${{steps.info.outputs.pr-name}}
@@ -18,7 +19,7 @@ jobs:
       - name: Prepare info
         id: info
         run: |
-          echo "branch-name=$(date +'new-translations_%F_%H-%M-%S')" >> $GITHUB_OUTPUT
+          echo "branch-name=$(date +'$BRANCH_PATTERN_%F_%H-%M-%S')" >> $GITHUB_OUTPUT
           echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
@@ -162,6 +163,26 @@ jobs:
               done;
             echo "::endgroup::"
           done;
+      - name: Delete old Pull Requests
+        run: |
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            echo "::group::Commit to $repoName"  
+              matching_prs=$(gh pr list --repo "microsoft/$repoName" --state open --json number,headRefName \
+                --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
+              if [ -z "$matching_prs" ]; then
+                  echo "No open pull requests matching the branch pattern \"$BRANCH_PATTERN\"."
+              else
+                  for pr in $matching_prs; do
+                      # Close the pull request
+                      gh pr close "$pr" --repo "$REPO_OWNER/$repoName" --delete-branch
+                      echo "Closed pull request #$pr."
+                  done
+              fi
+            echo "::endgroup::"
+        env:
+          BRANCH_PATTERN: '${{secrets.BRANCH_PATTERN}}-*'
+          REPO_OWNER: 'microsoft'
       - name: Commit and push new changes to submodules
         run: |
           mainFolder=$PWD
