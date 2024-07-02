@@ -11,7 +11,7 @@ jobs:
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-      BRANCH_PATTERN: ${{secrets.BRANCH_PATTERN}}
+      BRANCH_PATTERN: ${{vars.BRANCH_PATTERN}}
     outputs:
       branch-name: ${{steps.info.outputs.branch-name}}
       pr-name: ${{steps.info.outputs.pr-name}}
@@ -181,7 +181,7 @@ jobs:
               fi
             echo "::endgroup::"
         env:
-          BRANCH_PATTERN: '${{secrets.BRANCH_PATTERN}}-*'
+          BRANCH_PATTERN: '${{vars.BRANCH_PATTERN}}_*'
           REPO_OWNER: 'microsoft'
       - name: Commit and push new changes to submodules
         run: |
