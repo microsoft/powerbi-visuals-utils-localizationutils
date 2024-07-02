@@ -180,6 +180,7 @@ jobs:
                   done
               fi
             echo "::endgroup::"
+          done
         env:
           BRANCH_PATTERN: '${{vars.BRANCH_PATTERN}}_*'
           REPO_OWNER: 'microsoft'
