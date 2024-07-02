@@ -168,7 +168,7 @@ jobs:
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
-              matching_prs=$(gh pr list --repo "microsoft/$repoName" --state open --json number,headRefName \
+              matching_prs=$(gh pr list --repo "$REPO_OWNER/$repoName" --state open --json number,headRefName \
                 --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
               if [ -z "$matching_prs" ]; then
                   echo "No open pull requests matching the branch pattern \"$BRANCH_PATTERN\"."
