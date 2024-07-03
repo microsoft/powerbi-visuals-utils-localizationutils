@@ -167,9 +167,11 @@ jobs:
         run: |
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "::group::Commit to $repoName"  
+            echo "::group::Delete old PRs in $repoName"  
+              # List open pull requests and filter by branch pattern
               matching_prs=$(gh pr list --repo "$REPO_OWNER/$repoName" --state open --json number,headRefName \
-                --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
+                  --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
+              
               if [ -z "$matching_prs" ]; then
                   echo "No open pull requests matching the branch pattern \"$BRANCH_PATTERN\"."
               else
@@ -182,7 +184,7 @@ jobs:
             echo "::endgroup::"
           done
         env:
-          BRANCH_PATTERN: '${{vars.BRANCH_PATTERN}}_*'
+          BRANCH_PATTERN: '${{vars.BRANCH_PATTERN}}_.*'
           REPO_OWNER: 'microsoft'
       - name: Commit and push new changes to submodules
         run: |
