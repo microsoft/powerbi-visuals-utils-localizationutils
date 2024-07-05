@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Heatmap_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Use this custom visual to build a table heat map that can be used to visualise and compare data values in an easy and intuitive way.]A;You have a built-in option within this visual to specify the number of buckets used for splitting your data.]A;Additionally, you can also customise it by choosing a colour scheme in line with your brand colours]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Bruk dette egendefinerte visualobjektet til å bygge et tabellvarmekart som kan brukes til å visualisere og sammenligne dataverdier på en enkel og intuitiv måte.]A;Dette visualobjektet har et innebygd alternativ for å angi hvor mange samlinger som skal brukes til å splitte dataene dine.]A;Du kan også tilpasse det ved å velge et fargeoppsett som matcher eget varemerke.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Heatmap_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Compare data easily and intuitively using colors in a table]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Enkel og intuitiv sammenligning av data ved hjelp av farger i en tabell]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -78,6 +60,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_FontControl" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skrift]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_FontFamily" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Font family]]></Val>
@@ -88,15 +79,6 @@
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_ForceDisplay" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force display]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Fremtving visning]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Force_Display" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Force display]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
@@ -159,12 +141,24 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Margin" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Margins]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Marginer]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_MaxTextSymbols" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Max text symbold]]></Val>
+          <Val><![CDATA[Max text symbols]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Maks. tekstsymbol]]></Val>
+            <Val><![CDATA[Maksimalt antall tekstsymboler]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Max text symbold]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
