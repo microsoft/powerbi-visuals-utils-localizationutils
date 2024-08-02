@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Możliwość wizualizacji relacji między elementami, wagi relacji oraz przepływu często wydobywa na światło dzienne szczegółowe informacje, które w innych sytuacjach nie są oczywiste. Proste liczby i podstawowe wykresy nie wystarczą do odnajdowania danych i opowiadania ich historii. Potrzebujemy nowych technik wizualizacji w świecie złożonych relacji, a wykres kierowany wysuwa się na przód jako rozwiązanie w przypadku takich scenariuszy.]A;Ta niestandardowa wizualizacja implementuje diagram wymuszania układu D3 ze ścieżkami zakrzywionymi. Szerokość ścieżki reprezentuje wagę relacji między węzłami.]A;Ponieważ relacja i wzajemne połączenia w ramach dużego zestawu jednostek mogą być bardzo złożone, wizualizacja rozmieszcza węzły w taki sposób, aby liczba przecięć była minimalna, przez co eksplorowanie staje się łatwe i zabawne. Wizualizacja tworzy również układ, co w przypadku dużych zestawów danych jest atrakcyjnym wizualnie rozwiązaniem. Użytkownicy mogą też dostosować układ ręcznie, odpowiednio przeciągając węzły.]A;Idealnym rozwiązaniem jest użycie dwóch wymiarów i jednej miary (na potrzeby wagi) w tej wizualizacji. Ale działa ona także z jedną kolumną.]A;Jest to wizualizacja typu open source. Pobierz kod z usługi GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Diagram wymuszania układu przy użyciu zakrzywionej ścieżki. Umożliwia wyświetlanie połączeń między jednostkami]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -131,9 +113,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Wypełnienie]]></Val>
+            <Val><![CDATA[Kolor wypełnienia]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Czcionka]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -264,11 +258,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Możliwość wizualizacji relacji między elementami, wagi relacji oraz przepływu często wydobywa na światło dzienne szczegółowe informacje, które w innych sytuacjach nie są oczywiste. Proste liczby i podstawowe wykresy nie wystarczą do odnajdowania danych i opowiadania ich historii. Potrzebujemy nowych technik wizualizacji w świecie złożonych relacji, a wykres kierowany wysuwa się na przód jako rozwiązanie w przypadku takich scenariuszy.]A;Ta niestandardowa wizualizacja implementuje diagram wymuszania układu D3 ze ścieżkami zakrzywionymi. Szerokość ścieżki reprezentuje wagę relacji między węzłami.]A;Ponieważ relacja i wzajemne połączenia w ramach dużego zestawu jednostek mogą być bardzo złożone, wizualizacja rozmieszcza węzły w taki sposób, aby liczba przecięć była minimalna, przez co eksplorowanie staje się łatwe i zabawne. Wizualizacja tworzy również układ, co w przypadku dużych zestawów danych jest atrakcyjnym wizualnie rozwiązaniem. Użytkownicy mogą też dostosować układ ręcznie, odpowiednio przeciągając węzły.]A;Idealnym rozwiązaniem jest użycie dwóch wymiarów i jednej miary (na potrzeby wagi) w tej wizualizacji. Ale działa ona także z jedną kolumną.]A;Jest to wizualizacja typu open source. Pobierz kod z usługi GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Węzły]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Opcje]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Diagram wymuszania układu przy użyciu zakrzywionej ścieżki. Umożliwia wyświetlanie połączeń między jednostkami]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,6 +326,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Typ źródła]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kolor pociągnięcia]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

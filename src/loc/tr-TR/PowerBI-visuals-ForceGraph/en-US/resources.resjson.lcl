@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Öğeler arasındaki ilişkileri, ilişkinin ağırlığını ve akışı görselleştirme olanağı çoğu kez daha önce dile getirilmemiş ve kolaylıkla görülemeyen içgörüleri ortaya çıkarır. Basit sayılar ve temel grafikler bu veri öykülerini keşfetmek ve anlatmak için yeterli değildir. İlişkilerin karmaşık dünyası için yeni görselleştirme tekniklerine ihtiyacımız vardır ve Kuvvet Yönlendirmeli Grafik bu senaryolarda öne çıkmaktadır.]A;Bu özel görsel, bir D3 kuvvet düzeni şemasını eğimli yollarla uygular. Yolun kalınlığı, düğümler arasındaki ilişkinin ağırlığını temsil eder.]A;İlişki ve büyük sayıdaki varlık arasındaki bağlantılar çok karmaşık olabileceğinden görsel, düğümleri olabildiğince az kesişme olacak şekilde yerleştirerek keşfetme deneyimini kolay ve eğlenceli hale getirir. Görsel ayrıca büyük veri kümeleri için göze hoş görünen bir düzen sunar. Kullanıcılar, düğümleri taşıyarak düzeni el ile ayarlayabilir.]A;Bu görseli kullanmak için ideal olarak iki boyuta ve (ağırlık için) bir ölçüye ihtiyacınız vardır. Ancak görsel tek bir sütunla da sonuç verir.]A;Bu, açık kaynaklı bir görseldir. Kodu GitHub'dan alabilirsiniz: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Eğimli bir yolu olan kuvvet düzeni şeması. Varlıklar arasındaki bağlantıları göstermek için yararlıdır]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -131,9 +113,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Doldur]]></Val>
+            <Val><![CDATA[Dolgu rengi]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Yazı Tipi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -264,11 +258,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Öğeler arasındaki ilişkileri, ilişkinin ağırlığını ve akışı görselleştirme olanağı çoğu kez daha önce dile getirilmemiş ve kolaylıkla görülemeyen içgörüleri ortaya çıkarır. Basit sayılar ve temel grafikler bu veri öykülerini keşfetmek ve anlatmak için yeterli değildir. İlişkilerin karmaşık dünyası için yeni görselleştirme tekniklerine ihtiyacımız vardır ve Kuvvet Yönlendirmeli Grafik bu senaryolarda öne çıkmaktadır.]A;Bu özel görsel, bir D3 kuvvet düzeni şemasını eğimli yollarla uygular. Yolun kalınlığı, düğümler arasındaki ilişkinin ağırlığını temsil eder.]A;İlişki ve büyük sayıdaki varlık arasındaki bağlantılar çok karmaşık olabileceğinden görsel, düğümleri olabildiğince az kesişme olacak şekilde yerleştirerek keşfetme deneyimini kolay ve eğlenceli hale getirir. Görsel ayrıca büyük veri kümeleri için göze hoş görünen bir düzen sunar. Kullanıcılar, düğümleri taşıyarak düzeni el ile ayarlayabilir.]A;Bu görseli kullanmak için ideal olarak iki boyuta ve (ağırlık için) bir ölçüye ihtiyacınız vardır. Ancak görsel tek bir sütunla da sonuç verir.]A;Bu, açık kaynaklı bir görseldir. Kodu GitHub'dan alabilirsiniz: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Düğümler]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Seçenekler]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Eğimli bir yolu olan kuvvet düzeni şeması. Varlıklar arasındaki bağlantıları göstermek için yararlıdır]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,6 +326,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Kaynak Türü]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vuruş rengi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
