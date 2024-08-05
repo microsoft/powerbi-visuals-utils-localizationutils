@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mogućnost vizuelizacije odnosa između stavki, stepen važnosti odnosa i tok često stavljaju neuočene uvide u prvi plan jer oni inače ne bi bili tako očigledni. Jednostavni brojevi i osnovni grafikoni neće biti dovoljni za otkrivanje i prepričavanje takvih priča o podacima. Potrebne su nam nove tehnike vizuelizacije za složeni svet odnosa, a silom usmereni grafikon teži ka prednjem planu za takve scenarije.]A;Ovaj prilagođeni vizuelni element primenjuje D3 silom usmereni dijagram sa zakrivljenim putanjama. Debljina putanje predstavlja stepen važnosti odnosa između čvorova.]A;Pošto odnos i međusobna povezanost između velikih skupova entiteta mogu biti veoma složeni, vizuelni element postavlja čvorove na takav način da postoji što manje ukrštanja, što iskustvo sa istraživanjem čini jednostavnim i zabavnim. Vizuelni element takođe proizvodi raspored koji je sveukupno prijatan za oči kada su u pitanju veliki skupovi podataka. Korisnici takođe mogu ručno da prilagode raspored tako što će jednostavno prevlačiti čvorove unaokolo.]A;U najboljem slučaju će vam biti potrebne dve dimenzije i jedna mera (za stepen važnosti) za korišćenje uz ovaj vizuelni element. Ali ovo funkcioniše i samo sa jednom kolonom.]A;Ovo je open source vizuelni element. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Nametnite dijagram rasporeda uz zakrivljenu putanju. Korisno za prikazivanje veza između entiteta]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -128,9 +110,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Popuni]]></Val>
+            <Val><![CDATA[Boja popune]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Font]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -261,11 +255,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Mogućnost vizuelizacije odnosa između stavki, stepen važnosti odnosa i tok često stavljaju neuočene uvide u prvi plan jer oni inače ne bi bili tako očigledni. Jednostavni brojevi i osnovni grafikoni neće biti dovoljni za otkrivanje i prepričavanje takvih priča o podacima. Potrebne su nam nove tehnike vizuelizacije za složeni svet odnosa, a silom usmereni grafikon teži ka prednjem planu za takve scenarije.]A;Ovaj prilagođeni vizuelni element primenjuje D3 silom usmereni dijagram sa zakrivljenim putanjama. Debljina putanje predstavlja stepen važnosti odnosa između čvorova.]A;Pošto odnos i međusobna povezanost između velikih skupova entiteta mogu biti veoma složeni, vizuelni element postavlja čvorove na takav način da postoji što manje ukrštanja, što iskustvo sa istraživanjem čini jednostavnim i zabavnim. Vizuelni element takođe proizvodi raspored koji je sveukupno prijatan za oči kada su u pitanju veliki skupovi podataka. Korisnici takođe mogu ručno da prilagode raspored tako što će jednostavno prevlačiti čvorove unaokolo.]A;U najboljem slučaju će vam biti potrebne dve dimenzije i jedna mera (za stepen važnosti) za korišćenje uz ovaj vizuelni element. Ali ovo funkcioniše i samo sa jednom kolonom.]A;Ovo je open source vizuelni element. Preuzmite kôd iz usluge GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Čvorovi]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Opcije]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Nametnite dijagram rasporeda uz zakrivljenu putanju. Korisno za prikazivanje veza između entiteta]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -302,6 +323,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Tip izvora]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Boja poteza]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
