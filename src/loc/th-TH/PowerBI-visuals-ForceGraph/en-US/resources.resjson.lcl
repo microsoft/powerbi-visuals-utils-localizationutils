@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ความสามารถในการแสดงภาพความสัมพันธ์ระหว่างรายการ น้ำหนักของความสัมพันธ์ และโฟลว์มักจะดึงข้อมูลเชิงลึกที่ไม่เคยถูกเปิดเผยออกมาเป็นจุดสนใจ ซึ่งหากไม่ทำเช่นนั้นข้อมูลก็จะไม่ชัดเจน ตัวเลขทั่วไปและแผนภูมิพื้นฐานไม่เพียงพอสำหรับการค้นหาและบอกเล่าเรื่องราวของข้อมูลดังกล่าว เราต้องการเทคนิคการจัดรูปแบบการแสดงข้อมูลแบบใหม่สำหรับโลกของความสัมพันธ์ที่ซับซ้อน และการก้าวหน้าของการใช้กราฟที่ใช้แรงกำกับไปยังแนวหน้าของสถานการณ์ดังกล่าว]A;การแสดงผลด้วยภาพแบบกำหนดเองนี้ใช้ไดอะแกรมเค้าโครงแรงแบบ D3 ที่มีเส้นโค้ง ความหนาของเส้นทางแสดงน้ำหนักของความสัมพันธ์ระหว่างโหนด]A;เนื่องจากความสัมพันธ์และการเชื่อมต่อระหว่างชุดของเอนทิตีขนาดใหญ่อาจมีความซับซ้อนมาก การแสดงผลด้วยภาพจะจัดวางโหนดในแบบที่มีการตัดข้ามน้อยที่สุดเท่าที่เป็นไปได้ ทำให้ประสบการณ์ในการสำรวจง่ายและสนุกสนาน การแสดงผลด้วยภาพยังสร้างเค้าโครงซึ่งโดยรวมแล้วดูสบายตาสำหรับชุดข้อมูลขนาดใหญ่ ผู้ใช้ยังสามารถปรับเค้าโครงด้วยตนเองได้โดยเพียงแค่ลากโหนดไปรอบๆ]A;ตามหลักการแล้วคุณจะต้องการสองมิติและหนึ่งหน่วยวัด (สำหรับน้ำหนัก) เพื่อใช้กับการแสดงผลด้วยภาพนี้ แต่ยังสามารถใช้ได้โดยใช้แค่คอลัมน์เดียวเท่านั้น]A;นี่เป็นการแสดงผลด้วยภาพแบบโอเพนซอร์ส (Open Source) GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[บังคับเค้าโครงไดอะแกรมด้วยเส้นโค้ง มีประโยชน์ในการแสดงการเชื่อมต่อระหว่างเอนทิตี]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -128,9 +110,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[เติม]]></Val>
+            <Val><![CDATA[เติมสี]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[แบบอักษร]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -261,11 +255,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ความสามารถในการแสดงภาพความสัมพันธ์ระหว่างรายการ น้ำหนักของความสัมพันธ์ และโฟลว์มักจะดึงข้อมูลเชิงลึกที่ไม่เคยถูกเปิดเผยออกมาเป็นจุดสนใจ ซึ่งหากไม่ทำเช่นนั้นข้อมูลก็จะไม่ชัดเจน ตัวเลขทั่วไปและแผนภูมิพื้นฐานไม่เพียงพอสำหรับการค้นหาและบอกเล่าเรื่องราวของข้อมูลดังกล่าว เราต้องการเทคนิคการจัดรูปแบบการแสดงข้อมูลแบบใหม่สำหรับโลกของความสัมพันธ์ที่ซับซ้อน และการก้าวหน้าของการใช้กราฟที่ใช้แรงกำกับไปยังแนวหน้าของสถานการณ์ดังกล่าว]A;การแสดงผลด้วยภาพแบบกำหนดเองนี้ใช้ไดอะแกรมเค้าโครงแรงแบบ D3 ที่มีเส้นโค้ง ความหนาของเส้นทางแสดงน้ำหนักของความสัมพันธ์ระหว่างโหนด]A;เนื่องจากความสัมพันธ์และการเชื่อมต่อระหว่างชุดของเอนทิตีขนาดใหญ่อาจมีความซับซ้อนมาก การแสดงผลด้วยภาพจะจัดวางโหนดในแบบที่มีการตัดข้ามน้อยที่สุดเท่าที่เป็นไปได้ ทำให้ประสบการณ์ในการสำรวจง่ายและสนุกสนาน การแสดงผลด้วยภาพยังสร้างเค้าโครงซึ่งโดยรวมแล้วดูสบายตาสำหรับชุดข้อมูลขนาดใหญ่ ผู้ใช้ยังสามารถปรับเค้าโครงด้วยตนเองได้โดยเพียงแค่ลากโหนดไปรอบๆ]A;ตามหลักการแล้วคุณจะต้องการสองมิติและหนึ่งหน่วยวัด (สำหรับน้ำหนัก) เพื่อใช้กับการแสดงผลด้วยภาพนี้ แต่ยังสามารถใช้ได้โดยใช้แค่คอลัมน์เดียวเท่านั้น]A;นี่เป็นการแสดงผลด้วยภาพแบบโอเพนซอร์ส (Open Source) GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[โหนด]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ตัวเลือก]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[บังคับเค้าโครงไดอะแกรมด้วยเส้นโค้ง มีประโยชน์ในการแสดงการเชื่อมต่อระหว่างเอนทิตี]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -302,6 +323,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ชนิดแหล่งข้อมูล]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[สีเส้นหมึก]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

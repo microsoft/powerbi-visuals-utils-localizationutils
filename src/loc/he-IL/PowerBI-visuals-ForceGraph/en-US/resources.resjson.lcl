@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[היכולת להציג באופן חזותי את קשרי הגומלין בין פריטים, את השקלול של קשרי הגומלין ואת הזרימה שלהם מאפשרת לגלות לעתים קרובות את התובנות הנסתרות, שאחרת אינן כה בולטות. לא די במספרים פשוטים ובתרשימים בסיסיים כדי לגלות ולהציג סיפורי נתונים כאלה. אנו זקוקים לטכניקות חדשות לתצוגה חזותית עבור העולם המורכב של קשרי גומלין ו- Force-Directed Graph מיועד להתמודדות עם תרחישים כאלה.]A;עזר חזותי מותאם אישית זה מיישם דיאגרמת פריסת כוחות של D3 עם נתיבים מעוקלים. עובי הנתיב מייצג את משקל קשר הגומלין בין הצמתים.]A;מכיוון שקשר הגומלין והחברור בין מערך גדול של ישויות עשוי להיות מורכב מאוד, העזר החזותי ממקם את הצמתים באופן כזה שיהיו הצטלבויות מעטות ככל האפשר, ולהפוך את חוויית החקירה לקלה ומהנה. העזר החזותי מפיק גם את הפריסה שהיא נעימה בכללותה לעין עבור ערכות נתונים גדולות. המשתמשים יכולים להתאים את הפריסה גם באופן ידני על-ידי גרירה פשוטה של הצמתים ברחבי בד הציור.]A;ככלל, נדרשים שני ממדים ומדיד אחד (לצורך השקלול) כדי להשתמש בעזר חזותי זה, אך ניתן להשתמש בו גם עם עמודה אחת בלבד.]A;זהו עזר חזותי בקוד פתוח. הורד את הקוד מ- GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[דיאגרמת פריסת כוחות עם נתיב מעוקל. שימושי להצגת הקשרים בין ישויות]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -128,9 +110,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[מילוי]]></Val>
+            <Val><![CDATA[צבע מילוי]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[גופן]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -261,11 +255,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[היכולת להציג באופן חזותי את קשרי הגומלין בין פריטים, את השקלול של קשרי הגומלין ואת הזרימה שלהם מאפשרת לגלות לעתים קרובות את התובנות הנסתרות, שאחרת אינן כה בולטות. לא די במספרים פשוטים ובתרשימים בסיסיים כדי לגלות ולהציג סיפורי נתונים כאלה. אנו זקוקים לטכניקות חדשות לתצוגה חזותית עבור העולם המורכב של קשרי גומלין ו- Force-Directed Graph מיועד להתמודדות עם תרחישים כאלה.]A;עזר חזותי מותאם אישית זה מיישם דיאגרמת פריסת כוחות של D3 עם נתיבים מעוקלים. עובי הנתיב מייצג את משקל קשר הגומלין בין הצמתים.]A;מכיוון שקשר הגומלין והחברור בין מערך גדול של ישויות עשוי להיות מורכב מאוד, העזר החזותי ממקם את הצמתים באופן כזה שיהיו הצטלבויות מעטות ככל האפשר, ולהפוך את חוויית החקירה לקלה ומהנה. העזר החזותי מפיק גם את הפריסה שהיא נעימה בכללותה לעין עבור ערכות נתונים גדולות. המשתמשים יכולים להתאים את הפריסה גם באופן ידני על-ידי גרירה פשוטה של הצמתים ברחבי בד הציור.]A;ככלל, נדרשים שני ממדים ומדיד אחד (לצורך השקלול) כדי להשתמש בעזר חזותי זה, אך ניתן להשתמש בו גם עם עמודה אחת בלבד.]A;זהו עזר חזותי בקוד פתוח. הורד את הקוד מ- GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[צמתים]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[אפשרויות]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[דיאגרמת פריסת כוחות עם נתיב מעוקל. שימושי להצגת הקשרים בין ישויות]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -302,6 +323,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[סוג מקור]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[צבע משיכה]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";ForceGraph_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[項目間の関係と、その関係の重みとフローを視覚化できると、他の方法ではあまりはっきりしない膨大な量の分析情報がしばしば明らかになります。単純な数字と基本的なグラフでは、このようなデータ ストーリーを発見したり表現したりできません。複雑な関係の世界を視覚化する新しい技法が必要だったため、Force-Directed グラフがそのようなシナリオとして脚光を浴びています。]A;このカスタムの視覚エフェクトは、弧を描くパスを使って D3 フォース レイアウト ダイアグラムを実装します。パスの太さは、ノード間の関係の重みを表します。]A;大量のエンティティ セット間の関係と相互接続は非常に複雑なものになることがあるため、この視覚エフェクトでは、各ノードをなるべく交差しないように配置することにより、簡単かつ興味深い調査方法を実現しています。また、この視覚エフェクトでは、大規模なデータセット全体から目で見て楽しいレイアウトを生成することもできます。ユーザーは、ノードをドラッグして移動するだけで、レイアウトを手動で調整することもできます]A;この視覚エフェクトを使用するケースとして理想的なのは、2 つのディメンションと 1 つのメジャー (重み) がある場合です。ただし、1 つの列のみでも機能します。]A;これは、オープンソースの視覚エフェクトです。コードは GitHub から取得します : https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";ForceGraph_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[曲線軌道を使用したレイアウト ダイアグラムを強制します。エンティティ間の接続を示すのに役立ちます]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animations" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animations]]></Val>
@@ -131,9 +113,21 @@
       </Item>
       <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
+          <Val><![CDATA[Fill color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[フィル]]></Val>
+            <Val><![CDATA[塗りつぶしの色]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Fill]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[フォント]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -264,11 +258,38 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ability to visualize the relationship between items, the weightage of the relationship and the flow often brings out the untold insights into limelight, which are otherwise not very evident. Simple numbers and basic charts won’t be enough to discover and tell such data stories. We need new visualization techniques for the complex world of relationship and Force-Directed Graph thrives to the forefront for such scenarios.]A;This custom visual implements a D3 force layout diagram with curved paths. The thickness of the path represents the weight of the relationship between the nodes.]A;Since the relationship and interconnection between large set of entities could be very complex, the visual positions the nodes in such a way that there are few crossings as possible, making the exploration experience easy, fun. The visual also produces the layout which is overall pleasing to the eyes for large data sets. Users can also adjust the layout manually by simply dragging the nodes around.]A;Ideally you would need two dimensions and one measure (for the weightage) to use with this visual. But this also works just with a single column.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[項目間の関係と、その関係の重みとフローを視覚化できると、他の方法ではあまりはっきりしない膨大な量の分析情報がしばしば明らかになります。単純な数字と基本的なグラフでは、このようなデータ ストーリーを発見したり表現したりできません。複雑な関係の世界を視覚化する新しい技法が必要だったため、Force-Directed グラフがそのようなシナリオとして脚光を浴びています。]A;このカスタムの視覚エフェクトは、弧を描くパスを使って D3 フォース レイアウト ダイアグラムを実装します。パスの太さは、ノード間の関係の重みを表します。]A;大量のエンティティ セット間の関係と相互接続は非常に複雑なものになることがあるため、この視覚エフェクトでは、各ノードをなるべく交差しないように配置することにより、簡単かつ興味深い調査方法を実現しています。また、この視覚エフェクトでは、大規模なデータセット全体から目で見て楽しいレイアウトを生成することもできます。ユーザーは、ノードをドラッグして移動するだけで、レイアウトを手動で調整することもできます]A;この視覚エフェクトを使用するケースとして理想的なのは、2 つのディメンションと 1 つのメジャー (重み) がある場合です。ただし、1 つの列のみでも機能します。]A;これは、オープンソースの視覚エフェクトです。コードは GitHub から取得します : https://github.com/Microsoft/PowerBI-visuals-ForceGraph]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Nodes" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nodes]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ノード]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Options" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[オプション​​]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Short_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Force layout diagram with curved path. Useful to show connections between entities]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[曲線軌道を使用したレイアウト ダイアグラムを強制します。エンティティ間の接続を示すのに役立ちます]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,6 +326,15 @@
           <Val><![CDATA[Source Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ソースの種類]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ストロークの色]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
