@@ -176,8 +176,8 @@ jobs:
               else
                   for pr in $matching_prs; do
                       # Close the pull request
-                      gh pr close "$pr" --repo "$REPO_OWNER/$repoName" --delete-branch
-                      echo "Closed pull request #$pr."
+                      gh pr close "$pr" --repo "$REPO_OWNER/$repoName" --delete-branch ||
+                        echo "Can't close Pull Request to $repoName, check an access"
                   done
               fi
             echo "::endgroup::"
@@ -238,7 +238,7 @@ jobs:
                 echo "No changes for $repoName"
                 continue
               fi
-              gh pr review $BRANCH --approve || echo "Cann't approve Pull Request to $repoName"
+              gh pr review $BRANCH --approve || echo "Can't approve Pull Request to $repoName"
               gh pr merge $BRANCH -s --auto -t "New translations" && 
               echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
             echo "::endgroup::"
