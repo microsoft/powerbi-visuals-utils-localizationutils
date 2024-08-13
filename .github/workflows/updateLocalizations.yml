@@ -11,7 +11,6 @@ jobs:
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
       APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
-      BRANCH_PATTERN: ${{vars.BRANCH_PATTERN}}
     outputs:
       branch-name: ${{steps.info.outputs.branch-name}}
       pr-name: ${{steps.info.outputs.pr-name}}
@@ -169,7 +168,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Delete old PRs in $repoName"  
               # List open pull requests and filter by branch pattern
-              matching_prs=$(gh pr list --repo "$REPO_OWNER/$repoName" --state open --json number,headRefName \
+              matching_prs=$(gh pr list --repo "$REPO_OWNER/$repoName" -A "@me" --state open --json number,headRefName \
                   --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
               
               if [ -z "$matching_prs" ]; then
@@ -184,7 +183,7 @@ jobs:
             echo "::endgroup::"
           done
         env:
-          BRANCH_PATTERN: '${{vars.BRANCH_PATTERN}}_.*'
+          BRANCH_PATTERN: '${{ env.BRANCH_PATTERN }}_.*'
           REPO_OWNER: 'microsoft'
       - name: Commit and push new changes to submodules
         run: |
