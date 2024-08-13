@@ -19,7 +19,7 @@ jobs:
       - name: Prepare info
         id: info
         run: |
-          echo "branch-name=$(date +'$BRANCH_PATTERN_%F_%H-%M-%S')" >> $GITHUB_OUTPUT
+          echo "branch-name=$(date +"$BRANCH_PATTERN_%F_%H-%M-%S")" >> $GITHUB_OUTPUT
           echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
