@@ -42,15 +42,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_CategoryFontControl" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_CentralLabel" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Selected category font]]></Val>
+          <Val><![CDATA[Central label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[所选类别字体]]></Val>
+            <Val><![CDATA[中心标签]]></Val>
           </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Selected Category Font]]></Val>
-          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -59,6 +56,15 @@
           <Val><![CDATA[Colors]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[颜色]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_CustomizeStyle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Customize style]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[自定义样式]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -162,6 +168,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Indentation" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Indentation]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[缩进]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Italic" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Italic]]></Val>
@@ -249,6 +264,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_PercentageLabel" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Percentage label]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[百分比标签]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Position" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Position]]></Val>
@@ -299,24 +323,24 @@
       </Item>
       <Item ItemId=";Visual_ShowCategoryLabel" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Show selected category label]]></Val>
+          <Val><![CDATA[Category label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[显示所选类别标签]]></Val>
+            <Val><![CDATA[类别标签]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[Show Selected Category Label]]></Val>
+            <Val><![CDATA[Show selected category label]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_ShowDataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Show labels]]></Val>
+          <Val><![CDATA[Data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[显示标签]]></Val>
+            <Val><![CDATA[数据标签]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[Show Labels]]></Val>
+            <Val><![CDATA[Show labels]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
