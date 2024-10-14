@@ -156,8 +156,14 @@ jobs:
                 fi
                 substring="localizations/"
                 newLocation="${filePath/$substring/visuals/}"
-                test -f $newLocation || mkdir -p ${newLocation%resources.resjson*}
-                echo "$filePath to $newLocation"
+
+                dirToCreate=${newLocation%resources.resjson*}
+                if [ ! -d "$dirToCreate" ]; then
+                  echo "Creating directory: $dirToCreate"
+                  mkdir -p "$dirToCreate"
+                fi
+                
+                echo "Copying $filePath to $newLocation"
                 cp $filePath $newLocation;
               done;
             echo "::endgroup::"
