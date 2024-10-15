@@ -155,13 +155,13 @@ jobs:
                   continue
                 fi
                 substring="localizations/"
-                newLocation="${filePath/$substring/visuals/}"
 
-                dirToCreate=${newLocation%resources.resjson*}
+                dirToCreate="${filePath/$substring/visuals/}"
                 if [ ! -d "$dirToCreate" ]; then
                   echo "Creating directory: $dirToCreate"
                   mkdir -p "$dirToCreate"
                 fi
+                newLocation=${newLocation%resources.resjson*}
                 
                 echo "Copying $filePath to $newLocation"
                 cp $filePath $newLocation;
