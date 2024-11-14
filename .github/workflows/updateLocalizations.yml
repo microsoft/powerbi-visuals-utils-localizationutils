@@ -150,22 +150,10 @@ jobs:
           for visualPath in ./localizations/*; do 
             repoName=$(echo $visualPath| cut -d'/' -f 3)
             echo "::group::Copy to $repoName"
-              for filePath in $visualPath/stringResources/*/resources.resjson; do 
-                if [[ $filePath == *"/en-US/"* ]]; then 
-                  continue
-                fi
-                substring="localizations/"
-                newLocation="${filePath/$substring/visuals/}"
-
-                dirToCreate=${newLocation%resources.resjson*}
-                if [ ! -d "$dirToCreate" ]; then
-                  echo "Creating directory: $dirToCreate"
-                  mkdir -p "$dirToCreate"
-                fi
-                
-                echo "Copying $filePath to $newLocation"
-                cp $filePath $newLocation;
-              done;
+              folderPath="$visualPath/stringResources"
+              newFolderPath="visuals/$repoName/stringResources"
+              rm -rf $newFolderPath
+              mv -f -v $folderPath $newFolderPath
             echo "::endgroup::"
           done;
       - name: Delete old Pull Requests
