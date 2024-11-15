@@ -186,7 +186,7 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
-              changes="$(git diff)"
+              changes="$(git status --short)"
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
                 continue
