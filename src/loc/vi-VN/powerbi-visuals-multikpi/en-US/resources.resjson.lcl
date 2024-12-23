@@ -84,10 +84,13 @@
       </Item>
       <Item ItemId=";Visual_BackgroundColorAll" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Background Color (for all only)]]></Val>
+          <Val><![CDATA[Background color (for all only)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Màu nền (chỉ dành cho tất cả)]]></Val>
+            <Val><![CDATA[Màu nền (chỉ dành cho chế độ tất cả)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Background Color (for all only)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -219,10 +222,13 @@
       </Item>
       <Item ItemId=";Visual_DeductThresholdDays" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Deduct Threshold Days]]></Val>
+          <Val><![CDATA[Deduct threshold days]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ngày ngưỡng khấu trừ]]></Val>
+            <Val><![CDATA[Số ngày của ngưỡng khấu trừ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Deduct Threshold Days]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -249,6 +255,15 @@
           <Val><![CDATA[Font color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Màu phông chữ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_FontFamily" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font family]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Nhóm phông chữ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -516,10 +531,13 @@
       </Item>
       <Item ItemId=";Visual_SparklineValue" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sparkline Value]]></Val>
+          <Val><![CDATA[Sparkline value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Giá trị Biểu đồ thu nhỏ]]></Val>
+            <Val><![CDATA[Giá trị của biểu đồ thu nhỏ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sparkline Value]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -606,10 +624,13 @@
       </Item>
       <Item ItemId=";Visual_ToggleSparklineOnHover" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          <Val><![CDATA[Toggle sparkline on hover]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Bật tắt Biểu đồ thu nhỏ khi di chuột qua]]></Val>
+            <Val><![CDATA[Bật/tắt biểu đồ thu nhỏ khi di chuột qua]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>

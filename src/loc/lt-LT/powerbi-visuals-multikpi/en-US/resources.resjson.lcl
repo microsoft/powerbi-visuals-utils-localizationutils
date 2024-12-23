@@ -84,10 +84,13 @@
       </Item>
       <Item ItemId=";Visual_BackgroundColorAll" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Background Color (for all only)]]></Val>
+          <Val><![CDATA[Background color (for all only)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Fono spalva (tik visiems)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Background Color (for all only)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -219,10 +222,13 @@
       </Item>
       <Item ItemId=";Visual_DeductThresholdDays" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Deduct Threshold Days]]></Val>
+          <Val><![CDATA[Deduct threshold days]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Išskaityti slenksčio dienas]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Deduct Threshold Days]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -249,6 +255,15 @@
           <Val><![CDATA[Font color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Šrifto spalva]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_FontFamily" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font family]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Šriftų šeima]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -516,10 +531,13 @@
       </Item>
       <Item ItemId=";Visual_SparklineValue" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sparkline Value]]></Val>
+          <Val><![CDATA[Sparkline value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Miniatiūrinės diagramos reikšmė]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sparkline Value]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -606,10 +624,13 @@
       </Item>
       <Item ItemId=";Visual_ToggleSparklineOnHover" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          <Val><![CDATA[Toggle sparkline on hover]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Perjungti miniatiūrinę diagramą laikant virš]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>

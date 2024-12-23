@@ -84,10 +84,13 @@
       </Item>
       <Item ItemId=";Visual_BackgroundColorAll" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Background Color (for all only)]]></Val>
+          <Val><![CDATA[Background color (for all only)]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[पृष्ठभूमि रंग (केवल सभी के लिए)]]></Val>
+            <Val><![CDATA[बैकग्राउंड का रंग (केवल सभी के लिए)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Background Color (for all only)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -219,10 +222,13 @@
       </Item>
       <Item ItemId=";Visual_DeductThresholdDays" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Deduct Threshold Days]]></Val>
+          <Val><![CDATA[Deduct threshold days]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[थ्रेशोल्ड दिन घटाएँ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Deduct Threshold Days]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -249,6 +255,15 @@
           <Val><![CDATA[Font color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[फ़ॉन्ट का रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_FontFamily" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font family]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[फ़ॉन्ट फ़ेमिली]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -516,10 +531,13 @@
       </Item>
       <Item ItemId=";Visual_SparklineValue" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Sparkline Value]]></Val>
+          <Val><![CDATA[Sparkline value]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[स्पार्कलाइन मान]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Sparkline Value]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -606,10 +624,13 @@
       </Item>
       <Item ItemId=";Visual_ToggleSparklineOnHover" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          <Val><![CDATA[Toggle sparkline on hover]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[होवर पर Sparkline को टॉगल करें]]></Val>
+            <Val><![CDATA[हॉवर करने पर स्पार्कलाइन टॉगल करें]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Toggle Sparkline On Hover]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
