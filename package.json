@@ -6,6 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "test": "",
+    "parseNewLocalizations": "node ./src/parseNewLocalizations.js",
     "capabilitiesToResources": "npm run tsc && node ./dist/updateStringsFromCapabilities.js",
     "allResourcesToUtilsRepo": "npm run tsc && node ./dist/allResourcesToUtilsRepo.js",
     "utilsRepoToAllResources": "npm run tsc && node ./dist/updateStringsFromCommonRepo.js",
@@ -31,6 +32,8 @@
     "@types/jquery": "3.2.16",
     "decompress": "4.2.1",
     "decompress-targz": "4.1.1",
-    "jquery": "3.5.0"
+    "fs-extra": "^11.2.0",
+    "jquery": "3.5.0",
+    "path": "^0.12.7"
   }
 }
