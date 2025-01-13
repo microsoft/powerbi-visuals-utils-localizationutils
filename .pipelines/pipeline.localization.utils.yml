@@ -40,22 +40,24 @@ stages:
           dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
           packageSourceAuth: 'patAuth'
         displayName: 'Run OneLocBuild'
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: './'
+          artifact: 'drop'
+          publishLocation: 'pipeline'
+        displayName: 'Publish Pipeline Artifact'
       - script: |
           git config --global user.name "$(LOC_BOT_NAME)"
           git config --global user.email "$(LOC_BOT_EMAIL)"
           git config --global core.autocrlf false
         displayName: 'Configure Git'
       - script: |
+          ls
           git checkout -b $(branchName)
           npm install
           npm run parseNewLocalizations
+          git status --short
           git add .
           git commit -m "Update localizations"
           git push origin $(branchName)
         displayName: 'Process and Push Localizations'
-      - task: PublishPipelineArtifact@1
-        displayName: 'Publish Pipeline Artifact'
-        inputs:
-          targetPath: './'
-          artifact: 'drop'
-          publishLocation: 'pipeline'
