@@ -14,24 +14,50 @@ stages:
   jobs:
   - job: main
     pool:
-      type: windows  # read more about custom job pool types at https://aka.ms/obpipelines/yaml/jobs
+      vmImage: 'windows-latest'
 
     steps:
       - checkout: powerbi-visuals-utils-localizationutils
         persistCredentials: true
+      - powershell: |
+          $branchName = "parsed_localizations_" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
+          Write-Host "##vso[task.setvariable variable=branchName]$branchName"
+        name: SetVariables
+        displayName: 'Set Variables'
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '18.x'
+        displayName: 'Install Node.js'
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
         inputs:
           locProj: 'LocProject.json'
-          outDir: '$(Build.ArtifactStagingDirectory)'
+          outDir: './'
           isCreatePrSelected: true
           repoType: 'gitHub'
           prSourceBranchPrefix: 'locfiles'
           dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
           packageSourceAuth: 'patAuth'
+        displayName: 'Run OneLocBuild'
       - task: PublishPipelineArtifact@1
-        displayName: 'Publish Pipeline Artifact'
         inputs:
-            targetPath: '$(Build.ArtifactStagingDirectory)'
-            artifact: drop
+          targetPath: './'
+          artifact: 'drop'
+          publishLocation: 'pipeline'
+        displayName: 'Publish Pipeline Artifact'
+      - script: |
+          git config --global user.name "$(LOC_BOT_NAME)"
+          git config --global user.email "$(LOC_BOT_EMAIL)"
+          git config --global core.autocrlf false
+        displayName: 'Configure Git'
+      - script: |
+          ls
+          git checkout -b $(branchName)
+          npm install
+          npm run parseNewLocalizations
+          git status --short
+          git add .
+          git commit -m "Update localizations"
+          git push origin $(branchName)
+        displayName: 'Process and Push Localizations'
