@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 const newLocalizationsPath = path.join(__dirname, '..', 'drop', 'loc');
-const localizationPath = path.join(__dirname, '..', '..', 'localizations');
+const localizationPath = path.join(__dirname, '..', 'localizations');
 
 function isValidLocaleDirectory(locale) {
     const localePath = path.join(newLocalizationsPath, locale);
