@@ -42,7 +42,7 @@ stages:
         displayName: 'Run OneLocBuild'
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: './'
+          targetPath: '$(Build.SourcesDirectory)'
           artifact: 'drop'
           publishLocation: 'pipeline'
         displayName: 'Publish Pipeline Artifact'
