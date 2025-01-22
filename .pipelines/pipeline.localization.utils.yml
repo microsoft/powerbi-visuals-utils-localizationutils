@@ -33,7 +33,7 @@ stages:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
         inputs:
           locProj: 'LocProject.json'
-          outDir: './powerbi-visuals-utils-localizationutils'
+          outDir: '$(Build.SourcesDirectory)'
           isCreatePrSelected: true
           repoType: 'gitHub'
           prSourceBranchPrefix: 'locfiles'
