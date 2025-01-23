@@ -56,8 +56,9 @@ stages:
           ls
           npm install
           npm run parseNewLocalizations
-          git status
-          git add .
+          git status --short
+          git add localizations/*
           git commit -m "Update localizations"
           git push origin $(branchName)
         displayName: 'Process and Push Localizations'
+        loc/ar-SA/localizations/powerbi-visuals-asterplot/stringResources/en-US/resources.resjson.lct

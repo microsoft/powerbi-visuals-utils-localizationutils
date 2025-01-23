@@ -16,7 +16,7 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
         pathToNewLocalizations, 
         visual, 
         "stringResources",
-        'en-US',
+        'en-US', // this is how data comes from OneLocBuild
         'resources.resjson'
     );
     
@@ -28,10 +28,12 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
         'resources.resjson'
     );
 
-    const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
-    fs.ensureDirSync(path.dirname(oldLocalizationFile));
-    fs.writeFileSync(oldLocalizationFile, newLocalizationContent, 'utf8');
-    console.log(`Content from ${newLocalizationContent} copied to ${oldLocalizationFile}`);
+    if(fs.existsSync(newLocalizationFile)) {
+        const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
+        fs.ensureDirSync(path.dirname(oldLocalizationFile));
+        fs.writeFileSync(oldLocalizationFile, newLocalizationContent, 'utf8');
+        console.log(`Content from ${newLocalizationFile} copied to ${oldLocalizationFile}`);
+    }
 }
 
 function processLocale(locale) {
@@ -40,12 +42,8 @@ function processLocale(locale) {
     fs.readdirSync(pathToNewLocalizations).forEach(visual => {
         copyLocalizationFile(pathToNewLocalizations, visual, locale);
     });
-
-    fs.rmSync(path.join(newLocalizationsPath, locale), { recursive: true, force: true });
 }
 
 fs.readdirSync(newLocalizationsPath)
     .filter(isValidLocaleDirectory)
     .forEach(processLocale);
-
-fs.rmSync(newLocalizationsPath, { recursive: true, force: true });
