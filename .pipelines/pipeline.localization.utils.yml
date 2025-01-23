@@ -28,6 +28,12 @@ stages:
         inputs:
           versionSpec: '18.x'
         displayName: 'Install Node.js'
+      - script: |
+          git config --global user.name "$(LOC_BOT_NAME)"
+          git config --global user.email "$(LOC_BOT_EMAIL)"
+          git config --global core.autocrlf false
+          git checkout -b $(branchName)
+        displayName: 'Configure Git'
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
@@ -47,13 +53,7 @@ stages:
           publishLocation: 'pipeline'
         displayName: 'Publish Pipeline Artifact'
       - script: |
-          git config --global user.name "$(LOC_BOT_NAME)"
-          git config --global user.email "$(LOC_BOT_EMAIL)"
-          git config --global core.autocrlf false
-        displayName: 'Configure Git'
-      - script: |
           ls
-          git checkout -b $(branchName)
           npm install
           npm run parseNewLocalizations
           git status --short
