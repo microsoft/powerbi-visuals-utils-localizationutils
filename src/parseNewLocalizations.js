@@ -31,6 +31,7 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
     fs.ensureDirSync(path.dirname(oldLocalizationFile));
     fs.writeFileSync(oldLocalizationFile, newLocalizationContent, 'utf8');
+    console.log(`Content from ${newLocalizationContent} copied to ${oldLocalizationFile}`);
 }
 
 function processLocale(locale) {
