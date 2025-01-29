@@ -13,7 +13,8 @@ function isValidLocaleDirectory(locale) {
 
 function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     const newLocalizationFile = path.join(
-        pathToNewLocalizations, 
+        pathToNewLocalizations,
+        locale,
         visual, 
         "stringResources",
         'en-US', // this is how data comes from OneLocBuild
