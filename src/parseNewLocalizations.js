@@ -29,11 +29,13 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
         'resources.resjson'
     );
 
+    console.log(`Trying to copy ${newLocalizationFile} to ${oldLocalizationFile}`);
     if(fs.existsSync(newLocalizationFile)) {
+        console.log(`File exists, copying content...`);
         const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
         fs.ensureDirSync(path.dirname(oldLocalizationFile));
         fs.writeFileSync(oldLocalizationFile, newLocalizationContent, 'utf8');
-        console.log(`Content from ${newLocalizationFile} copied to ${oldLocalizationFile}`);
+        console.log(`Content copied successfully`);
     }
 }
 
@@ -45,6 +47,10 @@ function processLocale(locale) {
     });
 }
 
-fs.readdirSync(newLocalizationsPath)
+console.log(`Reading new localizations from ${newLocalizationsPath}`);
+const locales = fs.readdirSync(newLocalizationsPath)
     .filter(isValidLocaleDirectory)
-    .forEach(processLocale);
+console.log(`Found ${locales.length} locales`);
+
+locales.forEach(processLocale);
+
