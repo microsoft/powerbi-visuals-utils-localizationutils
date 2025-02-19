@@ -30,6 +30,10 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     );
 
     console.log(`Trying to copy ${newLocalizationFile} to ${oldLocalizationFile}`);
+    console.log(`File exists: ${fs.existsSync(newLocalizationFile)}`);
+    console.log(`pathToNewLocalizations exists: ${fs.existsSync(pathToNewLocalizations)}`);
+    console.log(`locale exists: ${fs.existsSync(path.join(pathToNewLocalizations, locale))}`);
+    console.log(`visual exists: ${fs.existsSync(path.join(pathToNewLocalizations, locale, visual))}`);
     if(fs.existsSync(newLocalizationFile)) {
         console.log(`File exists, copying content...`);
         const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
