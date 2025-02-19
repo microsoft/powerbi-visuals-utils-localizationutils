@@ -50,17 +50,10 @@ stages:
           dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
           packageSourceAuth: 'patAuth'
         displayName: 'Run OneLocBuild'
+      - script: npm install
+      - script: npm run parseNewLocalizations
+      - script: git status --short
       - script: |
-          ls -la
-          echo "Installing dependencies..."
-          npm install
-          
-          echo "Running parseNewLocalizations..."
-          npm run parseNewLocalizations --verbose
-          
-          echo "Git status:"
-          git status --short
-    
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
             exit 0
