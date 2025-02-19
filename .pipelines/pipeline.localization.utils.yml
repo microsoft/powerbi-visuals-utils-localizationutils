@@ -1,13 +1,17 @@
 trigger: 
 - main
 
+variables:
+  - name: branchRef
+    value: 'main'
+
 resources:
   repositories:
     - repository: powerbi-visuals-utils-localizationutils
       endpoint: 'pbicvloc GitHub'
       type: github
       name: microsoft/powerbi-visuals-utils-localizationutils
-      ref: refs/heads/main
+      ref: refs/heads/$(branchRef)
 
 stages:
 - stage: build
