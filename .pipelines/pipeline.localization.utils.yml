@@ -80,6 +80,8 @@ stages:
             }
           }
         displayName: 'Delete old pull requests'
+        env:
+          GH_TOKEN: ${env:LOC_BOT_PAT}
       - powershell: |
           if (git diff-index --quiet HEAD --) {
             Write-Host "No changes to commit"
@@ -101,6 +103,8 @@ stages:
           }
         displayName: 'Process and Push Localizations'
         continueOnError: true
+        env:
+          GH_TOKEN: ${env:LOC_BOT_PAT}
       - task: PublishPipelineArtifact@1
         inputs:
           targetPath: '$(Build.SourcesDirectory)'
