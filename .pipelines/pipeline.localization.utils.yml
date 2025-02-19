@@ -4,6 +4,8 @@ trigger:
 variables:
   - name: branchRef
     value: 'dev/alsavelev/configure-script'
+  - name: locBranchNamePrefix
+    value: 'parsed_localizations_'
 
 resources:
   repositories:
@@ -24,7 +26,7 @@ stages:
       - checkout: powerbi-visuals-utils-localizationutils
         persistCredentials: true
       - powershell: |
-          $branchName = "parsed_localizations_" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
+          $branchName = "$(locBranchNamePrefix)" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
           Write-Host "##vso[task.setvariable variable=branchName]$branchName"
         name: SetVariables
         displayName: 'Set Variables'
@@ -57,6 +59,26 @@ stages:
       - script: git status --short
         displayName: 'Git status'
       - script: |
+          matching_prs=$(gh pr list --repo "microsoft/powerbi-visuals-utils-localizationutils" \
+            -A "@me" \
+            --state open \
+            --json number,headRefName \
+            --jq ".[] | select(.headRefName | test(\"$(locBranchNamePrefix)\")) | .number")
+          
+          if [ -z "$matching_prs" ]; then
+            echo "No open pull requests matching the branch pattern \"$(locBranchNamePrefix)\"."
+          else
+            for pr in $matching_prs; do
+              echo "Attempting to close PR #$pr"
+              if gh pr close "$pr" --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch; then
+                echo "Successfully closed PR #$pr and deleted its branch"
+              else
+                echo "Failed to close PR #$pr - Please check repository permissions"
+              fi
+            done
+          fi
+        displayName: 'Delete old pull requests'
+      - script: |
           git diff-index --quiet HEAD -- && (
             echo "No changes to commit"
             exit 0
@@ -65,6 +87,11 @@ stages:
             git add localizations/*
             git commit -m "Update localizations"
             git push origin $(branchName)
+            gh pr create \
+              --base $(branchRef) \
+              --title "Update localizations $(date +%Y-%m-%d)" \
+              --body "Automated PR to update localizations" || \
+              echo "Failed to create PR, it might already exist"
           )
         displayName: 'Process and Push Localizations'
         continueOnError: true
