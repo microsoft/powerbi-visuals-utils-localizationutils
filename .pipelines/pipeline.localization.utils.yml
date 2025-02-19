@@ -51,9 +51,11 @@ stages:
           packageSourceAuth: 'patAuth'
         displayName: 'Run OneLocBuild'
       - script: npm install
-      - script: ls loc
+        displayName: 'Install dependencies'
       - script: npm run parseNewLocalizations
+        displayName: 'Parse new localizations'
       - script: git status --short
+        displayName: 'Git status'
       - script: |
           git diff-index --quiet HEAD -- && (
             echo "No changes to commit"

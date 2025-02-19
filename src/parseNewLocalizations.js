@@ -14,8 +14,7 @@ function isValidLocaleDirectory(locale) {
 function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     const newLocalizationFile = path.join(
         pathToNewLocalizations,
-        locale,
-        visual, 
+        visual,
         "stringResources",
         'en-US', // this is how data comes from OneLocBuild
         'resources.resjson'
@@ -30,10 +29,6 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     );
 
     console.log(`Trying to copy ${newLocalizationFile} to ${oldLocalizationFile}`);
-    console.log(`File exists: ${fs.existsSync(newLocalizationFile)}`);
-    console.log(`pathToNewLocalizations exists: ${fs.existsSync(pathToNewLocalizations)}`);
-    console.log(`locale exists: ${fs.existsSync(path.join(pathToNewLocalizations, locale))}`);
-    console.log(`visual exists: ${fs.existsSync(path.join(pathToNewLocalizations, locale, visual))}`);
     if(fs.existsSync(newLocalizationFile)) {
         console.log(`File exists, copying content...`);
         const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
@@ -52,7 +47,6 @@ function processLocale(locale) {
 }
 
 console.log(`Reading new localizations from ${newLocalizationsPath}`);
-console.log(fs.statSync(newLocalizationsPath).isFile());
 const locales = fs.readdirSync(newLocalizationsPath)
     .filter(isValidLocaleDirectory)
 console.log(`Found ${locales.length} locales`);
