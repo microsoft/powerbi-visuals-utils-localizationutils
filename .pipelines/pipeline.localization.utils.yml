@@ -51,6 +51,7 @@ stages:
           packageSourceAuth: 'patAuth'
         displayName: 'Run OneLocBuild'
       - script: npm install
+      - script: ls loc
       - script: npm run parseNewLocalizations
       - script: git status --short
       - script: |
