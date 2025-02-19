@@ -52,6 +52,7 @@ function processLocale(locale) {
 }
 
 console.log(`Reading new localizations from ${newLocalizationsPath}`);
+console.log(fs.statSync(newLocalizationsPath).isFile());
 const locales = fs.readdirSync(newLocalizationsPath)
     .filter(isValidLocaleDirectory)
 console.log(`Found ${locales.length} locales`);
