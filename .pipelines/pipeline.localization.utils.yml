@@ -58,41 +58,47 @@ stages:
         displayName: 'Parse new localizations'
       - script: git status --short
         displayName: 'Git status'
-      - script: |
-          matching_prs=$(gh pr list --repo "microsoft/powerbi-visuals-utils-localizationutils" \
-            -A "@me" \
-            --state open \
-            --json number,headRefName \
-            --jq ".[] | select(.headRefName | test(\"$(locBranchNamePrefix)\")) | .number")
-          
-          if [ -z "$matching_prs" ]; then
-            echo "No open pull requests matching the branch pattern \"$(locBranchNamePrefix)\"."
-          else
-            for pr in $matching_prs; do
-              echo "Attempting to close PR #$pr"
-              if gh pr close "$pr" --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch; then
-                echo "Successfully closed PR #$pr and deleted its branch"
-              else
-                echo "Failed to close PR #$pr - Please check repository permissions"
-              fi
-            done
-          fi
+      - powershell: |
+          $matchingPRs = gh pr list --repo "microsoft/powerbi-visuals-utils-localizationutils" `
+            --author "@me" `
+            --state open `
+            --json number,headRefName | ConvertFrom-Json | `
+            Where-Object { $_.headRefName -match "$(locBranchNamePrefix)" } | `
+            Select-Object -ExpandProperty number
+
+          if (-not $matchingPRs) {
+            Write-Host "No open pull requests matching the branch pattern '$(locBranchNamePrefix)'."
+          } else {
+            foreach ($pr in $matchingPRs) {
+              Write-Host "Attempting to close PR #$pr"
+              gh pr close $pr --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch
+              if ($LASTEXITCODE -eq 0) {
+                Write-Host "Successfully closed PR #$pr and deleted its branch"
+              } else {
+                Write-Host "Failed to close PR #$pr - Please check repository permissions"
+              }
+            }
+          }
         displayName: 'Delete old pull requests'
-      - script: |
-          git diff-index --quiet HEAD -- && (
-            echo "No changes to commit"
+      - powershell: |
+          if (git diff-index --quiet HEAD --) {
+            Write-Host "No changes to commit"
             exit 0
-          ) || (
-            echo "Changes detected, proceeding with commit"
+          } else {
+            Write-Host "Changes detected, proceeding with commit"
             git add localizations/*
             git commit -m "Update localizations"
             git push origin $(branchName)
-            gh pr create \
-              --base $(branchRef) \
-              --title "Update localizations $(date +%Y-%m-%d)" \
-              --body "Automated PR to update localizations" || \
-              echo "Failed to create PR, it might already exist"
-          )
+            
+            gh pr create `
+              --base $(branchRef) `
+              --title "Update localizations $(Get-Date -Format 'yyyy-MM-dd')" `
+              --body "Automated PR to update localizations"
+            
+            if ($LASTEXITCODE -ne 0) {
+              Write-Host "Failed to create PR, it might already exist"
+            }
+          }
         displayName: 'Process and Push Localizations'
         continueOnError: true
       - task: PublishPipelineArtifact@1
