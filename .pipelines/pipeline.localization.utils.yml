@@ -54,15 +54,15 @@ stages:
       - script: npm run parseNewLocalizations
       - script: git status --short
       - script: |
-          if git diff-index --quiet HEAD --; then
+          git diff-index --quiet HEAD -- && (
             echo "No changes to commit"
             exit 0
-          else
+          ) || (
             echo "Changes detected, proceeding with commit"
             git add localizations/*
             git commit -m "Update localizations"
             git push origin $(branchName)
-          fi
+          )
         displayName: 'Process and Push Localizations'
         continueOnError: true
       - task: PublishPipelineArtifact@1
