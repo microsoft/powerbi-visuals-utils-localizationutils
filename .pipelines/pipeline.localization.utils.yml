@@ -24,8 +24,7 @@ stages:
 
     steps:
       - checkout: powerbi-visuals-utils-localizationutils
-        token: $(LOC_BOT_PAT)
-        persist-credentials: true
+        persistCredentials: true
       - powershell: |
           $branchName = "$(locBranchNamePrefix)" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
           Write-Host "##vso[task.setvariable variable=branchName]$branchName"
@@ -91,6 +90,9 @@ stages:
             Write-Host "Changes detected, proceeding with commit"
             git add localizations/*
             git commit -m "Update localizations"
+            
+            git remote set-url origin https://$(LOC_BOT_PAT)@github.com/microsoft/powerbi-visuals-utils-localizationutils.git
+            
             git push origin $(branchName)
             
             gh pr create `
