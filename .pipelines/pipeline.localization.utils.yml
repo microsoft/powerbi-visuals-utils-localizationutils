@@ -63,19 +63,18 @@ stages:
             --author "@me" `
             --state open `
             --json number,headRefName | ConvertFrom-Json | `
-            Where-Object { $_.headRefName -match "$(locBranchNamePrefix)" } | `
-            Select-Object -ExpandProperty number
+            Where-Object { $_.headRefName -match "$(locBranchNamePrefix)" }
 
           if (-not $matchingPRs) {
             Write-Host "No open pull requests matching the branch pattern '$(locBranchNamePrefix)'."
           } else {
             foreach ($pr in $matchingPRs) {
-              Write-Host "Attempting to close PR #$pr"
-              gh pr close $pr --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch
+              Write-Host "Attempting to close PR #$($pr.number)"
+              gh pr close $($pr.number) --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch
               if ($LASTEXITCODE -eq 0) {
-                Write-Host "Successfully closed PR #$pr and deleted its branch"
+                Write-Host "Successfully closed PR #$($pr.number) and deleted its branch"
               } else {
-                Write-Host "Failed to close PR #$pr - Please check repository permissions"
+                Write-Host "Failed to close PR #$($pr.number) - Please check repository permissions"
               }
             }
           }
