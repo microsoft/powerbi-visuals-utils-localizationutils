@@ -24,8 +24,8 @@ stages:
 
     steps:
       - checkout: powerbi-visuals-utils-localizationutils
-          token: $(LOC_BOT_PAT)
-          persist-credentials: true
+        token: $(LOC_BOT_PAT)
+        persist-credentials: true
       - powershell: |
           $branchName = "$(locBranchNamePrefix)" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
           Write-Host "##vso[task.setvariable variable=branchName]$branchName"
