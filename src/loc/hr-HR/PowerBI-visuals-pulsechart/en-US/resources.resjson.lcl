@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Impulsni grafikon prikazuje ključne događaje na vremenskoj crti i omogućuje reprodukciju događaja radi otkrivanja uvida.]A;Impulsni grafikon omogućuje reprodukciju podataka radi prikaza otkrivanja trenda. Kada se događaj prikaže, reprodukcija se privremeno zaustavlja radi filtriranja ostatka izvješća, čime se otkrivaju sakriveni odnosi. Pomoću te značajke možete privući pozornost publike i istaknuti određene uvide. Dostupna je značajka automatske reprodukcije, koja pokreće reprodukciju kada se izvješće učita. Impulsni su grafikoni idealni za korištenje uz objavljivanje na webu ili prilikom zajedničkog korištenja izvješća sa suradnicima.]A;Kada se na impulsnom grafikonu odabere točka podataka, prikazuje prilagodljivi skočni prozor. Možete navesti naslov i opis te prikazati ili sakriti vremensku oznaku. Time se omogućuje jasno skretanje pozornosti na ono što je važno kada je riječ o točci podataka.]A;Stvaranje impulsnog grafikona vrlo je jednostavno – morate samo navesti podatke koje čine vremenski niz. Stupce dodajete u podatke vremenskog niza koji definiraju događaje koje želite prikazati na crti. Za te stupce vrijednosti koje nisu prazne postaju događaji i prikazuju se kao kružići na impulsnom grafikonu.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Linijski grafikon s primjedbama o ključnim događajima. Savršen za prijenos značenja podataka]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Započni odgodu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Boja poteza]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Širina poteza]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pulsdiagrammet viser nøkkelhendelser på en tidslinje og lar deg spille av hendelsene for å avsløre innsikter.]A;Med pulsdiagrammet kan du spille av dataene for å se hvordan trendene utvikles og åpnes. Når en hendelse oppstår, stanser avspillingen midlertidig for å filtrere resten av rapporten og avsløre skjulte relasjoner. Denne funksjonen kan brukes til å skape oppmerksomhet og fremheve spesifikke innsikter. En funksjon for automatisk avspilling starter avspillingen når rapporten lastes. Pulsdiagram er ideelle å bruke når du publiserer til nettet eller deler rapporter med medarbeiderne.]A;Når et datapunkt er valgt på pulsdiagrammet, vises en hurtigmeny som kan tilpasses. Du kan angi tittel og beskrivelse samt vise eller skjule tidsstempelet. Dermed kan du fokusere klart på det som er viktig med datapunktet.]A;Det er svært enkelt å opprette et pulsdiagram -- bare oppgi data som er en tidsserie. Du legger til kolonner til tidsseriedataene, som definerer hendelsene du vil vise på linjen. For de kolonnene vil ikke-tomme verdier bli hendelser og vises som sirkler på pulsdiagrammet.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Linjediagram med avmerkede viktige hendelser. Perfekt for historikkinformasjon med data]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Startforsinkelse]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Strøkfarge]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Bredde på strøk]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

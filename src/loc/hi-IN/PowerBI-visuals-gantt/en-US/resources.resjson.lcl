@@ -105,6 +105,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Background" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[पृष्ठभूमि]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_BarsRoundedCorners" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bars Rounded Corners]]></Val>
@@ -123,6 +132,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_CategoryLabels_Background" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Category labels background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[श्रेणी लेबल्स की पृष्ठभूमि]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Collapse_All" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Collapse All]]></Val>
@@ -132,20 +150,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Collapse_All_Color" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Collapse All Color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[सभी रंग संक्षिप्त करें]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Color" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Colors" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_ColumnWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Column width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[कॉलम की चौड़ाई]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -177,6 +204,24 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_DateType_AxisBackgroundColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Axis Background Color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष पृष्ठभूमि का रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DateType_AxisBackgroundOpacity" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Axis Background Opacity]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अक्ष पृष्ठभूमि की अपारदर्शिता]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_DateType_AxisColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Axis Color]]></Val>
@@ -191,6 +236,15 @@
           <Val><![CDATA[Axis Text Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[अक्ष पाठ का रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_DateType_Background" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Date type background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[तारीख प्रकार की पृष्ठभूमि]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -420,29 +474,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_DisplayDottedLines" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Display dotted lines]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[डॉटेड रेखाएँ प्रदर्शित करें]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_DisplayGridLines" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Display grid lines]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ग्रिड पंक्तियाँ प्रदर्शित करें]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_DottedLinesColor" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Dotted lines color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[डॉटेड रेखाओं का रंग]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -501,6 +537,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Enable_Background" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Enable background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[पृष्ठभूमि सक्षम करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Expand_All" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Expand All]]></Val>
@@ -510,29 +555,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Expand_All_Color" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Expand All Color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[सभी रंग विस्तृत करें]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Fill" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Fill]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[भरण]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_FirstDayOfWeek" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[First day of week]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[सप्ताह का पहला दिन]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[फ़ॉन्ट]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -560,6 +596,15 @@
           <Val><![CDATA[General]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[सामान्य]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_General_Background" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[General background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[सामान्य पृष्ठभूमि]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -630,11 +675,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Line" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Line]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[पंक्ति]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Gantt chart is a type of bar chart to illustrate a schedule with time axis. When you put Gantt chart along with other insightful charts in an interactive canvas, you can manage your project in whole new way. In Power BI as visuals interact with each other, you can look at your resource allocation, task completion, remaining tasks in different perspective and get a firm handle on the future.]A;Gantt charts are indispensable part of project management portfolio. Project Managers and executives love Gantt charts, since they visually show in a very effective at-a-glance way, the overall time line of the project, the current status & progress (or lack thereof) along with the assignment at considerable details.]A;With this custom visual, you can specify the Tasks, Start Date, Duration and %Completion for rendering them as Gantt. Please note that the %Completion expects a decimal value ( for example 0.85 means 85%) and Start Date , a date field and not a date hierarchy.]A;You can also control the color of the bar with a Legend. You can use any relevant field from your project as Legend for example task type for this purpose. Additionally, you can also specify the resource field, which would be listed next the bar in the Gantt.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[गैंट चार्ट समय अक्ष के साथ किसी शेड्यूल को समझाने के लिए बार चार्ट का एक प्रकार है. जब आप किसी सहभागी कैनवास में गैंट चार्ट को अन्य गहरी जानकारी वाले चार्ट्स के साथ रखते हैं, तो आप अपने प्रोजेक्ट को एकदम नए तरीके से प्रबंधित कर सकते हैं. Power BI में जैसे विज़ुअल एक दूसरे के साथ सहभागिता करते हैं, आप भिन्न परिप्रेक्ष्य में अपना संसाधन आबंटन, कार्य पूर्णता, शेष बचे कार्यों को देख सकते हैं और भविष्य में सख्ती से हैंडल कर सकते हैं.]A;गैंट चार्ट प्रोजेक्ट मैनेजमेंट पोर्टफ़ोलियो का अपरिहार्य हिस्सा होते हैं. प्रोजेक्ट प्रबंधक और कार्यकारी गैंट चार्ट्स को बेहद पसंद करते हैं, क्योंकि ये एक ही नजर में बेहद प्रभावशाली ढंग से यथेष्ट विवरण के साथ प्रोजेक्ट की समूची टाइम लाइन, असाइनमेंट के साथ-साथ वर्तमान स्थिति और प्रगति (या इसमें कमी) को विज़ुअली दिखाते हैं.]A;इस कस्टम विज़ुअल से आप कार्यों, प्रारंभ दिनांक, अवधि और %Completion को गैंट के रूप में रेंडरिंग के लिए निर्दिष्ट कर सकते हैं. कृपया नोट करें कि %Completion में एक दशमलव मान (उदाहरण के लिए, 0.85 का अर्थ है 85%) और प्रारंभ दिनांक, जो एक दिनांक फ़ील्ड है न कि दिनांक पदानुक्रम, अपेक्षित है.]A;आप एक लेजेंड के साथ पट्टी का रंग भी नियंत्रित कर सकते हैं. इस उद्देश्य के लिए लेजेंड के रूप में आप अपने प्रोजेक्ट से किसी भी प्रासंगिक फ़ील्ड का उपयोग कर सकते हैं, उदाहरण के लिए, कार्य प्रकार. इसके अलावा आप संसाधन फ़ील्ड को भी निर्दिष्ट कर सकते हैं, जो गैंट में पट्टी के आगे सूचीबद्ध होगा.]A;यह एक ओपन सोर्स विज़ुअल है. GitHub से कोड प्राप्त करें: https://github.com/Microsoft/powerbi-visuals-gantt]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_MatchLegendColors" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Match legend colors]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[लेजेंड रंगों का मिलान करें]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -653,6 +716,42 @@
           <Val><![CDATA[Milestones]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[मील]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Milestones_LineType_Dotted" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Dotted]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[डॉट वाले / डॉटेड]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Milestones_LineType_Solid" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Solid]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ठोस]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Milestones_ShowLines" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show lines]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[रेखाएँ दिखाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Opacity" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Opacity]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अपारदर्शिता]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -914,15 +1013,6 @@
           <Val><![CDATA[Type]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[प्रकार]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Width" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Width]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[चौड़ाई]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

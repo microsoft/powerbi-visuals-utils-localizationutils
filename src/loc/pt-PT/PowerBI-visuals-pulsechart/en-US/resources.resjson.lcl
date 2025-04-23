@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[O gráfico de Impulso mostra eventos-chave numa linha cronológica e permite-lhe reproduzir os eventos para relevar informações.]A;O Gráfico de Impulso permite-lhe reproduzir os dados para ver o desenvolvimento da tendência em tempo real. Quando for apresentado um evento, a reprodução é interrompida para filtrar o resto do relatório, mostrando relações que não estavam anteriormente visíveis. Pode utilizar esta funcionalidade para captar a atenção do público e destacar informações específicas. Existe uma funcionalidade de reprodução automática que inicia a reprodução quando o relatório é carregado. Os Gráficos de Impulso são ideais para utilização com publicação na Web ou ao partilhar relatórios com os seus colegas.]A;Quando é selecionado um ponto de dados no Gráfico de Impulso, aparece um pop-up personalizável. Pode especificar o título e a descrição e mostrar ou ocultar o carimbo de data/hora. Isto permite-lhe chamar a atenção claramente para os pontos mais importantes sobre o ponto de dados.]A;A criação de um Gráfico de Impulso é bastante fácil. Basta fornecer dados que sejam de série de tempo. Adicione colunas aos dados de série de tempo que definem os eventos que pretende mostrar na linha. Para estas colunas, os valores que não estejam em branco tornam-se eventos e são apresentados como círculos no Gráfico de Impulso.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Gráfico de linhas anotado com eventos-chave. Perfeito para narrativas com dados]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Atraso de Início]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Cor do traço de tinta digital]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Largura do traço de tinta digital]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

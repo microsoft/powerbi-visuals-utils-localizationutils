@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[El gràfic de batecs mostra els esdeveniments clau en una línia de temps i permet tornar a reproduir-los per obtenir conclusions.]A;El gràfic de batecs permet reproduir les dades per veure el desenvolupament de les tendències. Quan apareix un esdeveniment, la reproducció es posa en pausa per filtrar la resta de l’informe i revelar relacions ocultes. Podeu fer servir aquesta característica per captar l’atenció del públic i destacar conclusions específiques. Disposa d’una característica de reproducció automàtica que inicia la reproducció en carregar l’informe. Els gràfics de batecs són ideals per publicar contingut a la xarxa o compartir informes amb els companys.]A;En seleccionar un punt de dades del gràfic de batecs, apareix un element emergent que es pot personalitzar. Podeu especificar-ne el títol i la descripció, i també mostrar o amagar la marca de temps. Això us permet centrar el focus en allò que sigui més important del punt de dades.]A;Crear un gràfic de batecs és molt fàcil, ja que només heu de proporcionar dades que siguin sèries temporals. Seguidament, heu d’afegir columnes a les sèries temporals que defineixin els esdeveniments que voleu mostrar a la línia. En el cas d’aquestes columnes, els valors que no siguin buits es convertiran en esdeveniments i es mostraran en forma de cercles al gràfic de batecs.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Gràfic de línies amb anotacions sobre esdeveniments importants. És perfecte per crear històries a partir de les dades.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Retard de l'inici]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Color del traç]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Amplada del traç]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
