@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[แผนภูมิแบบหมุนแสดงเหตุการณ์สำคัญบนเส้นเวลา และช่วยให้คุณเล่นเหตุการณ์การเพื่อเปิดเผยข้อมูลเชิงลึก]A;แผนภูมิแบบหมุนช่วยให้คุณสามารถเล่นข้อมูลเพื่อดูแนวโน้มที่เปิดเผยต่อหน้าของคุณ เมื่อเหตุการณ์ปรากฏ การเล่นจะหยุดชั่วคราวเพื่อกรองส่วนที่เหลือของรายงาน ซึ่งจะเปิดเผยความสัมพันธ์ที่ซ่อนไว้ คุณสามารถใช้ฟีเจอร์นี้เพื่อดึงดูความสนใจผู้ชมของคุณและไฮไลต์ข้อมูลเชิงลึกที่ระบุ โดยมีฟีเจอร์การเล่นอัตโนมัติที่เริ่มต้นการเล่นเมื่อโหลดรายงาน แผนภูมิแบบหมุนเหมาะสมสำหรับใช้กับการเผยแพร่บนเว็บ หรือเมื่อแชร์รายงานกับเพื่อนร่วมงานของคุณ]A;เมื่อมีการเลือกจุดข้อมูลในแผนภูมิแบบหมุน คุณจะได้รับป็อปอัพที่กำหนดเอง คุณสามารถระบุชื่อและคำอธิบาย และแสดงหรือซ่อนการประทับเวลาได้อีกด้วย ซึ่งช่วยให้คุณสามารถดึงดูดความสนใจอย่างชัดเจนในส่วนสำคัญเกี่ยวกับจุดข้อมูล]A;การสร้างแผนภูมิแบบหมุนทำได้ง่ายมาก คุณเพียงต้องระบุข้อมูลที่เป็นชุดข้อมูลเวลา คุณสามารถเพิ่มคอลัมน์ไปยังข้อมูลชุดข้อมูลเวลาที่กำหนดเหตุการณ์ตามที่คุณต้องการแสดงบนบรรทัด สำหรับคอลัมน์เหล่านั้น ค่าที่ไม่ใช่ค่าว่างเปล่ากลายเป็นเหตุการณ์และถูกแสดงเป็นวงกลมในแผนภูมิแบบหมุน]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[แผนภูมิเส้นที่ใส่คำอธิบายประกอบด้วยเหตุการณ์สำคัญ เหมาะสำหรับการบอกเล่าเรื่องราวด้วยข้อมูล]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[เริ่มการหน่วงเวลา]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[สีเส้นหมึก]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ความกว้างของเส้นขีด]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
