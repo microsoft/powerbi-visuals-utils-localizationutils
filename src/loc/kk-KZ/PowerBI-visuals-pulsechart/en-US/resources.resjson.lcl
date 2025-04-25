@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";PulseChart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The Pulse chart shows key events on a timeline, and lets you play back the events to reveal insights.]A;The Pulse Chart allows you to playback the data to see the trend unfold in front of your eyes. When an event appears, the playback pauses to filter the rest of the report, revealing hidden relationships. You can use this feature to grab your audience’s attention and highlight specific insights. There’s an auto play feature that starts the playback when the report loads. Pulse Charts are ideal for use with publish to web or when sharing reports with your coworkers.]A;When a data point is selected on the Pulse Chart, you get a customizable popup. You can specify the title and description, and show or hide the timestamp as well. This lets you clearly call attention to what’s important about the data point.]A;Creating a Pulse Chart is really easy -- you just need to provide data that is a time series. You add columns to the time series data that define the events you want to show on the line. For those columns, non-blank values become events and are shown as circles on the Pulse chart.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pulse диаграммасы уақыт шкаласында маңызды оқиғаларды көрсетеді және мәліметтерді анықтау үшін оқиғаларды бейнелеуге мүмкіндік береді.]A;Pulse диаграммасы трендті жайып бейнелеу үшін деректерді көрсетуге мүмкіндік береді. Оқиға пайда болған кезде, жасырын байланыстарды анықтап, есептің қалған бөлігін сүзу үшін бейнелеу кідіреді. Бұл мүмкіндікті аудиторияның назарын өзіңізге аудару және нақты мәліметтерді белгілеу үшін пайдалана аласыз. Есеп жүктелген кезде ойнатуды бастайтын автоматты түрде ойнату мүмкіндігі бар. Pulse диаграммалары Интернетте жариялау немесе есептерді қызметтестермен бөлісу үшін өте тиімді.]A;Деректер нүктесі Pulse диаграммасында таңдалған кезде, реттелетін қалқымалы элементті аласыз. Тақырыпты және сипаттаманы көрсетуге және уақыт белгісін көрсетуге немесе жасыруға болады. Бұл деректер нүктесіндегі маңызды нәрсеге назар аударуға мүмкіндік береді.]A; Pulse диаграммасын жасау өте оңай, уақыт қатары болған деректерді беру жеткілікті. Сызықта көрсеткіңіз келген оқиғаларды анықтайтын уақыт қатары деректеріне бағандарды қосасыз. Сол бағандар үшін, бос емес мәндер оқиғаларға айналады және Pulse диаграммасында дөңгелектер түрінде көрсетіледі.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";PulseChart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Line chart annotated with key events. Perfect for story telling with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Негізгі оқиғалармен аннотацияланған сызықтық диаграмма. Деректермен баяндау үшін өте тиімді]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_AlwaysTop" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Always on top]]></Val>
@@ -302,6 +284,24 @@
           <Val><![CDATA[Start Delay]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Кідірісті бастау]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Штрих түсі]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PulseChart_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Штрих қалыңдығы]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
