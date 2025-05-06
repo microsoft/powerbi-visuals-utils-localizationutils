@@ -9,8 +9,8 @@ jobs:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
-      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+      # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     outputs:
       branch-name: ${{steps.info.outputs.branch-name}}
       pr-name: ${{steps.info.outputs.pr-name}}
@@ -77,31 +77,31 @@ jobs:
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
           BRANCH: ${{steps.info.outputs.branch-name}}
-      - name: Set Loc bot config details
-        run: |
-          git config --global user.name $APPROVE_BOT_NAME
-          git config --global user.email $APPROVE_BOT_EMAIL
-      - name: Approve pull request
-        run: |
-          pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
-          if [[ $pullRequestNumber != "[]" ]]; then
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            changes="$(git diff origin/$defaultBranchName)"
-            if [[ $changes != "" ]]; then
-              gh pr review $BRANCH --approve
-              echo "Pull request was approved"
-              gh pr merge $BRANCH -s --auto -t "New translations"
-              echo "Pull request was merged"
-            else
-              gh pr close -d $BRANCH
-              echo "No changes"
-            fi
-          else
-            echo "No pull request"
-          fi
-        env:
-          GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
-          BRANCH: ${{steps.info.outputs.branch-name}}
+      # - name: Set Loc bot config details
+      #   run: |
+      #     git config --global user.name $APPROVE_BOT_NAME
+      #     git config --global user.email $APPROVE_BOT_EMAIL
+      # - name: Approve pull request
+      #   run: |
+      #     pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
+      #     if [[ $pullRequestNumber != "[]" ]]; then
+      #       defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+      #       changes="$(git diff origin/$defaultBranchName)"
+      #       if [[ $changes != "" ]]; then
+      #         gh pr review $BRANCH --approve
+      #         echo "Pull request was approved"
+      #         gh pr merge $BRANCH -s --auto -t "New translations"
+      #         echo "Pull request was merged"
+      #       else
+      #         gh pr close -d $BRANCH
+      #         echo "No changes"
+      #       fi
+      #     else
+      #       echo "No pull request"
+      #     fi
+      #   env:
+      #     GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
+      #     BRANCH: ${{steps.info.outputs.branch-name}}
   update_other_localizations:
     environment: update localizations
     runs-on: ubuntu-latest
@@ -110,8 +110,8 @@ jobs:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
       GH_TOKEN: ${{secrets.LOC_TOKEN}}
-      APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
+      # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
+      # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -205,38 +205,38 @@ jobs:
         env:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
           PR_NAME: ${{needs.update_en_localization.outputs.pr-name}}
-      - name: Set Loc bot config details
-        run: |
-          git config --global user.name $APPROVE_BOT_NAME
-          git config --global user.email $APPROVE_BOT_EMAIL
-      - name: Approve pull requests
-        continue-on-error: true
-        run: |
-          mainFolder=$PWD
-          for folder in visuals/*; do
-            repoName=$(echo $folder| cut -d'/' -f 2)
-            echo "::group::Approve and merge to $repoName"  
-              cd "$mainFolder/$folder"
-              pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
-              if [[ $pullRequestNumber == "[]" ]]; then
-                echo "No pull request for $repoName"
-                continue
-              fi
-              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              if git show-ref --quiet refs/heads/dev; then 
-                originalBranchName=dev 
-              fi
-              changes="$(git diff origin/$originalBranchName)"
-              if [[ $changes == "" ]]; then
-                gh pr close -d $BRANCH
-                echo "No changes for $repoName"
-                continue
-              fi
-              gh pr review $BRANCH --approve || echo "Can't approve Pull Request to $repoName"
-              gh pr merge $BRANCH -s --auto -t "New translations" && 
-              echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
-            echo "::endgroup::"
-          done;
-        env:
-          GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
-          BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
+      # - name: Set Loc bot config details
+      #   run: |
+      #     git config --global user.name $APPROVE_BOT_NAME
+      #     git config --global user.email $APPROVE_BOT_EMAIL
+      # - name: Approve pull requests
+      #   continue-on-error: true
+      #   run: |
+      #     mainFolder=$PWD
+      #     for folder in visuals/*; do
+      #       repoName=$(echo $folder| cut -d'/' -f 2)
+      #       echo "::group::Approve and merge to $repoName"  
+      #         cd "$mainFolder/$folder"
+      #         pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
+      #         if [[ $pullRequestNumber == "[]" ]]; then
+      #           echo "No pull request for $repoName"
+      #           continue
+      #         fi
+      #         originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+      #         if git show-ref --quiet refs/heads/dev; then 
+      #           originalBranchName=dev 
+      #         fi
+      #         changes="$(git diff origin/$originalBranchName)"
+      #         if [[ $changes == "" ]]; then
+      #           gh pr close -d $BRANCH
+      #           echo "No changes for $repoName"
+      #           continue
+      #         fi
+      #         gh pr review $BRANCH --approve || echo "Can't approve Pull Request to $repoName"
+      #         gh pr merge $BRANCH -s --auto -t "New translations" && 
+      #         echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
+      #       echo "::endgroup::"
+      #     done;
+      #   env:
+      #     GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
+      #     BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
