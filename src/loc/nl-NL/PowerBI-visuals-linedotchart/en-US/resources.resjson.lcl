@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Linedotchart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The LineDot chart is an animated line chart with fun animated dots.]A;Use the LineDot chart to engage your audience when presenting data. The size of the bubbles can be customized based on data.]A;Use the counter to show a running total as the chart animates. Format options are provided for Lines, Dots, and Animation.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-linedotchart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Het LineDot-diagram is een lijndiagram met grappige animaties van punten.]A;U kunt met het LineDot-diagram goed de aandacht van uw publiek trekken wanneer u gegevens presenteert. De grootte van de bellen kan worden aangepast op basis van de gegevens.]A;Gebruik de teller om een actief totaal weer te geven terwijl de animatie van het diagram wordt weergegeven. Er zijn opmaakopties beschikbaar voor de lijnen, punten en animatie.]A;Dit is een open source visual. U kunt de code op GitHub ophalen: https://github.com/Microsoft/powerbi-visuals-linedotchart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Linedotchart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Animated line chart with fun animated dots. Useful for engaging an audience with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Een lijndiagram waarin de punten worden weergegeven in een grappige animatie. Hiermee kunt u gegevens goed onder de aandacht brengen bij een publiek]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animated" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animated]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Animation]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Animatie]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_AxisProperties" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Axes properties]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Eigenschappen van assen]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -123,6 +96,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_InnerColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Inner color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Binnenste kleur]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Line" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Line]]></Val>
@@ -159,6 +141,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_PlayButton" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Play button]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Afspeelknop]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -173,6 +164,24 @@
           <Val><![CDATA[Stop on load]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Bij het laden stoppen]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pennenstreek]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Streekdikte]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

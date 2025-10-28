@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Dotplot_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles.]A;The dot plot as a representation of a distribution consists of group of data points plotted on a simple scale. Dot plots are used for continuous, quantitative, univariate data. Data points may be labelled if there are few of them.]A;Dot plots are one of the simplest statistical plots, and are suitable for small to moderate sized data sets. They are useful for highlighting clusters and gaps, as well as outliers. Their other advantage is the conservation of numerical information.]A;The X axis, data point colors, and data labels are customizeable.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Sơ đồ điểm hoặc biểu đồ điểm là một dạng biểu đồ thống kê gồm các điểm dữ liệu được biểu diễn theo một tỷ lệ rất đơn giản, chủ yếu là sử dụng hình thức tô kín các đường tròn.]A;Biểu đồ chấm chính là một dạng thức biểu diễn dưới dạng phân bố gồm có các điểm dữ liệu được vẽ theo một tỷ lệ đơn giản. Biểu đồ điểm được sử dụng cho kiểu dữ liệu bất biến, định lượng và liên tục. Các điểm dữ liệu có thể được gắn nhãn nếu chỉ có một vài điểm dữ liệu.]A;Biểu đồ điểm là một trong các loại biểu đồ thống kê đơn gian nhất và thích hợp cho các tập dữ liệu có kích thước nhỏ đến trung bình. Loại biểu đồ này vô cùng hữu ích trong việc phân biệt rõ các nhóm và khoảng cách cũng như giá trị ngoại lệ. Ưu điểm khác của loại biều đồ này đó là khả năng bảo toàn thông tin dạng số.]A;Bạn có thể tùy chỉnh được trục x, màu sắc các điểm dữ liệu cũng như nhãn dữ liệu.]A;Đây là hình ảnh nguồn mở. Nhận mã từ GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Dotplot_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Show the distribution of frequencies in a great looking way]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Hiển thị việc phân bổ tần suất theo cách dễ nhìn]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Màu]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Màu dữ liệu]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,6 +119,15 @@
           <Val><![CDATA[Fill]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Điền]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Phông chữ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

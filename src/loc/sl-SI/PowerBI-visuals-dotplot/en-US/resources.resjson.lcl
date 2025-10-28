@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Dotplot_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles.]A;The dot plot as a representation of a distribution consists of group of data points plotted on a simple scale. Dot plots are used for continuous, quantitative, univariate data. Data points may be labelled if there are few of them.]A;Dot plots are one of the simplest statistical plots, and are suitable for small to moderate sized data sets. They are useful for highlighting clusters and gaps, as well as outliers. Their other advantage is the conservation of numerical information.]A;The X axis, data point colors, and data labels are customizeable.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Točkovni grafikon ali izris s pikami je grafikon s statističnimi podatki, ki vključuje podatkovne točke. Te so razporejene na podlagi dokaj preprostega merila in so običajno prikazane s polnimi krogi.]A;Izris s pikami, kot predstavitev razporeditve, je sestavljen iz skupine podatkovnih točk, ki so razporejene na preprostem merilu. Izrisi s pikami se uporabljajo za neprekinjene, kvantitativne, preproste podatke. Če je podatkovnih točk malo, so lahko te označene.]A;Izrisi s pikami so eden najpreprostejših statističnih izrisov in so primerni za majhne in srednje velike nabore podatkov. Uporabni so za označevanje gruč in vrzeli ter osamelcev. Njihova prednost je tudi to, da ohranijo številske podatke.]A;Os X, barve podatkovnih točk in oznake podatkov lahko prilagajate.]A;To je odprtokodna ponazoritev. Kodo lahko pridobite na spletnem mestu storitve GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Dotplot_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Show the distribution of frequencies in a great looking way]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pokažite porazdelitev pogostosti na vizualno privlačen način]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Barva]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Barve podatkov]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,6 +119,15 @@
           <Val><![CDATA[Fill]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Zapolni]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pisava]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

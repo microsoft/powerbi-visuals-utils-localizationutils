@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Dotplot_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles.]A;The dot plot as a representation of a distribution consists of group of data points plotted on a simple scale. Dot plots are used for continuous, quantitative, univariate data. Data points may be labelled if there are few of them.]A;Dot plots are one of the simplest statistical plots, and are suitable for small to moderate sized data sets. They are useful for highlighting clusters and gaps, as well as outliers. Their other advantage is the conservation of numerical information.]A;The X axis, data point colors, and data labels are customizeable.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Un gràfic o diagrama de punts és un gràfic estadístic que consisteix en punts de dades traçats en una escala força senzilla, normalment mitjançant cercles emplenats.]A;El diagrama de punts, com a representació d'una distribució, consisteix en un grup de punts de dades traçats en una escala senzilla. Els diagrames de punts es fan servir per a les dades contínues, quantitatives i univariants. És possible que els punts de dades presentin etiquetes, en cas que n'hi hagi pocs.]A;Els diagrames de punts són un dels tipus de diagrames estadístics més senzills i estan pensats per als conjunts de dades de mida petita o moderada. Són útils per destacar les agrupacions i els buits, així com els valors atípics. L'altre avantatge que presenten és la conservació de la informació numèrica.]A;L'eix X, els colors dels punts i les etiquetes de les dades es poden personalitzar.]A;Aquest element visual d'origen és de codi obert. Podeu obtenir el codi al GitHub, a https://github.com/Microsoft/powerbi-visuals-dotplot.]A;]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Dotplot_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Show the distribution of frequencies in a great looking way]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mostra la distribució de les freqüències en un disseny genial.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Color]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Colors de dades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,6 +119,15 @@
           <Val><![CDATA[Fill]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Emplena]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tipus de lletra]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

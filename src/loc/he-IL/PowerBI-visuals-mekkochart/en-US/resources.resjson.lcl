@@ -762,6 +762,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_LegendName" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Visual legend Name]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[שם מקרא חזותי]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Since it captures two dimensions in one chart, you can quickly spot the large segments as well the ones that are underrepresented in one quick glance. You can either use the same measure for the column height and width or use different ones depending on your need.]A;Similar to a treemap, the dimensional values are represented by the length and width of each rectangle. The width of a column is proportional to the total value of the column.]A;Segmentation and Pattern analysis are a big part of business analysis and with traditional charts you need to piece multiple individual items together in your mental map to draw conclusions. For dealing with such complex business analysis involving multiple variables/dimensions, the iconic marimekko design is very appealing and the Mekko chart makes it super easy to achieve this in Power BI.]A;The Mekko chart visual also allows you to control the legends, data colors, and data labels for a truly customized presentation.]]></Val>
@@ -972,6 +981,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_X_Axis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Visual X axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ציר X חזותי]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Y" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Y]]></Val>
@@ -986,6 +1004,24 @@
           <Val><![CDATA[Y-Axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ציר Y]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Y_Axis" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Visual Y axis]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ציר Y חזותי]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Y_Axis_Tick_Text" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Visual Y axis tick]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[סימן ציר Y חזותי]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

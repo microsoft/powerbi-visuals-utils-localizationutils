@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Dotplot_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles.]A;The dot plot as a representation of a distribution consists of group of data points plotted on a simple scale. Dot plots are used for continuous, quantitative, univariate data. Data points may be labelled if there are few of them.]A;Dot plots are one of the simplest statistical plots, and are suitable for small to moderate sized data sets. They are useful for highlighting clusters and gaps, as well as outliers. Their other advantage is the conservation of numerical information.]A;The X axis, data point colors, and data labels are customizeable.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Bodový graf je štatistický graf pozostávajúci z údajových bodov vykreslených na pomerne jednoduchej mierke, zvyčajne pomocou vyplnených kruhov.]A;Bodový graf ako reprezentácia distribúcie pozostáva zo skupiny údajových bodov vykreslených na jednoduchej mierke. Bodové grafy sa používajú pre nepretržité kvantitatívne jednorozmerné údaje. Keď je údajových bodov málo, môžu byť označené.]A;Bodové grafy patria medzi najjednoduchšie štatistické grafy a sú vhodné pre malé až stredne veľké množiny údajov. Sú užitočné na zvýraznenie klastrov a medzier, ako aj mimoriadnych hodnôt. Ich ďalšou výhodou je zachovanie číselných informácií.]A;Os X, farby údajových bodov a označenia údajov sú prispôsobiteľné.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/powerbi-visuals-dotplot]A;]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Dotplot_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Show the distribution of frequencies in a great looking way]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Zobrazí distribúciu frekvencií vizuálne pútavým spôsobom]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Category" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Category]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Farba]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Farby údajov]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,6 +119,15 @@
           <Val><![CDATA[Fill]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Vyplniť]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Font]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Písmo]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

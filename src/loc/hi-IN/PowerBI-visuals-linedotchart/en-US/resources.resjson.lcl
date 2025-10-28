@@ -15,24 +15,6 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Item ItemId=";Strings" ItemType="0" PsrId="306" Leaf="false">
       <Disp Icon="Str" Disp="true" LocTbl="false" />
-      <Item ItemId=";Linedotchart_Long_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The LineDot chart is an animated line chart with fun animated dots.]A;Use the LineDot chart to engage your audience when presenting data. The size of the bubbles can be customized based on data.]A;Use the counter to show a running total as the chart animates. Format options are provided for Lines, Dots, and Animation.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/powerbi-visuals-linedotchart]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[LineDot चार्ट फ़न एनिमेटेड डॉट्स युक्त एक ऐनिमेटेड लाइन चार्ट होता है.]A;LineDot चार्ट का उपयोग डेटा प्रस्तुत करते समय अपनी ऑडिएंस को संबद्ध करने के लिए करें. डेटा के आधार पर बुलबुलों का आकार अनुकूलित किया जा सकता है.]A;किसी रनिंग टोटल को चार्ट एनिमेट्स के रूप में दिखाने के लिए काउंटर का उपयोग करें. फ़ॉर्मैट विकल्प लाइन्स, डॉट्स और ऐनिमेशन के लिए प्रदान किए जाते हैं.]A;यह एक ओपन सोर्स विज़ुअल है. GitHub से कोड प्राप्त करें: https://github.com/Microsoft/powerbi-visuals-linedotchart]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Linedotchart_Short_Description" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Animated line chart with fun animated dots. Useful for engaging an audience with data]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[फ़न एनिमेटेड डॉट्स युक्त एक ऐनिमेटेड लाइन चार्ट. डेटा के साथ ऑडिएंस को संबद्ध करने में उपयोगी]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_Animated" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Animated]]></Val>
@@ -47,15 +29,6 @@
           <Val><![CDATA[Animation]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[ऐनिमेशन]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_AxisProperties" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Axes properties]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[अक्ष गुण]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -123,6 +96,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_InnerColor" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Inner color]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[आंतरिक रंग]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Line" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Line]]></Val>
@@ -159,6 +141,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_PlayButton" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Play button]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[चलाएँ बटन]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Show" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Show]]></Val>
@@ -173,6 +164,24 @@
           <Val><![CDATA[Stop on load]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[लोड पर रोक]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Stroke" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[स्ट्रोक]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StrokeWidth" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Stroke width]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[स्ट्रोक की चौड़ाई]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
