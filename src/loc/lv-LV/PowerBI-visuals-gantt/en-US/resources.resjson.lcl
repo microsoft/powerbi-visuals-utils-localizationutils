@@ -582,6 +582,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_EmptyLabelText" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Empty label text]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tukšs etiķetes teksts]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Enable_Background" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Enable background]]></Val>
@@ -710,9 +719,21 @@
       </Item>
       <Item ItemId=";Visual_KeepSettingsOnFiltering" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Keep milestone settings on filtering in edit mode]]></Val>
+          <Val><![CDATA[Lock settings on filtering]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Saglabāt atskaites punkta iestatījumus, filtrējot rediģēšanas režīmā]]></Val>
+            <Val><![CDATA[Bloķēt iestatījumus filtrēšanai]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Keep milestone settings on filtering in edit mode]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_KeepSettingsOnFiltering_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Current milestone settings will remain unchanged when filters are applied]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Lietojot filtrus, pašreizējie atskaites punkta iestatījumi paliks nemainīgi]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1071,9 +1092,6 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Atspējots, jo trūkst resursu datu]]></Val>
           </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Top Center]]></Val>
-          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
