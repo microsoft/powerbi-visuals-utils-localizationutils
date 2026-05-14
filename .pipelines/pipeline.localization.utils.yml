@@ -82,26 +82,30 @@ stages:
         env:
           GH_TOKEN: $(LOC_BOT_PAT)
       - powershell: |
-          if (git diff-index --quiet HEAD --) {
-            Write-Host "No changes to commit"
+          git add localizations
+
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "No localization changes to commit"
             exit 0
-          } else {
-            Write-Host "Changes detected, proceeding with commit"
-            git add localizations/*
-            git commit -m "Update localizations"
-            
-            git remote set-url origin https://$(LOC_BOT_PAT)@github.com/microsoft/powerbi-visuals-utils-localizationutils.git
-            
-            git push origin $(branchName)
-            
-            gh pr create `
-              --base $(branchRef) `
-              --title "Update localizations $(Get-Date -Format 'yyyy-MM-dd')" `
-              --body "Automated PR to update localizations"
-            
-            if ($LASTEXITCODE -ne 0) {
-              Write-Host "Failed to create PR, it might already exist"
-            }
+          }
+
+          Write-Host "Changes detected in localizations/, proceeding with commit"
+          git commit -m "Update localizations"
+          if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
+
+          git remote set-url origin https://$(LOC_BOT_PAT)@github.com/microsoft/powerbi-visuals-utils-localizationutils.git
+
+          git push origin $(branchName)
+          if ($LASTEXITCODE -ne 0) { throw "git push failed" }
+
+          gh pr create `
+            --base $(branchRef) `
+            --title "Update localizations $(Get-Date -Format 'yyyy-MM-dd')" `
+            --body "Automated PR to update localizations"
+
+          if ($LASTEXITCODE -ne 0) {
+            Write-Host "Failed to create PR, it might already exist"
           }
         displayName: 'Process and Push Localizations'
         continueOnError: true
