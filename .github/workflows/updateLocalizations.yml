@@ -61,6 +61,22 @@ jobs:
             test -f $newLocation || mkdir -p ${newLocation%resources.resjson*}
             cp $file $newLocation;
           done;
+      - name: Delete old Pull Requests
+        run: |
+          matching_prs=$(gh pr list --repo "$REPO_OWNER/$REPO_NAME" -A "@me" --state open --json number,headRefName \
+              --jq ".[] | select(.headRefName | test(\"$BRANCH_PATTERN\")) | .number")
+          if [ -z "$matching_prs" ]; then
+              echo "No open pull requests matching the branch pattern \"$BRANCH_PATTERN\"."
+          else
+              for pr in $matching_prs; do
+                  gh pr close "$pr" --repo "$REPO_OWNER/$REPO_NAME" --delete-branch || \
+                    echo "Can't close Pull Request #$pr in $REPO_NAME, check an access"
+              done
+          fi
+        env:
+          BRANCH_PATTERN: '${{ env.BRANCH_PATTERN }}_.*'
+          REPO_OWNER: 'microsoft'
+          REPO_NAME: 'powerbi-visuals-utils-localizationutils'
       - name: Commit and push changes
         run: |
           changes="$(git diff)"
