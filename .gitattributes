@@ -1,0 +1,15 @@
+# Normalize line endings ONLY for files that participate in the daily
+# loc-PR feedback loop between:
+#   1) .github/workflows/updateLocalizations.yml   (Ubuntu, writes LF)
+#   2) .pipelines/pipeline.localization.utils.yml  (Windows + OneLocBuild, writes CRLF)
+#
+# Without this, the two pipelines re-flip each other's line endings every day
+# and open a "New translations" PR with no real content changes.
+#
+# LF chosen because the upstream source of truth (each visual's submodule
+# stringResources/en-US/resources.resjson) is LF, and 3 of the 4 writers
+# already produce LF. Git on the Windows OneLocBuild agent will normalize
+# CRLF -> LF at `git add` time regardless of core.autocrlf, so no pipeline
+# code changes are needed.
+
+localizations/**/*.resjson text eol=lf
