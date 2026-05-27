@@ -79,17 +79,16 @@ jobs:
           REPO_NAME: 'powerbi-visuals-utils-localizationutils'
       - name: Commit and push changes
         run: |
-          changes="$(git diff)"
-          if [[ $changes != "" ]]; then
-            defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-            git add . && \
-              git commit -S -m "New translations" && \
-              git push --set-upstream origin $BRANCH && \
-              gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
-              echo "New pull request to $repoName wasn't created"
-          else
-            echo "No changes"
+          git add localizations
+          if git diff --cached --quiet; then
+            echo "No localization changes to commit"
+            exit 0
           fi
+          defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+          git commit -S -m "New translations" && \
+            git push --set-upstream origin $BRANCH && \
+            gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
+            echo "New pull request wasn't created"
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
           BRANCH: ${{steps.info.outputs.branch-name}}
@@ -202,6 +201,14 @@ jobs:
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
+              changedFiles="$(git diff --name-only)"
+              if [[ $changedFiles != "" ]]; then
+                while IFS= read -r filePath; do
+                  if git diff --ignore-cr-at-eol --quiet -- "$filePath"; then
+                    git checkout -- "$filePath"
+                  fi
+                done <<< "$changedFiles"
+              fi
               changes="$(git status --short)"
               if [[ $changes == "" ]]; then
                 echo "No changes for $repoName"
