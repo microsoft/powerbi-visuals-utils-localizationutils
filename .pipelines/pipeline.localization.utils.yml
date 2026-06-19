@@ -48,9 +48,20 @@ stages:
           RunAsPreJob: false
         displayName: 'Fetch GPG signing key from Key Vault'
       - powershell: |
-          # Import the bot's private GPG signing key (passphrase-less) and enable signing
-          $env:GPG_KEY | gpg --batch --import
-          if ($LASTEXITCODE -ne 0) { throw "Failed to import GPG key" }
+          # Import the bot's private GPG signing key (passphrase-less) and enable signing.
+          # The secret is stored base64-encoded to survive newline handling through Key Vault
+          # and the pipeline variable system; decode it to a binary-safe file before importing.
+          $keyPath = Join-Path $env:AGENT_TEMPDIRECTORY "pbicvloc-signing-key.asc"
+          try {
+            [IO.File]::WriteAllBytes($keyPath, [Convert]::FromBase64String($env:GPG_KEY))
+          } catch {
+            throw "Secret is not valid base64. Re-store the GPG private key base64-encoded in Key Vault."
+          }
+
+          gpg --batch --import $keyPath
+          $importExit = $LASTEXITCODE
+          Remove-Item $keyPath -Force -ErrorAction SilentlyContinue
+          if ($importExit -ne 0) { throw "Failed to import GPG key" }
 
           $keyId = gpg --list-secret-keys --with-colons | Select-String '^sec' | ForEach-Object { ($_ -split ':')[4] } | Select-Object -First 1
           if (-not $keyId) { throw "No GPG secret key found after import" }
