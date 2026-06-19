@@ -40,6 +40,28 @@ stages:
           git config --global core.autocrlf false
           git checkout -b $(branchName)
         displayName: 'Configure Git'
+      - task: AzureKeyVault@2
+        inputs:
+          azureSubscription: 'CustomVisualsASPManagedIdentity'
+          KeyVaultName: 'CustomVisualsKeyVault'
+          SecretsFilter: 'pbicvloc-gpg-azure-devops-private-key'
+          RunAsPreJob: false
+        displayName: 'Fetch GPG signing key from Key Vault'
+      - powershell: |
+          # Import the bot's private GPG signing key (passphrase-less) and enable signing
+          $env:GPG_KEY | gpg --batch --import
+          if ($LASTEXITCODE -ne 0) { throw "Failed to import GPG key" }
+
+          $keyId = gpg --list-secret-keys --with-colons | Select-String '^sec' | ForEach-Object { ($_ -split ':')[4] } | Select-Object -First 1
+          if (-not $keyId) { throw "No GPG secret key found after import" }
+          Write-Host "Imported signing key: $keyId"
+
+          git config --global user.signingkey $keyId
+          git config --global commit.gpgsign true
+          git config --global gpg.program gpg
+        displayName: 'Import GPG signing key'
+        env:
+          GPG_KEY: $(pbicvloc-gpg-azure-devops-private-key)
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
@@ -91,7 +113,7 @@ stages:
           }
 
           Write-Host "Changes detected in localizations/, proceeding with commit"
-          git commit -m "Update localizations"
+          git commit -S -m "Update localizations"
           if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
 
           git remote set-url origin https://$(LOC_BOT_PAT)@github.com/microsoft/powerbi-visuals-utils-localizationutils.git
