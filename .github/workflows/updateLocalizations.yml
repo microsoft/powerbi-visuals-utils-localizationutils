@@ -46,9 +46,7 @@ jobs:
           for folder in visuals/*; do
             git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
           done;
-          echo "::group::Fetch dev branch" 
-            git submodule foreach --recursive 'git fetch; git checkout dev || echo "No dev branch in $name"'
-          echo "::endgroup::"
+          git submodule foreach --recursive 'git fetch'
         env:
           BRANCH: ${{steps.info.outputs.branch-name}}
       - name: Copy EN translation
@@ -152,12 +150,7 @@ jobs:
           for folder in visuals/*; do
             git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
           done;
-          echo "::group::Fetch dev branch" 
-            git submodule foreach --recursive '\
-              git fetch; \
-              git checkout dev || echo "No dev branch in $name"; \
-              git checkout -b $BRANCH'
-          echo "::endgroup::"
+          git submodule foreach --recursive 'git fetch; git checkout -b $BRANCH'
         env:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
       - name: Copy translations to submodules
@@ -215,9 +208,6 @@ jobs:
                 continue
               fi
               originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              if git show-ref --quiet refs/heads/dev; then 
-                originalBranchName=dev 
-              fi
               git add . &&
               git commit -S -m "New translations" &&
               git push --set-upstream origin $BRANCH &&
