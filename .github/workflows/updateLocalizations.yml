@@ -8,7 +8,6 @@ jobs:
     env:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      GH_TOKEN: ${{secrets.LOC_TOKEN}}
       # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     outputs:
@@ -20,9 +19,16 @@ jobs:
         run: |
           echo "branch-name=$(date +"${{ env.BRANCH_PATTERN }}_%F_%H-%M-%S")" >> $GITHUB_OUTPUT
           echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.LOC_APP_ID }}
+          private-key: ${{ secrets.LOC_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
       - uses: actions/checkout@v4
         with:
-          token: ${{secrets.LOC_TOKEN}}
+          token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           persist-credentials: true
       - name: Set Loc bot config details
@@ -75,6 +81,7 @@ jobs:
           BRANCH_PATTERN: '${{ env.BRANCH_PATTERN }}_.*'
           REPO_OWNER: 'microsoft'
           REPO_NAME: 'powerbi-visuals-utils-localizationutils'
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Commit and push changes
         run: |
           git add localizations
@@ -90,6 +97,7 @@ jobs:
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
           BRANCH: ${{steps.info.outputs.branch-name}}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
       # - name: Set Loc bot config details
       #   run: |
       #     git config --global user.name $APPROVE_BOT_NAME
@@ -122,13 +130,21 @@ jobs:
     env:
       LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
       LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      GH_TOKEN: ${{secrets.LOC_TOKEN}}
       # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
       # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.LOC_APP_ID }}
+          private-key: ${{ secrets.LOC_APP_PRIVATE_KEY }}
+          # Omit `repositories` so the token has access to every repo in the org
+          # where the App is installed (localizationutils + every powerbi-visuals-* submodule).
+          owner: ${{ github.repository_owner }}
       - uses: actions/checkout@v4
         with:
-          token: ${{secrets.LOC_TOKEN}}
+          token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           persist-credentials: true
       - name: Set Loc bot config details
@@ -187,6 +203,7 @@ jobs:
         env:
           BRANCH_PATTERN: '${{ env.BRANCH_PATTERN }}_.*'
           REPO_OWNER: 'microsoft'
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Commit and push new changes to submodules
         run: |
           mainFolder=$PWD
@@ -218,6 +235,7 @@ jobs:
         env:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
           PR_NAME: ${{needs.update_en_localization.outputs.pr-name}}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
       # - name: Set Loc bot config details
       #   run: |
       #     git config --global user.name $APPROVE_BOT_NAME
