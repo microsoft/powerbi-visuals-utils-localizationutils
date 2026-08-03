@@ -104,7 +104,8 @@ $installation = Invoke-RestMethod -Method Get -Headers $apiHeaders `
 
 $tokenResp = Invoke-RestMethod -Method Post -Headers $apiHeaders `
     -Uri "https://api.github.com/app/installations/$($installation.id)/access_tokens"
-
+  
 # --- Publish as a masked pipeline variable -------------------------------
 Write-Host "##vso[task.setvariable variable=$OutputVariableName;isSecret=true;issecret=true]$($tokenResp.token)"
 Write-Host "GitHub App installation token minted for $RepoOwner/$RepoName (expires $($tokenResp.expires_at))"
+
