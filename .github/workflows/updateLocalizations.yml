@@ -1,15 +1,13 @@
 on: 
   workflow_dispatch
 
+env:
+  BRANCH_PATTERN: new_translations
+
 jobs:
   update_en_localization:
     environment: update localizations
     runs-on: ubuntu-latest
-    env:
-      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
-      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     outputs:
       branch-name: ${{steps.info.outputs.branch-name}}
       pr-name: ${{steps.info.outputs.pr-name}}
@@ -31,30 +29,16 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           persist-credentials: true
-      - name: Set Loc bot config details
-        run: |
-          git config --global user.name $LOC_BOT_NAME
-          git config --global user.email $LOC_BOT_EMAIL
-          git config --global core.autocrlf false
-          git config core.longpaths true 
-      - uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{secrets.GPG_TOKEN}}
-          passphrase: ${{secrets.PASS_PHRASE}}
-          git_config_global: true
-          git_user_signingkey: true
-          git_commit_gpgsign: true
+      - name: Configure Git
+        run: git config --global core.autocrlf false
       - name: Update submodules
         run: |
-          git checkout -b $BRANCH
           git submodule init
           git submodule update --remote --recursive
           for folder in visuals/*; do
             git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
           done;
           git submodule foreach --recursive 'git fetch'
-        env:
-          BRANCH: ${{steps.info.outputs.branch-name}}
       - name: Copy EN translation
         run: |
           for file in ./visuals/*/stringResources/en-US/resources.resjson; do 
@@ -82,56 +66,31 @@ jobs:
           REPO_OWNER: 'microsoft'
           REPO_NAME: 'powerbi-visuals-utils-localizationutils'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-      - name: Commit and push changes
+      - name: Commit and open Pull Request
         run: |
-          git add localizations
-          if git diff --cached --quiet; then
+          rc=0
+          pwsh scripts/create-signed-commit.ps1 \
+            -Repo "$REPO_OWNER/$REPO_NAME" -Branch "$BRANCH" -Message "New translations" -PathSpec localizations || rc=$?
+          if [ $rc -eq 3 ]; then
             echo "No localization changes to commit"
             exit 0
+          elif [ $rc -ne 0 ]; then
+            exit $rc
           fi
-          defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-          git commit -S -m "New translations" && \
-            git push --set-upstream origin $BRANCH && \
-            gh pr create -B $defaultBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
+          defaultBranchName=$(gh api "repos/$REPO_OWNER/$REPO_NAME" --jq .default_branch)
+          gh pr create --repo "$REPO_OWNER/$REPO_NAME" --head "$BRANCH" --base "$defaultBranchName" \
+            -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
             echo "New pull request wasn't created"
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
           BRANCH: ${{steps.info.outputs.branch-name}}
+          REPO_OWNER: 'microsoft'
+          REPO_NAME: 'powerbi-visuals-utils-localizationutils'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-      # - name: Set Loc bot config details
-      #   run: |
-      #     git config --global user.name $APPROVE_BOT_NAME
-      #     git config --global user.email $APPROVE_BOT_EMAIL
-      # - name: Approve pull request
-      #   run: |
-      #     pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
-      #     if [[ $pullRequestNumber != "[]" ]]; then
-      #       defaultBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-      #       changes="$(git diff origin/$defaultBranchName)"
-      #       if [[ $changes != "" ]]; then
-      #         gh pr review $BRANCH --approve
-      #         echo "Pull request was approved"
-      #         gh pr merge $BRANCH -s --auto -t "New translations"
-      #         echo "Pull request was merged"
-      #       else
-      #         gh pr close -d $BRANCH
-      #         echo "No changes"
-      #       fi
-      #     else
-      #       echo "No pull request"
-      #     fi
-      #   env:
-      #     GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
-      #     BRANCH: ${{steps.info.outputs.branch-name}}
   update_other_localizations:
     environment: update localizations
     runs-on: ubuntu-latest
     needs: update_en_localization
-    env:
-      LOC_BOT_NAME: ${{secrets.LOC_BOT_NAME}}
-      LOC_BOT_EMAIL: ${{secrets.LOC_BOT_EMAIL}}
-      # APPROVE_BOT_NAME: ${{secrets.APPROVE_BOT_NAME}}
-      # APPROVE_BOT_EMAIL: ${{secrets.APPROVE_BOT_EMAIL}}
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -147,18 +106,8 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           persist-credentials: true
-      - name: Set Loc bot config details
-        run: |
-          git config --global user.name $LOC_BOT_NAME
-          git config --global user.email $LOC_BOT_EMAIL
-          git config --global core.autocrlf false
-      - uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{secrets.GPG_TOKEN}}
-          passphrase: ${{secrets.PASS_PHRASE}}
-          git_config_global: true
-          git_user_signingkey: true
-          git_commit_gpgsign: true
+      - name: Configure Git
+        run: git config --global core.autocrlf false
       - name: Update submodules
         run: |
           git pull --recurse-submodules
@@ -166,9 +115,7 @@ jobs:
           for folder in visuals/*; do
             git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
           done;
-          git submodule foreach --recursive 'git fetch; git checkout -b $BRANCH'
-        env:
-          BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
+          git submodule foreach --recursive 'git fetch'
       - name: Copy translations to submodules
         run: |
           for visualPath in ./localizations/*; do 
@@ -204,7 +151,7 @@ jobs:
           BRANCH_PATTERN: '${{ env.BRANCH_PATTERN }}_.*'
           REPO_OWNER: 'microsoft'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-      - name: Commit and push new changes to submodules
+      - name: Commit and open Pull Requests in submodules
         run: |
           mainFolder=$PWD
           for folder in visuals/*; do
@@ -219,55 +166,23 @@ jobs:
                   fi
                 done <<< "$changedFiles"
               fi
-              changes="$(git status --short)"
-              if [[ $changes == "" ]]; then
-                echo "No changes for $repoName"
-                continue
-              fi
               originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              git add . &&
-              git commit -S -m "New translations" &&
-              git push --set-upstream origin $BRANCH &&
-              gh pr create -B $originalBranchName -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
-              echo "New pull request to $repoName wasn't created"
+              rc=0
+              pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
+                -Repo "$REPO_OWNER/$repoName" -Branch "$BRANCH" -Message "New translations" || rc=$?
+              if [ $rc -eq 3 ]; then
+                echo "No changes for $repoName"
+              elif [ $rc -ne 0 ]; then
+                echo "Couldn't create a commit in $repoName, check an access"
+              else
+                gh pr create --repo "$REPO_OWNER/$repoName" --head "$BRANCH" --base "$originalBranchName" \
+                  -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
+                  echo "New pull request to $repoName wasn't created"
+              fi
             echo "::endgroup::"
           done;
         env:
           BRANCH: ${{needs.update_en_localization.outputs.branch-name}}
           PR_NAME: ${{needs.update_en_localization.outputs.pr-name}}
+          REPO_OWNER: 'microsoft'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-      # - name: Set Loc bot config details
-      #   run: |
-      #     git config --global user.name $APPROVE_BOT_NAME
-      #     git config --global user.email $APPROVE_BOT_EMAIL
-      # - name: Approve pull requests
-      #   continue-on-error: true
-      #   run: |
-      #     mainFolder=$PWD
-      #     for folder in visuals/*; do
-      #       repoName=$(echo $folder| cut -d'/' -f 2)
-      #       echo "::group::Approve and merge to $repoName"  
-      #         cd "$mainFolder/$folder"
-      #         pullRequestNumber=$(gh pr list --state=open --head=$BRANCH --json number)
-      #         if [[ $pullRequestNumber == "[]" ]]; then
-      #           echo "No pull request for $repoName"
-      #           continue
-      #         fi
-      #         originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-      #         if git show-ref --quiet refs/heads/dev; then 
-      #           originalBranchName=dev 
-      #         fi
-      #         changes="$(git diff origin/$originalBranchName)"
-      #         if [[ $changes == "" ]]; then
-      #           gh pr close -d $BRANCH
-      #           echo "No changes for $repoName"
-      #           continue
-      #         fi
-      #         gh pr review $BRANCH --approve || echo "Can't approve Pull Request to $repoName"
-      #         gh pr merge $BRANCH -s --auto -t "New translations" && 
-      #         echo "Pull request to $repoName was merged" || echo "Cann't merge Pull Request to $repoName"
-      #       echo "::endgroup::"
-      #     done;
-      #   env:
-      #     GH_TOKEN: ${{secrets.APPROVE_TOKEN}}
-      #     BRANCH: ${{needs.update_en_localization.outputs.branch-name}}

@@ -96,7 +96,7 @@ $jwt = "$signingInput.$(ConvertTo-Base64Url $sigBytes)"
 $apiHeaders = @{
     Authorization = "Bearer $jwt"
     Accept        = 'application/vnd.github+json'
-    'User-Agent'  = 'pbicvloc-ado-pipeline'
+    'User-Agent'  = 'powerbi-visuals-localization'
 }
 
 $installation = Invoke-RestMethod -Method Get -Headers $apiHeaders `

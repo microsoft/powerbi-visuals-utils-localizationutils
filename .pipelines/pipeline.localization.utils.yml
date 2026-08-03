@@ -7,14 +7,6 @@ variables:
   - name: locBranchNamePrefix
     value: 'parsed_localizations_'
 
-resources:
-  repositories:
-    - repository: powerbi-visuals-utils-localizationutils
-      endpoint: 'pbicvloc-github'
-      type: github
-      name: microsoft/powerbi-visuals-utils-localizationutils
-      ref: refs/heads/$(branchRef)
-
 stages:
 - stage: build
   jobs:
@@ -23,7 +15,7 @@ stages:
       vmImage: 'windows-latest'
 
     steps:
-      - checkout: powerbi-visuals-utils-localizationutils
+      - checkout: self
         persistCredentials: true
       - powershell: |
           $branchName = "$(locBranchNamePrefix)" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
@@ -35,18 +27,15 @@ stages:
           versionSpec: '18.x'
         displayName: 'Install Node.js'
       - script: |
-          git config --global user.name "$(LOC_BOT_NAME)"
-          git config --global user.email "$(LOC_BOT_EMAIL)"
           git config --global core.autocrlf false
-          git checkout -b $(branchName)
         displayName: 'Configure Git'
       - task: AzureKeyVault@2
         inputs:
           azureSubscription: 'CustomVisualsASPManagedIdentity'
           KeyVaultName: 'CustomVisualsKeyVault'
-          SecretsFilter: 'pbicvloc-gpg-azure-devops-private-key,LOC-APP-ID,LOC-APP-PRIVATE-KEY'
+          SecretsFilter: 'LOC-APP-ID,LOC-APP-PRIVATE-KEY'
           RunAsPreJob: false
-        displayName: 'Fetch GPG signing key and GitHub App credentials from Key Vault'
+        displayName: 'Fetch GitHub App credentials from Key Vault'
       - task: PowerShell@2
         displayName: 'Generate GitHub App Access Token'
         name: getGitHubToken
@@ -61,32 +50,6 @@ stages:
           pwsh: true
         env:
           GITHUB_APP_PRIVATE_KEY: $(LOC-APP-PRIVATE-KEY)
-      - powershell: |
-          # Import the bot's private GPG signing key (passphrase-less) and enable signing.
-          # The secret is stored base64-encoded to survive newline handling through Key Vault
-          # and the pipeline variable system; decode it to a binary-safe file before importing.
-          $keyPath = Join-Path $env:AGENT_TEMPDIRECTORY "pbicvloc-signing-key.asc"
-          try {
-            [IO.File]::WriteAllBytes($keyPath, [Convert]::FromBase64String($env:GPG_KEY))
-          } catch {
-            throw "Secret is not valid base64. Re-store the GPG private key base64-encoded in Key Vault."
-          }
-
-          gpg --batch --import $keyPath
-          $importExit = $LASTEXITCODE
-          Remove-Item $keyPath -Force -ErrorAction SilentlyContinue
-          if ($importExit -ne 0) { throw "Failed to import GPG key" }
-
-          $keyId = gpg --list-secret-keys --with-colons | Select-String '^sec' | ForEach-Object { ($_ -split ':')[4] } | Select-Object -First 1
-          if (-not $keyId) { throw "No GPG secret key found after import" }
-          Write-Host "Imported signing key: $keyId"
-
-          git config --global user.signingkey $keyId
-          git config --global commit.gpgsign true
-          git config --global gpg.program gpg
-        displayName: 'Import GPG signing key'
-        env:
-          GPG_KEY: $(pbicvloc-gpg-azure-devops-private-key)
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
@@ -128,27 +91,26 @@ stages:
         displayName: 'Delete old pull requests'
         env:
           GH_TOKEN: $(LOC_APP_TOKEN)
-      - powershell: |
-          git add localizations
-
-          git diff --cached --quiet
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "No localization changes to commit"
+      - pwsh: |
+          & ./scripts/create-signed-commit.ps1 `
+            -Repo "microsoft/powerbi-visuals-utils-localizationutils" `
+            -Branch "$(branchName)" `
+            -Message "Update localizations" `
+            -PathSpec localizations
+          $rc = $LASTEXITCODE
+          if ($rc -eq 3) {
+            Write-Host "##vso[task.setvariable variable=hasCommit]false"
             exit 0
           }
-
-          Write-Host "Changes detected in localizations/, proceeding with commit"
-          git commit -S -m "Update localizations"
-          if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
-
-          # Authenticate the push and subsequent gh CLI calls with the GitHub App installation token.
-          # x-access-token is the required username for App installation tokens.
-          git remote set-url origin "https://x-access-token:$(LOC_APP_TOKEN)@github.com/microsoft/powerbi-visuals-utils-localizationutils.git"
-
-          git push origin $(branchName)
-          if ($LASTEXITCODE -ne 0) { throw "git push failed" }
-
+          if ($rc -ne 0) { throw "Failed to create commit (exit $rc)" }
+          Write-Host "##vso[task.setvariable variable=hasCommit]true"
+        displayName: 'Commit localizations'
+        env:
+          GH_TOKEN: $(LOC_APP_TOKEN)
+      - powershell: |
           gh pr create `
+            --repo "microsoft/powerbi-visuals-utils-localizationutils" `
+            --head $(branchName) `
             --base $(branchRef) `
             --title "Update localizations $(Get-Date -Format 'yyyy-MM-dd')" `
             --body "Automated PR to update localizations"
@@ -156,13 +118,11 @@ stages:
           if ($LASTEXITCODE -ne 0) {
             Write-Host "Failed to create PR, it might already exist"
           }
-        displayName: 'Process and Push Localizations'
+        displayName: 'Open Pull Request'
+        condition: and(succeeded(), eq(variables['hasCommit'], 'true'))
         continueOnError: true
         env:
           GH_TOKEN: $(LOC_APP_TOKEN)
-          # Suppress any credential prompts during automated git operations.
-          GIT_ASKPASS: echo
-          GIT_TERMINAL_PROMPT: '0'
       - task: PublishPipelineArtifact@1
         inputs:
           targetPath: '$(Build.SourcesDirectory)'
