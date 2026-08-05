@@ -1,0 +1,95 @@
+name: Distribute translations to visuals
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['localizations/**']   # fires once a translation PR (Stage 4) merges
+
+concurrency:
+  group: distribute-translations
+  cancel-in-progress: false
+
+env:
+  BRANCH_PATTERN: new_translations
+
+jobs:
+  update_other_localizations:
+    environment: update localizations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare info
+        id: info
+        run: |
+          echo "branch-name=${{ env.BRANCH_PATTERN }}" >> $GITHUB_OUTPUT
+          echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.LOC_APP_ID }}
+          private-key: ${{ secrets.LOC_APP_PRIVATE_KEY }}
+          # Omit `repositories` so the token has access to every repo in the org
+          # where the App is installed (localizationutils + every powerbi-visuals-* submodule).
+          owner: ${{ github.repository_owner }}
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          submodules: recursive
+          persist-credentials: true
+      - name: Configure Git
+        run: git config --global core.autocrlf false
+      - name: Update submodules
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+          for folder in visuals/*; do
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
+          done;
+          git submodule foreach --recursive 'git fetch'
+      - name: Copy translations to submodules
+        run: |
+          for visualPath in ./localizations/*; do 
+            repoName=$(echo $visualPath| cut -d'/' -f 3)
+            echo "::group::Copy to $repoName"
+              folderPath="$visualPath/stringResources"
+              newFolderPath="visuals/$repoName/stringResources"
+              rm -rf $newFolderPath
+              mv -f -v $folderPath $newFolderPath
+            echo "::endgroup::"
+          done;
+      - name: Commit and open Pull Requests in submodules
+        run: |
+          mainFolder=$PWD
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            echo "::group::Commit to $repoName"  
+              cd "$mainFolder/$folder"
+              changedFiles="$(git diff --name-only)"
+              if [[ $changedFiles != "" ]]; then
+                while IFS= read -r filePath; do
+                  if git diff --ignore-cr-at-eol --quiet -- "$filePath"; then
+                    git checkout -- "$filePath"
+                  fi
+                done <<< "$changedFiles"
+              fi
+              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              rc=0
+              pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
+                -Repo "$REPO_OWNER/$repoName" -Branch "$BRANCH" -Message "New translations" || rc=$?
+              if [ $rc -eq 3 ]; then
+                echo "No changes for $repoName"
+              elif [ $rc -ne 0 ]; then
+                echo "Couldn't create a commit in $repoName, check an access"
+              else
+                gh pr create --repo "$REPO_OWNER/$repoName" --head "$BRANCH" --base "$originalBranchName" \
+                  -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
+                  echo "Pull request already open on $BRANCH in $repoName, or couldn't be created"
+              fi
+            echo "::endgroup::"
+          done;
+        env:
+          BRANCH: ${{steps.info.outputs.branch-name}}
+          PR_NAME: ${{steps.info.outputs.pr-name}}
+          REPO_OWNER: 'microsoft'
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}

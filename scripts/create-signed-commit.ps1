@@ -15,7 +15,8 @@
     Target repository as "owner/name".
 
 .PARAMETER Branch
-    Branch to create. Must not already exist.
+    Branch to create, or to append a commit to if it already exists (e.g. an
+    open bot PR from a previous run).
 
 .PARAMETER Message
     Commit message headline.
@@ -83,17 +84,31 @@ $headers = @{
     'User-Agent'  = 'powerbi-visuals-localization'
 }
 
-Invoke-RestMethod -Method Post -Headers $headers `
-    -Uri "https://api.github.com/repos/$Repo/git/refs" `
-    -Body (@{ ref = "refs/heads/$Branch"; sha = $baseSha } | ConvertTo-Json) `
-    -ContentType 'application/json' | Out-Null
+# If the branch already exists (an open PR from a previous run), append the
+# commit to its current tip instead of failing; otherwise create it from baseSha.
+$expectedHeadOid = $baseSha
+try {
+    $existingRef = Invoke-RestMethod -Method Get -Headers $headers `
+        -Uri "https://api.github.com/repos/$Repo/git/refs/heads/$Branch"
+    $expectedHeadOid = $existingRef.object.sha
+    Write-Host "Branch $Branch already exists, appending onto $expectedHeadOid"
+}
+catch {
+    if ($_.Exception.Response -and $_.Exception.Response.StatusCode.value__ -eq 404) {
+        Invoke-RestMethod -Method Post -Headers $headers `
+            -Uri "https://api.github.com/repos/$Repo/git/refs" `
+            -Body (@{ ref = "refs/heads/$Branch"; sha = $baseSha } | ConvertTo-Json) `
+            -ContentType 'application/json' | Out-Null
+    }
+    else { throw }
+}
 
 $body = @{
     query     = 'mutation($input: CreateCommitOnBranchInput!) { createCommitOnBranch(input: $input) { commit { oid url } } }'
     variables = @{
         input = @{
             branch          = @{ repositoryNameWithOwner = $Repo; branchName = $Branch }
-            expectedHeadOid = $baseSha
+            expectedHeadOid = $expectedHeadOid
             message         = @{ headline = $Message }
             fileChanges     = @{
                 additions = @($additions.ToArray())
