@@ -277,6 +277,51 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_EmptyState_AddDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add a Date field so the visual can plot your values over time.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Dodajte polje »Datum«, da bo lahko ponazoritev prikazala vaše vrednosti skozi čas.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddDateAndValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This visual needs data to display. Add a Date field and at least one Values field to get started.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ta ponazoritev potrebuje podatke za prikaz. Za začetek dodajte polje »Datum« in vsaj eno polje »Vrednosti«.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add at least one Values field to see the KPI and its trend.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Če si želite ogledati KPI in njegov trend, dodajte vsaj eno polje »Vrednosti«.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_InvalidDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Date field contains invalid or blank dates. Please provide a column with valid date values.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Polje »Datum« vsebuje neveljavne ali prazne datume. Navedite stolpec z veljavnimi datumskimi vrednostmi.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_NoValidData" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No data available to display. The selected Date or Values field contains only empty, blank or invalid entries.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ni podatkov za prikaz. Izbrano polje »Datum« ali »Vrednosti« vsebuje samo prazne ali neveljavne vnose.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Font]]></Val>
@@ -345,6 +390,24 @@
           <Val><![CDATA[Label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Oznaka]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Drag a Date field and one or more Values fields onto the visual to bring your KPIs and trends to life.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Povlecite polje »Datum« in eno ali več polj »Vrednosti« na ponazoritev, da oživite svoje KPI-je in trende.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Title" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Welcome to Multi KPI]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Dobrodošli v Multi KPI]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -529,6 +592,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowStartDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show start date on chart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Prikaži začetni datum na grafikonu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Sparkline" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Sparkline]]></Val>
@@ -609,6 +681,33 @@
           <Val><![CDATA[Use ${1} to indicate where to put a date difference to indicate how old data is]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Uporabi ${1}, da označiš mesto, kam vnesti datumsko razliko za prikaz starosti podatkov]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Gap" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is missing from the data (gap in the series). Using the next available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[V podatkih manjka izbrani začetni datum ${1} (vrzel v nizu). Namesto tega za izračun spremembe uporabite naslednji razpoložljivi datum ${2}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Invalid" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The start date you entered (${1}) is not a valid date, so it was ignored.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Vneseni začetni datum (${1}) ni veljaven datum, zato je bil prezrt.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_OutOfRange" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is outside the data range. Falling back to the closest available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Izbrani začetni datum ${1} je zunaj obsega podatkov. Namesto tega za izračun spremembe uporabite najbližji razpoložljivi datum ${2} .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
