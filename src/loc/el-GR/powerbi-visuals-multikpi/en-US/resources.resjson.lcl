@@ -277,6 +277,51 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_EmptyState_AddDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add a Date field so the visual can plot your values over time.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Προσθέστε ένα πεδίο "Ημερομηνία", ώστε η απεικόνιση να μπορεί να σχεδιάσει τις τιμές σας με την πάροδο του χρόνου.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddDateAndValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This visual needs data to display. Add a Date field and at least one Values field to get started.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Αυτή η απεικόνιση χρειάζεται δεδομένα για εμφάνιση. Προσθέστε ένα πεδίο "Ημερομηνία" και τουλάχιστον ένα πεδίο "Τιμές" για να ξεκινήσετε.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add at least one Values field to see the KPI and its trend.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Προσθέστε τουλάχιστον ένα πεδίο "Τιμές" για να δείτε το KPI και την τάση του.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_InvalidDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Date field contains invalid or blank dates. Please provide a column with valid date values.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Το πεδίο "Ημερομηνία" περιέχει μη έγκυρες ή κενές ημερομηνίες. Καταχωρήστε μια στήλη με έγκυρες τιμές ημερομηνίας.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_NoValidData" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No data available to display. The selected Date or Values field contains only empty, blank or invalid entries.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Δεν υπάρχουν διαθέσιμα δεδομένα για εμφάνιση. Το επιλεγμένο πεδίο "Ημερομηνία" ή "Τιμές" περιέχει μόνο κενές ή μη έγκυρες καταχωρήσεις.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Font]]></Val>
@@ -345,6 +390,24 @@
           <Val><![CDATA[Label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ετικέτα]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Drag a Date field and one or more Values fields onto the visual to bring your KPIs and trends to life.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Σύρετε ένα πεδίο "Ημερομηνία" και ένα ή περισσότερα πεδία "Τιμές" στην απεικόνιση για να ζωντανέψτε τα KPI και τις τάσεις σας.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Title" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Welcome to Multi KPI]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Καλώς ορίσατε στο Multi KPI]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -529,6 +592,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowStartDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show start date on chart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Εμφάνιση ημερομηνίας έναρξης στο γράφημα]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Sparkline" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Sparkline]]></Val>
@@ -609,6 +681,33 @@
           <Val><![CDATA[Use ${1} to indicate where to put a date difference to indicate how old data is]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Χρησιμοποιήστε το ${1} για να υποδείξετε πού να καταχωρήσετε μια διαφορά ημερομηνίας για να υποδείξετε την ηλικία των δεδομένων]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Gap" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is missing from the data (gap in the series). Using the next available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Η επιλεγμένη ημερομηνία έναρξης ${1} λείπει από τα δεδομένα (κενό στη σειρά). Χρήση της επόμενης διαθέσιμης ημερομηνίας ${2} για τον υπολογισμό της αλλαγής.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Invalid" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The start date you entered (${1}) is not a valid date, so it was ignored.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Η ημερομηνία έναρξης που πληκτρολογήσατε (${1}) δεν είναι έγκυρη ημερομηνία, επομένως παραβλέφθηκε.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_OutOfRange" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is outside the data range. Falling back to the closest available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Η επιλεγμένη ημερομηνία έναρξης ${1} βρίσκεται εκτός της περιοχής δεδομένων. Επιστροφή στην πλησιέστερη διαθέσιμη ημερομηνία ${2} για τον υπολογισμό της αλλαγής.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

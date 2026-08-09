@@ -277,6 +277,51 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_EmptyState_AddDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add a Date field so the visual can plot your values over time.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[दिनांक फ़ील्ड जोड़ें ताकि विज़ुअल समय के साथ आपके मान प्लॉट कर सके.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddDateAndValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This visual needs data to display. Add a Date field and at least one Values field to get started.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[इस विज़ुअल को प्रदर्शित करने के लिए डेटा की ज़रूरत है. शुरू करने के लिए एक ‘दिनांक’ फ़ील्ड और कम से कम एक ‘मान’ फ़ील्ड जोड़ें.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_AddValues" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add at least one Values field to see the KPI and its trend.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[KPI और उसका रुझान देखने के लिए कम से कम एक ‘मान’ फ़ील्ड जोड़ें.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_InvalidDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Date field contains invalid or blank dates. Please provide a column with valid date values.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[दिनांक फ़ील्ड में अमान्य या रिक्त दिनांक हैं. कृपया मान्य दिनांक मानों वाला एक कॉलम प्रदान करें.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_EmptyState_NoValidData" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No data available to display. The selected Date or Values field contains only empty, blank or invalid entries.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[प्रदर्शित करने के लिए कोई डेटा उपलब्ध नहीं है. चुनी गई दिनांक या मान फ़ील्ड में केवल रिक्त, खाली या अमान्य प्रविष्टियाँ हैं.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Font" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Font]]></Val>
@@ -345,6 +390,24 @@
           <Val><![CDATA[Label]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[लेबल]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Description" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Drag a Date field and one or more Values fields onto the visual to bring your KPIs and trends to life.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[अपने KPIs और रुझानों को दिखाने के लिए, एक ‘दिनांक’ फ़ील्ड और एक या अधिक ‘मान’ ​​फ़ील्ड को विज़ुअल पर ड्रैग करें.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_LandingPage_Title" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Welcome to Multi KPI]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[मल्टी KPI में आपका स्वागत है]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -529,6 +592,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowStartDate" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show start date on chart]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[चार्ट पर प्रारंभ दिनांक दिखाएँ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Sparkline" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Sparkline]]></Val>
@@ -609,6 +681,33 @@
           <Val><![CDATA[Use ${1} to indicate where to put a date difference to indicate how old data is]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[डेटा कितना पुराना है, यह बताने हेतु दिनांक अंतर कहाँ रखना है, यह इंगित करने के लिए ${1} का उपयोग करें]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Gap" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is missing from the data (gap in the series). Using the next available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[चुनी गई प्रारंभ दिनांक ${1} डेटा में मौजूद नहीं है (श्रृंखला में अंतर). इसके बजाय बदलाव को कैल्क्यूलेट करने के लिए अगली उपलब्ध दिनांक ${2} का उपयोग किया जा रहा है.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_Invalid" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The start date you entered (${1}) is not a valid date, so it was ignored.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[आपके द्वारा दर्ज की गई प्रारंभ दिनांक (${1}) कोई मान्य दिनांक नहीं है, इसलिए इस पर ध्यान नहीं दिया गया था.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_StartDateHint_OutOfRange" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The selected start date ${1} is outside the data range. Falling back to the closest available date ${2} to calculate the change instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[चुनी गई प्रारंभ दिनांक ${1} डेटा श्रेणी से बाहर है. इसके बजाय बदलाव को कैल्क्यूलेट करने के लिए निकटतम उपलब्ध दिनांक ${2} का उपयोग करें.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
