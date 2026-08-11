@@ -4,14 +4,17 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['localizations/**']   # fires once a translation PR (Stage 4) merges
+    # Ignore en-US-only harvest merges; target-locale changes signal completed translations.
+    paths:
+      - 'localizations/**'
+      - '!localizations/**/en-US/**'
 
 concurrency:
   group: distribute-translations
   cancel-in-progress: false
 
 env:
-  BRANCH_PATTERN: new_translations
+  BOT_BRANCH: new_translations
 
 jobs:
   update_other_localizations:
@@ -21,7 +24,6 @@ jobs:
       - name: Prepare info
         id: info
         run: |
-          echo "branch-name=${{ env.BRANCH_PATTERN }}" >> $GITHUB_OUTPUT
           echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
       - name: Generate GitHub App token
         id: app-token
@@ -61,6 +63,7 @@ jobs:
       - name: Commit and open Pull Requests in submodules
         run: |
           mainFolder=$PWD
+          failedRepos=()
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
             echo "::group::Commit to $repoName"  
@@ -76,20 +79,33 @@ jobs:
               originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               rc=0
               pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
-                -Repo "$REPO_OWNER/$repoName" -Branch "$BRANCH" -Message "New translations" || rc=$?
+                -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" || rc=$?
               if [ $rc -eq 3 ]; then
                 echo "No changes for $repoName"
               elif [ $rc -ne 0 ]; then
-                echo "Couldn't create a commit in $repoName, check an access"
+                echo "::error title=Commit failed::$repoName could not be updated"
+                failedRepos+=("$repoName (commit)")
               else
-                gh pr create --repo "$REPO_OWNER/$repoName" --head "$BRANCH" --base "$originalBranchName" \
-                  -b "Auto created Pull Request with new translations" -t "$PR_NAME" ||
-                  echo "Pull request already open on $BRANCH in $repoName, or couldn't be created"
+                if ! prNumber=$(gh pr list --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --state open \
+                  --json number --jq '.[0].number'); then
+                  echo "::error title=Pull request lookup failed::$repoName could not be checked for an open PR"
+                  failedRepos+=("$repoName (PR lookup)")
+                elif [[ -n "$prNumber" ]]; then
+                  echo "Pull request #$prNumber already open on $BOT_BRANCH in $repoName"
+                elif ! gh pr create --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --base "$originalBranchName" \
+                  -b "Auto created Pull Request with new translations" -t "$PR_NAME"; then
+                  echo "::error title=Pull request creation failed::$repoName has a commit but no open PR"
+                  failedRepos+=("$repoName (PR create)")
+                fi
               fi
             echo "::endgroup::"
           done;
+          if (( ${#failedRepos[@]} > 0 )); then
+            failedList=$(IFS=,; echo "${failedRepos[*]}")
+            echo "::error title=Translation distribution incomplete::Failed repositories: $failedList"
+            exit 1
+          fi
         env:
-          BRANCH: ${{steps.info.outputs.branch-name}}
           PR_NAME: ${{steps.info.outputs.pr-name}}
           REPO_OWNER: 'microsoft'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}

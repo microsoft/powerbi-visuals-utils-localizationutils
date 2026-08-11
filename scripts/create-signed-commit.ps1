@@ -8,8 +8,10 @@
     as Verified. This is the only way to produce signed commits under a GitHub App
     identity: a bot account has no GPG key, so `git commit -S` cannot be used.
 
-    Changes are diffed against local HEAD and that same commit is used as the parent,
-    so a base branch moving during the run cannot silently drop someone else's work.
+    Changes are diffed against the commit that will be used as the parent: the
+    existing bot branch tip, or local HEAD when the branch does not exist. File
+    additions contain complete file contents, so direct edits to files on an open
+    bot branch can be overwritten by a later automation run.
 
 .PARAMETER Repo
     Target repository as "owner/name".
@@ -43,19 +45,47 @@ $ErrorActionPreference = 'Stop'
 $token = $env:GH_TOKEN
 if ([string]::IsNullOrWhiteSpace($token)) { throw 'GH_TOKEN environment variable is empty' }
 
+$headers = @{
+    Authorization = "token $token"
+    Accept        = 'application/vnd.github+json'
+    'User-Agent'  = 'powerbi-visuals-localization'
+}
+
 git add -A -- $PathSpec
 if ($LASTEXITCODE -ne 0) { throw 'git add failed' }
 
-git diff --cached --quiet -- $PathSpec
+$baseSha = (git rev-parse HEAD).Trim()
+$expectedHeadOid = $baseSha
+$diffBase = $baseSha
+$branchExists = $false
+
+try {
+    $existingRef = Invoke-RestMethod -Method Get -Headers $headers `
+        -Uri "https://api.github.com/repos/$Repo/git/ref/heads/$Branch"
+    $expectedHeadOid = $existingRef.object.sha
+    $branchExists = $true
+
+    git fetch --quiet origin "refs/heads/$Branch"
+    if ($LASTEXITCODE -ne 0) { throw "git fetch failed for branch $Branch" }
+    $diffBase = (git rev-parse FETCH_HEAD).Trim()
+    Write-Host "Branch $Branch already exists, appending onto $expectedHeadOid"
+}
+catch {
+    if (-not ($_.Exception.Response -and $_.Exception.Response.StatusCode.value__ -eq 404)) {
+        throw
+    }
+}
+
+git diff --cached --quiet $diffBase -- $PathSpec
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Nothing to commit for $($PathSpec -join ', ')"
     exit 3
 }
-
-$baseSha = (git rev-parse HEAD).Trim()
+if ($LASTEXITCODE -ne 1) { throw 'git diff failed' }
 
 # quotepath=false keeps non-ASCII paths readable instead of octal-escaped.
-$statusLines = git -c core.quotepath=false diff --cached --name-status --no-renames HEAD -- $PathSpec
+$statusLines = git -c core.quotepath=false diff --cached --name-status --no-renames $diffBase -- $PathSpec
+if ($LASTEXITCODE -ne 0) { throw 'git diff --name-status failed' }
 
 $additions = [System.Collections.Generic.List[object]]::new()
 $deletions = [System.Collections.Generic.List[object]]::new()
@@ -78,29 +108,11 @@ foreach ($line in $statusLines) {
 
 Write-Host "Committing $($additions.Count) additions and $($deletions.Count) deletions to $Repo"
 
-$headers = @{
-    Authorization = "token $token"
-    Accept        = 'application/vnd.github+json'
-    'User-Agent'  = 'powerbi-visuals-localization'
-}
-
-# If the branch already exists (an open PR from a previous run), append the
-# commit to its current tip instead of failing; otherwise create it from baseSha.
-$expectedHeadOid = $baseSha
-try {
-    $existingRef = Invoke-RestMethod -Method Get -Headers $headers `
-        -Uri "https://api.github.com/repos/$Repo/git/refs/heads/$Branch"
-    $expectedHeadOid = $existingRef.object.sha
-    Write-Host "Branch $Branch already exists, appending onto $expectedHeadOid"
-}
-catch {
-    if ($_.Exception.Response -and $_.Exception.Response.StatusCode.value__ -eq 404) {
-        Invoke-RestMethod -Method Post -Headers $headers `
-            -Uri "https://api.github.com/repos/$Repo/git/refs" `
-            -Body (@{ ref = "refs/heads/$Branch"; sha = $baseSha } | ConvertTo-Json) `
-            -ContentType 'application/json' | Out-Null
-    }
-    else { throw }
+if (-not $branchExists) {
+    Invoke-RestMethod -Method Post -Headers $headers `
+        -Uri "https://api.github.com/repos/$Repo/git/refs" `
+        -Body (@{ ref = "refs/heads/$Branch"; sha = $baseSha } | ConvertTo-Json) `
+        -ContentType 'application/json' | Out-Null
 }
 
 $body = @{

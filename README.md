@@ -32,7 +32,7 @@ flowchart TD
     D --> E[Azure DevOps: pipeline.localization.utils.yml<br/>OneLocBuild]
     E --> F[PR 'parsed_localizations_*'<br/>updated translations for all locales]
     F --> G[merge]
-    G --> H[distribute-translations.yml<br/>push to main on localizations/**]
+    G --> H[distribute-translations.yml<br/>push to main with translated locale changes]
     H --> I[PR 'new_translations' in each visual repo]
 ```
 
@@ -50,8 +50,9 @@ back into `localizations/<visual>/stringResources/<locale>/`. It opens a
 `parsed_localizations_<timestamp>` PR and closes its own older PRs.
 
 **Distribute** — [.github/workflows/distribute-translations.yml](.github/workflows/distribute-translations.yml)
-triggers on a push to `main` touching `localizations/**` (i.e. when a translation PR merges),
-or on demand. It moves `localizations/<visual>/stringResources` into the matching submodule
+triggers on a push to `main` touching non-en-US files under `localizations/**` (i.e. when a
+translation PR merges), or on demand. It moves `localizations/<visual>/stringResources` into
+the matching submodule
 and opens a `new_translations` PR in every visual repository. Files whose only difference is
 the line ending are reverted before committing to avoid CRLF-only noise.
 
@@ -90,8 +91,13 @@ exits with code `3` when there is nothing to commit.
 3. Add the repository name to [repositories.json](repositories.json) (used by the helper scripts).
 4. Ask a maintainer to install the localization GitHub App on the new repository with
    **Contents: write** and **Pull requests: write** permissions.
-5. In the new repository: *Settings > General > Pull Requests* — enable **Allow auto-merge**.
+5. In the new repository: *Settings > General > Pull Requests* — enable **Allow auto-merge**
+  and **Automatically delete head branches**.
 6. Open a pull request with the changes above against `main`.
+
+**Automatically delete head branches** must also remain enabled in this repository. The
+automation reuses a fixed branch name; retaining that branch after a squash merge can make
+the next pull request include files that were already merged.
 
 ## npm scripts
 

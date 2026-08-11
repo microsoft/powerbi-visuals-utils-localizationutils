@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BRANCH_PATTERN: new_translations
+  BOT_BRANCH: new_translations
 
 jobs:
   update_en_localization:
@@ -20,7 +20,6 @@ jobs:
       - name: Prepare info
         id: info
         run: |
-          echo "branch-name=${{ env.BRANCH_PATTERN }}" >> $GITHUB_OUTPUT
           echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
       - name: Generate GitHub App token
         id: app-token
@@ -58,7 +57,7 @@ jobs:
         run: |
           rc=0
           pwsh scripts/create-signed-commit.ps1 \
-            -Repo "$REPO_OWNER/$REPO_NAME" -Branch "$BRANCH" -Message "New translations" -PathSpec localizations || rc=$?
+            -Repo "$REPO_OWNER/$REPO_NAME" -Branch "$BOT_BRANCH" -Message "New translations" -PathSpec localizations || rc=$?
           if [ $rc -eq 3 ]; then
             echo "No localization changes to commit"
             exit 0
@@ -66,12 +65,11 @@ jobs:
             exit $rc
           fi
           defaultBranchName=$(gh api "repos/$REPO_OWNER/$REPO_NAME" --jq .default_branch)
-          gh pr create --repo "$REPO_OWNER/$REPO_NAME" --head "$BRANCH" --base "$defaultBranchName" \
+          gh pr create --repo "$REPO_OWNER/$REPO_NAME" --head "$BOT_BRANCH" --base "$defaultBranchName" \
             -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
-            echo "Pull request already open on $BRANCH, or couldn't be created"
+            echo "Pull request already open on $BOT_BRANCH, or couldn't be created"
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
-          BRANCH: ${{steps.info.outputs.branch-name}}
           REPO_OWNER: 'microsoft'
           REPO_NAME: 'powerbi-visuals-utils-localizationutils'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
