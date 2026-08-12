@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: '0 7 * * *'   # daily, ~08:00 Europe/Belgrade; visual repos have no way to notify this repo directly
 
+permissions: {}
+
 concurrency:
   group: harvest-en-strings
   cancel-in-progress: false

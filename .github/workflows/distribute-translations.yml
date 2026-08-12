@@ -9,6 +9,8 @@ on:
       - 'localizations/**'
       - '!localizations/**/en-US/**'
 
+permissions: {}
+
 concurrency:
   group: distribute-translations
   cancel-in-progress: false
@@ -79,7 +81,8 @@ jobs:
               originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
               rc=0
               pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
-                -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" || rc=$?
+                -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" \
+                -PathSpec stringResources || rc=$?
               if [ $rc -eq 3 ]; then
                 echo "No changes for $repoName"
               elif [ $rc -ne 0 ]; then
