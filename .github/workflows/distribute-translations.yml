@@ -56,10 +56,21 @@ jobs:
           for visualPath in ./localizations/*; do 
             repoName=$(echo $visualPath| cut -d'/' -f 3)
             echo "::group::Copy to $repoName"
-              folderPath="$visualPath/stringResources"
-              newFolderPath="visuals/$repoName/stringResources"
-              rm -rf $newFolderPath
-              mv -f -v $folderPath $newFolderPath
+              sourceRoot="$visualPath/stringResources"
+              targetRoot="visuals/$repoName/stringResources"
+              mkdir -p "$targetRoot"
+              # en-US is owned by the visual repo; copying it back would revert strings added since the last harvest.
+              for existing in "$targetRoot"/*/; do
+                if [ -d "$existing" ] && [ "$(basename "$existing")" != "en-US" ]; then
+                  rm -rf "$existing"
+                fi
+              done
+              for localePath in "$sourceRoot"/*/; do
+                locale=$(basename "$localePath")
+                if [ -d "$localePath" ] && [ "$locale" != "en-US" ]; then
+                  cp -r "$localePath" "$targetRoot/$locale"
+                fi
+              done
             echo "::endgroup::"
           done;
       - name: Commit and open Pull Requests in submodules
@@ -68,6 +79,11 @@ jobs:
           failedRepos=()
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
+            # Some submodules are not localized and have no stringResources to commit.
+            if [ ! -d "$mainFolder/$folder/stringResources" ]; then
+              echo "No stringResources in $repoName, skipping"
+              continue
+            fi
             echo "::group::Commit to $repoName"  
               cd "$mainFolder/$folder"
               changedFiles="$(git diff --name-only)"
@@ -82,7 +98,7 @@ jobs:
               rc=0
               pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
                 -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" \
-                -PathSpec stringResources || rc=$?
+                -PathSpec stringResources -ExcludePath stringResources/en-US || rc=$?
               if [ $rc -eq 3 ]; then
                 echo "No changes for $repoName"
               elif [ $rc -ne 0 ]; then

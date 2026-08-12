@@ -51,9 +51,11 @@ back into `localizations/<visual>/stringResources/<locale>/`. It opens a
 
 **Distribute** — [.github/workflows/distribute-translations.yml](.github/workflows/distribute-translations.yml)
 triggers on a push to `main` touching non-en-US files under `localizations/**` (i.e. when a
-translation PR merges), or on demand. It moves `localizations/<visual>/stringResources` into
-the matching submodule
-and opens a `new_translations` PR in every visual repository. Files whose only difference is
+translation PR merges), or on demand. It copies every translated locale from
+`localizations/<visual>/stringResources` into the matching submodule
+and opens a `new_translations` PR in every visual repository. `en-US` is not distributed: it
+is owned by the visual repository, so copying it back could revert English strings added
+there since the last harvest. Files whose only difference is
 the line ending are reverted before committing to avoid CRLF-only noise.
 
 There is no separate schedule for distribution — the push event is the signal, and
@@ -77,8 +79,11 @@ and are never committed to this repository.
 The `microsoft` organization requires signed commits. A GitHub App has no GPG key, so
 `git commit -S` is not an option; [scripts/create-signed-commit.ps1](scripts/create-signed-commit.ps1)
 creates the commit through the GraphQL `createCommitOnBranch` mutation, which GitHub signs
-with its own key. The script appends to the branch tip when the branch already exists and
-exits with code `3` when there is nothing to commit.
+with its own key. Before committing it re-points the bot branch at the current base commit,
+so the branch is always exactly one commit ahead of the default branch instead of
+accumulating history against an ever older base. It exits with code `3` when there is
+nothing to commit or the branch already carries the same content, so an unchanged pull
+request is never touched.
 
 ## Adding a visual to the localization flow
 
@@ -95,9 +100,10 @@ exits with code `3` when there is nothing to commit.
   and **Automatically delete head branches**.
 6. Open a pull request with the changes above against `main`.
 
-**Automatically delete head branches** must also remain enabled in this repository. The
-automation reuses a fixed branch name; retaining that branch after a squash merge can make
-the next pull request include files that were already merged.
+**Automatically delete head branches** should also remain enabled in this repository. The
+automation reuses a fixed branch name and rebuilds it from the default branch on every run,
+so a branch left behind by a squash merge resolves itself, but deleting merged branches
+keeps the repository tidy.
 
 ## npm scripts
 
