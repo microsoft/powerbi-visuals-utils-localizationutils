@@ -1,0 +1,130 @@
+name: Distribute translations to visuals
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    # Ignore en-US-only harvest merges; target-locale changes signal completed translations.
+    paths:
+      - 'localizations/**'
+      - '!localizations/**/en-US/**'
+
+permissions: {}
+
+concurrency:
+  group: distribute-translations
+  cancel-in-progress: false
+
+env:
+  BOT_BRANCH: new_translations
+
+jobs:
+  update_other_localizations:
+    environment: update localizations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare info
+        id: info
+        run: |
+          echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.LOC_APP_ID }}
+          private-key: ${{ secrets.LOC_APP_PRIVATE_KEY }}
+          # Omit `repositories` so the token has access to every repo in the org
+          # where the App is installed (localizationutils + every powerbi-visuals-* submodule).
+          owner: ${{ github.repository_owner }}
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          submodules: recursive
+          persist-credentials: true
+      - name: Configure Git
+        run: git config --global core.autocrlf false
+      - name: Update submodules
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+          for folder in visuals/*; do
+            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
+          done;
+          git submodule foreach --recursive 'git fetch'
+      - name: Copy translations to submodules
+        run: |
+          for visualPath in ./localizations/*; do 
+            repoName=$(echo $visualPath| cut -d'/' -f 3)
+            echo "::group::Copy to $repoName"
+              sourceRoot="$visualPath/stringResources"
+              targetRoot="visuals/$repoName/stringResources"
+              mkdir -p "$targetRoot"
+              # en-US is owned by the visual repo; copying it back would revert strings added since the last harvest.
+              for existing in "$targetRoot"/*/; do
+                if [ -d "$existing" ] && [ "$(basename "$existing")" != "en-US" ]; then
+                  rm -rf "$existing"
+                fi
+              done
+              for localePath in "$sourceRoot"/*/; do
+                locale=$(basename "$localePath")
+                if [ -d "$localePath" ] && [ "$locale" != "en-US" ]; then
+                  cp -r "$localePath" "$targetRoot/$locale"
+                fi
+              done
+            echo "::endgroup::"
+          done;
+      - name: Commit and open Pull Requests in submodules
+        run: |
+          mainFolder=$PWD
+          failedRepos=()
+          for folder in visuals/*; do
+            repoName=$(echo $folder| cut -d'/' -f 2)
+            # Some submodules are not localized and have no stringResources to commit.
+            if [ ! -d "$mainFolder/$folder/stringResources" ]; then
+              echo "No stringResources in $repoName, skipping"
+              continue
+            fi
+            echo "::group::Commit to $repoName"  
+              cd "$mainFolder/$folder"
+              changedFiles="$(git diff --name-only)"
+              if [[ $changedFiles != "" ]]; then
+                while IFS= read -r filePath; do
+                  if git diff --ignore-cr-at-eol --quiet -- "$filePath"; then
+                    git checkout -- "$filePath"
+                  fi
+                done <<< "$changedFiles"
+              fi
+              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+              rc=0
+              pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
+                -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" \
+                -PathSpec stringResources -ExcludePath stringResources/en-US || rc=$?
+              if [ $rc -eq 3 ]; then
+                echo "No changes for $repoName"
+              elif [ $rc -ne 0 ]; then
+                echo "::error title=Commit failed::$repoName could not be updated"
+                failedRepos+=("$repoName (commit)")
+              else
+                if ! prNumber=$(gh pr list --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --state open \
+                  --json number --jq '.[0].number'); then
+                  echo "::error title=Pull request lookup failed::$repoName could not be checked for an open PR"
+                  failedRepos+=("$repoName (PR lookup)")
+                elif [[ -n "$prNumber" ]]; then
+                  echo "Pull request #$prNumber already open on $BOT_BRANCH in $repoName"
+                elif ! gh pr create --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --base "$originalBranchName" \
+                  -b "Auto created Pull Request with new translations" -t "$PR_NAME"; then
+                  echo "::error title=Pull request creation failed::$repoName has a commit but no open PR"
+                  failedRepos+=("$repoName (PR create)")
+                fi
+              fi
+            echo "::endgroup::"
+          done;
+          if (( ${#failedRepos[@]} > 0 )); then
+            failedList=$(IFS=,; echo "${failedRepos[*]}")
+            echo "::error title=Translation distribution incomplete::Failed repositories: $failedList"
+            exit 1
+          fi
+        env:
+          PR_NAME: ${{steps.info.outputs.pr-name}}
+          REPO_OWNER: 'microsoft'
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
