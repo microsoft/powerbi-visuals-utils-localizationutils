@@ -8,6 +8,9 @@
     as Verified. This is the only way to produce signed commits under a GitHub App
     identity: a bot account has no GPG key, so `git commit -S` cannot be used.
 
+    File content is taken from the index rather than from disk, so `.gitattributes`
+    filters such as `text eol=lf` apply to what is committed.
+
     Changes are diffed against local HEAD, and the bot branch is re-pointed at that
     same commit before the new commit is created. The branch is therefore always
     exactly one commit ahead of the base and never accumulates unrelated drift.
@@ -61,6 +64,25 @@ $headers = @{
     'User-Agent'  = 'powerbi-visuals-localization'
 }
 
+# Reads the raw process stream: piping `git cat-file` through PowerShell would decode the
+# bytes as text and rewrite line endings.
+function Get-BlobBytes {
+    param([Parameter(Mandatory = $true)] [string] $Oid)
+
+    $startInfo = [System.Diagnostics.ProcessStartInfo]::new('git', "cat-file blob $Oid")
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.UseShellExecute = $false
+    $startInfo.WorkingDirectory = (Get-Location).Path
+
+    $proc = [System.Diagnostics.Process]::Start($startInfo)
+    $buffer = [System.IO.MemoryStream]::new()
+    $proc.StandardOutput.BaseStream.CopyTo($buffer)
+    $proc.WaitForExit()
+    if ($proc.ExitCode -ne 0) { throw "git cat-file blob $Oid failed" }
+
+    return $buffer.ToArray()
+}
+
 git add -A -- $paths
 if ($LASTEXITCODE -ne 0) { throw 'git add failed' }
 
@@ -98,26 +120,42 @@ if ($branchTip) {
 }
 
 # quotepath=false keeps non-ASCII paths readable instead of octal-escaped.
-$statusLines = git -c core.quotepath=false diff --cached --name-status --no-renames $baseSha -- $PathSpec
-if ($LASTEXITCODE -ne 0) { throw 'git diff --name-status failed' }
+# --raw exposes the blob SHAs, so mode-only changes can be told apart from content changes.
+$rawLines = git -c core.quotepath=false diff --cached --raw --no-renames --abbrev=40 $baseSha -- $paths
+if ($LASTEXITCODE -ne 0) { throw 'git diff --raw failed' }
 
 $additions = [System.Collections.Generic.List[object]]::new()
 $deletions = [System.Collections.Generic.List[object]]::new()
 
-foreach ($line in $statusLines) {
+foreach ($line in $rawLines) {
     if ([string]::IsNullOrWhiteSpace($line)) { continue }
     $parts = $line -split "`t", 2
     if ($parts.Count -lt 2) { continue }
-    $status = $parts[0].Trim()
+    # :<oldmode> <newmode> <oldsha> <newsha> <status>
+    $meta = $parts[0].TrimStart(':') -split '\s+'
+    if ($meta.Count -lt 5) { continue }
+    $oldSha = $meta[2]
+    $newSha = $meta[3]
+    $status = $meta[4]
     $path = $parts[1].Trim()
+
+    # createCommitOnBranch always writes mode 100644, so a mode-only change would commit nothing.
+    if ($oldSha -eq $newSha) { continue }
 
     if ($status -eq 'D') {
         $deletions.Add(@{ path = $path })
     }
     else {
-        $bytes = [IO.File]::ReadAllBytes((Join-Path (Get-Location).Path $path))
+        # Upload the staged blob, not the file on disk: `.gitattributes` filters (eol=lf) mean
+        # the two can differ, and uploading the unfiltered file produces an empty commit.
+        $bytes = Get-BlobBytes $newSha
         $additions.Add(@{ path = $path; contents = [Convert]::ToBase64String($bytes) })
     }
+}
+
+if ($additions.Count -eq 0 -and $deletions.Count -eq 0) {
+    Write-Host "No content changes for $($paths -join ', ')"
+    exit 3
 }
 
 Write-Host "Committing $($additions.Count) additions and $($deletions.Count) deletions to $Repo"

@@ -9,8 +9,11 @@
 #
 # LF chosen because the upstream source of truth (each visual's submodule
 # stringResources/en-US/resources.resjson) is LF, and 3 of the 4 writers
-# already produce LF. Git on the Windows OneLocBuild agent will normalize
-# CRLF -> LF at `git add` time regardless of core.autocrlf, so no pipeline
-# code changes are needed.
+# already produce LF.
+#
+# Note that `git add` normalizes into the INDEX only - the working copy keeps
+# whatever the writer produced. Anything that commits must therefore upload the
+# staged blob rather than the file on disk, or it silently re-commits CRLF and
+# produces empty commits (see scripts/create-signed-commit.ps1).
 
 localizations/**/*.resjson text eol=lf
