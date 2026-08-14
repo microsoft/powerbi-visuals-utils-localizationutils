@@ -100,6 +100,10 @@ stages:
             Write-Host "##vso[task.setvariable variable=hasCommit]false"
             exit 0
           }
+          if ($rc -eq 4) {
+            Write-Host "##vso[task.setvariable variable=hasCommit]true"
+            exit 0
+          }
           if ($rc -ne 0) { throw "Failed to create commit (exit $rc)" }
           Write-Host "##vso[task.setvariable variable=hasCommit]true"
         displayName: 'Commit localizations'

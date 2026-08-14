@@ -82,8 +82,8 @@ creates the commit through the GraphQL `createCommitOnBranch` mutation, which Gi
 with its own key. Before committing it re-points the bot branch at the current base commit,
 so the branch is always exactly one commit ahead of the default branch instead of
 accumulating history against an ever older base. It exits with code `3` when there is
-nothing to commit or the branch already carries the same content, so an unchanged pull
-request is never touched.
+nothing to commit and code `4` when the branch already carries the same content. Callers
+use code `4` to ensure that content still has an open pull request.
 
 ## Adding a visual to the localization flow
 
