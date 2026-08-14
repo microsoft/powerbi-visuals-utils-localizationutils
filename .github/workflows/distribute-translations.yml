@@ -101,7 +101,7 @@ jobs:
                 -PathSpec stringResources -ExcludePath stringResources/en-US || rc=$?
               if [ $rc -eq 3 ]; then
                 echo "No changes for $repoName"
-              elif [ $rc -ne 0 ]; then
+              elif [ $rc -ne 0 ] && [ $rc -ne 4 ]; then
                 echo "::error title=Commit failed::$repoName could not be updated"
                 failedRepos+=("$repoName (commit)")
               else

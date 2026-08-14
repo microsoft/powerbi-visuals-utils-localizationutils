@@ -39,7 +39,7 @@
 
 .OUTPUTS
     Exit code 0 when a commit was created, 3 when there was nothing to commit or the
-    branch already carries this content.
+    changes contain no content, and 4 when the branch already carries this content.
 #>
 [CmdletBinding()]
 param(
@@ -114,7 +114,7 @@ if ($branchTip) {
     git diff --cached --quiet FETCH_HEAD -- $paths
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Branch $Branch already carries this content"
-        exit 3
+        exit 4
     }
     if ($LASTEXITCODE -ne 1) { throw 'git diff failed' }
 }

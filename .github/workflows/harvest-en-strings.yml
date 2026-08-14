@@ -62,13 +62,18 @@ jobs:
           if [ $rc -eq 3 ]; then
             echo "No localization changes to commit"
             exit 0
-          elif [ $rc -ne 0 ]; then
+          elif [ $rc -ne 0 ] && [ $rc -ne 4 ]; then
             exit $rc
           fi
           defaultBranchName=$(gh api "repos/$REPO_OWNER/$REPO_NAME" --jq .default_branch)
-          gh pr create --repo "$REPO_OWNER/$REPO_NAME" --head "$BOT_BRANCH" --base "$defaultBranchName" \
-            -b "Auto created Pull Request with new translations" -t "$PR_NAME" || \
-            echo "Pull request already open on $BOT_BRANCH, or couldn't be created"
+          prNumber=$(gh pr list --repo "$REPO_OWNER/$REPO_NAME" --head "$BOT_BRANCH" --state open \
+            --json number --jq '.[0].number')
+          if [[ -n "$prNumber" ]]; then
+            echo "Pull request #$prNumber already open on $BOT_BRANCH"
+          else
+            gh pr create --repo "$REPO_OWNER/$REPO_NAME" --head "$BOT_BRANCH" --base "$defaultBranchName" \
+              -b "Auto created Pull Request with new translations" -t "$PR_NAME"
+          fi
         env:
           PR_NAME: ${{steps.info.outputs.pr-name}}
           REPO_OWNER: 'microsoft'
