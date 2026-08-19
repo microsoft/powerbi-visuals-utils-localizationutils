@@ -14,6 +14,10 @@
 # Note that `git add` normalizes into the INDEX only - the working copy keeps
 # whatever the writer produced. Anything that commits must therefore upload the
 # staged blob rather than the file on disk, or it silently re-commits CRLF and
-# produces empty commits (see scripts/create-signed-commit.ps1).
+# produces empty commits (see src/commit-and-open-pr.js).
 
 localizations/**/*.resjson text eol=lf
+
+# OneLocBuild writes these on the Windows agent and commits them from its own `locfiles`
+# PR, so without this every run flips all of them between CRLF and LF.
+src/loc/**/*.lcl text eol=lf

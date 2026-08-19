@@ -19,7 +19,7 @@ resources plus the automation that moves them around.
 | `LocProject.json` | OneLocBuild configuration: maps each `localizations/.../en-US/resources.resjson` to its `.lcl` file. |
 | `.github/workflows/` | Harvest and distribute workflows (GitHub Actions). |
 | `.pipelines/` | Azure DevOps pipeline that runs OneLocBuild. |
-| `scripts/create-signed-commit.ps1` | Creates verified commits through the GitHub GraphQL API. |
+| `src/commit-and-open-pr.js` | Creates verified commits through the GitHub GraphQL API and makes sure a pull request is open for them. |
 | `src/parseNewLocalizations.js` | Copies the OneLocBuild output back into `localizations/` (see [npm scripts](#npm-scripts)). |
 
 ## How the flow works
@@ -30,7 +30,7 @@ flowchart TD
     B --> C[PR 'new_translations' into main<br/>updates localizations/**/en-US]
     C --> D[merge]
     D --> E[Azure DevOps: pipeline.localization.utils.yml<br/>OneLocBuild]
-    E --> F[PR 'parsed_localizations_*'<br/>updated translations for all locales]
+    E --> F[PR 'parsed_localizations'<br/>updated translations for all locales]
     F --> G[merge]
     G --> H[distribute-translations.yml<br/>push to main with translated locale changes]
     H --> I[PR 'new_translations' in each visual repo]
@@ -46,8 +46,8 @@ name is fixed on purpose: the existing PR is reused, so review comments and CLA 
 [.pipelines/pipeline.localization.utils.yml](.pipelines/pipeline.localization.utils.yml)
 triggers on `main`, runs `OneLocBuild@2` against `LocProject.json`, then
 `npm run parseNewLocalizations` copies the translated files from `loc/<locale>/localizations/...`
-back into `localizations/<visual>/stringResources/<locale>/`. It opens a
-`parsed_localizations_<timestamp>` PR and closes its own older PRs.
+back into `localizations/<visual>/stringResources/<locale>/`. It opens a PR on the fixed
+branch `parsed_localizations`, reusing the existing one when it is still open.
 
 **Distribute** — [.github/workflows/distribute-translations.yml](.github/workflows/distribute-translations.yml)
 triggers on a push to `main` touching non-en-US files under `localizations/**` (i.e. when a
@@ -71,19 +71,24 @@ The App is installed on this repository and on every visual repository, with
   `repositories` is intentionally omitted so the token covers every repo in the organization
   where the App is installed.
 * The Azure DevOps pipeline mints the same kind of token with
-  [.pipelines/get-github-app-token.ps1](.pipelines/get-github-app-token.ps1).
+  [src/get-github-app-token.ps1](src/get-github-app-token.ps1).
 
 App credentials are stored as secrets in the GitHub environment / pipeline variable group
 and are never committed to this repository.
 
 The `microsoft` organization requires signed commits. A GitHub App has no GPG key, so
-`git commit -S` is not an option; [scripts/create-signed-commit.ps1](scripts/create-signed-commit.ps1)
+`git commit -S` is not an option; [src/commit-and-open-pr.js](src/commit-and-open-pr.js)
 creates the commit through the GraphQL `createCommitOnBranch` mutation, which GitHub signs
 with its own key. Before committing it re-points the bot branch at the current base commit,
 so the branch is always exactly one commit ahead of the default branch instead of
-accumulating history against an ever older base. It exits with code `3` when there is
-nothing to commit and code `4` when the branch already carries the same content. Callers
-use code `4` to ensure that content still has an open pull request.
+accumulating history against an ever older base. Content is read from the git index rather
+than from disk, so `.gitattributes` filters apply to what is committed.
+
+Opening the pull request is part of the same script on purpose. Committing and opening a
+pull request are two separate API calls, so a run that fails between them would leave the
+content on a branch nobody looks at. The script therefore also opens a pull request when it
+had nothing new to commit but the bot branch is still ahead of the base, which repairs the
+previous run. Callers only have to check whether it succeeded.
 
 ## Adding a visual to the localization flow
 
@@ -95,8 +100,8 @@ use code `4` to ensure that content still has an open pull request.
 2. Add a `LocItem` entry for the visual to [LocProject.json](LocProject.json).
 3. Ask a maintainer to install the localization GitHub App on the new repository with
    **Contents: write** and **Pull requests: write** permissions.
-4. In the new repository: *Settings > General > Pull Requests* — enable **Allow auto-merge**
-  and **Automatically delete head branches**.
+4. In the new repository: *Settings > General > Pull Requests* — enable
+  **Automatically delete head branches**.
 5. Open a pull request with the changes above against `main`.
 
 **Automatically delete head branches** should also remain enabled in this repository. The
