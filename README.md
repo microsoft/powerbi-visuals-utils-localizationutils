@@ -20,7 +20,7 @@ resources plus the automation that moves them around.
 | `.github/workflows/` | Harvest and distribute workflows (GitHub Actions). |
 | `.pipelines/` | Azure DevOps pipeline that runs OneLocBuild. |
 | `scripts/create-signed-commit.ps1` | Creates verified commits through the GitHub GraphQL API. |
-| `src/*.ts`, `src/parseNewLocalizations.js` | Helper scripts (see [npm scripts](#npm-scripts)). |
+| `src/parseNewLocalizations.js` | Copies the OneLocBuild output back into `localizations/` (see [npm scripts](#npm-scripts)). |
 
 ## How the flow works
 
@@ -93,12 +93,11 @@ request is never touched.
    git submodule add https://github.com/microsoft/<repo-name>
    ```
 2. Add a `LocItem` entry for the visual to [LocProject.json](LocProject.json).
-3. Add the repository name to [repositories.json](repositories.json) (used by the helper scripts).
-4. Ask a maintainer to install the localization GitHub App on the new repository with
+3. Ask a maintainer to install the localization GitHub App on the new repository with
    **Contents: write** and **Pull requests: write** permissions.
-5. In the new repository: *Settings > General > Pull Requests* — enable **Allow auto-merge**
+4. In the new repository: *Settings > General > Pull Requests* — enable **Allow auto-merge**
   and **Automatically delete head branches**.
-6. Open a pull request with the changes above against `main`.
+5. Open a pull request with the changes above against `main`.
 
 **Automatically delete head branches** should also remain enabled in this repository. The
 automation reuses a fixed branch name and rebuilds it from the default branch on every run,
@@ -110,14 +109,6 @@ keeps the repository tidy.
 | Script | Description |
 | --- | --- |
 | `npm run parseNewLocalizations` | Copies OneLocBuild output from `loc/` into `localizations/`. Used by the ADO pipeline. |
-| `npm run validateJsons` | Checks that the resjson files are valid JSON. |
-| `npm run validateTranslations` | Compares translated files against the English source for missing/extra keys. |
-| `npm run capabilitiesToResources` | Legacy: generates resources from a visual's `capabilities.json`. |
-| `npm run allResourcesToUtilsRepo` | Legacy: bulk copy of resources from the visual repos into this repo. |
-| `npm run utilsRepoToAllResources` | Legacy: bulk copy in the opposite direction. |
-
-The `capabilities*`/`allResources*` scripts predate the automated flow and are kept for
-one-off migrations; the daily flow only uses `parseNewLocalizations`.
 
 ## Running the automation manually
 

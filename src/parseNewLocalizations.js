@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fs = require('node:fs');
 const path = require('path');
 
 const newLocalizationsPath = path.join(__dirname, '..', 'loc');
@@ -32,7 +32,7 @@ function copyLocalizationFile(pathToNewLocalizations, visual, locale) {
     if(fs.existsSync(newLocalizationFile)) {
         console.log(`File exists, copying content...`);
         const newLocalizationContent = fs.readFileSync(newLocalizationFile, 'utf8');
-        fs.ensureDirSync(path.dirname(oldLocalizationFile));
+        fs.mkdirSync(path.dirname(oldLocalizationFile), { recursive: true });
         fs.writeFileSync(oldLocalizationFile, newLocalizationContent, 'utf8');
         console.log(`Content copied successfully`);
     }

@@ -1,37 +1,12 @@
 {
-  "name": "CapabilitiesParser",
+  "name": "powerbi-visuals-utils-localizationutils",
   "version": "1.0.1",
-  "description": "",
-  "main": "allResourcesToUtilsRepo.js",
+  "private": true,
+  "description": "Localization hub for the Power BI custom visuals owned by Microsoft",
   "scripts": {
-    "tsc": "tsc",
-    "test": "",
-    "parseNewLocalizations": "node ./src/parseNewLocalizations.js",
-    "capabilitiesToResources": "npm run tsc && node ./dist/updateStringsFromCapabilities.js",
-    "allResourcesToUtilsRepo": "npm run tsc && node ./dist/allResourcesToUtilsRepo.js",
-    "utilsRepoToAllResources": "npm run tsc && node ./dist/updateStringsFromCommonRepo.js",
-    "validateJsons": "npm run tsc && node ./dist/jsonValidator.js",
-    "validateTranslations": "npm run tsc && node ./dist/translationsValidator.js",
-    "lint": "tslint -r \"node_modules/tslint-microsoft-contrib\" \"+(src|test)/**/*.ts\""
+    "parseNewLocalizations": "node ./src/parseNewLocalizations.js"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "8.0.19",
-    "@types/request-promise-native": "1.0.6",
-    "github": "12.0.1",
-    "request": "^2.88.2",
-    "request-promise-native": "1.0.4",
-    "tslint": "^5.20.1",
-    "tslint-microsoft-contrib": "^4.0.0",
-    "typescript": "2.4.2"
-  },
-  "dependencies": {
-    "@types/decompress": "4.2.0",
-    "decompress": "4.2.1",
-    "decompress-targz": "4.1.1",
-    "fs-extra": "^11.2.0",
-    "path": "^0.12.7"
-  }
+  "license": "MIT"
 }
