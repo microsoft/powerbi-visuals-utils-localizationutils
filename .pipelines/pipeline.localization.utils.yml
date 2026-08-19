@@ -62,8 +62,6 @@ stages:
           dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
           packageSourceAuth: 'patAuth'
         displayName: 'Run OneLocBuild'
-      - script: npm install
-        displayName: 'Install dependencies'
       - script: npm run parseNewLocalizations
         displayName: 'Parse new localizations'
       - script: git status --short
