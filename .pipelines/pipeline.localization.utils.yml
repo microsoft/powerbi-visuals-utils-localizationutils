@@ -1,11 +1,15 @@
-trigger: 
-- main
+# batch keeps two pushes to main from racing for the same bot branch.
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
 
 variables:
   - name: branchRef
     value: 'main'
-  - name: locBranchNamePrefix
-    value: 'parsed_localizations_'
+  - name: locBranchName
+    value: 'parsed_localizations'
 
 stages:
 - stage: build
@@ -17,39 +21,13 @@ stages:
     steps:
       - checkout: self
         persistCredentials: true
-      - powershell: |
-          $branchName = "$(locBranchNamePrefix)" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss")
-          Write-Host "##vso[task.setvariable variable=branchName]$branchName"
-        name: SetVariables
-        displayName: 'Set Variables'
-      - task: NodeTool@0
+      - task: UseNode@1
         inputs:
-          versionSpec: '18.x'
+          version: '20.x'
         displayName: 'Install Node.js'
       - script: |
           git config --global core.autocrlf false
         displayName: 'Configure Git'
-      - task: AzureKeyVault@2
-        inputs:
-          azureSubscription: 'CustomVisualsASPManagedIdentity'
-          KeyVaultName: 'CustomVisualsKeyVault'
-          SecretsFilter: 'LOC-APP-ID,LOC-APP-PRIVATE-KEY'
-          RunAsPreJob: false
-        displayName: 'Fetch GitHub App credentials from Key Vault'
-      - task: PowerShell@2
-        displayName: 'Generate GitHub App Access Token'
-        name: getGitHubToken
-        inputs:
-          targetType: 'filePath'
-          filePath: '.pipelines/get-github-app-token.ps1'
-          arguments: >-
-            -AppId "$(LOC-APP-ID)"
-            -RepoOwner "microsoft"
-            -RepoName "powerbi-visuals-utils-localizationutils"
-            -OutputVariableName "LOC_APP_TOKEN"
-          pwsh: true
-        env:
-          GITHUB_APP_PRIVATE_KEY: $(LOC-APP-PRIVATE-KEY)
       - task: OneLocBuild@2
         env:
           SYSTEM_ACCESSTOKEN: $(System.AccessToken)
@@ -66,59 +44,40 @@ stages:
         displayName: 'Parse new localizations'
       - script: git status --short
         displayName: 'Git status'
-      - powershell: |
-          $matchingPRs = gh pr list --repo "microsoft/powerbi-visuals-utils-localizationutils" `
-            --author "@me" `
-            --state open `
-            --json number,headRefName | ConvertFrom-Json | `
-            Where-Object { $_.headRefName -match "$(locBranchNamePrefix)" }
-
-          if (-not $matchingPRs) {
-            Write-Host "No open pull requests matching the branch pattern '$(locBranchNamePrefix)'."
-          } else {
-            foreach ($pr in $matchingPRs) {
-              Write-Host "Attempting to close PR #$($pr.number)"
-              gh pr close $($pr.number) --repo "microsoft/powerbi-visuals-utils-localizationutils" --delete-branch
-              if ($LASTEXITCODE -eq 0) {
-                Write-Host "Successfully closed PR #$($pr.number) and deleted its branch"
-              } else {
-                Write-Host "Failed to close PR #$($pr.number) - Please check repository permissions"
-              }
-            }
-          }
-        displayName: 'Delete old pull requests'
+      # Minted after OneLocBuild, not with the other setup tasks: the token lasts an hour
+      # and OneLocBuild can run for longer than that.
+      - task: AzureKeyVault@2
+        inputs:
+          azureSubscription: 'CustomVisualsASPManagedIdentity'
+          KeyVaultName: 'CustomVisualsKeyVault'
+          SecretsFilter: 'LOC-APP-ID,LOC-APP-PRIVATE-KEY'
+          RunAsPreJob: false
+        displayName: 'Fetch GitHub App credentials from Key Vault'
+      - task: PowerShell@2
+        displayName: 'Generate GitHub App Access Token'
+        name: getGitHubToken
+        inputs:
+          targetType: 'filePath'
+          filePath: 'src/get-github-app-token.ps1'
+          arguments: >-
+            -AppId "$(LOC-APP-ID)"
+            -RepoOwner "microsoft"
+            -RepoName "powerbi-visuals-utils-localizationutils"
+            -OutputVariableName "LOC_APP_TOKEN"
+          pwsh: true
         env:
-          GH_TOKEN: $(LOC_APP_TOKEN)
+          GITHUB_APP_PRIVATE_KEY: $(LOC-APP-PRIVATE-KEY)
       - pwsh: |
-          & ./scripts/create-signed-commit.ps1 `
-            -Repo "microsoft/powerbi-visuals-utils-localizationutils" `
-            -Branch "$(branchName)" `
-            -Message "Update localizations" `
-            -PathSpec localizations
-          $rc = $LASTEXITCODE
-          if ($rc -eq 3) {
-            Write-Host "##vso[task.setvariable variable=hasCommit]false"
-            exit 0
-          }
-          if ($rc -ne 0) { throw "Failed to create commit (exit $rc)" }
-          Write-Host "##vso[task.setvariable variable=hasCommit]true"
-        displayName: 'Commit localizations'
-        env:
-          GH_TOKEN: $(LOC_APP_TOKEN)
-      - powershell: |
-          gh pr create `
+          node src/commit-and-open-pr.js `
             --repo "microsoft/powerbi-visuals-utils-localizationutils" `
-            --head $(branchName) `
-            --base $(branchRef) `
-            --title "Update localizations $(Get-Date -Format 'yyyy-MM-dd')" `
-            --body "Automated PR to update localizations"
-
-          if ($LASTEXITCODE -ne 0) {
-            Write-Host "Failed to create PR, it might already exist"
-          }
-        displayName: 'Open Pull Request'
-        condition: and(succeeded(), eq(variables['hasCommit'], 'true'))
-        continueOnError: true
+            --branch "$(locBranchName)" `
+            --message "Update localizations" `
+            --title "Update localizations" `
+            --body "Automated PR to update localizations" `
+            --base "$(branchRef)" `
+            --path localizations
+          if ($LASTEXITCODE -ne 0) { throw 'Failed to update localizations' }
+        displayName: 'Commit localizations and open pull request'
         env:
           GH_TOKEN: $(LOC_APP_TOKEN)
       - task: PublishPipelineArtifact@1

@@ -2,6 +2,11 @@ name: Distribute translations to visuals
 
 on:
   workflow_dispatch:
+    inputs:
+      only:
+        description: 'Folder name under visuals/ to update on its own, e.g. powerbi-visuals-asterplot. Empty means all.'
+        required: false
+        type: string
   push:
     branches: [main]
     # Ignore en-US-only harvest merges; target-locale changes signal completed translations.
@@ -17,16 +22,15 @@ concurrency:
 
 env:
   BOT_BRANCH: new_translations
+  ONLY_REPO: ${{ inputs.only }}
 
 jobs:
   update_other_localizations:
     environment: update localizations
     runs-on: ubuntu-latest
+    # Below the one hour lifetime of the App token, so the job dies before its credentials do.
+    timeout-minutes: 40
     steps:
-      - name: Prepare info
-        id: info
-        run: |
-          echo "pr-name=$(date +'New translations (%F %T %Z)')" >> $GITHUB_OUTPUT
       - name: Generate GitHub App token
         id: app-token
         uses: actions/create-github-app-token@v2
@@ -41,20 +45,37 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check the requested visual exists
+        if: inputs.only != ''
+        run: |
+          # Otherwise a typo skips every repository and the run still reports success.
+          if [ ! -d "visuals/$ONLY_REPO" ]; then
+            echo "::error title=Unknown visual::No visuals/$ONLY_REPO in this repository"
+            exit 1
+          fi
       - name: Configure Git
         run: git config --global core.autocrlf false
       - name: Update submodules
         run: |
-          git pull --recurse-submodules
+          # checkout already cloned and initialized them; --remote moves each one to the head
+          # of its own default branch, and the refspec makes other branches fetchable.
           git submodule update --remote --recursive
           for folder in visuals/*; do
-            git -C $folder config remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 
-          done;
+            git -C "$folder" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+          done
           git submodule foreach --recursive 'git fetch'
       - name: Copy translations to submodules
         run: |
+          # Without nullglob a pattern that matches nothing is passed through literally.
+          shopt -s nullglob
           for visualPath in ./localizations/*; do 
             repoName=$(echo $visualPath| cut -d'/' -f 3)
+            if [ -n "$ONLY_REPO" ] && [ "$repoName" != "$ONLY_REPO" ]; then
+              continue
+            fi
             echo "::group::Copy to $repoName"
               sourceRoot="$visualPath/stringResources"
               targetRoot="visuals/$repoName/stringResources"
@@ -73,15 +94,20 @@ jobs:
               done
             echo "::endgroup::"
           done;
-      - name: Commit and open Pull Requests in submodules
+      - name: Update visual repositories
         run: |
+          shopt -s nullglob
           mainFolder=$PWD
           failedRepos=()
           for folder in visuals/*; do
             repoName=$(echo $folder| cut -d'/' -f 2)
-            # Some submodules are not localized and have no stringResources to commit.
-            if [ ! -d "$mainFolder/$folder/stringResources" ]; then
-              echo "No stringResources in $repoName, skipping"
+            if [ -n "$ONLY_REPO" ] && [ "$repoName" != "$ONLY_REPO" ]; then
+              continue
+            fi
+            # Asks the source, not the target: the copy step above creates the target directory,
+            # so checking it would only ever detect visuals missing from localizations/.
+            if [ ! -d "$mainFolder/localizations/$repoName/stringResources" ]; then
+              echo "No localizations for $repoName, skipping"
               continue
             fi
             echo "::group::Commit to $repoName"  
@@ -94,28 +120,18 @@ jobs:
                   fi
                 done <<< "$changedFiles"
               fi
-              originalBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-              rc=0
-              pwsh "$mainFolder/scripts/create-signed-commit.ps1" \
-                -Repo "$REPO_OWNER/$repoName" -Branch "$BOT_BRANCH" -Message "New translations" \
-                -PathSpec stringResources -ExcludePath stringResources/en-US || rc=$?
-              if [ $rc -eq 3 ]; then
-                echo "No changes for $repoName"
-              elif [ $rc -ne 0 ]; then
-                echo "::error title=Commit failed::$repoName could not be updated"
-                failedRepos+=("$repoName (commit)")
-              else
-                if ! prNumber=$(gh pr list --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --state open \
-                  --json number --jq '.[0].number'); then
-                  echo "::error title=Pull request lookup failed::$repoName could not be checked for an open PR"
-                  failedRepos+=("$repoName (PR lookup)")
-                elif [[ -n "$prNumber" ]]; then
-                  echo "Pull request #$prNumber already open on $BOT_BRANCH in $repoName"
-                elif ! gh pr create --repo "$REPO_OWNER/$repoName" --head "$BOT_BRANCH" --base "$originalBranchName" \
-                  -b "Auto created Pull Request with new translations" -t "$PR_NAME"; then
-                  echo "::error title=Pull request creation failed::$repoName has a commit but no open PR"
-                  failedRepos+=("$repoName (PR create)")
-                fi
+              # No --base: submodules sit on a detached HEAD, so the script resolves the
+              # target's default branch through the API instead.
+              if ! node "$mainFolder/src/commit-and-open-pr.js" \
+                --repo "$REPO_OWNER/$repoName" \
+                --branch "$BOT_BRANCH" \
+                --message "New translations" \
+                --title "New translations" \
+                --body "Auto created Pull Request with new translations" \
+                --path stringResources \
+                --exclude stringResources/en-US; then
+                echo "::error title=Update failed::$repoName could not be updated"
+                failedRepos+=("$repoName")
               fi
             echo "::endgroup::"
           done;
@@ -125,6 +141,5 @@ jobs:
             exit 1
           fi
         env:
-          PR_NAME: ${{steps.info.outputs.pr-name}}
           REPO_OWNER: 'microsoft'
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
