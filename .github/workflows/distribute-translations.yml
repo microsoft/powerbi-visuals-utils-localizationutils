@@ -28,7 +28,8 @@ jobs:
   update_other_localizations:
     environment: update localizations
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # Below the one hour lifetime of the App token, so the job dies before its credentials do.
+    timeout-minutes: 40
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -47,6 +48,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Check the requested visual exists
+        if: inputs.only != ''
+        run: |
+          # Otherwise a typo skips every repository and the run still reports success.
+          if [ ! -d "visuals/$ONLY_REPO" ]; then
+            echo "::error title=Unknown visual::No visuals/$ONLY_REPO in this repository"
+            exit 1
+          fi
       - name: Configure Git
         run: git config --global core.autocrlf false
       - name: Update submodules
@@ -95,9 +104,10 @@ jobs:
             if [ -n "$ONLY_REPO" ] && [ "$repoName" != "$ONLY_REPO" ]; then
               continue
             fi
-            # Some submodules are not localized and have no stringResources to commit.
-            if [ ! -d "$mainFolder/$folder/stringResources" ]; then
-              echo "No stringResources in $repoName, skipping"
+            # Asks the source, not the target: the copy step above creates the target directory,
+            # so checking it would only ever detect visuals missing from localizations/.
+            if [ ! -d "$mainFolder/localizations/$repoName/stringResources" ]; then
+              echo "No localizations for $repoName, skipping"
               continue
             fi
             echo "::group::Commit to $repoName"  

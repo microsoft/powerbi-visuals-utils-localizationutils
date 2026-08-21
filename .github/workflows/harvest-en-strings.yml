@@ -39,12 +39,8 @@ jobs:
       - name: Update submodules
         run: |
           # checkout already cloned and initialized them; --remote moves each one to the head
-          # of its own default branch, and the refspec makes other branches fetchable.
+          # of its own default branch, which is all this job reads.
           git submodule update --remote --recursive
-          for folder in visuals/*; do
-            git -C "$folder" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-          done
-          git submodule foreach --recursive 'git fetch'
       - name: Copy EN translation
         run: |
           # Without nullglob a pattern that matches nothing is passed through literally.

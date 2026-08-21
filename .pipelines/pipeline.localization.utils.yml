@@ -28,6 +28,24 @@ stages:
       - script: |
           git config --global core.autocrlf false
         displayName: 'Configure Git'
+      - task: OneLocBuild@2
+        env:
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+        inputs:
+          locProj: 'LocProject.json'
+          outDir: '$(Build.SourcesDirectory)'
+          isCreatePrSelected: true
+          repoType: 'gitHub'
+          prSourceBranchPrefix: 'locfiles'
+          dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
+          packageSourceAuth: 'patAuth'
+        displayName: 'Run OneLocBuild'
+      - script: npm run parseNewLocalizations
+        displayName: 'Parse new localizations'
+      - script: git status --short
+        displayName: 'Git status'
+      # Minted after OneLocBuild, not with the other setup tasks: the token lasts an hour
+      # and OneLocBuild can run for longer than that.
       - task: AzureKeyVault@2
         inputs:
           azureSubscription: 'CustomVisualsASPManagedIdentity'
@@ -49,22 +67,6 @@ stages:
           pwsh: true
         env:
           GITHUB_APP_PRIVATE_KEY: $(LOC-APP-PRIVATE-KEY)
-      - task: OneLocBuild@2
-        env:
-          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-        inputs:
-          locProj: 'LocProject.json'
-          outDir: '$(Build.SourcesDirectory)'
-          isCreatePrSelected: true
-          repoType: 'gitHub'
-          prSourceBranchPrefix: 'locfiles'
-          dependencyPackageSource: 'https://powerbi.pkgs.visualstudio.com/PowerBIClients/_packaging/VisualsMonitorFeed/nuget/v3/index.json'
-          packageSourceAuth: 'patAuth'
-        displayName: 'Run OneLocBuild'
-      - script: npm run parseNewLocalizations
-        displayName: 'Parse new localizations'
-      - script: git status --short
-        displayName: 'Git status'
       - pwsh: |
           node src/commit-and-open-pr.js `
             --repo "microsoft/powerbi-visuals-utils-localizationutils" `
