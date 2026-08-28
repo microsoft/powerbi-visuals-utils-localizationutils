@@ -84,6 +84,9 @@ so the branch is always exactly one commit ahead of the default branch instead o
 accumulating history against an ever older base. Content is read from the git index rather
 than from disk, so `.gitattributes` filters apply to what is committed.
 
+That re-point is a force move, so anything pushed onto a bot branch by hand is discarded on
+the next run.
+
 Opening the pull request is part of the same script on purpose. Committing and opening a
 pull request are two separate API calls, so a run that fails between them would leave the
 content on a branch nobody looks at. The script therefore also opens a pull request when it
@@ -120,4 +123,9 @@ keeps the repository tidy.
 Both workflows expose `workflow_dispatch`, so they can be started from the
 **Actions** tab. Use this after a partial failure — the fixed `new_translations`
 branch means a rerun updates the existing PR instead of creating a new one.
+
+**Distribute translations to visuals** also takes an `only` input: a folder name under
+`visuals/`, for example `powerbi-visuals-asterplot`, to retry a single repository instead
+of all of them. Leave it empty to update every visual. A name that does not exist fails the
+run rather than quietly updating nothing.
 
