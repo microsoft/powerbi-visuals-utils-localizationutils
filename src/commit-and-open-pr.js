@@ -99,6 +99,11 @@ function readBlob(oid, cwd) {
     });
 }
 
+/** Slashes separate path segments in a ref, so only the characters within a segment are escaped. */
+function encodeRef(branch) {
+    return branch.split('/').map(encodeURIComponent).join('/');
+}
+
 function createApi(token) {
     return async function api(method, url, body) {
         const response = await fetch(url.startsWith('http') ? url : `${API}${url}`, {
@@ -152,7 +157,7 @@ function collectChanges(baseSha, paths, cwd) {
 }
 
 async function getBranchTip(api, repo, branch) {
-    const response = await api('GET', `/repos/${repo}/git/ref/heads/${branch}`);
+    const response = await api('GET', `/repos/${repo}/git/ref/heads/${encodeRef(branch)}`);
     if (response.status === 404) { return null; }
     if (!response.ok) {
         throw new Error(`Failed to read branch ${branch}: ${response.status}`);
@@ -161,7 +166,7 @@ async function getBranchTip(api, repo, branch) {
 }
 
 async function moveBranch(api, repo, branch, sha) {
-    const response = await api('PATCH', `/repos/${repo}/git/refs/heads/${branch}`, { sha, force: true });
+    const response = await api('PATCH', `/repos/${repo}/git/refs/heads/${encodeRef(branch)}`, { sha, force: true });
     if (!response.ok) { throw new Error(`Failed to move ${branch}: ${response.status}`); }
 }
 
@@ -186,7 +191,8 @@ async function createCommit(api, { repo, branch, message, baseSha, additions, de
 
 async function ensurePullRequest(api, { repo, branch, base, title, body }) {
     const owner = repo.split('/')[0];
-    const existing = await api('GET', `/repos/${repo}/pulls?state=open&head=${owner}:${branch}`);
+    const head = encodeURIComponent(`${owner}:${branch}`);
+    const existing = await api('GET', `/repos/${repo}/pulls?state=open&head=${head}`);
     if (!existing.ok) { throw new Error(`Failed to list pull requests: ${existing.status}`); }
     if (existing.payload.length > 0) {
         console.log(`Pull request #${existing.payload[0].number} already open on ${branch}`);
