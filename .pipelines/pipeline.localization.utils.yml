@@ -58,7 +58,7 @@ stages:
         name: getGitHubToken
         inputs:
           targetType: 'filePath'
-          filePath: 'src/get-github-app-token.ps1'
+          filePath: '.pipelines/get-github-app-token.ps1'
           arguments: >-
             -AppId "$(LOC-APP-ID)"
             -RepoOwner "microsoft"

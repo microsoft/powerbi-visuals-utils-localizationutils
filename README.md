@@ -71,7 +71,7 @@ The App is installed on this repository and on every visual repository, with
   `repositories` is intentionally omitted so the token covers every repo in the organization
   where the App is installed.
 * The Azure DevOps pipeline mints the same kind of token with
-  [src/get-github-app-token.ps1](src/get-github-app-token.ps1).
+  [.pipelines/get-github-app-token.ps1](.pipelines/get-github-app-token.ps1).
 
 App credentials are stored as secrets in the GitHub environment / pipeline variable group
 and are never committed to this repository.
