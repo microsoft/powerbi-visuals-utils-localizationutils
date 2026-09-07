@@ -44,10 +44,13 @@
       </Item>
       <Item ItemId=";Visual_BarSpacing" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Space between bars (%)]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Space between bars]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Інтервал між стовпчиками (%)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Space between bars (%)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -62,10 +65,13 @@
       </Item>
       <Item ItemId=";Visual_BorderWidth" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Border width (px)]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Border width]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Ширина межі (пікс.)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Border width (px)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -107,10 +113,13 @@
       </Item>
       <Item ItemId=";Visual_CornerRadius" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Rounded corners (px)]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[Rounded corners]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Заокруглені кути (пікс.)]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Rounded corners (px)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -548,10 +557,13 @@
       </Item>
       <Item ItemId=";Visual_Transparency" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Transparency (%)]]></Val>
+          <Val><![CDATA[Transparency]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Прозорість (%)]]></Val>
+            <Val><![CDATA[Прозорість]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Transparency (%)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -584,10 +596,13 @@
       </Item>
       <Item ItemId=";Visual_Width" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Width (px)]]></Val>
+          <Val><![CDATA[Width]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ширина (пікс.)]]></Val>
+            <Val><![CDATA[Ширина]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Width (px)]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
