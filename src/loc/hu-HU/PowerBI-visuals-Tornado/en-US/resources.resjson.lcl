@@ -45,8 +45,8 @@
       <Item ItemId=";Visual_BarSpacing" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Space between bars]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Sávok közötti tér (%)]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Sávok közötti tér]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Space between bars (%)]]></Val>
@@ -66,8 +66,8 @@
       <Item ItemId=";Visual_BorderWidth" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Border width]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Szegély szélessége (képpont)]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Szegély vastagsága]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Border width (px)]]></Val>
@@ -114,8 +114,8 @@
       <Item ItemId=";Visual_CornerRadius" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Rounded corners]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Lekerekített sarkok (képpont)]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Lekerekített sarkok]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Rounded corners (px)]]></Val>
