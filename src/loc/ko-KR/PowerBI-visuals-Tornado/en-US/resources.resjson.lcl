@@ -95,10 +95,13 @@
       </Item>
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Chart Area]]></Val>
+          <Val><![CDATA[Chart area]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[차트 영역]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Chart Area]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -143,19 +146,25 @@
       </Item>
       <Item ItemId=";Visual_DataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Data Labels]]></Val>
+          <Val><![CDATA[Data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[데이터 레이블]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Data Labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Decimal Places]]></Val>
+          <Val><![CDATA[Decimal places]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[소수 자릿수]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Decimal Places]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -197,10 +206,13 @@
       </Item>
       <Item ItemId=";Visual_DisplayUnits" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Display Units]]></Val>
+          <Val><![CDATA[Display units]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[표시 단위]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Display Units]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -269,10 +281,13 @@
       </Item>
       <Item ItemId=";Visual_LabelColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Label Color]]></Val>
+          <Val><![CDATA[Label color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[레이블 색]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Label Color]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -305,10 +320,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Legend Name]]></Val>
+          <Val><![CDATA[Legend name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[범례 이름]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Legend Name]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -332,10 +350,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Bottom Center]]></Val>
+          <Val><![CDATA[Bottom center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[아래쪽 가운데]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Bottom Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -350,10 +371,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Left Center]]></Val>
+          <Val><![CDATA[Left center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[왼쪽 가운데]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Left Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -386,19 +410,25 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Top Center]]></Val>
+          <Val><![CDATA[Top center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[위쪽 가운데]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Top Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[토네이도 차트는 특수한 막대 차트 유형으로, 데이터 범주가 표준 가로 표시 대신 세로로 나열되며 범주의 순서는 가장 큰 막대가 차트의 맨 위에 나타나고 두 번째로 큰 막대가 맨 위에서 두 번째로 오는 식으로 지정됩니다. 마지막 차트는 토네이도의 절반 또는 완전한 토네이도와 비슷해 보이기 때문에 토네이도라는 이름이 붙었습니다.]A;토네이도 차트는 선택한 변수를 변경한 결과의 민감도를 나타내는 데 일반적으로 사용하는 도구로, 다른 모든 입력 값은 초기(공칭) 값으로 유지한 상태로 각 입력 변수를 한 번에 변경한 결과에 미치는 영향을 보여 줍니다. 일반적으로는 각각의 입력에 대해 \"낮음\" 및 \"높음\" 값을 선택합니다.]A;이는 오픈 소스 시각적 개체입니다. GitHub에서 코드를 받아 보세요. https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+            <Val><![CDATA[토네이도 차트는 특수한 막대 차트 유형으로, 데이터 범주가 표준 가로 표시 대신 세로로 나열되며 범주의 순서는 가장 큰 막대가 차트의 맨 위에 나타나고 두 번째로 큰 막대가 맨 위에서 두 번째로 오는 식으로 지정됩니다. 마지막 차트는 토네이도의 절반 또는 완전한 토네이도와 비슷해 보이기 때문에 토네이도라는 이름이 붙었습니다.]A;토네이도 차트는 선택한 변수를 변경한 결과의 민감도를 나타내는 데 일반적으로 사용하는 도구로, 다른 모든 입력 값은 초기(공칭) 값으로 유지한 상태로 각 입력 변수를 한 번에 변경한 결과에 미치는 영향을 보여 줍니다. 다른 모든 입력 변수는 초기(공칭) 값으로 유지한 상태에서 각 입력 변수를 한 번에 하나씩 변경했을 때 출력에 어떤 영향이 있는지 보여 줍니다. 이는 오픈 소스 시각적 개체입니다.]A;GitHub에서 코드를 받아 보세요. https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -653,10 +683,13 @@
       </Item>
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[X-Axis]]></Val>
+          <Val><![CDATA[X-axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[X축]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[X-Axis]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>

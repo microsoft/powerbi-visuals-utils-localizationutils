@@ -95,10 +95,13 @@
       </Item>
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Chart Area]]></Val>
+          <Val><![CDATA[Chart area]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Área da gráfica]]></Val>
+            <Val><![CDATA[Área do gráfico]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Chart Area]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -143,19 +146,25 @@
       </Item>
       <Item ItemId=";Visual_DataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Data Labels]]></Val>
+          <Val><![CDATA[Data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Etiquetas de datos]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Data Labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Decimal Places]]></Val>
+          <Val><![CDATA[Decimal places]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Posicións decimais]]></Val>
+            <Val><![CDATA[Decimais]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Decimal Places]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -197,10 +206,13 @@
       </Item>
       <Item ItemId=";Visual_DisplayUnits" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Display Units]]></Val>
+          <Val><![CDATA[Display units]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mostrar unidades]]></Val>
+            <Val><![CDATA[Unidades de visualización]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Display Units]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -269,10 +281,13 @@
       </Item>
       <Item ItemId=";Visual_LabelColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Label Color]]></Val>
+          <Val><![CDATA[Label color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Cor da etiqueta]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Label Color]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -305,10 +320,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Legend Name]]></Val>
+          <Val><![CDATA[Legend name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Nome de lenda]]></Val>
+            <Val><![CDATA[Nome da lenda]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Legend Name]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -332,10 +350,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Bottom Center]]></Val>
+          <Val><![CDATA[Bottom center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Parte inferior central]]></Val>
+            <Val><![CDATA[Centro inferior]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Bottom Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -350,10 +371,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Left Center]]></Val>
+          <Val><![CDATA[Left center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Parte inferior esquerda]]></Val>
+            <Val><![CDATA[Centro esquerdo]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Left Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -386,19 +410,25 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Top Center]]></Val>
+          <Val><![CDATA[Top center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Parte superior central]]></Val>
+            <Val><![CDATA[Centro superior]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Top Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[As gráficas de Tornado Chart son un tipo especial de gráfica de barras en que as categorías dos datos aparecen de xeito vertical en lugar da presentación horizontal estándar. Ademais, as categorías están ordenadas de forma que a barra máis longa aparece na parte superior da gráfica, a segunda máis longa é a segunda desde a parte superior, etc. Chámanse así porque a gráfica final recorda visualmente a medio tornado ou a un tornado completo.]A;Unha gráfica de Tornado Chart é unha ferramenta común que se usa para representar a susceptibilidade dun resultado ás modificacións nas variables seleccionadas. Mostra o efecto do resultado de modificar cada variable de entrada á vez, mantendo todas as demais variables de entrada nos seus valores iniciais (nominais). Normalmente, escollería un valor \"baixo\" e outro \"alto\" para cada entrada.]A;Este é un elemento visual de código aberto. Obteña o código en GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+            <Val><![CDATA[Os gráficos Tornado son un tipo especial de gráfico de barras no que as categorías de datos se listan verticalmente en lugar da presentación horizontal estándar, e as categorías están ordenadas de xeito que a barra máis grande apareza na parte superior do gráfico, a segunda máis grande apareza a segunda desde arriba e así sucesivamente. Chámanse así porque o gráfico final se asemella visualmente á metade ou a un tornado completo.]A;Un gráfico de tornados é unha ferramenta común empregada para representar a sensibilidade dun resultado aos cambios nas variables seleccionadas. Mostra o efecto na saída de variar cada variable de entrada á vez, mantendo todas as demais variables de entrada nos seus valores iniciais (nominais). Normalmente, escóllese un valor "baixo" e un valor "alto" para cada entrada.]A;Este é un elemento visual de código aberto. Obtén o código de GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -653,10 +683,13 @@
       </Item>
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[X-Axis]]></Val>
+          <Val><![CDATA[X-axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Eixo X]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[X-Axis]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
