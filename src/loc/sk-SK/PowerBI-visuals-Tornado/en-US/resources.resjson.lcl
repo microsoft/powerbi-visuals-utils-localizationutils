@@ -96,7 +96,7 @@
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Oblasť grafu]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -159,7 +159,7 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Desatinné miesta]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -321,7 +321,7 @@
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Názov legendy]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -351,7 +351,7 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Dole na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -372,7 +372,7 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Vľavo na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -411,7 +411,7 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Hore na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -423,8 +423,8 @@
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Grafy typu Tornádo sú špeciálnym typom pruhových grafov, v ktorých sú kategórie údajov zoradené vertikálne namiesto štandardnej horizontálnej prezentácie. Kategórie sú usporiadané tak, aby sa v hornej časti grafu zobrazil najväčší pruh, druhý najväčší pruh sa zobrazil druhý zhora a tak ďalej. Názov tohto typu grafu vychádza z toho, že výsledný graf vizuálne pripomína polovicu tornáda alebo celé tornádo.]A;Graf typu Tornádo je bežným nástrojom používaným na zobrazenie citlivosti výsledku zmien vo vybratých premenných. Zobrazuje vplyv na výstup zmeny každej vstupnej premennej, pričom všetky ostatné vstupné premenné si zachovajú svoju počiatočné (nominálne) hodnoty. Zvyčajne pre každý vstup vyberiete hodnotu nízka a vysoká.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Grafy typu Tornádo sú špeciálnym typom pruhových grafov, v ktorých sú kategórie údajov zoradené vertikálne namiesto štandardnej horizontálnej prezentácie a kategórie sú usporiadané tak, aby sa najväčší pruh zobrazil v hornej časti grafu, druhý najväčší pruh ako druhý zhora a tak ďalej. Názov tohto typu grafu vychádza z toho, že výsledný graf vizuálne pripomína polovicu tornáda alebo celé tornádo.]A;Graf typu Tornádo je bežným nástrojom používaným na zobrazenie citlivosti výsledku zmien vo vybratých premenných. Zobrazuje vplyv na výstup zmeny každej vstupnej premennej, pričom všetky ostatné vstupné premenné si zachovajú svoje počiatočné (nominálne) hodnoty. Zvyčajne pre každý vstup vyberiete hodnotu nízka a vysoká.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -684,7 +684,7 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Os x]]></Val>
           </Tgt>
           <Prev Cat="Text">
