@@ -95,10 +95,13 @@
       </Item>
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Chart Area]]></Val>
+          <Val><![CDATA[Chart area]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[مساحة الخريطة]]></Val>
+            <Val><![CDATA[منطقة المخطط]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Chart Area]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -143,19 +146,25 @@
       </Item>
       <Item ItemId=";Visual_DataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Data Labels]]></Val>
+          <Val><![CDATA[Data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[تسميات البيانات]]></Val>
+            <Val><![CDATA[بطاقات البيانات]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Data Labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Decimal Places]]></Val>
+          <Val><![CDATA[Decimal places]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[المنازل العشرية]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Decimal Places]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -197,10 +206,13 @@
       </Item>
       <Item ItemId=";Visual_DisplayUnits" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Display Units]]></Val>
+          <Val><![CDATA[Display units]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[وحدات العرض]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Display Units]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -269,10 +281,13 @@
       </Item>
       <Item ItemId=";Visual_LabelColor" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Label Color]]></Val>
+          <Val><![CDATA[Label color]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[لون التسمية]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Label Color]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -305,10 +320,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Legend Name]]></Val>
+          <Val><![CDATA[Legend name]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[اسم وسيلة الإيضاح]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Legend Name]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -332,10 +350,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Bottom Center]]></Val>
+          <Val><![CDATA[Bottom center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[أسفل الوسط]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Bottom Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -350,10 +371,13 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Left Center]]></Val>
+          <Val><![CDATA[Left center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[توسيط لليسار]]></Val>
+            <Val><![CDATA[وسط أيسر]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Left Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -386,19 +410,25 @@
       </Item>
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Top Center]]></Val>
+          <Val><![CDATA[Top center]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[أعلى الوسط]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Top Center]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[مخططات الإعصار، هي نوع خاص من المخطط الشريطي، حيث يتم سرد فئات البيانات عموديًا بدلاً من العرض التقديمي الأفقي القياسية، ويتم ترتيب الفئات بحيث تظهر الأكبر في الجزء العلوي من المخطط، ويليها ثاني أكبر الفئات، وهكذا. تمت تسميتها بهذا الاسم لأن المخطط النهائي يظهر على شكل نصف إعصار أو إعصار كامل.]A;يعتبر مخطط الإعصار أداة شائعة تُستخدم لعرض حساسية نتيجة لتغييرات في متغيرات محددة. فهو يعرض التأثير على المخرجات بناءً على تغيير كل متغير إدخال في المرة، مع الاحتفاظ على كل متغيرات الإدخال الأخرى عند قيمها الأولية (الاسمية). عادة، يمكنك اختيار القيمتين \"منخفض\" و\"مرتفع\" لكل إدخال.]A;فيما يلي مرئيات مصدر مفتوح. احصل على التعليمات البرمجية من GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+            <Val><![CDATA[مخططات الإعصار هي نوع خاص من المخططات الشريطية تُسرد فيها فئات البيانات عمودياً بدلاً من العرض الأفقي القياسي، وتُرتَّب الفئات بحيث يظهر الشريط الأكبر في أعلى المخطط، ويليها ثاني أكبر شريط في المرتبة الثانية من الأعلى، وهكذا. سبقت تسميته بهذا الاسم لأن المخطط النهائي يظهر على شكل نصف إعصار أو إعصار كامل.]A;مخطط الإعصار أداة شائعة تُستخدم لعرض حساسية نتيجة لتغييرات في متغيرات محددة. يوضح ذلك تأثير تغيير كل متغير من متغيرات المدخلات على حدة في المخرجات، مع إبقاء جميع متغيرات المدخلات الأخرى عند قيمها الأولية (الاسمية). عادةً ما تختار قيمة "منخفضة" وأخرى "مرتفعة" لكل مُدخَل.]A;فيما يلي مرئيات مصدر مفتوح. احصل على التعليمات البرمجية من GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -653,10 +683,13 @@
       </Item>
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[X-Axis]]></Val>
+          <Val><![CDATA[X-axis]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[محور س]]></Val>
+            <Val><![CDATA[المحور الأفقي]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[X-Axis]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
