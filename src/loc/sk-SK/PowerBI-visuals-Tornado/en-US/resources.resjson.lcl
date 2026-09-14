@@ -54,32 +54,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_BorderColor" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Bars" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Border color]]></Val>
+          <Val><![CDATA[Bars]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Farba orámovania]]></Val>
+            <Val><![CDATA[Pruhy]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_BorderWidth" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Border" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Border width]]></Val>
+          <Val><![CDATA[Border]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Šírka orámovania]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Border width (px)]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Categories" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Categories]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kategórie]]></Val>
+            <Val><![CDATA[Orámovanie]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -90,18 +78,6 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Stredová čiara]]></Val>
           </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Oblasť grafu]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Chart Area]]></Val>
-          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -135,15 +111,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Farby údajov]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_DataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Data labels]]></Val>
@@ -159,7 +126,7 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Desatinné miesta]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -195,11 +162,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Description_DataColors" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_DataLabels_PercentageDecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Display data color options]]></Val>
+          <Val><![CDATA[Percentage decimal places]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Možnosti zobrazenia farieb údajov]]></Val>
+            <Val><![CDATA[Desatinné miesta v percentách]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Description_Bars" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Display bar color options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zobraziť možnosti farieb pruhov]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -227,10 +203,13 @@
       </Item>
       <Item ItemId=";Visual_FontControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Font control]]></Val>
+          <Val><![CDATA[Font]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ovládací prvok písma]]></Val>
+            <Val><![CDATA[Písmo]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Font control]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -270,32 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Label" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Layout" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Label]]></Val>
+          <Val><![CDATA[Layout]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Označenie]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_LabelColor" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Label color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Farba označenia]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Label Color]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Labels" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Labels]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Označenia]]></Val>
+            <Val><![CDATA[Rozloženie]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,36 +263,6 @@
           <Val><![CDATA[Legend]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Legenda]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Color" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Farba]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Názov legendy]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Legend Name]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Position" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Position]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Pozícia]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -351,7 +279,7 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Dole na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -372,7 +300,7 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Vľavo na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -411,7 +339,7 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Hore na stred]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -420,11 +348,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Legend_Show" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show legend]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zobraziť legendu]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Grafy typu Tornádo sú špeciálnym typom pruhových grafov, v ktorých sú kategórie údajov zoradené vertikálne namiesto štandardnej horizontálnej prezentácie. Kategórie sú usporiadané tak, aby sa v hornej časti grafu zobrazil najväčší pruh, druhý najväčší pruh sa zobrazil druhý zhora a tak ďalej. Názov tohto typu grafu vychádza z toho, že výsledný graf vizuálne pripomína polovicu tornáda alebo celé tornádo.]A;Graf typu Tornádo je bežným nástrojom používaným na zobrazenie citlivosti výsledku zmien vo vybratých premenných. Zobrazuje vplyv na výstup zmeny každej vstupnej premennej, pričom všetky ostatné vstupné premenné si zachovajú svoju počiatočné (nominálne) hodnoty. Zvyčajne pre každý vstup vyberiete hodnotu nízka a vysoká.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Grafy typu Tornádo sú špeciálnym typom pruhových grafov, v ktorých sú kategórie údajov zoradené vertikálne namiesto štandardnej horizontálnej prezentácie a kategórie sú usporiadané tak, aby sa najväčší pruh zobrazil v hornej časti grafu, druhý najväčší pruh ako druhý zhora a tak ďalej. Názov tohto typu grafu vychádza z toho, že výsledný graf vizuálne pripomína polovicu tornáda alebo celé tornádo.]A;Graf typu Tornádo je bežným nástrojom používaným na zobrazenie citlivosti výsledku zmien vo vybratých premenných. Zobrazuje vplyv na výstup zmeny každej vstupnej premennej, pričom všetky ostatné vstupné premenné si zachovajú svoje počiatočné (nominálne) hodnoty. Zvyčajne pre každý vstup vyberiete hodnotu nízka a vysoká.]A;Tento vizuál je typu open-source. Kód získate na stránke GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -461,28 +398,37 @@
       </Item>
       <Item ItemId=";Visual_OnObject_FormatCategories" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format categories]]></Val>
+          <Val><![CDATA[Format group]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Formátovať kategórie]]></Val>
+            <Val><![CDATA[Formátovať skupinu]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format categories]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_OnObject_FormatDataColors" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format data colors]]></Val>
+          <Val><![CDATA[Bars]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Formátovať farby údajov]]></Val>
+            <Val><![CDATA[Pruhy]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format data colors]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_OnObject_FormatLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format labels]]></Val>
+          <Val><![CDATA[Format data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Formátovať označenia]]></Val>
+            <Val><![CDATA[Formátovať označenia údajov]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -515,9 +461,21 @@
       </Item>
       <Item ItemId=";Visual_Percentage" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Percentage]]></Val>
+          <Val><![CDATA[%]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Percento]]></Val>
+            <Val><![CDATA[%]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Percentage]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PlotAreaBackground" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Plot area background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Pozadie zobrazovanej oblasti]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -594,6 +552,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowTitle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show title]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Zobraziť nadpis]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Text]]></Val>
@@ -617,15 +584,6 @@
           <Val><![CDATA[Title]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Názov]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TitleText" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Title text]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Text názvu]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -684,7 +642,7 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Os x]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -698,6 +656,15 @@
           <Val><![CDATA[End]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Koniec]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_XAxisStart" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Start]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Spustiť]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
