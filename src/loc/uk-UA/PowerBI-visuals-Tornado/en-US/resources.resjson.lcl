@@ -96,7 +96,7 @@
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Область діаграми]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -159,8 +159,8 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Кількість знаків після десяткової коми]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Кількість знаків після коми]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Decimal Places]]></Val>
@@ -321,8 +321,8 @@
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Ім’я легенди]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Назва легенди]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Legend Name]]></Val>
@@ -351,8 +351,8 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Унизу по центру]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Унизу в центрі]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Bottom Center]]></Val>
@@ -372,7 +372,7 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ліворуч по центру]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -411,8 +411,8 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Зверху по центру]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Угорі в центрі]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Top Center]]></Val>
@@ -423,8 +423,8 @@
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Діаграма \"Торнадо\" – це спеціальний тип гістограми, на якій список категорій даних відображається не горизонтально, як зазвичай, а вертикально. Категорії впорядковуються таким чином: найдовша смужка відображається вгорі, а під нею – інші в порядку зменшення розміру. Назва візуалізації пов’язана з тим, що остаточний результат візуально нагадує торнадо.]A;За допомогою діаграми \"Торнадо\" часто ілюструють результативність змін у вибраних змінних. Таким чином можна оцінити вплив кожної окремої змінної (решта вхідних змінних залишаються без змін). Зазвичай для кожного вхідного фактору шукають низькі й високі значення.]A;Це візуалізація з відкритим кодом. Отримайте його на сайті GitHub https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Діаграма "Торнадо" – це спеціальний тип гістограми, на якій список категорій даних відображається не горизонтально, як зазвичай, а вертикально. Категорії впорядковуються таким чином: найдовша смужка відображається вгорі, а під нею – інші в порядку зменшення розміру. Назва візуалізації пов’язана з тим, що остаточний результат візуально нагадує торнадо або його половину.]A;За допомогою діаграми "торнадо" часто ілюструють результативність змін у вибраних змінних. Таким чином можна оцінити вплив кожної окремої змінної за раз (решта вхідних змінних залишаються без змін). Зазвичай для кожного вхідного фактора вибираються низькі й високі значення.]A;Це візуалізація з відкритим кодом. Його можна знайти на сайті GitHub https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -684,8 +684,8 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Вісь X]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Вісь абсцис]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[X-Axis]]></Val>

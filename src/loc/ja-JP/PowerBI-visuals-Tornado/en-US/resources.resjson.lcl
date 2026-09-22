@@ -96,7 +96,7 @@
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[グラフ エリア]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -159,8 +159,8 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[小数点以下桁数]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[小数点以下の桁数]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Decimal Places]]></Val>
@@ -321,7 +321,7 @@
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[凡例の名前]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -351,8 +351,8 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[下中央]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[下部中央]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Bottom Center]]></Val>
@@ -372,8 +372,8 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[左中央]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[左詰め (中央)]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Left Center]]></Val>
@@ -411,8 +411,8 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[上中央]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[上部中央]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Top Center]]></Val>
@@ -423,8 +423,8 @@
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Tornado Chart は、特殊な種類の棒グラフで、データのカテゴリが通常の水平方向ではなく垂直方向に配置され、棒の最も長いカテゴリがグラフの一番上に表示され、2 番目に長いカテゴリが上から 2 番目に表示されます (以下同様)。この名前の由来は、最終的なグラフの見た目が竜巻の半分または全体に似ているところにあります。]A;Tornado Chart は、選択した変数の変化に対する結果の感度を描画するために使用する一般的なツールです。このグラフには、各入力変数を変えた場合の出力への影響を一度に表示することができ、その他のすべての入力変数は初期 (公称) 値に保持します。通常は、各入力の \"低\" の値と \"高\" の値を選択します。]A;これは、オープンソースの視覚エフェクトです。コードは GitHub から取得します : https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tornado Chart は、特殊な種類の棒グラフで、データのカテゴリが通常の水平方向ではなく垂直方向に配置され、棒の最も長いカテゴリがグラフの一番上に表示され、2 番目に長いカテゴリが上から 2 番目に表示されます (以下同様)。この名前の由来は、最終的なグラフの見た目が竜巻の半分または全体に似ているところにあります。]A;Tornado Chart は、選択した変数の変化に対する結果の感度を描画するために使用する一般的なツールです。このグラフには、各入力変数を変えた場合の出力への影響を一度に表示することができ、その他のすべての入力変数は初期 (公称) 値に保持します。通常は、各入力の \"低\" の値と \"高\" の値を選択します。]A;これは、オープンソースの視覚エフェクトです。コードは GitHub から取得できます : https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -684,7 +684,7 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[X 軸]]></Val>
           </Tgt>
           <Prev Cat="Text">

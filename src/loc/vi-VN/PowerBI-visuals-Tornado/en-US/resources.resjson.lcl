@@ -96,7 +96,7 @@
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Khu vực sơ đồ]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -159,8 +159,8 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Dấu Thập phân]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Chữ số thập phân]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Decimal Places]]></Val>
@@ -321,8 +321,8 @@
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Tên Chú giải]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tên chú giải]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Legend Name]]></Val>
@@ -351,8 +351,8 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Ở giữa Dưới cùng]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Chính giữa dưới cùng]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Bottom Center]]></Val>
@@ -372,8 +372,8 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Ở giữa Bên trái]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Chính giữa bên trái]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Left Center]]></Val>
@@ -411,8 +411,8 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Ở giữa Trên cùng]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Chính giữa trên cùng]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Top Center]]></Val>
@@ -423,8 +423,8 @@
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Biểu đồ lốc xoáy là một loại biểu đồ thanh đặc biệt, trong đó các danh mục dữ liệu được liệt kê theo phương thẳng thay vì biểu diễn theo hướng ngang tiêu chuẩn, và các danh mục này được sắp xếp sao cho thanh lớn nhất ở trên cùng của biểu đồ, thanh lớn thứ hai ở ngay dưới thanh lớn nhất và cứ thế cho đến hết. Loại biểu đồ này có tên như vậy vì biểu đồ cuối cùng trông giống như một nửa hoặc một cơn lốc xoáy hoàn chỉnh.]A;Biểu đồ lốc xoáy là một công cụ thông dụng được dùng để mô tả độ nhạy của kết quả với các thay đổi trong biến đã chọn. Biểu đồ này hiển thị tác động đến đầu ra của việc thay đổi từng biến đầu vào cùng một lúc, giúp dữ cho tất cả các biến đầu vào khác ở giá trị (danh định) ban đầu của chúng. Thông thường, bạn chọn giá trị “thấp” và “cao” cho từng đầu vào.]A;Đây là hình ảnh nguồn mở. Tải mã từ GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Biểu đồ lốc xoáy là một loại biểu đồ thanh đặc biệt, trong đó các danh mục dữ liệu được liệt kê theo phương thẳng thay vì biểu diễn theo hướng ngang tiêu chuẩn. Các danh mục này được sắp xếp sao cho thanh lớn nhất ở trên cùng của biểu đồ, thanh lớn thứ hai ở ngay dưới thanh lớn nhất và cứ thế cho đến hết. Loại biểu đồ này có tên như vậy vì biểu đồ cuối cùng trông giống như một nửa hoặc một cơn lốc xoáy hoàn chỉnh.]A;Biểu đồ lốc xoáy là một công cụ thông dụng được dùng để mô tả độ nhạy của kết quả với các thay đổi trong biến đã chọn. Biểu đồ này cho thấy tác động đến đầu ra của việc thay đổi từng biến đầu vào cùng lúc, đồng thời giữ mọi biến đầu vào khác ở giá trị ban đầu (danh định) của chúng. Thông thường, bạn chọn giá trị “thấp” và “cao” cho từng đầu vào.]A;Đây là hình ảnh nguồn mở. Lấy mã từ GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -684,7 +684,7 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Trục X]]></Val>
           </Tgt>
           <Prev Cat="Text">
