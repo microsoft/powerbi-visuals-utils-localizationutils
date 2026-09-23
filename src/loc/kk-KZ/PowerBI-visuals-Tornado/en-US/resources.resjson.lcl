@@ -96,7 +96,7 @@
       <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Диаграмма аумағы]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -159,8 +159,8 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Ондық таңбалар саны]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ондық таңбалар орны]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Decimal Places]]></Val>
@@ -321,7 +321,7 @@
       <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Шартты белгілер аты]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -351,8 +351,8 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Төменгі орта]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Төменгі ортасы]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Bottom Center]]></Val>
@@ -372,7 +372,7 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Сол жақ орта]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -411,7 +411,7 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Жоғарғы орта]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -423,8 +423,8 @@
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Торнадо диаграммалары — стандартты көлденеңінен көрсетудің орнына деректердің санаттары тігінен берілетін жолақты диаграмманың арнайы түрі. Ең үлкен жолақ диаграмманың жоғарғы жағында орналасады, екінші ең үлкен жолақ жоғарғы жағынан екінші болып көрінеді және осылай жалғаса береді. Соңғы диаграмманың көрінісі торнадоның бір бөлігіне немесе толық торнадоға ұқсайды, сондықтан олар осылай аталады.]A;Торнадо диаграммасы нәтиженің таңдалған айнымалылардағы өзгерістерге сезімталдығын көрсету үшін пайдаланылатын жиі қолданылатын құрал болып табылады. Ол бір мезгілдегі әр кіріс айнымалысындағы өзгерістің шығыс деректеріне әсерін көрсетеді, басқа барлық кіріс айнымалылары бастапқы (номиналды) мәндерінде қалады. Әдетте, әрбір кіріс үшін \"төмен\" және \"жоғары\" мәнін таңдайсыз.]A;Бұл ашық кодты көрнекі элемент. Кодты алыңыз: GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Торнадо диаграммалары — стандартты көлденеңінен көрсетудің орнына деректердің санаттары тігінен берілетін жолақты диаграмманың арнайы түрі, ал санаттар ең үлкен жолақ диаграмманың жоғарғы жағында, екінші ең үлкен жолақ жоғарғы жағынан екінші болып көрінетіндей және осылай жалғаса беретіндей реттеледі. Соңғы диаграмманың көрінісі торнадоның бір бөлігіне немесе толық торнадоға ұқсайды, сондықтан олар осылай аталады.]A;Торнадо диаграммасы нәтиженің таңдалған айнымалылардағы өзгерістерге сезімталдығын көрсету үшін пайдаланылатын жиі қолданылатын құрал болып табылады. Ол бір мезгілдегі әр кіріс айнымалысындағы өзгерістің шығыс деректеріне әсерін көрсетеді, басқа барлық кіріс айнымалылары бастапқы (номиналды) мәндерінде қалады. Әдетте, әрбір кіріс үшін "төмен" және "жоғары" мәнін таңдайсыз.]A;Бұл ашық кодты көрнекі элемент. Кодты алыңыз: GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -684,7 +684,7 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[X осі]]></Val>
           </Tgt>
           <Prev Cat="Text">
