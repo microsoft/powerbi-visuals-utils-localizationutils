@@ -54,32 +54,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_BorderColor" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Bars" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Border color]]></Val>
+          <Val><![CDATA[Bars]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Color de la vora]]></Val>
+            <Val><![CDATA[Barres]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_BorderWidth" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Border" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Border width]]></Val>
+          <Val><![CDATA[Border]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Amplada de la vora]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Border width (px)]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Categories" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Categories]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Categories]]></Val>
+            <Val><![CDATA[Vora]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -90,18 +78,6 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Línia central]]></Val>
           </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_ChartArea" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Chart area]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Àrea de gràfic]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Chart Area]]></Val>
-          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -135,15 +111,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_DataColors" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Data colors]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Colors de dades]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Visual_DataLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Data labels]]></Val>
@@ -159,7 +126,7 @@
       <Item ItemId=";Visual_DataLabels_DecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Decimal places]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Posicions decimals]]></Val>
           </Tgt>
           <Prev Cat="Text">
@@ -195,11 +162,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Description_DataColors" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_DataLabels_PercentageDecimalPlaces" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Display data color options]]></Val>
+          <Val><![CDATA[Percentage decimal places]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mostra les opcions de color per a les dades]]></Val>
+            <Val><![CDATA[Posicions decimals del percentatge]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_Description_Bars" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Display bar color options]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Mostra les opcions de color de la barra]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -227,10 +203,13 @@
       </Item>
       <Item ItemId=";Visual_FontControl" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Font control]]></Val>
+          <Val><![CDATA[Font]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Control de tipus de lletra]]></Val>
+            <Val><![CDATA[Tipus de lletra]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Font control]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -270,32 +249,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Visual_Label" ItemType="0" PsrId="306" Leaf="true">
+      <Item ItemId=";Visual_Layout" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Label]]></Val>
+          <Val><![CDATA[Layout]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Etiqueta]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_LabelColor" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Label color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Color de l'etiqueta]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Label Color]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Labels" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Labels]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Etiquetes]]></Val>
+            <Val><![CDATA[Disposició]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,36 +263,6 @@
           <Val><![CDATA[Legend]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Llegenda]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Color" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Color]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Color]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Name" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Legend name]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Nom de la llegenda]]></Val>
-          </Tgt>
-          <Prev Cat="Text">
-            <Val><![CDATA[Legend Name]]></Val>
-          </Prev>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_Legend_Position" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Position]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Posició]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -351,8 +279,8 @@
       <Item ItemId=";Visual_Legend_Position_Bottom_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Bottom center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[A baix al centre]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[A baix, al centre]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Bottom Center]]></Val>
@@ -372,8 +300,8 @@
       <Item ItemId=";Visual_Legend_Position_Left_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Left center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[A l'esquerra al centre]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[A l'esquerra, al centre]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Left Center]]></Val>
@@ -411,8 +339,8 @@
       <Item ItemId=";Visual_Legend_Position_Top_Center" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Top center]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[A dalt al centre]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[A dalt, al centre]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Top Center]]></Val>
@@ -420,11 +348,20 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_Legend_Show" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show legend]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Mostra la llegenda]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Long_Description" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Tornado charts are a special type of bar chart where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Els gràfics de tornado són un tipus especial de gràfic de barres en què les categories de dades s’enumeren verticalment, en comptes de fer servir la presentació horitzontal estàndard. Les categories s’ordenen de manera que les barres més grosses es mostrin al principi del gràfic, que la segona es mostri en segon lloc, i així successivament. Es diuen així perquè el gràfic final s’assembla a un tornado, bé a la part superior o en la seva totalitat.]A;Un gràfic de tornado és una eina que es fa servir habitualment per representar la resposta d’un resultat davant de canvis en variables determinades. Mostra l’efecte d’alterar cada variable d’entrada individualment sobre el resultat, sense modificar els valors inicials (nominals) de la resta de variables d’entrada. Normalment, per a cada entrada es tria un valor alt i un de baix.]A;Aquest element visual és de codi obert. Podeu obtenir el codi al GitHub, a https://github.com/Microsoft/PowerBI-visuals-tornado.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Els gràfics de tornado són un tipus especial de gràfic de barres en què les categories de dades s’enumeren verticalment, en comptes de fer servir la presentació horitzontal estàndard. Les categories s’ordenen de manera que les barres més grosses es mostrin al principi del gràfic, que la segona es mostri en segon lloc, i així successivament. Es diuen així perquè el gràfic final s’assembla a un tornado, bé a la part superior o en la seva totalitat.]A;Un gràfic de tornado és una eina que es fa servir habitualment per representar la resposta d’un resultat davant de canvis en variables determinades. Mostra l’efecte d’alterar cada variable d’entrada individualment sobre el resultat, sense modificar els valors inicials (nominals) de la resta de variables d’entrada. Normalment, per a cada entrada es tria un valor alt i un de baix.]A;Aquest element visual és de codi obert. Podeu obtenir el codi al GitHub, a https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Tornado charts, are a special type of Bar chart, where the data categories are listed vertically instead of the standard horizontal presentation, and the categories are ordered so that the largest bar appears at the top of the chart, the second largest appears second from the top, and so on. They are so named because the final chart visually resembles either one half of or a complete tornado.]A;A tornado chart is a common tool used to depict the sensitivity of a result to changes in selected variables. It shows the effect on the output of varying each input variable at a time, keeping all the other input variables at their initial (nominal) values. Typically, you choose a “low” and a “high” value for each input.]A;This is an open source visual. Get the code from GitHub: https://github.com/Microsoft/PowerBI-visuals-tornado]]></Val>
@@ -461,28 +398,37 @@
       </Item>
       <Item ItemId=";Visual_OnObject_FormatCategories" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format categories]]></Val>
+          <Val><![CDATA[Format group]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Categories de format]]></Val>
+            <Val><![CDATA[Grup de format]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format categories]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_OnObject_FormatDataColors" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format data colors]]></Val>
+          <Val><![CDATA[Bars]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Format dels colors de les dades]]></Val>
+            <Val><![CDATA[Barres]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format data colors]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";Visual_OnObject_FormatLabels" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Format labels]]></Val>
+          <Val><![CDATA[Format data labels]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Format de les etiquetes]]></Val>
+            <Val><![CDATA[Format de les etiquetes de dades]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Format labels]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -515,9 +461,21 @@
       </Item>
       <Item ItemId=";Visual_Percentage" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Percentage]]></Val>
+          <Val><![CDATA[%]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Percentatge]]></Val>
+            <Val><![CDATA[%]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Percentage]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_PlotAreaBackground" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Plot area background]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Fons de l'àrea de traçat]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -594,6 +552,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Visual_ShowTitle" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Show title]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Mostra el títol]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Visual_Text" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Text]]></Val>
@@ -617,15 +584,6 @@
           <Val><![CDATA[Title]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Títol]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";Visual_TitleText" ItemType="0" PsrId="306" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Title text]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Text del títol]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -684,8 +642,8 @@
       <Item ItemId=";Visual_XAxis" ItemType="0" PsrId="306" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[X-axis]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Eix de les X]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Eix X]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[X-Axis]]></Val>
@@ -698,6 +656,15 @@
           <Val><![CDATA[End]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Final]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Visual_XAxisStart" ItemType="0" PsrId="306" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Start]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Inicia]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
